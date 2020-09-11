@@ -1,0 +1,46 @@
+{
+    "name": "izt/users",
+    "description": "User Management",
+    "version": "3.0.0",
+    "authors": [
+        {
+            "name": "IZT",
+            "email": "amaia@izt.coop"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "league/fractal": "^0.19.2",
+        "izt/helpers": "^3.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Izt\\Users\\" : "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Izt\\Users\\Tests\\" : "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Izt\\Users\\UsersServiceProvider",
+                "Izt\\Users\\RouteServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../Helpers"
+        }
+    ]
+}
