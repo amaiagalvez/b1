@@ -2,7 +2,6 @@
 
 namespace Izt\Users\Http\Controllers;
 
-use Izt\Users\Http\Controllers\Controller;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Auth;
 

@@ -14,18 +14,19 @@ class SocialLoginController extends Controller
     public function redirectTo($service)
     {
         if (collect(['facebook', 'twitter', 'google'])->contains($service)) {
-            return Socialite::driver($service)->redirect();
+            return Socialite::driver($service)
+                ->redirect();
         }
 
         Session::flash('errorMessage', trans('auth.login_error', ['service' => $service]));
         return redirect()->route('login');
-
     }
 
     public function handleCallback($service)
     {
         try {
-            $oAuth = Socialite::driver($service)->user();
+            $oAuth = Socialite::driver($service)
+                ->user();
         } catch (Exception $e) {
             Session::flash('errorMessage', trans('auth.login_error', ['service' => $service]));
             return redirect()->route('login');

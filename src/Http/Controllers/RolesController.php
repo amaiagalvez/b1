@@ -2,7 +2,8 @@
 
 namespace Izt\Users\Http\Controllers;
 
-use Izt\Users\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Izt\Users\Http\DtGenerators\RoleDataTablesGenerator;
 use Izt\Users\Http\Transformers\RoleTransformer;
 use Izt\Users\Http\Validators\RoleValidator;
@@ -10,8 +11,6 @@ use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Interfaces\ModuleRepositoryInterface;
 use Izt\Users\Storage\Interfaces\RoleRepositoryInterface;
 use Izt\Users\Storage\Interfaces\VariableRepositoryInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class RolesController extends Controller
 {
@@ -46,9 +45,9 @@ class RolesController extends Controller
         VariableRepositoryInterface $repoVariable
     ) {
 
-        $this->request = $request;
-        $this->repoRole = $repoRole;
-        $this->repoModule = $repoModule;
+        $this->request      = $request;
+        $this->repoRole     = $repoRole;
+        $this->repoModule   = $repoModule;
         $this->repoVariable = $repoVariable;
     }
 
@@ -75,9 +74,9 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list' => true,
-            'create' => true,
-            'trash' => true
+            'list'          => true,
+            'create'        => true,
+            'trash'         => true
         ];
 
         return view('admin.App.Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
@@ -111,8 +110,8 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list' => true,
-            'trash' => true
+            'list'          => true,
+            'trash'         => true
         ];
 
         return view('admin.App.Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
@@ -135,7 +134,7 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list' => true
+            'list'          => true
         ];
 
         $form = [
@@ -145,7 +144,7 @@ class RolesController extends Controller
         ];
 
         $role_modules = [];
-        $modules = $this->repoModule->allListed([], ['name' => 'ASC']);
+        $modules      = $this->repoModule->allListed([], ['name' => 'ASC']);
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
@@ -157,7 +156,9 @@ class RolesController extends Controller
     {
         $validator = new RoleValidator();
         if (!$validator->isValid('store')) {
-            return back()->withInput()->withErrors($validator->getErrors());
+            return back()
+                ->withInput()
+                ->withErrors($validator->getErrors());
         }
 
         $role = $this->repoRole->create($this->request->all());
@@ -188,8 +189,8 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list' => true,
-            'create' => true,
+            'list'          => true,
+            'create'        => true,
         ];
 
         $form = [
@@ -220,7 +221,9 @@ class RolesController extends Controller
         $validator->setId($id);
 
         if (!$validator->isValid('update')) {
-            return back()->withInput()->withErrors($validator->getErrors());
+            return back()
+                ->withInput()
+                ->withErrors($validator->getErrors());
         }
 
         $input = $this->request->all();
@@ -239,7 +242,6 @@ class RolesController extends Controller
             $this->repoRole->update($role, $input);
 
             DB::commit();
-
         } catch (Exception $exception) {
 
             DB::rollback();

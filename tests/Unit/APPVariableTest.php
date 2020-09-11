@@ -2,9 +2,9 @@
 
 namespace Izt\Users\Tests\Unit;
 
-use Izt\Users\Storage\Eloquent\Models\Variable;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Helpers\Tests\TestCase;
+use Izt\Users\Tests\TestCase;
+use Izt\Users\Storage\Eloquent\Models\Variable;
 
 class APPVariableTest extends TestCase
 {
@@ -22,7 +22,8 @@ class APPVariableTest extends TestCase
 
     /** @test */
 
-    public function a_variable_model_must_user_the_base_trait(){
+    public function a_variable_model_must_user_the_base_trait()
+    {
 
         $this->assertClassUsesTrait(AbstractTrait::class, Variable::class);
 

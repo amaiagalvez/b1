@@ -2,7 +2,6 @@
 
 namespace Izt\Users\Http\Controllers\Auth;
 
-use Izt\Users\Http\Controllers\Controller;
 use App\Storage\Eloquent\Models\Admin\App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -10,6 +9,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Izt\Users\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {
@@ -79,7 +79,8 @@ class RegisterController extends Controller
 
     protected function registered(Request $request, $user)
     {
-        $this->guard()->logout();
+        $this->guard()
+            ->logout();
 
         Session::flash('successMessage', trans('auth.send_activation_email'));
 

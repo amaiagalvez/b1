@@ -2,15 +2,18 @@
 
 namespace Izt\Users\Tests\Unit;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Users\Storage\Eloquent\Models\Module;
 use Izt\Users\Storage\Eloquent\Models\ModuleRole;
 use Izt\Users\Storage\Eloquent\Models\Role;
-use App\Storage\Eloquent\Models\Admin\App\User;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Tests\TestCase;
+use Izt\Users\Tests\TestCase;
 
 class APPRoleTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /** @test */
 
     public function a_role_has_many_user()
@@ -37,13 +40,14 @@ class APPRoleTest extends TestCase
         $role_module1 = create(ModuleRole::class, ['role_id' => $role->id, 'module_id' => $module1->id]);
         $role_module2 = create(ModuleRole::class, ['role_id' => $role->id, 'module_id' => $module2->id]);
 
-        $this->assertEquals(2, $role->modules()->count());
-
+        $this->assertEquals(2, $role->modules()
+            ->count());
     }
 
     /** @test */
 
-    public function a_role_model_must_user_the_base_trait(){
+    public function a_role_model_must_user_the_base_trait()
+    {
 
         $this->assertClassUsesTrait(AbstractTrait::class, Role::class);
     }

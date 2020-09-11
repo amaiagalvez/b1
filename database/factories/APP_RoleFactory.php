@@ -2,11 +2,11 @@
 
 /** @var Factory $factory */
 
-use Izt\Users\Storage\Eloquent\Models\Role;
-use Izt\Users\Storage\Eloquent\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
+use Izt\Users\Storage\Eloquent\Models\Role;
+use Izt\Users\Storage\Eloquent\Models\User;
 
 /*
 |--------------------------------------------------------------------------

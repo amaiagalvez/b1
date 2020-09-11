@@ -2,12 +2,12 @@
 
 /** @var Factory $factory */
 
-use Izt\Users\Storage\Eloquent\Models\Menu;
-use Izt\Users\Storage\Eloquent\Models\Module;
-use Izt\Users\Storage\Eloquent\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
+use Izt\Users\Storage\Eloquent\Models\Menu;
+use Izt\Users\Storage\Eloquent\Models\Module;
+use Izt\Users\Storage\Eloquent\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,16 @@ use Illuminate\Support\Facades\Auth;
 
 $factory->define(Menu::class, function (Faker $faker) {
     return [
-        'module_id' => $faker->randomElement([null, Module::all()->random()->id]),
+        'module_id' => $faker->randomElement([
+            null,
+            Module::all()
+                ->random()->id
+        ]),
         'name' => $faker->unique()->name,
         'active' => $faker->boolean,
-        'created_by' => Auth::id() ?? User::all()->random()->id,
-        'updated_by' => Auth::id() ?? User::all()->random()->id
+        'created_by' => Auth::id() ?? User::all()
+                ->random()->id,
+        'updated_by' => Auth::id() ?? User::all()
+                ->random()->id
     ];
 });

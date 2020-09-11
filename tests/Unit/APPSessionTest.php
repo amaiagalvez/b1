@@ -2,9 +2,9 @@
 
 namespace Izt\Users\Tests\Unit;
 
+use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Storage\Eloquent\Models\Session;
-use App\Storage\Eloquent\Models\Admin\App\User;
-use Tests\TestCase;
+use Izt\Users\Tests\TestCase;
 
 class APPSessionTest extends TestCase
 {
