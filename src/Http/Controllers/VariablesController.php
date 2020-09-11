@@ -2,15 +2,14 @@
 
 namespace Izt\Users\Http\Controllers;
 
-use Izt\Users\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Izt\Users\Http\DtGenerators\VariableDataTablesGenerator;
 use Izt\Users\Http\Transformers\VariableTransformer;
 use Izt\Users\Http\Validators\VariableValidator;
 use Izt\Users\Storage\Eloquent\Models\Variable;
 use Izt\Users\Storage\Interfaces\VariableRepositoryInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 
 class VariablesController extends Controller
 {

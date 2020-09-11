@@ -2,12 +2,12 @@
 
 namespace Izt\Users\Storage\Eloquent\Models;
 
-use Izt\Users\Http\Presenters\RolePresenter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Izt\Helpers\Http\Presenters\PresentableTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\SecureDeleteTrait;
+use Izt\Users\Http\Presenters\RolePresenter;
 
 class Role extends Model
 {

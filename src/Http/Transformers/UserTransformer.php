@@ -2,9 +2,9 @@
 
 namespace Izt\Users\Http\Transformers;
 
-use Izt\Users\Storage\Eloquent\Models\User;
 use Illuminate\Support\Facades\View;
 use Izt\Helpers\Http\Transformers\BaseTransformer;
+use Izt\Users\Storage\Eloquent\Models\User;
 use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract

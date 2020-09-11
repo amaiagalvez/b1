@@ -17,12 +17,12 @@ class CreateAppVariablesTable extends Migration
             $table->bigIncrements('id');
 
             $table->bigInteger('module_id')
-                  ->unsigned()
-                  ->index()
-                  ->nullable();
+                ->unsigned()
+                ->index()
+                ->nullable();
             $table->foreign('module_id')
-                  ->references('id')
-                  ->on('APP_modules');
+                ->references('id')
+                ->on('APP_modules');
 
             $table->string('name', 30)
                 ->unique()

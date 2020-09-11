@@ -2,15 +2,14 @@
 
 namespace Izt\Users\Storage\Eloquent\Models;
 
-use Izt\Users\Notifications\ResetPasswordNotification;
-use Izt\Users\Notifications\UserActivationNotification;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\SecureDeleteTrait;
+use Izt\Users\Notifications\ResetPasswordNotification;
+use Izt\Users\Notifications\UserActivationNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -112,11 +111,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAdmin()
     {
         return $this->role_name === 'admin';
-    }
-
-    public function isWebUser()
-    {
-        return $this->role_name === 'web';
     }
 
     public function isDeveloper()

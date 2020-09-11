@@ -2,11 +2,11 @@
 
 namespace Izt\Users\Storage\Eloquent\Models;
 
-use Izt\Users\Http\Presenters\ModulePresenter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Izt\Helpers\Http\Presenters\PresentableTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
+use Izt\Users\Http\Presenters\ModulePresenter;
 
 class Module extends Model
 {

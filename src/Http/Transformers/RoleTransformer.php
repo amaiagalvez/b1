@@ -2,9 +2,9 @@
 
 namespace Izt\Users\Http\Transformers;
 
-use Izt\Users\Storage\Eloquent\Models\Role;
 use Illuminate\Support\Facades\View;
 use Izt\Helpers\Http\Transformers\BaseTransformer;
+use Izt\Users\Storage\Eloquent\Models\Role;
 use League\Fractal\TransformerAbstract;
 
 class RoleTransformer extends TransformerAbstract

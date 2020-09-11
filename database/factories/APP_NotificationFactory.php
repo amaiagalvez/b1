@@ -2,11 +2,11 @@
 
 /** @var Factory $factory */
 
-use Izt\Users\Storage\Eloquent\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Str;
+use Izt\Users\Storage\Eloquent\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +20,17 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(DatabaseNotification::class, function (Faker $faker) {
+    $users = User::get();
+    $notifiable_id = 0;
+    if (count($users) > 0) {
+        $notifiable_id = $users->random()->id;
+    }
+
     return [
         'id' => Str::uuid()->toString(),
         'type' => 'App\\Notifications\\Example',
         'notifiable_type' => User::class,
-        'notifiable_id' => User::all()->random()->id,
+        'notifiable_id' => $notifiable_id,
         'data' => [
             'link' => url('/'),
             'message' => $faker->paragraph

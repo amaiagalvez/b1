@@ -2,9 +2,9 @@
 
 namespace Izt\Users\Http\Controllers\Auth;
 
-use Izt\Users\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Izt\Users\Http\Controllers\Controller;
 
 class ResetPasswordController extends Controller
 {

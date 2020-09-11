@@ -2,7 +2,6 @@
 
 namespace Izt\Users\Http\Controllers;
 
-use Izt\Users\Http\Controllers\Controller;
 use Izt\Users\Http\Transformers\VersionTransformer;
 use Izt\Users\Storage\Interfaces\VersionRepositoryInterface;
 use League\Fractal\Manager;

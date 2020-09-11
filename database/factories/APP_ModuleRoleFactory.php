@@ -2,13 +2,13 @@
 
 /** @var Factory $factory */
 
+use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\Facades\Auth;
 use Izt\Users\Storage\Eloquent\Models\Module;
 use Izt\Users\Storage\Eloquent\Models\ModuleRole;
 use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Eloquent\Models\User;
-use Faker\Generator as Faker;
-use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,28 @@ use Illuminate\Support\Facades\Auth;
 */
 
 $factory->define(ModuleRole::class, function (Faker $faker) {
+    $users = User::get();
+    $by = 0;
+    if (count($users) > 0) {
+        $by = $users->random()->id;
+    }
+
+    $roles = Role::where('name', '<>', 'admin')->get();
+    $role_id = 0;
+    if (count($roles) > 0) {
+        $role_id = $roles->random()->id;
+    }
+
+    $modules = Module::get();
+    $module_id = 0;
+    if (count($modules) > 0) {
+        $module_id = $modules->random()->id;
+    }
+
     return [
-        'role_id' => Role::where('name', '<>', 'admin')->get()->random()->id,
-        'module_id' => Module::all()->random()->id,
-        'created_by' => Auth::id() ?? User::all()->random()->id,
-        'updated_by' => Auth::id() ?? User::all()->random()->id
+        'role_id' => $role_id,
+        'module_id' => $module_id,
+        'created_by' => Auth::id() ?? $by,
+        'updated_by' => Auth::id() ?? $by
     ];
 });

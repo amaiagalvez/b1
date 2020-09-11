@@ -2,23 +2,26 @@
 
 namespace Izt\Users\Tests\Unit;
 
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Users\Tests\TestCase;
 use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Eloquent\Models\Session;
 use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Users\Tests\TestCase;
 
 class APPUserTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /** @test */
 
     public function a_user_is_admin_or_not()
     {
-        $user = create(User::class, ['role_name' => 'admin']);
+        $user = factory(User::class)->create(['role_name' => 'admin']);
 
         $this->assertTrue($user->isAdmin());
 
-        $user = create(User::class, ['role_name' => 'user']);
+        $user = factory(User::class)->create(['role_name' => 'user']);
 
         $this->assertFalse($user->isAdmin());
     }
@@ -27,8 +30,10 @@ class APPUserTest extends TestCase
 
     public function only_id_one_is_developer()
     {
-        $user = create(User::class);
-        $this->assertFalse($user->isDeveloper());
+        $user1 = factory(User::class)->create();
+        $user2 = factory(User::class)->create();
+
+        $this->assertFalse($user2->isDeveloper());
 
         $user = User::findOrFail(1);
         $this->assertTrue($user->isDeveloper());
@@ -38,9 +43,9 @@ class APPUserTest extends TestCase
 
     public function a_user_has_many_sessions()
     {
-        $user = create(User::class);
+        $user = factory(User::class)->create();
 
-        $sessions = create(Session::class, ['user_id' => $user->id], 2);
+        $sessions = factory(Session::class, 2)->create(['user_id' => $user->id]);
 
         $this->assertEquals(2, $user->sessions->count());
 
@@ -51,8 +56,8 @@ class APPUserTest extends TestCase
 
     public function a_user_has_one_role()
     {
-        $role = create(Role::class);
-        $user = create(User::class, ['role_name' => $role->name]);
+        $role = factory(Role::class)->create();
+        $user = factory(User::class)->create(['role_name' => $role->name]);
 
         $this->assertEquals($role->name, $user->role->name);
     }
@@ -64,14 +69,6 @@ class APPUserTest extends TestCase
 
         $this->assertClassUsesTrait(AbstractTrait::class, User::class);
 
-    }
-
-    /** @test */
-
-    public function a_user_has_a_link_to_their_profile()
-    {
-        $user = factory(User::class)->create();
-        $this->assertEquals(route('front.users.show', $user->id), $user->link());
     }
 
     /** @test */

@@ -2,8 +2,8 @@
 
 namespace Izt\Users\Http\Controllers\Auth;
 
-use Izt\Users\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Izt\Users\Http\Controllers\Controller;
 
 class ForgotPasswordController extends Controller
 {

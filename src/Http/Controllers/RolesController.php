@@ -45,9 +45,9 @@ class RolesController extends Controller
         VariableRepositoryInterface $repoVariable
     ) {
 
-        $this->request      = $request;
-        $this->repoRole     = $repoRole;
-        $this->repoModule   = $repoModule;
+        $this->request = $request;
+        $this->repoRole = $repoRole;
+        $this->repoModule = $repoModule;
         $this->repoVariable = $repoVariable;
     }
 
@@ -74,9 +74,9 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list'          => true,
-            'create'        => true,
-            'trash'         => true
+            'list' => true,
+            'create' => true,
+            'trash' => true
         ];
 
         return view('admin.App.Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
@@ -110,8 +110,8 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list'          => true,
-            'trash'         => true
+            'list' => true,
+            'trash' => true
         ];
 
         return view('admin.App.Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
@@ -134,7 +134,7 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list'          => true
+            'list' => true
         ];
 
         $form = [
@@ -144,7 +144,7 @@ class RolesController extends Controller
         ];
 
         $role_modules = [];
-        $modules      = $this->repoModule->allListed([], ['name' => 'ASC']);
+        $modules = $this->repoModule->allListed([], ['name' => 'ASC']);
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
@@ -189,8 +189,8 @@ class RolesController extends Controller
 
         $table_buttons = [
             'partial_route' => 'admin.roles',
-            'list'          => true,
-            'create'        => true,
+            'list' => true,
+            'create' => true,
         ];
 
         $form = [

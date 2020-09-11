@@ -2,9 +2,9 @@
 
 namespace Izt\Users\Http\Controllers\Auth;
 
-use Izt\Users\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
+use Izt\Users\Http\Controllers\Controller;
 
 class ConfirmPasswordController extends Controller
 {

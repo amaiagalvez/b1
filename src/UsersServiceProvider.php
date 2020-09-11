@@ -20,7 +20,8 @@ use Izt\Users\Storage\Interfaces\VersionRepositoryInterface;
 
 class UsersServiceProvider extends ServiceProvider
 {
-    public function boot() {
+    public function boot()
+    {
         $this->loadMigrationsFrom($this->basePath('database/migrations'));
         $this->loadFactoriesFrom($this->basePath('database/factories'));
 
@@ -77,7 +78,8 @@ class UsersServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($this->basePath('config/users.php'), 'users');
     }
 
-    protected function basePath($path) {
-        return __DIR__.'/../'.$path;
+    protected function basePath($path)
+    {
+        return __DIR__ . '/../' . $path;
     }
 }

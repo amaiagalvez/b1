@@ -2,8 +2,8 @@
 
 namespace Izt\Users\Http\DtGenerators;
 
-use Izt\Users\Http\Transformers\UserTransformer;
 use Illuminate\Database\Eloquent\Builder;
+use Izt\Users\Http\Transformers\UserTransformer;
 
 class UserDataTablesGenerator
 {

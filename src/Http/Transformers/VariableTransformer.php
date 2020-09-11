@@ -2,9 +2,9 @@
 
 namespace Izt\Users\Http\Transformers;
 
+use Illuminate\Support\Facades\View;
 use Izt\Users\Classes\FieldTypes;
 use Izt\Users\Storage\Eloquent\Models\Variable;
-use Illuminate\Support\Facades\View;
 use League\Fractal\TransformerAbstract;
 
 class VariableTransformer extends TransformerAbstract

@@ -20,13 +20,20 @@ use Izt\Users\Storage\Eloquent\Models\User;
 */
 
 $factory->define(Role::class, function (Faker $faker) {
+
+    $users = User::get();
+    $by = 0;
+    if (count($users) > 0) {
+        $by = $users->random()->id;
+    }
+
     return [
         'name' => $faker->unique()->userName,
         'title_eu' => $faker->word,
         'title_es' => $faker->word,
         'title_fr' => $faker->word,
         'title_en' => $faker->word,
-        'created_by' => Auth::id() ?? User::all()->random()->id,
-        'updated_by' => Auth::id() ?? User::all()->random()->id
+        'created_by' => Auth::id() ?? $by,
+        'updated_by' => Auth::id() ?? $by
     ];
 });

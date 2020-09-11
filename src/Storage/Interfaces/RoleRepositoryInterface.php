@@ -2,8 +2,8 @@
 
 namespace Izt\Users\Storage\Interfaces;
 
-use Izt\Users\Storage\Eloquent\Models\Role;
 use Illuminate\Database\Eloquent\Model;
+use Izt\Users\Storage\Eloquent\Models\Role;
 
 /**
  * Class RoleRepository

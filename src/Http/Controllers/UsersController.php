@@ -2,7 +2,10 @@
 
 namespace Izt\Users\Http\Controllers;
 
-use Izt\Users\Http\Controllers\Controller;
+use App\Storage\Interfaces\Front\Social\FriendshipRepositoryInterface;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Izt\Users\Http\DtGenerators\UserDataTablesGenerator;
 use Izt\Users\Http\Transformers\UserTransformer;
 use Izt\Users\Http\Validators\UserValidator;
@@ -10,10 +13,6 @@ use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Storage\Interfaces\RoleRepositoryInterface;
 use Izt\Users\Storage\Interfaces\UserRepositoryInterface;
 use Izt\Users\Storage\Interfaces\VariableRepositoryInterface;
-use App\Storage\Interfaces\Front\Social\FriendshipRepositoryInterface;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 
 class UsersController extends Controller
 {

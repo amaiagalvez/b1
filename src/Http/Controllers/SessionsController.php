@@ -2,13 +2,12 @@
 
 namespace Izt\Users\Http\Controllers;
 
-use Izt\Users\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Izt\Users\Http\DtGenerators\SessionDataTablesGenerator;
 use Izt\Users\Http\Transformers\SessionTransformer;
 use Izt\Users\Storage\Eloquent\Models\Session;
 use Izt\Users\Storage\Interfaces\SessionRepositoryInterface;
 use Izt\Users\Storage\Interfaces\UserRepositoryInterface;
-use Illuminate\Http\Request;
 
 class SessionsController extends Controller
 {
