@@ -105,9 +105,10 @@ class UsersServiceProvider extends ServiceProvider
 
         $this->app->register(DataTablesServiceProvider::class);
         $this->app->register(FractalServiceProvider::class);
-        $this->app->alias('datatables', DataTables::class);
+
 
         $this->mergeConfigFrom($this->basePath('config/users.php'), 'users');
+        $this->mergeConfigFrom($this->basePath('config/helpers.php'), 'helpers');
     }
 
     protected function basePath($path)
