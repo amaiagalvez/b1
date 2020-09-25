@@ -3,3 +3,7 @@
 vendor/
 coverage/
 composer.lock
+package-lock.json
+mix-manifest.json
+node_modules
+public

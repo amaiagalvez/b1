@@ -23,7 +23,7 @@ class VariableRepository extends AbstractRepository implements VariableRepositor
 
     public function getValueByName($name)
     {
-        return $this->model->where('name', '=', $name)->first()->value;
+        return $this->model->where('name', '=', $name)->first()->value ?? '';
     }
 }
 

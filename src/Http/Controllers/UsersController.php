@@ -84,12 +84,12 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.user', 2)
+                'title' => trans_choice('users.user', 2)
             ]
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.users',
+            'partial_route' => 'users',
             'list' => true,
             'create' => true,
             'nonactive' => true,
@@ -97,7 +97,7 @@ class UsersController extends Controller
             'languages' => getArray($this->repoVariable->getValueByName('lang'))
         ];
 
-        return view('admin.App.Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function nonactive()
@@ -124,21 +124,21 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.user', 2),
-                'route' => route('admin.users.index')
+                'title' => trans_choice('users.user', 2),
+                'route' => route('users.index')
             ],
             [
-                'title' => trans('admin.nonactive')
+                'title' => trans('users::users.nonactive')
             ]
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.users',
+            'partial_route' => 'users',
             'list' => true,
             'nonactive' => true
         ];
 
-        return view('admin.App.Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function trash()
@@ -164,21 +164,21 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.user', 2),
-                'route' => route('admin.users.index')
+                'title' => trans_choice('users.user', 2),
+                'route' => route('users.index')
             ],
             [
-                'title' => trans_choice('admin.trash', 2)
+                'title' => trans_choice('users.trash', 2)
             ],
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.users',
+            'partial_route' => 'users',
             'list' => true,
             'trash' => true
         ];
 
-        return view('admin.App.Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function create()
@@ -187,29 +187,29 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.user', 2),
-                'route' => route('admin.users.index')
+                'title' => trans_choice('users.user', 2),
+                'route' => route('users.index')
             ],
             [
-                'title' => trans('admin.new')
+                'title' => trans('users::users.new')
             ]
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.users',
+            'partial_route' => 'users',
             'list' => true
         ];
 
         $form = [
-            'action' => route('admin.users.store'),
+            'action' => route('users.store'),
             'method' => 'POST',
-            'button' => trans('admin.new')
+            'button' => trans('users::users.new')
         ];
 
         $roles = $this->repoRole->getList(true);
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('admin.App.Users.form',
+        return view('users::Users.form',
             compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles', 'languages'));
     }
 
@@ -222,7 +222,7 @@ class UsersController extends Controller
 
         $user = $this->repoUser->create($this->request->all());
 
-        return redirect()->route('admin.users.edit', $user->id);
+        return redirect()->route('users.edit', $user->id);
     }
 
     public function edit($id)
@@ -236,8 +236,8 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.user', 2),
-                'route' => route('admin.users.index')
+                'title' => trans_choice('users.user', 2),
+                'route' => route('users.index')
             ],
             [
                 'title' => $user->name
@@ -245,21 +245,21 @@ class UsersController extends Controller
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.users',
+            'partial_route' => 'users',
             'list' => true,
             'create' => true,
         ];
 
         $form = [
-            'action' => route('admin.users.update', $id),
+            'action' => route('users.update', $id),
             'method' => 'POST',
-            'button' => trans('admin.save')
+            'button' => trans('users::users.save')
         ];
 
         $roles = $this->repoRole->getList(true);
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('admin.App.Users.form',
+        return view('users::Users.form',
             compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles', 'languages'));
     }
 
@@ -271,7 +271,7 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.user', 2)
+                'title' => trans_choice('users.user', 2)
             ],
             [
                 'title' => $user->name
@@ -283,14 +283,14 @@ class UsersController extends Controller
         ];
 
         $form = [
-            'action' => route('admin.users.update', $id),
+            'action' => route('users.update', $id),
             'method' => 'POST',
-            'button' => trans('admin.save')
+            'button' => trans('users::users.save')
         ];
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('admin.App.Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons', 'languages'));
+        return view('users::Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons', 'languages'));
     }
 
     public function update($id)
@@ -313,11 +313,11 @@ class UsersController extends Controller
         if (str_contains(getPreviousRoute(), 'profile')) {
             unset($input['role_name'], $input['notes']);
             $this->repoUser->update($user, $input);
-            return redirect()->route('admin.home');
+            return redirect()->route('home');
         }
 
         $this->repoUser->update($user, $input);
-        return redirect()->route('admin.users.edit', $user->id);
+        return redirect()->route('users.edit', $user->id);
     }
 
     public function restore($id)
@@ -373,7 +373,7 @@ class UsersController extends Controller
                 auth()->login($real_user);
                 session()->forget('real_user');
 
-                return redirect()->route('admin.users.index');
+                return redirect()->route('users.index');
             }
         }
 

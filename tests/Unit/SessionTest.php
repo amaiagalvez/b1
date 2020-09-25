@@ -15,8 +15,8 @@ class APPSessionTest extends TestCase
 
     public function a_session_belong_to_a_user()
     {
-        $user = factory(User::class)->create();
-        $session = factory(Session::class)->create(['user_id' => $user->id]);
+        $user = fCreate(User::class);
+        $session = fCreate(Session::class, ['user_id' => $user->id]);
 
         $this->assertEquals($user->id, $session->user->id);
     }

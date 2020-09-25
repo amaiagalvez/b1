@@ -7,7 +7,7 @@ use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Users\Storage\Eloquent\Models\Variable;
 use Izt\Users\Tests\TestCase;
 
-class APPVariableTest extends TestCase
+class VariableTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -15,7 +15,7 @@ class APPVariableTest extends TestCase
 
     public function a_variable_has_a_value()
     {
-        $variable = factory(Variable::class)->create(['value' => 'variable value']);
+        $variable = fCreate(Variable::class, ['value' => 'variable value']);
 
         $this->assertTrue($variable->value === 'variable value');
 

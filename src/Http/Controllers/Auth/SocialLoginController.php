@@ -2,11 +2,11 @@
 
 namespace Izt\Users\Http\Controllers\Auth;
 
-use App\Storage\Eloquent\Models\Admin\App\User;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Izt\Users\Http\Controllers\Controller;
+use Izt\Users\Storage\Eloquent\Models\User;
 use Laravel\Socialite\Facades\Socialite;
 
 class SocialLoginController extends Controller

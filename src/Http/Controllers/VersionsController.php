@@ -46,7 +46,7 @@ class VersionsController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.version', 2)
+                'title' => trans_choice('users.version', 2)
             ]
         ];
 
@@ -54,7 +54,7 @@ class VersionsController extends Controller
 
         ];
 
-        return view('admin.App.Versions.show', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Versions.show', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 }

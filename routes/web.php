@@ -12,20 +12,9 @@ Route::get('login/{service}', 'Auth\SocialLoginController@redirectTo')
 Route::get('login/{service}/callback', 'Auth\SocialLoginController@handleCallback')
     ->middleware('guest');
 
-/* Notifications */
+/* Home */
 
-Route::get('jakinarazpenak', 'NotificationsController@index')
-    ->name('admin.notifications.index')
-    ->middleware([
-        'web',
-        'auth',
-        'userLanguage'
-    ]);
+Route::get('/', function () {
+    return 'Home Public Front';
+})->name('front.home');
 
-Route::post('jakinarazpenak/{notification}', 'NotificationsController@update')
-    ->name('admin.notifications.update')
-    ->middleware([
-        'web',
-        'auth',
-        'userLanguage'
-    ]);

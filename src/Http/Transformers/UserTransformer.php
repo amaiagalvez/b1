@@ -44,17 +44,17 @@ class UserTransformer extends TransformerAbstract
 
         switch ($this->list_type) {
             case 'index':
-                $data['actions'] = View::make('admin.App.Users.partials._row_buttons_index', compact('user'))->render();
+                $data['actions'] = View::make('users::Users.partials._row_buttons_index', compact('user'))->render();
                 break;
 
             case 'trash':
                 $data['deleted_at'] = getDataTime($user->deleted_at);
-                $data['actions'] = View::make('admin.App.Users.partials._row_buttons_trash', compact('user'))->render();
+                $data['actions'] = View::make('users::Users.partials._row_buttons_trash', compact('user'))->render();
                 break;
 
             case 'nonactive':
                 $data['updated_at'] = getDataTime($user->updated_at);
-                $data['actions'] = View::make('admin.App.Users.partials._row_buttons_nonactive',
+                $data['actions'] = View::make('users::Users.partials._row_buttons_nonactive',
                     compact('user'))->render();
                 break;
 

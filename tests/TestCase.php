@@ -3,6 +3,7 @@
 namespace Izt\Users\Tests;
 
 use Izt\Users\RouteServiceProvider;
+use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\UsersServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
@@ -38,5 +39,18 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
             class_uses($class),
             "{$class} must use the {$trait} trait."
         );
+    }
+
+    protected function signIn($user = null, $role = 'admin')
+    {
+        $user = $user ?: fCreate(User::class, [
+            'lang' => 'en',
+            'role_name' => $role,
+            'active' => 1
+        ]);
+
+        $this->actingAs($user);
+
+        return $this;
     }
 }

@@ -3,11 +3,11 @@
 namespace Izt\Users\Http\Controllers\Auth;
 
 use App\Providers\RouteServiceProvider;
-use App\Storage\Eloquent\Models\Admin\App\User;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Izt\Users\Http\Controllers\Controller;
+use Izt\Users\Storage\Eloquent\Models\User;
 
 class VerificationController extends Controller
 {

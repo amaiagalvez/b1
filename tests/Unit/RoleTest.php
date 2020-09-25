@@ -10,7 +10,7 @@ use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Tests\TestCase;
 
-class APPRoleTest extends TestCase
+class RoleTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -18,11 +18,8 @@ class APPRoleTest extends TestCase
 
     public function a_role_has_many_user()
     {
-        $role = factory(Role::class)->create();
-
-        $users = factory(User::class, 2)->create(
-            ['role_name' => $role->name]
-        );
+        $role = fCreate(Role::class);
+        $users = fCreate(User::class, ['role_name' => $role->name], 2);
 
         $this->assertEquals(2, $role->users->count());
 
@@ -33,20 +30,22 @@ class APPRoleTest extends TestCase
 
     public function a_role_has_many_modules()
     {
-        $module1 = factory(Module::class)->create();
-        $module2 = factory(Module::class)->create();
+        $module1 = fCreate(Module::class);
+        $module2 = fCreate(Module::class);
 
-        $role = factory(Role::class)->create();
+        $role = fCreate(Role::class);
 
         $this->assertEquals(0, $role->modules->count());
 
-        $role_module1 = factory(ModuleRole::class)->create(
-            ['role_id' => $role->id, 'module_id' => $module1->id]
-        );
+        $role_module1 = fCreate(ModuleRole::class, [
+            'role_id' => $role->id,
+            'module_id' => $module1->id
+        ]);
 
-        $role_module2 = factory(ModuleRole::class)->create(
-            ['role_id' => $role->id, 'module_id' => $module2->id]
-        );
+        $role_module2 = fCreate(ModuleRole::class, [
+            'role_id' => $role->id,
+            'module_id' => $module2->id
+        ]);
 
         $this->assertEquals(2, $role->modules()
             ->count());

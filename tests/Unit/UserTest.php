@@ -9,7 +9,7 @@ use Izt\Users\Storage\Eloquent\Models\Session;
 use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Tests\TestCase;
 
-class APPUserTest extends TestCase
+class UserTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -17,11 +17,11 @@ class APPUserTest extends TestCase
 
     public function a_user_is_admin_or_not()
     {
-        $user = factory(User::class)->create(['role_name' => 'admin']);
+        $user = fCreate(User::class, ['role_name' => 'admin']);
 
         $this->assertTrue($user->isAdmin());
 
-        $user = factory(User::class)->create(['role_name' => 'user']);
+        $user = fCreate(User::class, ['role_name' => 'user']);
 
         $this->assertFalse($user->isAdmin());
     }
@@ -30,8 +30,8 @@ class APPUserTest extends TestCase
 
     public function only_id_one_is_developer()
     {
-        $user1 = factory(User::class)->create();
-        $user2 = factory(User::class)->create();
+        $user1 = fCreate(User::class);
+        $user2 = fCreate(User::class);
 
         $this->assertFalse($user2->isDeveloper());
 
@@ -43,9 +43,9 @@ class APPUserTest extends TestCase
 
     public function a_user_has_many_sessions()
     {
-        $user = factory(User::class)->create();
+        $user = fCreate(User::class);
 
-        $sessions = factory(Session::class, 2)->create(['user_id' => $user->id]);
+        $sessions = fCreate(Session::class, ['user_id' => $user->id], 2);
 
         $this->assertEquals(2, $user->sessions->count());
 
@@ -56,8 +56,8 @@ class APPUserTest extends TestCase
 
     public function a_user_has_one_role()
     {
-        $role = factory(Role::class)->create();
-        $user = factory(User::class)->create(['role_name' => $role->name]);
+        $role = fCreate(Role::class);
+        $user = fCreate(User::class, ['role_name' => $role->name]);
 
         $this->assertEquals($role->name, $user->role->name);
     }
@@ -75,7 +75,7 @@ class APPUserTest extends TestCase
 
     public function a_user_has_an_avatar()
     {
-        $user = factory(User::class)->make();
+        $user = fMake(User::class);
 
         $this->assertEquals('/images/user.png', $user->getAvatar());
     }

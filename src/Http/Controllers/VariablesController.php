@@ -53,7 +53,7 @@ class VariablesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.variable', 2)
+                'title' => trans_choice('users.variable', 2)
             ]
         ];
 
@@ -61,7 +61,7 @@ class VariablesController extends Controller
 
         ];
 
-        return view('admin.App.Variables.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Variables.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function edit($id)
@@ -77,8 +77,8 @@ class VariablesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.variable', 2),
-                'route' => route('admin.variables.index')
+                'title' => trans_choice('users.variable', 2),
+                'route' => route('variables.index')
             ],
             [
                 'title' => $variable->$field_title
@@ -86,17 +86,17 @@ class VariablesController extends Controller
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.variables',
+            'partial_route' => 'variables',
             'list' => true
         ];
 
         $form = [
-            'action' => route('admin.variables.update', $id),
+            'action' => route('variables.update', $id),
             'method' => 'POST',
-            'button' => trans('admin.save')
+            'button' => trans('users::users.save')
         ];
 
-        return view('admin.App.Variables.form',
+        return view('users::Variables.form',
             compact('variable', 'breadcrumbs', 'form', 'table_buttons', 'field_title'));
 
     }
@@ -154,7 +154,7 @@ class VariablesController extends Controller
             }
 
             if ($extension_error) {
-                return redirect()->back()->with('errorMessage', trans('admin.extension_error'));
+                return redirect()->back()->with('errorMessage', trans('users::users.extension_error'));
             }
 
             $input['value'] = $custom_file_name;
@@ -166,7 +166,7 @@ class VariablesController extends Controller
 
         Cache::flush();
 
-        return redirect()->route('admin.variables.edit', $variable->id);
+        return redirect()->route('variables.edit', $variable->id);
     }
 
 }

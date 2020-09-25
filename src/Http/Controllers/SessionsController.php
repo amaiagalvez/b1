@@ -63,12 +63,12 @@ class SessionsController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.session', 2)
+                'title' => trans_choice('users.session', 2)
             ]
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.sessions',
+            'partial_route' => 'sessions',
             'years' => getRepoYears($this->repoSession, 'login_at'),
             'selects' => [
                 [
@@ -79,7 +79,7 @@ class SessionsController extends Controller
             ]
         ];
 
-        return view('admin.App.Sessions.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Sessions.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 }

@@ -68,18 +68,18 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.role', 2)
+                'title' => trans_choice('users.role', 2)
             ]
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.roles',
+            'partial_route' => 'roles',
             'list' => true,
             'create' => true,
             'trash' => true
         ];
 
-        return view('admin.App.Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 
@@ -100,21 +100,21 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.role', 2),
-                'route' => route('admin.roles.index')
+                'title' => trans_choice('users.role', 2),
+                'route' => route('roles.index')
             ],
             [
-                'title' => trans_choice('admin.trash', 2)
+                'title' => trans_choice('users.trash', 2)
             ],
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.roles',
+            'partial_route' => 'roles',
             'list' => true,
             'trash' => true
         ];
 
-        return view('admin.App.Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('users::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 
@@ -124,23 +124,23 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.role', 2),
-                'route' => route('admin.roles.index')
+                'title' => trans_choice('users.role', 2),
+                'route' => route('roles.index')
             ],
             [
-                'title' => trans('admin.new')
+                'title' => trans('users::users.new')
             ]
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.roles',
+            'partial_route' => 'roles',
             'list' => true
         ];
 
         $form = [
-            'action' => route('admin.roles.store'),
+            'action' => route('roles.store'),
             'method' => 'POST',
-            'button' => trans('admin.new')
+            'button' => trans('users::users.new')
         ];
 
         $role_modules = [];
@@ -148,7 +148,7 @@ class RolesController extends Controller
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('admin.App.Roles.form',
+        return view('users::Roles.form',
             compact('role', 'breadcrumbs', 'form', 'table_buttons', 'role_modules', 'modules', 'languages'));
     }
 
@@ -165,7 +165,7 @@ class RolesController extends Controller
 
         $this->repoRole->syncModules($role, $this->request->get('modules') ?? []);
 
-        return redirect()->route('admin.roles.edit', $role->id);
+        return redirect()->route('roles.edit', $role->id);
     }
 
     public function edit($id)
@@ -179,8 +179,8 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('admin.role', 2),
-                'route' => route('admin.roles.index')
+                'title' => trans_choice('users.role', 2),
+                'route' => route('roles.index')
             ],
             [
                 'title' => $role->name
@@ -188,15 +188,15 @@ class RolesController extends Controller
         ];
 
         $table_buttons = [
-            'partial_route' => 'admin.roles',
+            'partial_route' => 'roles',
             'list' => true,
             'create' => true,
         ];
 
         $form = [
-            'action' => route('admin.roles.update', $id),
+            'action' => route('roles.update', $id),
             'method' => 'POST',
-            'button' => trans('admin.save')
+            'button' => trans('users::users.save')
         ];
 
         $role_modules = $this->repoRole->getRoleModules($role);
@@ -205,7 +205,7 @@ class RolesController extends Controller
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('admin.App.Roles.form',
+        return view('users::Roles.form',
             compact('role', 'breadcrumbs', 'form', 'table_buttons', 'role_modules', 'modules', 'languages'));
     }
 
@@ -249,7 +249,7 @@ class RolesController extends Controller
             throw $exception;
         }
 
-        return redirect()->route('admin.roles.edit', $role->id);
+        return redirect()->route('roles.edit', $role->id);
     }
 
     public function restore($id)

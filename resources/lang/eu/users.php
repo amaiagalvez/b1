@@ -1,0 +1,87 @@
+<?php
+
+return [
+    'store_successfully' => 'Ondo sortu da',
+
+    //home
+    'home' => 'Haisera',
+
+    //application menus
+    'application' => 'Aplikazioa Ezarpenak',
+    'configuration' => 'Konfigurazioa',
+    'delivery' => 'Email Bidalketa | Email Bidalketak',
+    'email_configuration' => 'Email Konfigurazioa | Email Konfigurazioak',
+    'email_template' => 'Email Txantiloia | Email Txantiloiak',
+    'email_problem' => 'Email Arazoa | Email Arazoak',
+    'master_table' => 'Taula Laguntzaileak',
+    'manual' => 'Manuala',
+    'menu' => 'Menu | Menuak',
+    'module' => 'Modulua | Moduluak',
+    'profile' => 'Profila',
+    'role' => 'Rola | Rolak',
+    'session' => 'Saioa | Saioak',
+    'setting' => 'Web Ezarpenak',
+    'user' => 'Erabiltzailea | Erabiltzaileak',
+    'variable' => 'Aldagaia | Aldagaiak',
+    'version' => 'Bertsioa | Bertsioak',
+
+    // settings
+    'address' => 'Helbidea',
+    'company_data' => 'Enpresaren datuak',
+    'cookies_text' => 'Cookie politika',
+    'disabled' => 'Desaktibatuta',
+    'enabled' => 'Aktibatuta',
+    'fax' => 'Fax',
+    'footer_image' => 'Oinaren Irudia',
+    'footer_text' => 'Oinaren Testua',
+    'header_display' => 'Zer erakutsi goiburuan',
+    'header_image' => 'Goiburuko Irudia',
+    'header_video' => 'Goiburuko Bideoaren URL',
+    'highlighted_title' => 'Titulu Destakatua',
+    'image' => 'Irudia',
+    'legal_text' => 'Lege Oharra',
+    'legal_texts' => 'Testu Legalak',
+    'location' => 'Maparen iframe kodea',
+    'second_title' => 'Bigarren Titulua',
+    'second_sentence' => 'Bigarren Azpi-Titulua',
+    'slogan' => 'Leloa',
+    'social_networks' => 'Sare sozialak',
+    'telephone' => 'Telefonoak',
+    'theme' => 'Txantiloia',
+    'theme0' => 'T0',
+    'theme1' => 'T1',
+    'theme2' => 'T2',
+    'under_construction' => 'Konponketa lanetan',
+    'under_construction_text' => 'Laster egongo da webgunea berriro martxan. Barkatu eragozpenak.',
+    'video' => 'Bideoa',
+    'web_description' => 'Web Azalpena',
+    'web_keywords' => 'Hitz gakoak (koma banatuta)',
+    'web_name' => 'Web Izenburua',
+
+    //web menu
+    'submenu' => 'Azpi-Menu | Azpi-Menuak',
+    'translation' => 'Itzulpena | Itzupenak',
+
+    //menu positions
+    'bottom' => 'Oinean',
+    'left' => 'Ezkerrean',
+    'main' => 'Erdian',
+    'right' => 'Eskubian',
+    'top' => 'Goiburuan',
+
+    // fields
+    'date' => 'Data',
+    'email' => 'Eposta',
+    'lang' => 'Hizkuntza',
+    'name' => 'Izena',
+    'notes' => 'Oharrak',
+    'original' => 'Originala',
+    'parent' => 'Menu',
+    'password' => 'Pasahitza',
+    'password_confirmation' => 'Pasahitza Konfirmatu',
+    'position' => 'Kokapena',
+    'role_name' => 'Rola',
+    'route' => 'Ruta',
+    'title' => 'Izenburua',
+    'value' => 'Balioa',
+];
