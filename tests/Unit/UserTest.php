@@ -17,11 +17,11 @@ class UserTest extends TestCase
 
     public function a_user_is_admin_or_not()
     {
-        $user = fCreate(User::class, ['role_name' => 'admin']);
+        $user = fCreate(User::class);
 
         $this->assertTrue($user->isAdmin());
 
-        $user = fCreate(User::class, ['role_name' => 'user']);
+        $user = fCreate(User::class, ['role_name' => 'other']);
 
         $this->assertFalse($user->isAdmin());
     }

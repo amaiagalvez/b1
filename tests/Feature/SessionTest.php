@@ -25,7 +25,7 @@ class SessionTest extends TestCase
 
     public function logged_user_has_a_session()
     {
-        $user = fCreate(User::class, ['active' => 1, 'role_name'=> 'admin']);
+        $user = fCreate(User::class, ['active' => 1]);
 
         $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
 
@@ -51,7 +51,7 @@ class SessionTest extends TestCase
 
     public function logout_user_has_a_session_with_logout_at()
     {
-        $user = fCreate(User::class, ['active' => 1, 'role_name'=> 'admin']);
+        $user = fCreate(User::class, ['active' => 1]);
 
         $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
 

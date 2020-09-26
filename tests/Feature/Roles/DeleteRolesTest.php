@@ -14,6 +14,13 @@ class DeleteRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('RolesTableSeeder');
+    }
+
     /** @test */
 
     public function role_trash_load_ok()
@@ -82,7 +89,7 @@ class DeleteRolesTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(route('roles.index'));
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.delete_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.delete_successfully'));
 
         $this->assertDatabaseMissing('APP_roles', [
             'id' => $role->id,
@@ -102,7 +109,7 @@ class DeleteRolesTest extends TestCase
 
         $response = $this->post(route('roles.delete', $role->id));
 
-        $response->assertSessionHas('errorMessage', trans('helpers::actions.cannot_delete'));
+        $response->assertSessionHas('errorMessage', trans('helpers::action.cannot_delete'));
 
         $this->assertDatabaseHas('APP_roles', [
             'id' => $role->id,
@@ -121,7 +128,7 @@ class DeleteRolesTest extends TestCase
 
         $response = $this->get(route('roles.restore', $role->id));
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.restore_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.restore_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'id' => $role->id,
@@ -141,7 +148,7 @@ class DeleteRolesTest extends TestCase
 
         $response = $this->post(route('roles.destroy', $role->id));
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.delete_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.delete_successfully'));
 
         $this->assertDatabaseMissing('APP_roles', [
             'id' => $role->id
@@ -153,8 +160,6 @@ class DeleteRolesTest extends TestCase
     public function a_user_cannot_delete_admin_role()
     {
         $this->signIn();
-
-        fCreate(Role::class, ['name' => 'admin']);
 
         $role = Role::where('name', 'admin')->first();
 
@@ -178,7 +183,7 @@ class DeleteRolesTest extends TestCase
 
         $new_role = Role::latest('id')->first();
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.store_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.store_successfully'));
 
         DB::statement('PRAGMA foreign_keys=on'); //delete onCascade (sqlite)
 

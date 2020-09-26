@@ -13,26 +13,32 @@ class ActiveUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('RolesTableSeeder');
+    }
+
     /** @test */
 
     public function user_nonactive_load_ok()
     {
         $this->signIn();
 
-        fCreate(Role::class, ['name' => 'admin']);
-
         $this->get(route('users.nonactive'))
             ->assertStatus(200);
     }
 
+    /** @test */
+
     public function a_non_admin_user_cannot_list_nonactive_users()
     {
-        $this->signIn();
+        $this->signIn(null, "other");
 
-        $user = fCreate(User::class, ['active' => 1, 'role_name' => 'web']);
-        $this->actingAs($user);
+        $this->markTestIncomplete();
 
-        $this->get(route('users.nonactive.create'))
+        $this->get(route('users.nonactive'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));
     }
@@ -42,8 +48,6 @@ class ActiveUsersTest extends TestCase
     public function a_user_can_get_nonactive_users_paginated()
     {
         $this->signIn();
-
-        fCreate(Role::class, ['name' => 'admin']);
 
         fCreate(User::class, ['active' => 0], 15);
 
@@ -59,8 +63,6 @@ class ActiveUsersTest extends TestCase
     public function a_user_can_see_nonactive_users_in_nonactive_route()
     {
         $this->signIn();
-
-        fCreate(Role::class, ['name' => 'admin']);
 
         $user_active = fCreate(User::class, ['active' => 1]);
         $user_not_active = fCreate(User::class, ['active' => 0]);
@@ -78,8 +80,6 @@ class ActiveUsersTest extends TestCase
     {
         $this->signIn();
 
-        fCreate(Role::class, ['name' => 'admin']);
-
         $user_not_active = fCreate(User::class, ['active' => 1]);
 
         $response = $this->getJson(route('users.nonactive', ['length' => 10, 'start' => 0, 'draw' => 0]));
@@ -94,13 +94,11 @@ class ActiveUsersTest extends TestCase
     {
         $this->signIn();
 
-        fCreate(Role::class, ['name' => 'admin']);
-
         $user = fCreate(User::class);
 
         $response = $this->get(route('users.activate', $user->id));
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.activate_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.activate_successfully'));
 
         $this->assertDatabaseHas('users', [
             'name' => $user->name,
@@ -116,13 +114,11 @@ class ActiveUsersTest extends TestCase
     {
         $this->signIn();
 
-        fCreate(Role::class, ['name' => 'admin']);
-
         $user = fCreate(User::class);
 
         $response = $this->get(route('users.deactivate', $user->id));
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.deactivate_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.deactivate_successfully'));
 
         $this->assertDatabaseHas('users', [
             'name' => $user->name,

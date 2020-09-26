@@ -68,7 +68,7 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.role', 2)
+                'title' => trans_choice('basics.role', 2)
             ]
         ];
 
@@ -100,11 +100,11 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.role', 2),
+                'title' => trans_choice('basics.role', 2),
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans_choice('users.trash', 2)
+                'title' => trans_choice('basics.trash', 2)
             ],
         ];
 
@@ -124,11 +124,11 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.role', 2),
+                'title' => trans_choice('basics.role', 2),
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans('basics::users.new')
+                'title' => trans('basics::basics.new')
             ]
         ];
 
@@ -140,7 +140,7 @@ class RolesController extends Controller
         $form = [
             'action' => route('roles.store'),
             'method' => 'POST',
-            'button' => trans('basics::users.new')
+            'button' => trans('basics::basics.new')
         ];
 
         $role_modules = [];
@@ -179,7 +179,7 @@ class RolesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.role', 2),
+                'title' => trans_choice('basics.role', 2),
                 'route' => route('roles.index')
             ],
             [
@@ -196,7 +196,7 @@ class RolesController extends Controller
         $form = [
             'action' => route('roles.update', $id),
             'method' => 'POST',
-            'button' => trans('basics::users.save')
+            'button' => trans('basics::basics.save')
         ];
 
         $role_modules = $this->repoRole->getRoleModules($role);

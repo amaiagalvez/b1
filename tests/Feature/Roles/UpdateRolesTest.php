@@ -14,6 +14,13 @@ class UpdateRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('RolesTableSeeder');
+    }
+
     /** @test */
 
     public function role_edit_load_ok()
@@ -64,7 +71,7 @@ class UpdateRolesTest extends TestCase
         $response = $this->post(route('roles.update', $role->id),
             ['name' => 'role name updated'] + $role->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'name' => 'role name updated',
@@ -116,11 +123,11 @@ class UpdateRolesTest extends TestCase
 
         $role = fCreate(Role::class);
 
-        $user1 = fCreate(User::class, ['role_name' => 'admin']);
+        $user1 = fCreate(User::class);
         $user2 = fCreate(User::class, ['role_name' => $role->name]);
 
         $this->post(route('roles.update', $role->id),
-            ['name' => 'izena-role name updated'] + $role->toArray());
+            ['name' => 'name-role name updated'] + $role->toArray());
 
         $this->assertDatabaseHas('users', [
             'name' => $user1->name,
@@ -134,7 +141,7 @@ class UpdateRolesTest extends TestCase
 
         $this->assertDatabaseHas('users', [
             'name' => $user2->name,
-            'role_name' => 'izena-role name updated'
+            'role_name' => 'name-role name updated'
         ]);
 
     }
@@ -144,8 +151,6 @@ class UpdateRolesTest extends TestCase
     public function a_user_cannot_edit_admin_role()
     {
         $this->signIn();
-
-        fCreate(Role::class, ['name' => 'admin']);
 
         $role = Role::where('name', 'admin')->first();
 
@@ -159,8 +164,6 @@ class UpdateRolesTest extends TestCase
     public function a_user_cannot_update_admin_role()
     {
         $this->signIn();
-
-        fCreate(Role::class, ['name' => 'admin']);
 
         $role = Role::where('name', 'admin')->first();
 
@@ -186,7 +189,7 @@ class UpdateRolesTest extends TestCase
 
         $new_role = Role::latest('id')->first();
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.store_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.store_successfully'));
 
         $this->post(route('roles.update', $new_role->id),
             ['modules' => [$module3->id]] + $new_role->toArray());

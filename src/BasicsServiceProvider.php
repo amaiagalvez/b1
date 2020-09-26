@@ -1,10 +1,9 @@
 <?php
 
-namespace Izt\Users;
+namespace Izt\Basics;
 
 use Config;
 use Illuminate\Routing\Router;
-use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\ServiceProvider;
 use Izt\Basics\Http\Middleware\Admin;
 use Izt\Basics\Http\Middleware\Developer;
@@ -25,20 +24,19 @@ use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
-use Yajra\DataTables\DataTables;
 use Yajra\DataTables\DataTablesServiceProvider;
 use Yajra\DataTables\FractalServiceProvider;
 
-class UsersServiceProvider extends ServiceProvider
+class BasicsServiceProvider extends ServiceProvider
 {
     public function boot(Router $router)
     {
-        Config::set('auth.providers.users.model', config('users.user'));
+        Config::set('auth.providers.users.model', config('helpers.user'));
 
         $this->loadMigrationsFrom($this->basePath('database/migrations'));
         $this->loadFactoriesFrom($this->basePath('database/factories'));
-        $this->loadViewsFrom($this->basePath('resources/views'), 'users');
-        $this->loadTranslationsFrom($this->basePath('resources/lang'), 'users');
+        $this->loadViewsFrom($this->basePath('resources/views'), 'basics');
+        $this->loadTranslationsFrom($this->basePath('resources/lang'), 'basics');
 
         $this->loadTranslationsFrom($this->basePath('/vendor/izt/helpers/resources/lang'), 'helpers');
 
@@ -47,16 +45,23 @@ class UsersServiceProvider extends ServiceProvider
         $router->middlewareGroup('userLang', [UserLanguage::class]);
 
         $this->publishes([
-            $this->basePath('config/users.php') => base_path('config/users.php')
-        ], 'izt-users-config');
+            $this->basePath('config/basics.php') => base_path('config/basics.php')
+        ], 'izt-basics-config');
 
         $this->publishes([
-            $this->basePath('database/seeds') => base_path('database/seeds/vendor/users')
-        ], 'izt-users-seeds');
+            $this->basePath('resources/assets') => resource_path('assets/basics')
+        ], 'izt-basics-assets');
 
         $this->publishes([
-            $this->basePath('resources/lang') => resource_path('lang/vendor/users')
-        ], 'izt-users-translations');
+            $this->basePath('database/seeds') => base_path('database/seeds')
+        ], 'izt-basics-seeds');
+
+        $this->publishes([
+            $this->basePath('resources/lang/eu') => resource_path('lang/eu')
+        ], 'izt-basics-eu');
+        $this->publishes([
+            $this->basePath('resources/lang/es') => resource_path('lang/es')
+        ], 'izt-basics-es');
     }
 
     public function register()
@@ -109,7 +114,7 @@ class UsersServiceProvider extends ServiceProvider
         $this->app->register(DataTablesServiceProvider::class);
         $this->app->register(FractalServiceProvider::class);
 
-        $this->mergeConfigFrom($this->basePath('config/users.php'), 'users');
+        $this->mergeConfigFrom($this->basePath('config/basics.php'), 'basics');
         $this->mergeConfigFrom($this->basePath('config/helpers.php'), 'helpers');
     }
 

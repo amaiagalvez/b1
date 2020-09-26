@@ -76,7 +76,7 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.user', 2)
+                'title' => trans_choice('basics.user', 2)
             ]
         ];
 
@@ -116,11 +116,11 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.user', 2),
+                'title' => trans_choice('basics.user', 2),
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('basics::users.nonactive')
+                'title' => trans('basics::basics.nonactive')
             ]
         ];
 

@@ -13,6 +13,13 @@ class UpdateUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('RolesTableSeeder');
+    }
+
     /** @test */
 
     public function user_edit_load_ok()
@@ -27,10 +34,7 @@ class UpdateUsersTest extends TestCase
 
     public function a_non_admin_user_cannot_edit()
     {
-        $this->signIn();
-
-        $user = fCreate(User::class, ['active' => 1, 'role_name' => 'web']);
-        $this->actingAs($user);
+        $this->signIn(null, "other");
 
         $this->get(route('users.edit'))
             ->assertStatus(302)
@@ -67,7 +71,7 @@ class UpdateUsersTest extends TestCase
                     'notes' => 'notes updated'
                 ] + $user->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
         $response->assertRedirect(route('home'));
 
         $this->assertDatabaseHas('users', [
@@ -91,14 +95,12 @@ class UpdateUsersTest extends TestCase
     {
         $this->signIn();
 
-        fCreate(Role::class, ['name' => 'admin']);
-
         $user = fCreate(User::class, ['active' => 1]);
 
         $response = $this->post(route('users.update', $user->id),
             ['name' => 'name updated'] + $user->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
@@ -114,14 +116,12 @@ class UpdateUsersTest extends TestCase
     {
         $this->signIn();
 
-        fCreate(Role::class, ['name' => 'admin']);
-
         $user = fCreate(User::class, ['active' => 1]);
 
         $response = $this->post(route('users.update', $user->id),
             ['name' => 'name updated'] + $user->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
 
         $this->assertDatabaseHas('users', [
             'name' => 'name updated',

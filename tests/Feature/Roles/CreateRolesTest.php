@@ -17,6 +17,7 @@ class CreateRolesTest extends TestCase
         parent::setUp();
 
         $this->seed('VariablesTableSeeder');
+        $this->seed('RolesTableSeeder');
     }
 
     /** @test */
@@ -33,7 +34,9 @@ class CreateRolesTest extends TestCase
 
     public function a_non_admin_user_cannot_create_a_role()
     {
-        $this->signIn(null, 'web');
+        $this->markTestIncomplete();
+
+        $this->signIn(null, "other");
 
         $this->get(route('roles.create'))
             ->assertStatus(302)
@@ -53,7 +56,7 @@ class CreateRolesTest extends TestCase
         $role = Role::latest('id')
             ->first();
 
-        $response->assertSessionHas('successMessage', trans('helpers::actions.store_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::action.store_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'name' => $role->name
@@ -91,7 +94,7 @@ class CreateRolesTest extends TestCase
         $new_role = Role::latest('id')
             ->first();
 
-        $response->assertSessionHas('successMessage', Lang::get('helpers::actions.store_successfully'));
+        $response->assertSessionHas('successMessage', Lang::get('helpers::action.store_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'name' => $role->name

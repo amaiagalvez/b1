@@ -1,6 +1,6 @@
-# izt/Users
+# izt/Basics
 
-User Management
+Basics Management
 
 - Migrations && Factories
 - User Model
@@ -8,20 +8,36 @@ User Management
 ## Installation
 
 ```
-composer require izt/Users
+composer require izt/Basics
 ```
 
 ## Usage
 
-You must publish the configuration file to update the User model of your project
+You can publish the configuration file
 
 ```
 php artisan vendor:publish    
-choose the tag izt-users-config
+choose the tag izt-basics-config
 ```
+
+You can publish the assets
+```
+php artisan vendor:publish    
+choose the tag izt-basics-assets
+```
+
+You can publish the translations
+```
+php artisan vendor:publish    
+choose the tag izt-basics-eu
+choose the tag izt-basics-es
+```
+
 ## Require
 
 - league/fractal
+- yajra/laravel-datatables
+- laravel/socialite
 - izt/helpers
 
 

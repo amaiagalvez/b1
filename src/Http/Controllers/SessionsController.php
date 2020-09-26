@@ -63,7 +63,7 @@ class SessionsController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.session', 2)
+                'title' => trans_choice('basics.session', 2)
             ]
         ];
 

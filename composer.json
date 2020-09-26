@@ -1,5 +1,5 @@
 {
-    "name": "izt/users",
+    "name": "izt/basics",
     "description": "Basics Management",
     "version": "1.0.0",
     "authors": [
@@ -14,31 +14,30 @@
         "yajra/laravel-datatables": "^1.5",
         "yajra/laravel-datatables-fractal": "^1.6",
         "laravel/socialite": "^4.4",
-        "izt/helpers": "^2.0"
+        "izt/helpers": "^1.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.8",
-        "phpunit/phpunit": "^8.0",
-        "laravel/dusk": "^6.4"
+        "orchestra/testbench": "^3.8"
     },
     "autoload": {
         "psr-4": {
-            "Izt\\Users\\" : "src"
+            "Izt\\Basics\\" : "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Izt\\Users\\Tests\\" : "tests/"
+            "Izt\\Basics\\Tests\\" : "tests/"
         },
         "files": [
-            "database/seeds/VariablesTableSeeder.php"
+            "database/seeds/VariablesTableSeeder.php",
+            "database/seeds/RolesTableSeeder.php"
         ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Izt\\Users\\UsersServiceProvider",
-                "Izt\\Users\\RouteServiceProvider"
+                "Izt\\Basics\\BasicsServiceProvider",
+                "Izt\\Basics\\RouteServiceProvider"
             ],
             "aliases": {
 

@@ -1,7 +1,6 @@
 <?php
 
-namespace Izt\Users;
-
+namespace Izt\Basics;
 
 use Illuminate\Support\Facades\Route;
 
