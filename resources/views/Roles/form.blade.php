@@ -1,6 +1,6 @@
 @extends('basics::layouts.form_two')
 
-@section('title', trans_choice('users.role', 1))
+@section('title', trans_choice('basics::basics.role', 1))
 
 @section ('form')
 
@@ -40,7 +40,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="modules">{{ trans_choice('users.module', 2) }}  </label>
+            <label for="modules">{{ trans_choice('basics::basics.module', 2) }}  </label>
             <select name="modules[]" class="form-control" required multiple size="{{count($modules)}}">
                 @foreach($modules AS $module)
                     <option value="{{ $module->id }}"

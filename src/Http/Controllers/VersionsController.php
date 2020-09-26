@@ -46,7 +46,7 @@ class VersionsController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.version', 2)
+                'title' => trans_choice('basics::basics.version', 2)
             ]
         ];
 

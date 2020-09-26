@@ -18,7 +18,7 @@ class SocialLoginController extends Controller
                 ->redirect();
         }
 
-        Session::flash('errorMessage', trans('auth.login_error', ['service' => $service]));
+        Session::flash('errorMessage', trans('basics::auth.login_error', ['service' => $service]));
         return redirect()->route('login');
     }
 
@@ -28,7 +28,7 @@ class SocialLoginController extends Controller
             $oAuth = Socialite::driver($service)
                 ->user();
         } catch (Exception $e) {
-            Session::flash('errorMessage', trans('auth.login_error', ['service' => $service]));
+            Session::flash('errorMessage', trans('basics::auth.login_error', ['service' => $service]));
             return redirect()->route('login');
         }
 

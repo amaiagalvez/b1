@@ -1,7 +1,7 @@
 @section ('form_right')
     <div class="card">
         <div class="card-header d-flex align-items-center">
-            <h5 class="card-title theme-color"><i class="fas fa-sign-out-alt"></i> {{trans_choice('users.session', 2)}}
+            <h5 class="card-title theme-color"><i class="fas fa-sign-out-alt"></i> {{trans_choice('basics::basics.session', 2)}}
             </h5>
         </div>
 

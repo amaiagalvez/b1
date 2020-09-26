@@ -9,7 +9,7 @@
             <form action="{{ route('roles.delete', $role->id) }}" method="POST">
                 {{ csrf_field() }}
                 <button class="btn btn-table btn-delete" title="{{trans('helpers::action.delete')}}"
-                        onclick="return confirm('{{trans('basics::basics.delete_confirmation')}}'); "><span
+                        onclick="return confirm('{{trans('helpers::action.delete_confirmation')}}'); "><span
                             class="fa fa-trash"></span></button>
             </form>
         @endif

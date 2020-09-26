@@ -1,6 +1,6 @@
 @extends('basics::layouts.form_two')
 
-@section('title', trans_choice('users.user', 1))
+@section('title', trans_choice('basics::basics.user', 1))
 
 @section ('form')
 

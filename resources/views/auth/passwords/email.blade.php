@@ -21,7 +21,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ trans('auth.email')}}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ trans('basics::auth.email')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -39,7 +39,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ trans('auth.send_reset_link') }}
+                                        {{ trans('basics::auth.send_reset_link') }}
                                     </button>
                                 </div>
                             </div>

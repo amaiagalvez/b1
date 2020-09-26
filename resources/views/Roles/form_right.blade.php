@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header d-flex align-items-center">
             <h5 class="card-title theme-color"><i
-                        class="fas fa-project-diagram"></i> {{trans_choice('users.module', 2)}}
+                        class="fas fa-project-diagram"></i> {{trans_choice('basics::basics.module', 2)}}
             </h5>
         </div>
 

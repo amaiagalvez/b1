@@ -1,6 +1,6 @@
 @extends('basics::layouts.app')
 
-@section('title', trans('auth.register'))
+@section('title', trans('basics::auth.register'))
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 <div class="card-group">
                     <div class="card p-4">
                         <div class="card-body">
-                            <h3>{{ trans('auth.register') }}</h3>
+                            <h3>{{ trans('basics::auth.register') }}</h3>
                             <p class="text-muted"></p>
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
@@ -21,7 +21,7 @@
                                         </span>
                                     </div>
                                     <input class="form-control @error('name') is-invalid @enderror" type="text"
-                                           placeholder="{{ trans('auth.name') }}" name="name" id="name"
+                                           placeholder="{{ trans('basics::auth.name') }}" name="name" id="name"
                                            value="{{ old('name') }}" autofocus>
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
                                         </span>
                                     </div>
                                     <input class="form-control @error('email') is-invalid @enderror" type="email"
-                                           placeholder="{{ trans('auth.email') }}" name="email" id="email"
+                                           placeholder="{{ trans('basics::auth.email') }}" name="email" id="email"
                                            value="{{ old('email') }}" autofocus>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
                                       </span>
                                     </div>
                                     <input class="form-control @error('password') is-invalid @enderror" type="password"
-                                           placeholder="{{ trans('auth.password') }}" name="password"
+                                           placeholder="{{ trans('basics::auth.password') }}" name="password"
                                            id="password">
 
                                     @error('password')
@@ -72,7 +72,7 @@
 
                                     <input class="form-control @error('password_confirmation') is-invalid @enderror"
                                            type="password"
-                                           placeholder="{{ trans('auth.password_confirmation') }}"
+                                           placeholder="{{ trans('basics::auth.password_confirmation') }}"
                                            name="password_confirmation"
                                            id="password_confirmation">
 
@@ -89,7 +89,7 @@
                                         <input class="form-check-input" type="checkbox" id="show_profile" name="show_profile" value="1"
                                                @if(old('show_profile') == 1) checked="checked" @endif />
                                         <label class="ml-3 form-check-label" for="active">
-                                            {{ trans('auth.show_profile') }}
+                                            {{ trans('basics::auth.show_profile') }}
                                         </label>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <button class="btn btn-primary px-4" id="register-btn"
-                                                type="submit">{{ trans('auth.register') }}</button>
+                                                type="submit">{{ trans('basics::auth.register') }}</button>
                                     </div>
                                 </div>
                             </form>

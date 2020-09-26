@@ -79,7 +79,7 @@
         @foreach($table_buttons['selects'] AS $select)
             <select class="custom-select col-md-12" name="search_{{$select['name']}}"
                     id="search_{{$select['name']}}">
-                <option value="0"> {{trans_choice('users.'.$select['name'], 1)}} </option>
+                <option value="0"> {{trans_choice('basics::basics.'.$select['name'], 1)}} </option>
                 @foreach($select['options'] AS $key => $option)
                     <option value="{{$key}}" @if( $key === $select['value']) selected="selected" @endif >
                         - {{$option}}</option>

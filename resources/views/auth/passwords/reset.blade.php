@@ -17,7 +17,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ trans('auth.email') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ trans('basics::auth.email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -34,7 +34,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ trans('auth.password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ trans('basics::auth.password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -51,7 +51,7 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ trans('auth.password_confirmation') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ trans('basics::auth.password_confirmation') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"

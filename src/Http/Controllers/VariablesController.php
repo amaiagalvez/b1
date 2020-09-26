@@ -53,7 +53,7 @@ class VariablesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.variable', 2)
+                'title' => trans_choice('basics::basics.variable', 2)
             ]
         ];
 
@@ -77,7 +77,7 @@ class VariablesController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.variable', 2),
+                'title' => trans_choice('basics::basics.variable', 2),
                 'route' => route('variables.index')
             ],
             [

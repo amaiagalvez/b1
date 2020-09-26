@@ -43,17 +43,17 @@ class UserActivationNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage())
-            ->subject(trans('auth.verify_email'))
-            ->greeting(trans('auth.verify_email_greeting', ['name' => $notifiable->name]))
-            ->line(trans('auth.verify_email_line_1'))
+            ->subject(trans('basics::auth.verify_email'))
+            ->greeting(trans('basics::auth.verify_email_greeting', ['name' => $notifiable->name]))
+            ->line(trans('basics::auth.verify_email_line_1'))
             ->action(
-                trans('auth.verify_email'),
+                trans('basics::auth.verify_email'),
                 $this->verificationUrl($notifiable)
             )
-            ->line(trans('auth.verify_email_line_2',
+            ->line(trans('basics::auth.verify_email_line_2',
                 ['count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire')]))
-            ->line(trans('auth.verify_email_line_3'))
-            ->salutation(trans('auth.verify_email_salutation'));
+            ->line(trans('basics::auth.verify_email_line_3'))
+            ->salutation(trans('basics::auth.verify_email_salutation'));
     }
 
     protected function verificationUrl($notifiable)

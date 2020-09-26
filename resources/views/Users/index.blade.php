@@ -1,6 +1,6 @@
 @extends('basics::layouts.table')
 
-@section('title', trans_choice('users.user', 2))
+@section('title', trans_choice('basics::basics.user', 2))
 
 @section('scripts')
 

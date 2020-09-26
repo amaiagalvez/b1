@@ -1,6 +1,6 @@
 @extends('basics::layouts.form_two')
 
-@section('title', trans_choice('users.profile', 1))
+@section('title', trans_choice('basics::basics.profile', 1))
 
 @section ('form')
 
@@ -62,7 +62,7 @@
             @enderror
         </div>
         <div class="form-group col-md-6">
-            <label for="name">{{ trans('auth.password_confirmation') }} </label>
+            <label for="name">{{ trans('basics::auth.password_confirmation') }} </label>
             <input class="form-control @error('password_confirmation') is-invalid @enderror" type="password"
                    name="password_confirmation" id="password_confirmation">
 

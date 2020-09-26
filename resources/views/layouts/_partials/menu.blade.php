@@ -47,7 +47,7 @@
         @endif
     @endforeach
 
-    @isDeveloper
+    @if(auth()->user()->isDeveloper())
     <li class="c-sidebar-nav-dropdown">
         <a class="not-text-decoration c-sidebar-nav-dropdown-toggle" href="#">
             <i class="c-sidebar-nav-icon fas fa-cogs"></i> Garapena
@@ -66,7 +66,7 @@
                 </li>
         </ul>
     </li>
-    @endisDeveloper
+    @endif
 </ul>
 
 <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"

@@ -1,6 +1,6 @@
 @extends('basics::layouts.app')
 
-@section('title', trans_choice('users.version', 2))
+@section('title', trans_choice('basics::basics.version', 2))
 
 @include('basics::layouts._partials.breadcrumb_list')
 

@@ -1,6 +1,6 @@
 @extends('basics::layouts.app')
 
-@section('title', trans('auth.login_in'))
+@section('title', trans('basics::auth.login_in'))
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 <div class="card-group">
                     <div class="card p-4">
                         <div class="card-body">
-                            <h3>{{ trans('auth.login_in') }}</h3>
+                            <h3>{{ trans('basics::auth.login_in') }}</h3>
                             <p class="text-muted"></p>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
@@ -21,7 +21,7 @@
                                         </span>
                                     </div>
                                     <input class="form-control @if('email') is-invalid @endif" type="email"
-                                           placeholder="{{ trans('auth.email') }}" name="email" id="email"
+                                           placeholder="{{ trans('basics::auth.email') }}" name="email" id="email"
                                            value="{{ old('email') }}" autofocus>
                                     @if('email')
                                     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                                       </span>
                                     </div>
                                     <input class="form-control @if('password') is-invalid @endif" type="password"
-                                           placeholder="{{ trans('auth.password') }}" name="password"
+                                           placeholder="{{ trans('basics::auth.password') }}" name="password"
                                            id="password">
 
                                     @if('password')
@@ -48,7 +48,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <button class="btn btn-primary px-4" id="login-btn"
-                                                type="submit">{{ trans('auth.login') }}</button>
+                                                type="submit">{{ trans('basics::auth.login') }}</button>
                                     </div>
                                 </div>
 
@@ -57,7 +57,7 @@
                                         <div>
                                             <a href="{{ route('password.request') }}" id="to-recover"
                                                class="text-muted"><i
-                                                    class="fa fa-lock m-r-5"></i> {{ trans('auth.forgot_password') }}
+                                                    class="fa fa-lock m-r-5"></i> {{ trans('basics::auth.forgot_password') }}
                                             </a>
                                         </div>
                                     </div>

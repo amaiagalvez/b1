@@ -82,7 +82,7 @@ class RegisterController extends Controller
         $this->guard()
             ->logout();
 
-        Session::flash('successMessage', trans('auth.send_activation_email'));
+        Session::flash('successMessage', trans('basics::auth.send_activation_email'));
 
         return redirect(route('login'));
     }

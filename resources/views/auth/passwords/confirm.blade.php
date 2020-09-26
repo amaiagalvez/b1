@@ -1,13 +1,13 @@
 @extends('basics::layouts.app')
 
-@section('title', trans('auth.password_confirmation'))
+@section('title', trans('basics::auth.password_confirmation'))
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ trans('auth.password_confirmation') }}</div>
+                    <div class="card-header">{{ trans('basics::auth.password_confirmation') }}</div>
 
                     <div class="card-body">
                         {{ __('Please confirm your password before continuing.') }}
@@ -17,7 +17,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ trans('auth.password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ trans('basics::auth.password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"

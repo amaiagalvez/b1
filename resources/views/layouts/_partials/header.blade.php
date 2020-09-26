@@ -21,12 +21,12 @@
 
                     @if(session()->has('real_user'))
                         <a class="dropdown-item not-text-decoration ko-color" href="{{route('dev.users.logoutAs')}}">
-                            <i class="fas fa-sign-out-alt ko-color"></i> {{trans('auth.logoutAs')}}
+                            <i class="fas fa-sign-out-alt ko-color"></i> {{trans('basics::auth.logoutAs')}}
                         </a>
                     @else
                         <a class="dropdown-item not-text-decoration" href="#"
                            onclick="document.getElementById('logout-form').submit();">
-                            <i class="fas fa-sign-out-alt"></i> {{trans('auth.logout')}}
+                            <i class="fas fa-sign-out-alt"></i> {{trans('basics::auth.logout')}}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
