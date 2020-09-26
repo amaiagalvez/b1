@@ -28,7 +28,8 @@
         },
         "files": [
             "database/seeds/VariablesTableSeeder.php",
-            "database/seeds/RolesTableSeeder.php"
+            "database/seeds/RolesTableSeeder.php",
+            "database/seeds/UsersTableSeeder.php"
         ]
     },
     "extra": {

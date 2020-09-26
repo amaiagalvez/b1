@@ -57,11 +57,9 @@ class BasicsServiceProvider extends ServiceProvider
         ], 'izt-basics-seeds');
 
         $this->publishes([
-            $this->basePath('resources/lang/eu') => resource_path('lang/eu')
-        ], 'izt-basics-eu');
-        $this->publishes([
-            $this->basePath('resources/lang/es') => resource_path('lang/es')
-        ], 'izt-basics-es');
+            $this->basePath('database/migrations') => base_path('database/migrations')
+        ], 'izt-basics-migrations');
+
     }
 
     public function register()
