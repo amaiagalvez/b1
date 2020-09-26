@@ -79,7 +79,7 @@ class DeleteUsersTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(route('users.index'));
 
-        $response->assertSessionHas('successMessage', trans('users::users.delete_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.delete_successfully'));
 
         $this->assertDatabaseMissing('users', [
             'id' => $user->id,
@@ -100,7 +100,7 @@ class DeleteUsersTest extends TestCase
 
         $response = $this->post(route('users.delete', $user->id));
 
-        $response->assertSessionHas('errorMessage', trans('users::users.cannot_delete'));
+        $response->assertSessionHas('errorMessage', trans('helpers::actions.cannot_delete'));
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
@@ -120,7 +120,7 @@ class DeleteUsersTest extends TestCase
 
         $response = $this->get(route('users.restore', $user->id));
 
-        $response->assertSessionHas('successMessage', trans('users::users.restore_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.restore_successfully'));
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
@@ -140,7 +140,7 @@ class DeleteUsersTest extends TestCase
 
         $response = $this->post(route('users.destroy', $user->id));
 
-        $response->assertSessionHas('successMessage', trans('users::users.delete_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.delete_successfully'));
 
         $this->assertDatabaseMissing('users', [
             'id' => $user->id

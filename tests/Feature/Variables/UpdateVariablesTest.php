@@ -50,7 +50,7 @@ class UpdateVariablesTest extends TestCase
             'value' => 'value updated'
         ]);
 
-        $response->assertSessionHas('successMessage', trans('users::users.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
 
         $response->assertRedirect(route('variables.edit', ['id' => $variable->id]));
     }
@@ -86,7 +86,7 @@ class UpdateVariablesTest extends TestCase
         $response = $this->post(route('variables.update', $variable->id),
             ['value' => 'value updated'] + $variable->toArray());
 
-        $response->assertSessionHas('successMessage', trans('users::users.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
 
         $this->assertDatabaseHas('APP_variables', [
             'value' => 'value updated',
@@ -106,7 +106,7 @@ class UpdateVariablesTest extends TestCase
         $response = $this->post(route('variables.update', $variable->id),
             ['title_eu' => 'title updated', 'value' => 'value updated'] + $variable->toArray());
 
-        $response->assertSessionHas('successMessage', trans('users::users.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
 
         $this->assertDatabaseMissing('APP_variables', [
             'title_eu' => 'title updated',

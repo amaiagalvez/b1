@@ -72,6 +72,11 @@ class Session extends Model
     public function scopeYear($query, $value)
     {
         if (!empty(trim($value))) {
+
+            if(env('DB_CONNECTION') === 'sqlite'){
+                return $query->whereRaw('year(login_at) = ?', [$value]);
+            }
+
             return $query->whereYear('login_at', $value);
         }
 

@@ -56,6 +56,8 @@ class UserTest extends TestCase
 
     public function a_user_has_one_role()
     {
+        $user = fCreate(User::class);
+
         $role = fCreate(Role::class);
         $user = fCreate(User::class, ['role_name' => $role->name]);
 

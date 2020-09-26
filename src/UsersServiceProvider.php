@@ -4,11 +4,13 @@ namespace Izt\Users;
 
 use Config;
 use Illuminate\Routing\Router;
+use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\ServiceProvider;
 use Izt\Users\Http\Middleware\Admin;
 use Izt\Users\Http\Middleware\Developer;
 use Izt\Users\Http\Middleware\UserLanguage;
 use Izt\Users\Providers\ComposerServiceProvider;
+use Izt\Users\Providers\EventServiceProvider;
 use Izt\Users\Storage\Eloquent\Repositories\MenuRepository;
 use Izt\Users\Storage\Eloquent\Repositories\ModuleRepository;
 use Izt\Users\Storage\Eloquent\Repositories\RoleRepository;
@@ -102,10 +104,10 @@ class UsersServiceProvider extends ServiceProvider
         );
 
         $this->app->register(ComposerServiceProvider::class);
+        $this->app->register(EventServiceProvider::class);
 
         $this->app->register(DataTablesServiceProvider::class);
         $this->app->register(FractalServiceProvider::class);
-
 
         $this->mergeConfigFrom($this->basePath('config/users.php'), 'users');
         $this->mergeConfigFrom($this->basePath('config/helpers.php'), 'helpers');

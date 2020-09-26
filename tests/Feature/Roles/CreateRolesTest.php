@@ -35,8 +35,6 @@ class CreateRolesTest extends TestCase
     {
         $this->signIn(null, 'web');
 
-        $this->withoutExceptionHandling();
-
         $this->get(route('roles.create'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));

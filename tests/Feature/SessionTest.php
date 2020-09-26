@@ -2,10 +2,14 @@
 
 namespace Izt\Users\Tests\Feature;
 
-use App\Listeners\LogSuccessfulLogin;
-use App\Listeners\LogSuccessfulLogout;
+use GuzzleHttp\Middleware;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\Facades\Session;
+use Izt\Users\Listeners\LogSuccessfulLogin;
+use Izt\Users\Listeners\LogSuccessfulLogout;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
@@ -15,11 +19,13 @@ use Mockery;
 
 class SessionTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /** @test */
 
     public function logged_user_has_a_session()
     {
-        $user = fCreate(User::class, ['active' => 1]);
+        $user = fCreate(User::class, ['active' => 1, 'role_name'=> 'admin']);
 
         $this->post(route('login', [
             'email' => $user->email,

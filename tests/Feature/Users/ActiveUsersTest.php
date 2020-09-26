@@ -89,7 +89,7 @@ class ActiveUsersTest extends TestCase
 
         $response = $this->get(route('users.activate', $user->id));
 
-        $response->assertSessionHas('successMessage', trans('users::users.activate_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.activate_successfully'));
 
         $this->assertDatabaseHas('users', [
             'name' => $user->name,
@@ -109,7 +109,7 @@ class ActiveUsersTest extends TestCase
 
         $response = $this->get(route('users.deactivate', $user->id));
 
-        $response->assertSessionHas('successMessage', trans('users::users.deactivate_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.deactivate_successfully'));
 
         $this->assertDatabaseHas('users', [
             'name' => $user->name,

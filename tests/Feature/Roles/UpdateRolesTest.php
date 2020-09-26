@@ -64,7 +64,7 @@ class UpdateRolesTest extends TestCase
         $response = $this->post(route('roles.update', $role->id),
             ['name' => 'role name updated'] + $role->toArray());
 
-        $response->assertSessionHas('successMessage', trans('users::users.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.update_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'name' => 'role name updated',
@@ -145,6 +145,8 @@ class UpdateRolesTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         $role = Role::where('name', 'admin')->first();
 
         $response = $this->get(route('roles.edit', $role->id));
@@ -157,6 +159,8 @@ class UpdateRolesTest extends TestCase
     public function a_user_cannot_update_admin_role()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $role = Role::where('name', 'admin')->first();
 
@@ -182,7 +186,7 @@ class UpdateRolesTest extends TestCase
 
         $new_role = Role::latest('id')->first();
 
-        $response->assertSessionHas('successMessage', trans('users::users.store_successfully'));
+        $response->assertSessionHas('successMessage', trans('helpers::actions.store_successfully'));
 
         $this->post(route('roles.update', $new_role->id),
             ['modules' => [$module3->id]] + $new_role->toArray());

@@ -5,6 +5,7 @@ namespace Izt\Users\Tests\Unit\Transformers\Admin;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Users\Http\Transformers\RoleTransformer;
 use Izt\Users\Storage\Eloquent\Models\Role;
+use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Tests\TestCase;
 
 class RoleTransformerTest extends TestCase
@@ -15,6 +16,8 @@ class RoleTransformerTest extends TestCase
 
     public function a_role_must_have_the_necessary_fileds()
     {
+        $user = fCreate(User::class);
+
         $role = fCreate(Role::class);
 
         $rt = new RoleTransformer();

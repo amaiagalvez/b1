@@ -18,6 +18,8 @@ class RoleTest extends TestCase
 
     public function a_role_has_many_user()
     {
+        $user = fCreate(User::class);
+
         $role = fCreate(Role::class);
         $users = fCreate(User::class, ['role_name' => $role->name], 2);
 
@@ -30,6 +32,8 @@ class RoleTest extends TestCase
 
     public function a_role_has_many_modules()
     {
+        $user = fCreate(User::class);
+
         $module1 = fCreate(Module::class);
         $module2 = fCreate(Module::class);
 

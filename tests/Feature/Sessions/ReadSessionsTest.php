@@ -3,6 +3,7 @@
 namespace Izt\Users\Tests\Feature\Sessions;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Eloquent\Models\Session;
 use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Tests\TestCase;
@@ -37,6 +38,7 @@ class ReadSessionsTest extends TestCase
     public function a_user_can_get_sessions_paginated()
     {
         $this->signIn();
+        fCreate(Role::class, ['name' => 'admin']);
 
         fCreate(Session::class, [], 15);
 
