@@ -4,6 +4,7 @@ namespace Izt\Users\Tests\Feature\Users;
 
 use Auth;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Tests\TestCase;
 
@@ -17,6 +18,8 @@ class ActiveUsersTest extends TestCase
     public function user_nonactive_load_ok()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $this->get(route('users.nonactive'))
             ->assertStatus(200);
@@ -40,6 +43,8 @@ class ActiveUsersTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         fCreate(User::class, ['active' => 0], 15);
 
         $response = $this->getJson(route('users.nonactive',
@@ -54,6 +59,8 @@ class ActiveUsersTest extends TestCase
     public function a_user_can_see_nonactive_users_in_nonactive_route()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user_active = fCreate(User::class, ['active' => 1]);
         $user_not_active = fCreate(User::class, ['active' => 0]);
@@ -71,6 +78,8 @@ class ActiveUsersTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         $user_not_active = fCreate(User::class, ['active' => 1]);
 
         $response = $this->getJson(route('users.nonactive', ['length' => 10, 'start' => 0, 'draw' => 0]));
@@ -84,6 +93,8 @@ class ActiveUsersTest extends TestCase
     public function a_user_can_activate_an_user()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user = fCreate(User::class);
 
@@ -104,6 +115,8 @@ class ActiveUsersTest extends TestCase
     public function a_user_can_deactivate_an_user()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user = fCreate(User::class);
 

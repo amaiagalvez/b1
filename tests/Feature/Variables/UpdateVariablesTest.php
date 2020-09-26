@@ -12,6 +12,13 @@ class UpdateVariablesTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('VariablesTableSeeder');
+    }
+
     /** @test */
 
     public function variable_edit_load_ok()

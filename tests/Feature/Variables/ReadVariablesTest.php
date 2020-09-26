@@ -11,6 +11,13 @@ class ReadVariablesTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('VariablesTableSeeder');
+    }
+
     /** @test */
 
     public function variable_index_load_ok()
@@ -55,8 +62,8 @@ class ReadVariablesTest extends TestCase
 
         $response = $this->getJson(route('variables.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
 
-        $this->assertEquals($variable_active->title_eu, array_pop($response->json()['data'])['title_eu']);
-        $this->assertNotEquals($variable_not_show->title_eu, array_pop($response->json()['data'])['title_eu']);
+        $this->assertEquals($variable_active->title_en, array_pop($response->json()['data'])['title_en']);
+        $this->assertNotEquals($variable_not_show->title_en, array_pop($response->json()['data'])['title_en']);
 
     }
 
@@ -70,7 +77,7 @@ class ReadVariablesTest extends TestCase
 
         $response = $this->getJson(route('variables.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
 
-        $this->assertNotEquals($variable_not_active->title_eu, array_pop($response->json()['data'])['title_eu']);
+        $this->assertNotEquals($variable_not_active->title_en, array_pop($response->json()['data'])['title_en']);
 
     }
 
@@ -84,11 +91,11 @@ class ReadVariablesTest extends TestCase
         $this->actingAs($user);
 
         $variable = fCreate(Variable::class,
-            ['title_eu' => 'izena1 eu', 'title_es' => 'nombre1 es', 'active' => 1, 'show' => 1, 'order' => 0]);
+            ['title_en' => 'izena1 eu', 'title_es' => 'nombre1 es', 'active' => 1, 'show' => 1, 'order' => 0]);
 
         $response = $this->getJson(route('variables.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
         $this->assertEquals($variable->title_es, array_pop($response->json()['data'])['title_es']);
-        $this->assertNotEquals($variable->title_eu, array_pop($response->json()['data'])['title_eu'] ?? '');
+        $this->assertNotEquals($variable->title_en, array_pop($response->json()['data'])['title_en'] ?? '');
 
     }
 }

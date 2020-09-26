@@ -3,6 +3,7 @@
 namespace Izt\Users\Tests\Feature\Users;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Tests\TestCase;
 
@@ -37,6 +38,8 @@ class ReadUsersTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         fCreate(User::class, ['active' => 1], 15);
 
         $response = $this->getJson(route('users.index',
@@ -51,6 +54,8 @@ class ReadUsersTest extends TestCase
     public function a_user_can_see_active_users_in_index_route()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user_active = fCreate(User::class, ['active' => 1]);
         $user_not_active = fCreate(User::class, ['active' => 0]);
@@ -68,6 +73,8 @@ class ReadUsersTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         $user_not_active = fCreate(User::class, ['active' => 0]);
 
         $response = $this->getJson(route('users.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
@@ -78,9 +85,11 @@ class ReadUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_search_by_lang()
+    public function a_user_can_search_users_by_lang()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user_eu = fCreate(User::class, ['name' => 'aa 2. user name', 'lang' => 'eu', 'active' => 1]);
 
@@ -99,9 +108,11 @@ class ReadUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_search_by_role_name()
+    public function a_user_can_search_users_by_role_name()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user_eu = fCreate(User::class, ['name' => 'aa 2. user name', 'role_name' => 'admin', 'active' => 1]);
 

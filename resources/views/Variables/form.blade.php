@@ -18,24 +18,24 @@
         <div class="form-group col-md-12">
             <label for="value">{{ trans('users::users.value') }} @asterisk() </label>
 
-            @if($variable->filed_type === \App\Classes\FieldTypes::NUMBER || $variable->filed_type === \App\Classes\FieldTypes::TEXT)
+            @if($variable->filed_type === \Izt\Users\Classes\FieldTypes::NUMBER || $variable->filed_type === \Izt\Users\Classes\FieldTypes::TEXT)
                 <input class="form-control @error('value') is-invalid @enderror" type="text"
                        placeholder="{{ trans('users::users.value') }}" name="value" id="value"
                        value="{{ old('value', $variable->value) }}" autofocus required>
 
-            @elseif($variable->filed_type === \App\Classes\FieldTypes::IMAGE)
+            @elseif($variable->filed_type === \Izt\Users\Classes\FieldTypes::IMAGE)
                 @if($variable->value !== '')
                     <br>
                     <img src="{{ asset('images/'.$variable->value) }}" width="150" alt="{{env('APP_NAME', '')}}">
                 @endif
                 <input id="value" name="value" type="file" required>
 
-            @elseif($variable->filed_type === \App\Classes\FieldTypes::LONGTEXT)
+            @elseif($variable->filed_type === \Izt\Users\Classes\FieldTypes::LONGTEXT)
                 <textarea type="text" id="value" name="value"
                           class="ckeditor form-control  @error('value') is-invalid @enderror"
                           required> {{ $variable->value }} </textarea>
 
-            @elseif($variable->filed_type === \App\Classes\FieldTypes::LIST)
+            @elseif($variable->filed_type === \Izt\Users\Classes\FieldTypes::LIST)
                 <select name="value[]" class="form-control" required multiple>
                     @foreach(\Izt\Helpers\Classes\Languages::getChoicesArray() AS $language)
                         <option value="{{ $language }}"

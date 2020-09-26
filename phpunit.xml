@@ -21,11 +21,7 @@
     <php>
         <server name="APP_ENV" value="testing"/>
         <server name="APP_KEY" value="AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"/>
-<!--        <server name="SESSION_DRIVER" value="array"/>-->
-<!--        <server name="DB_CONNECTION" value="mysql"/>-->
-<!--        <server name="DB_DATABASE" value="aretha_testing"/>-->
-<!--        <server name="DB_USERNAME" value="test"/>-->
-<!--        <server name="DB_PASSWORD" value="123456"/>-->
+        <server name="SESSION_DRIVER" value="array"/>
     </php>
     <logging>
         <log type="coverage-html" target="tests/coverage"/>

@@ -38,6 +38,7 @@ class ReadSessionsTest extends TestCase
     public function a_user_can_get_sessions_paginated()
     {
         $this->signIn();
+
         fCreate(Role::class, ['name' => 'admin']);
 
         fCreate(Session::class, [], 15);
@@ -55,6 +56,8 @@ class ReadSessionsTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         $session = fCreate(Session::class, ['login_at' => '3000-01-01 10:33:01']);
 
         $response = $this->getJson(route('sessions.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
@@ -65,9 +68,11 @@ class ReadSessionsTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_search_by_user()
+    public function a_user_can_search_sessions_by_user()
     {
         $this->signIn();
+
+        $role = fCreate(Role::class, ['name' => 'admin']);
 
         $user = fCreate(User::class);
         $session = fCreate(Session::class, ['login_at' => '3000-01-01 10:01:01', 'user_id' => $user->id]);
@@ -78,7 +83,7 @@ class ReadSessionsTest extends TestCase
         $this->assertEquals($session->login_at, array_pop($response->json()['data'])['login_at']);
 
         $user2 = fCreate(User::class);
-        $session2 = fCreate(Session::class, ['login_at' => '3000-01-01 10:01:01', 'user_id' => $user2->id]);
+        $session2 = fCreate(Session::class, ['login_at' => '3001-01-01 10:01:01', 'user_id' => $user2->id]);
 
         $response = $this->getJson(route('sessions.index',
             ['search_user' => $user->id]));
@@ -91,6 +96,8 @@ class ReadSessionsTest extends TestCase
     public function a_user_can_search_by_year()
     {
         $this->signIn();
+
+        $role = fCreate(Role::class, ['name' => 'admin']);
 
         $session2 = fCreate(Session::class, ['login_at' => '3000-01-01 10:01:01']);
 

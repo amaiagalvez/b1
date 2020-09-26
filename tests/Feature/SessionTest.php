@@ -27,6 +27,8 @@ class SessionTest extends TestCase
     {
         $user = fCreate(User::class, ['active' => 1, 'role_name'=> 'admin']);
 
+        $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
+
         $this->post(route('login', [
             'email' => $user->email,
             'password' => $user->password
@@ -49,8 +51,15 @@ class SessionTest extends TestCase
 
     public function logout_user_has_a_session_with_logout_at()
     {
-        $user = Auth::user();
-        $this->withExceptionHandling();
+        $user = fCreate(User::class, ['active' => 1, 'role_name'=> 'admin']);
+
+        $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
+
+        $this->post(route('login', [
+            'email' => $user->email,
+            'password' => $user->password
+        ]));
+
         Auth::logout();
 
         Event::fake();

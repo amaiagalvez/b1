@@ -2,7 +2,6 @@
 
 namespace Izt\Users\Http\Controllers;
 
-use App\Storage\Interfaces\Front\Social\FriendshipRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -32,10 +31,6 @@ class UsersController extends Controller
      * @var VariableRepositoryInterface
      */
     private $repoVariable;
-    /**
-     * @var FriendshipRepositoryInterface
-     */
-    private $repoFriendship;
 
     /**
      * UsersController constructor.
@@ -43,21 +38,18 @@ class UsersController extends Controller
      * @param UserRepositoryInterface $repoUser
      * @param RoleRepositoryInterface $repoRole
      * @param VariableRepositoryInterface $repoVariable
-     * @param FriendshipRepositoryInterface $repoFriendship
      */
     public function __construct(
         Request $request,
         UserRepositoryInterface $repoUser,
         RoleRepositoryInterface $repoRole,
-        VariableRepositoryInterface $repoVariable,
-        FriendshipRepositoryInterface $repoFriendship
+        VariableRepositoryInterface $repoVariable
     ) {
 
         $this->request = $request;
         $this->repoUser = $repoUser;
         $this->repoRole = $repoRole;
         $this->repoVariable = $repoVariable;
-        $this->repoFriendship = $repoFriendship;
     }
 
     public function index()

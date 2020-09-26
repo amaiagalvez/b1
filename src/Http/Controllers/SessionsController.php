@@ -69,7 +69,7 @@ class SessionsController extends Controller
 
         $table_buttons = [
             'partial_route' => 'sessions',
-            'years' => getRepoYears($this->repoSession, 'login_at'),
+            'years' => $this->repoSession->getYearsList('login_at'),
             'selects' => [
                 [
                     'name' => 'user',

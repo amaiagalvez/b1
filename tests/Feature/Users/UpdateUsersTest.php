@@ -91,6 +91,8 @@ class UpdateUsersTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         $user = fCreate(User::class, ['active' => 1]);
 
         $response = $this->post(route('users.update', $user->id),
@@ -111,6 +113,8 @@ class UpdateUsersTest extends TestCase
     public function a_user_is_updated_by_the_logged_user()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user = fCreate(User::class, ['active' => 1]);
 

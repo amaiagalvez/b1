@@ -19,4 +19,6 @@ interface SessionRepositoryInterface
         $filters,
         $order
     );
+
+    function getYearsList($field);
 }

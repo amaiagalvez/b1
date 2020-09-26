@@ -3,6 +3,7 @@
 namespace Izt\Users\Tests\Feature\Users;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Izt\Users\Storage\Eloquent\Models\Role;
 use Izt\Users\Storage\Eloquent\Models\Session;
 use Izt\Users\Storage\Eloquent\Models\User;
 use Izt\Users\Tests\TestCase;
@@ -27,6 +28,8 @@ class DeleteUsersTest extends TestCase
     {
         $this->signIn();
 
+        fCreate(Role::class, ['name' => 'admin']);
+
         fCreate(User::class, ['deleted_at' => '2020-01-01'], 15);
 
         $response = $this->getJson(route('users.trash',
@@ -41,6 +44,8 @@ class DeleteUsersTest extends TestCase
     public function a_user_can_see_deleted_users_in_trash_route()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user_deleted = fCreate(User::class, ['deleted_at' => '2020-01-01']);
         $user_not_deleted = fCreate(User::class);
@@ -57,6 +62,8 @@ class DeleteUsersTest extends TestCase
     public function a_user_cannot_see_not_deleted_users_in_trash_route()
     {
         $this->signIn();
+
+        fCreate(Role::class, ['name' => 'admin']);
 
         $user_not_deleted = fCreate(User::class);
 
