@@ -128,7 +128,7 @@ class RolesController extends Controller
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans('basics::basics.new')
+                'title' => trans('basics::basics.create')
             ]
         ];
 
@@ -140,7 +140,7 @@ class RolesController extends Controller
         $form = [
             'action' => route('roles.store'),
             'method' => 'POST',
-            'button' => trans('basics::basics.new')
+            'button' => trans('helpers::action.create')
         ];
 
         $role_modules = [];

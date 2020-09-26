@@ -22,7 +22,7 @@ function initVariableDataTables(list_type, lang, route_index) {
     }
 
     window.dtOptions.language = lang;
-    window.dtOptions.oLanguage.sUrl = "/js/" + lang + ".json";
+    window.dtOptions.oLanguage.sUrl = "/js/dt_" + lang + ".json";
     window.dtOptions.serverSide = true;
     window.dtOptions.order = [4, 'asc']; //order
 

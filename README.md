@@ -47,14 +47,24 @@ DB::statement('SET FOREIGN_KEY_CHECKS=1');
 ```     
 You can publish the assets
 ```
-php artisan vendor:publish    
+php artisan vendor:publish   
 choose the tag izt-basics-assets
 ```
+In the webpack.mix.js file add
+```
+mix.copyDirectory('resources/assets/basics/js/*', 'public/js');
+mix.copyDirectory('resources/assets/basics/images/*', 'public/images');
+```
+
 You can publish the translations
 ```
 php artisan vendor:publish    
 choose the tag izt-basics-eu
 choose the tag izt-basics-es
+```
+If you don't publish the translations, do this
+```
+trans('basics::basics.home')
 ```
 
 In Kernel.php file add this line to protected $middleware

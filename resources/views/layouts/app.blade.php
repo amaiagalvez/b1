@@ -49,9 +49,10 @@
 
 {!! getLocalizedJS() !!}
 
-<script src="{{ asset('js/theme.js') }}"></script>
+{{--<script src="{{ asset('js/theme.js') }}"></script>--}}
 
 <script src="{{ asset('js/datatables.min.js') }}"></script>
+<script src="{{ asset('js/scripts.js') }}"></script>
 <script src="{{ asset('js/dt.js') }}"></script>
 
 @yield('scripts')

@@ -183,7 +183,7 @@ class UsersController extends Controller
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('helpers::action.new')
+                'title' => trans('helpers::action.create')
             ]
         ];
 
@@ -195,7 +195,7 @@ class UsersController extends Controller
         $form = [
             'action' => route('users.store'),
             'method' => 'POST',
-            'button' => trans('helpers::action.new')
+            'button' => trans('helpers::action.create')
         ];
 
         $roles = $this->repoRole->getList(true);
