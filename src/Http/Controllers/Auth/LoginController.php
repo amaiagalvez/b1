@@ -57,4 +57,10 @@ class LoginController extends Controller
         Auth::logout();
         return redirect()->route('front.home');
     }
+
+    public function showLoginForm()
+    {
+        return view('basics::auth.login');
+    }
+
 }
