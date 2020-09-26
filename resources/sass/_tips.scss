@@ -1,0 +1,23 @@
+.dismiss-tip {
+    margin: 1em 0;
+    display: block;
+}
+
+.dismiss-tip:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.alert-dismissible {
+    top: 40px;
+    left: 50px;
+    width: 500px;
+    z-index: 99999;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+//.alert + .dismiss-tip {
+//    display: none;
+//}
+

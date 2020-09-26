@@ -52,6 +52,7 @@ choose the tag izt-basics-assets
 ```
 In the webpack.mix.js file add
 ```
+mix.copyDirectory('resources/assets/basics/css/*', 'public/css');
 mix.copyDirectory('resources/assets/basics/js/*', 'public/js');
 mix.copyDirectory('resources/assets/basics/images/*', 'public/images');
 ```
