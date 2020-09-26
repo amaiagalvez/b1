@@ -1,4 +1,4 @@
-@extends('front.theme0.layouts.app')
+@extends('basics::layouts.app')
 
 @section('title', trans('passwords.reset_password'))
 

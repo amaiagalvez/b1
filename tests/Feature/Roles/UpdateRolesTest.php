@@ -127,7 +127,7 @@ class UpdateRolesTest extends TestCase
         $user2 = fCreate(User::class, ['role_name' => $role->name]);
 
         $this->post(route('roles.update', $role->id),
-            ['name' => 'name-role name updated'] + $role->toArray());
+            ['name' => $role->name.' updated'] + $role->toArray());
 
         $this->assertDatabaseHas('users', [
             'name' => $user1->name,
@@ -141,7 +141,7 @@ class UpdateRolesTest extends TestCase
 
         $this->assertDatabaseHas('users', [
             'name' => $user2->name,
-            'role_name' => 'name-role name updated'
+            'role_name' => $role->name.' updated'
         ]);
 
     }

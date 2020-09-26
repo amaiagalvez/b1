@@ -8,7 +8,6 @@ use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
 
-
 class UpdateUsersTest extends TestCase
 {
     use DatabaseMigrations;
@@ -56,7 +55,7 @@ class UpdateUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_update_her_profile_but_not_her_role()
+    public function a_non_admin_user_can_update_her_profile_but_not_her_role()
     {
         $this->signIn();
 
@@ -97,7 +96,8 @@ class UpdateUsersTest extends TestCase
 
         $user = fCreate(User::class, ['active' => 1]);
 
-        $response = $this->post(route('users.update', $user->id),
+        $response = $this->from(route('users.edit', $user->id))
+            ->post(route('users.update', $user->id),
             ['name' => 'name updated'] + $user->toArray());
 
         $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
@@ -118,7 +118,8 @@ class UpdateUsersTest extends TestCase
 
         $user = fCreate(User::class, ['active' => 1]);
 
-        $response = $this->post(route('users.update', $user->id),
+        $response = $this->from(route('users.edit', $user->id))
+        ->post(route('users.update', $user->id),
             ['name' => 'name updated'] + $user->toArray());
 
         $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
@@ -139,7 +140,8 @@ class UpdateUsersTest extends TestCase
         $user1 = fCreate(User::class);
         $user2 = fCreate(User::class);
 
-        $response = $this->post(route('users.update', $user2->id),
+        $response = $this->from(route('users.edit', $user2->id))
+        ->post(route('users.update', $user2->id),
             ['email' => $user1->email] + $user2->toArray());
 
         $response->assertSessionHasErrors('email');
@@ -163,7 +165,8 @@ class UpdateUsersTest extends TestCase
 
         $user = fCreate(User::class);
 
-        $response = $this->post(route('users.update', $user->id),
+        $response = $this->from(route('users.edit', $user->id))
+        ->post(route('users.update', $user->id),
             ['name' => null] + $user->toArray());
         $response->assertSessionHasErrors('name');
 
@@ -186,7 +189,8 @@ class UpdateUsersTest extends TestCase
 
         $user = fCreate(User::class);
 
-        $response = $this->post(route('users.update', $user->id),
+        $response = $this->from(route('users.edit', $user->id))
+        ->post(route('users.update', $user->id),
             ['role_name' => null] + $user->toArray());
         $response->assertSessionHasErrors('role_name');
 
@@ -215,7 +219,8 @@ class UpdateUsersTest extends TestCase
 
         $user = fCreate(User::class);
 
-        $response = $this->post(route('users.update', $user->id),
+        $response = $this->from(route('users.edit', $user->id))
+            ->post(route('users.update', $user->id),
             ['lang' => null] + $user->toArray());
         $response->assertSessionHasErrors('lang');
 

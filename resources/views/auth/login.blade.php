@@ -1,4 +1,4 @@
-@extends('front.theme0.layouts.app')
+@extends('basics::layouts.app')
 
 @section('title', trans('auth.login_in'))
 
@@ -20,14 +20,14 @@
                                             <i class="fas fa-at"></i>
                                         </span>
                                     </div>
-                                    <input class="form-control @error('email') is-invalid @enderror" type="email"
+                                    <input class="form-control @if('email') is-invalid @endif" type="email"
                                            placeholder="{{ trans('auth.email') }}" name="email" id="email"
                                            value="{{ old('email') }}" autofocus>
-                                    @error('email')
+                                    @if('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $message ?? '' }}</strong>
                                     </span>
-                                    @enderror
+                                    @endif
                                 </div>
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
@@ -35,15 +35,15 @@
                                         <i class="fas fa-unlock-alt"></i>
                                       </span>
                                     </div>
-                                    <input class="form-control @error('password') is-invalid @enderror" type="password"
+                                    <input class="form-control @if('password') is-invalid @endif" type="password"
                                            placeholder="{{ trans('auth.password') }}" name="password"
                                            id="password">
 
-                                    @error('password')
+                                    @if('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ $message ?? '' }}</strong>
                                     </span>
-                                    @enderror
+                                    @endif
                                 </div>
                                 <div class="row">
                                     <div class="col-6">

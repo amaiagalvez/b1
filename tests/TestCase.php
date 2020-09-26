@@ -8,6 +8,8 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    //TODO: aldagai batekin kontrolatu migrations
+
     protected function getEnvironmentSetUp($app)
     {
         testEnviroment($app);

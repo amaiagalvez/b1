@@ -9,7 +9,7 @@
             <li class="c-header-nav-item dropdown"><a class="c-header-nav-link dropdown-toggle" data-toggle="dropdown"
                                                       href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <div class=" @if(session()->has('real_user'))  ko-color @endif">
-                        <i class="far fa-user-circle"></i> {{ Auth::user()->name }}
+                        <i class="far fa-user-circle"></i> {{ Auth::user()->name ?? ''}}
                     </div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-left pt-0" aria-labelledby="navbarDropdown">

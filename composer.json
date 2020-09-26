@@ -10,9 +10,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "league/fractal": "^0.19.2",
         "yajra/laravel-datatables": "^1.5",
-        "yajra/laravel-datatables-fractal": "^1.6",
         "laravel/socialite": "^4.4",
         "izt/helpers": "^1.0"
     },

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /* Home */
 
-Route::get('/hasiera', function () {
+Route::get('/admin', function () {
     return 'Home Users package. Hello ' . auth()->user()->name;
 })->name('home');
 
