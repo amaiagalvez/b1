@@ -36,8 +36,6 @@ class ActiveUsersTest extends TestCase
     {
         $this->signIn(null, "other");
 
-        $this->markTestIncomplete();
-
         $this->get(route('users.nonactive'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));

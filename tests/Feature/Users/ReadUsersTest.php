@@ -34,8 +34,6 @@ class ReadUsersTest extends TestCase
     {
         $this->signIn(null, "other");
 
-        $this->markTestIncomplete();
-
         $this->get(route('users.index'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));

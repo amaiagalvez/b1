@@ -34,8 +34,6 @@ class CreateRolesTest extends TestCase
 
     public function a_non_admin_user_cannot_create_a_role()
     {
-        $this->markTestIncomplete();
-
         $this->signIn(null, "other");
 
         $this->get(route('roles.create'))

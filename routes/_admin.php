@@ -77,7 +77,6 @@ Route::get('rolak/zakarrontzia', 'RolesController@trash')
 Route::get('bertsioak', 'VersionsController@show')
     ->name('versions.show');
 
-
 /* Notifications */
 
 Route::get('jakinarazpenak', 'NotificationsController@index')

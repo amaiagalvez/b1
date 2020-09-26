@@ -34,8 +34,6 @@ class ReadVariablesTest extends TestCase
     {
         $this->signIn(null, "other");
 
-        $this->markTestIncomplete();
-
         $this->get(route('variables.index'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));

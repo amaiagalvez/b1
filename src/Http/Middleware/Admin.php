@@ -22,7 +22,7 @@ class Admin
         }
 
         Auth::logout();
-        return redirect()->route(config('users.redirect_route_after_logout'));
+        return redirect()->route(config('basics.redirect_route_after_logout'));
     }
 
 }
