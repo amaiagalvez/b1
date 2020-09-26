@@ -16,7 +16,7 @@
 
 
                     <a class="dropdown-item not-text-decoration" href="{{route('users.profile')}}">
-                        <i class="fas fa-user-edit"></i> {{trans('basics::users.profile')}}
+                        <i class="fas fa-user-edit"></i> {{trans('basics::basics.profile')}}
                     </a>
 
                     @if(session()->has('real_user'))

@@ -76,7 +76,7 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('basics.user', 2)
+                'title' => trans_choice('basics::basics.user', 2)
             ]
         ];
 
@@ -116,11 +116,11 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('basics.user', 2),
+                'title' => trans_choice('basics::basics.user', 2),
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('basics::basics.nonactive')
+                'title' => trans('helpers::action.nonactive')
             ]
         ];
 
@@ -156,11 +156,11 @@ class UsersController extends Controller
 
         $breadcrumbs = [
             [
-                'title' => trans_choice('users.user', 2),
+                'title' => trans_choice('basics::basics.user', 2),
                 'route' => route('users.index')
             ],
             [
-                'title' => trans_choice('users.trash', 2)
+                'title' => trans_choice('helpers::action.trash', 2)
             ],
         ];
 
@@ -183,7 +183,7 @@ class UsersController extends Controller
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('basics::users.new')
+                'title' => trans('helpers::action.new')
             ]
         ];
 
@@ -195,7 +195,7 @@ class UsersController extends Controller
         $form = [
             'action' => route('users.store'),
             'method' => 'POST',
-            'button' => trans('basics::users.new')
+            'button' => trans('helpers::action.new')
         ];
 
         $roles = $this->repoRole->getList(true);
@@ -245,7 +245,7 @@ class UsersController extends Controller
         $form = [
             'action' => route('users.update', $id),
             'method' => 'POST',
-            'button' => trans('basics::users.save')
+            'button' => trans('helpers::action.save')
         ];
 
         $roles = $this->repoRole->getList(true);
@@ -277,7 +277,7 @@ class UsersController extends Controller
         $form = [
             'action' => route('users.update', $id),
             'method' => 'POST',
-            'button' => trans('basics::users.save')
+            'button' => trans('helpers::action.save')
         ];
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));

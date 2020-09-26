@@ -6,7 +6,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="name">{{ trans('basics::users.name') }} @asterisk() </label>
+            <label for="name">{{ trans('basics::basics.name') }} @asterisk() </label>
             <input class="form-control @error('name') is-invalid @enderror" type="text"
                    name="name" id="name"
                    value="{{ old('name', $user->name) }}"
@@ -20,7 +20,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="email">{{ trans('basics::users.email') }} @asterisk() </label>
+            <label for="email">{{ trans('basics::basics.email') }} @asterisk() </label>
             <input class="form-control @error('email') is-invalid @enderror" type="email"
                    name="email" id="email"
                    value="{{ old('email', $user->email) }}"
@@ -34,7 +34,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label for="lang">{{ trans('basics::users.lang') }} @asterisk() </label>
+            <label for="lang">{{ trans('basics::basics.lang') }} @asterisk() </label>
             <select id="lang" name="lang" class="form-control @error('lang') is-invalid @enderror" required>
                 <option value="">--</option>
                 @foreach($languages AS $language)
@@ -53,7 +53,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="name">{{ trans('basics::users.password') }} </label>
+            <label for="name">{{ trans('basics::basics.password') }} </label>
             <input class="form-control @error('password') is-invalid @enderror" type="password"
                    name="password" id="password">
 
@@ -78,9 +78,9 @@
 
     <div class="form-row">
         <div class="form-group col-md-12 card-accent-secondary">
-            <span>{{ trans('basics::users.created') }}: {{date($user->created_at)}} {{$user->createdBy->name ?? ''}}</span>
+            <span>{{ trans('basics::basics.created') }}: {{date($user->created_at)}} {{$user->createdBy->name ?? ''}}</span>
             <br>
-            <span>{{ trans('basics::users.updated') }}: {{date($user->updated_at)}} {{$user->updatedBy->name ?? ''}}</span>
+            <span>{{ trans('basics::basics.updated') }}: {{date($user->updated_at)}} {{$user->updatedBy->name ?? ''}}</span>
         </div>
     </div>
 

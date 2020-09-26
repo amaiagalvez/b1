@@ -2,7 +2,7 @@
     <div class="c-subheader px-3">
         <ol class="breadcrumb border-0 m-0">
             <li class="breadcrumb-item">
-                <a href="{{route('home')}}" class="not-text-decoration">{{trans('basics::users.home')}}</a>
+                <a href="{{route('home')}}" class="not-text-decoration">{{trans('basics::basics.home')}}</a>
             </li>
 
             @foreach($breadcrumbs AS $breadcrumb)

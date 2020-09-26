@@ -57,10 +57,16 @@ choose the tag izt-basics-eu
 choose the tag izt-basics-es
 ```
 
+In Kernel.php file add this line to protected $middleware
+```
+\Illuminate\Session\Middleware\StartSession::class,
+```
+
 ## Require
 
 - yajra/laravel-datatables
 - laravel/socialite
+- adamthehutt/laravel-dismissible-tips
 - izt/helpers
 
 

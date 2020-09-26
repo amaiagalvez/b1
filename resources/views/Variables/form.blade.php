@@ -6,7 +6,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="{{$field_title}}">{{ trans('basics::users.name') }} </label>
+            <label for="{{$field_title}}">{{ trans('basics::basics.name') }} </label>
             <input class="form-control" type="text"
                    name="{{$field_title}}" id="{{$field_title}}"
                    value="{{ old('name', $variable->$field_title) }}"
@@ -16,11 +16,11 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="value">{{ trans('basics::users.value') }} @asterisk() </label>
+            <label for="value">{{ trans('basics::basics.value') }} @asterisk() </label>
 
             @if($variable->filed_type === \Izt\Basics\Classes\FieldTypes::NUMBER || $variable->filed_type === \Izt\Basics\Classes\FieldTypes::TEXT)
                 <input class="form-control @error('value') is-invalid @enderror" type="text"
-                       placeholder="{{ trans('basics::users.value') }}" name="value" id="value"
+                       placeholder="{{ trans('basics::basics.value') }}" name="value" id="value"
                        value="{{ old('value', $variable->value) }}" autofocus required>
 
             @elseif($variable->filed_type === \Izt\Basics\Classes\FieldTypes::IMAGE)
@@ -56,7 +56,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12 card-accent-secondary">
-            <span>{{ trans('basics::users.updated') }}
+            <span>{{ trans('basics::basics.updated') }}
                 : {{date($variable->updated_at)}} {{$variable->updatedBy->name ?? ''}}</span>
         </div>
     </div>

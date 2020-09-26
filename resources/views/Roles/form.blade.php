@@ -6,7 +6,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="name">{{ trans('basics::users.name') }}  </label>
+            <label for="name">{{ trans('basics::basics.name') }}  </label>
             <input class="form-control @error('name') is-invalid @enderror" type="text"
                    name="name" id="name"
                    value="{{ old('name', $role->name) }}"
@@ -20,7 +20,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="title">{{ trans('basics::users.title') }} </label>
+            <label for="title">{{ trans('basics::basics.title') }} </label>
         </div>
         @foreach($languages AS $lang)
             @php $title = 'title_'.$lang @endphp
@@ -55,7 +55,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="notes">{{ trans('basics::users.notes') }} </label>
+            <label for="notes">{{ trans('basics::basics.notes') }} </label>
             @foreach($languages AS $lang)
                 @php $notes = 'notes_'.$lang @endphp
                 <div class="form-group col-md-12">
@@ -75,10 +75,10 @@
 @section ('info')
     <div class="form-row">
         <div class="form-group col-md-12 card-accent-secondary">
-            <span>{{ trans('basics::users.created') }}: {{date($role->created_at)}}</span>
+            <span>{{ trans('basics::basics.created') }}: {{date($role->created_at)}}</span>
             {{--            $role->createdBy->name ?? ''--}}
             <br>
-            <span>{{ trans('basics::users.updated') }}: {{date($role->updated_at)}}</span>
+            <span>{{ trans('basics::basics.updated') }}: {{date($role->updated_at)}}</span>
             {{--            $role->updatedBy->name ?? ''--}}
         </div>
     </div>
