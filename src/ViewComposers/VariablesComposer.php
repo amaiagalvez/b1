@@ -1,8 +1,8 @@
-<?php namespace Izt\Users\ViewComposers;
+<?php namespace Izt\Basics\ViewComposers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
-use Izt\Users\Storage\Interfaces\VariableRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 
 class VariablesComposer
 {

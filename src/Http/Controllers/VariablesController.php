@@ -1,15 +1,15 @@
 <?php
 
-namespace Izt\Users\Http\Controllers;
+namespace Izt\Basics\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Izt\Users\Http\DtGenerators\VariableDataTablesGenerator;
-use Izt\Users\Http\Transformers\VariableTransformer;
-use Izt\Users\Http\Validators\VariableValidator;
-use Izt\Users\Storage\Eloquent\Models\Variable;
-use Izt\Users\Storage\Interfaces\VariableRepositoryInterface;
+use Izt\Basics\Http\DtGenerators\VariableDataTablesGenerator;
+use Izt\Basics\Http\Transformers\VariableTransformer;
+use Izt\Basics\Http\Validators\VariableValidator;
+use Izt\Basics\Storage\Eloquent\Models\Variable;
+use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 
 class VariablesController extends Controller
 {
@@ -61,7 +61,7 @@ class VariablesController extends Controller
 
         ];
 
-        return view('users::Variables.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Variables.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function edit($id)
@@ -93,10 +93,10 @@ class VariablesController extends Controller
         $form = [
             'action' => route('variables.update', $id),
             'method' => 'POST',
-            'button' => trans('users::users.save')
+            'button' => trans('basics::users.save')
         ];
 
-        return view('users::Variables.form',
+        return view('basics::Variables.form',
             compact('variable', 'breadcrumbs', 'form', 'table_buttons', 'field_title'));
 
     }
@@ -154,7 +154,7 @@ class VariablesController extends Controller
             }
 
             if ($extension_error) {
-                return redirect()->back()->with('errorMessage', trans('users::users.extension_error'));
+                return redirect()->back()->with('errorMessage', trans('basics::users.extension_error'));
             }
 
             $input['value'] = $custom_file_name;

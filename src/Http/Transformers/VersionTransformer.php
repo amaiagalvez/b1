@@ -1,8 +1,8 @@
 <?php
 
-namespace Izt\Users\Http\Transformers;
+namespace Izt\Basics\Http\Transformers;
 
-use Izt\Users\Storage\Eloquent\Models\Version;
+use Izt\Basics\Storage\Eloquent\Models\Version;
 use League\Fractal\TransformerAbstract;
 
 class VersionTransformer extends TransformerAbstract

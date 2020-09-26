@@ -1,9 +1,9 @@
 <?php
 
-namespace Izt\Users\Http\DtGenerators;
+namespace Izt\Basics\Http\DtGenerators;
 
 use Illuminate\Database\Eloquent\Builder;
-use Izt\Users\Http\Transformers\SessionTransformer;
+use Izt\Basics\Http\Transformers\SessionTransformer;
 
 class SessionDataTablesGenerator
 {

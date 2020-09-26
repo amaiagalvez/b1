@@ -5,35 +5,35 @@
     @if(isset($table_buttons['partial_route']))
         @if($table_buttons['list'] ?? false)
             <a class="btn btn-secondary btn-sm mr-2" href="{{route($table_buttons['partial_route'].'.index')}}"
-               title="{{trans('users::users.list')}}">
+               title="{{trans('basics::users.list')}}">
                 <span class="fa fa-bars"></span>
             </a>
         @endif
 
         @if($table_buttons['create'] ?? false)
             <a class="btn btn-secondary btn-sm  mr-2" href="{{route($table_buttons['partial_route'].'.create')}}"
-               title="{{trans('users::users.create')}}">
+               title="{{trans('basics::users.create')}}">
                 <span class="fa fa-plus-square"></span>
             </a>
         @endif
 
         @if($table_buttons['nonactive'] ?? false)
             <a class="btn btn-secondary btn-sm mr-2" href="{{route($table_buttons['partial_route'].'.nonactive')}}"
-               title="{{trans('users::users.nonactive')}}">
+               title="{{trans('basics::users.nonactive')}}">
                 <span class="fa fa-times"></span>
             </a>
         @endif
 
         @if($table_buttons['trash'] ?? false)
             <a class="btn btn-secondary btn-sm mr-2" href="{{route($table_buttons['partial_route'].'.trash')}}"
-               title="{{trans('users::users.trash')}}">
+               title="{{trans('basics::users.trash')}}">
                 <span class="fa fa-trash"></span>
             </a>
         @endif
 
         @if($table_buttons['back_list'] ?? false)
             <a class="btn btn-secondary btn-sm  mr-2" href="javascript:history.back()"
-               title="{{trans('users::users.back')}}">
+               title="{{trans('basics::users.back')}}">
                 <span class="fa fa-fast-backward"></span>
             </a>
         @endif

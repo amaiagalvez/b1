@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Http\Transformers;
+namespace Izt\Basics\Http\Transformers;
 
 use Illuminate\Support\Facades\View;
-use Izt\Users\Classes\FieldTypes;
-use Izt\Users\Storage\Eloquent\Models\Variable;
+use Izt\Basics\Classes\FieldTypes;
+use Izt\Basics\Storage\Eloquent\Models\Variable;
 use League\Fractal\TransformerAbstract;
 
 class VariableTransformer extends TransformerAbstract
@@ -65,7 +65,7 @@ class VariableTransformer extends TransformerAbstract
         $data['actions'] = '';
 
         if ($this->list_type === 'index') {
-            $data['actions'] = View::make('users::Variables.partials._row_buttons_index',
+            $data['actions'] = View::make('basics::Variables.partials._row_buttons_index',
                 compact('variable'))->render();
         }
 

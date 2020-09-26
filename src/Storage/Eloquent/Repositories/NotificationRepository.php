@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Storage\Eloquent\Repositories;
+namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Illuminate\Notifications\DatabaseNotification;
 use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
-use Izt\Users\Storage\Interfaces\NotificationRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\NotificationRepositoryInterface;
 
 /**
  * Class NotificationRepository

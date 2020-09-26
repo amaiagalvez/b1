@@ -1,13 +1,13 @@
-@extends('users::layouts.app')
+@extends('basics::layouts.app')
 
-@include('users::layouts._partials.breadcrumb_list')
+@include('basics::layouts._partials.breadcrumb_list')
 
 @section('content')
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                @include('users::layouts._partials.table_buttons')
+                @include('basics::layouts._partials.table_buttons')
             </div>
         </div>
 

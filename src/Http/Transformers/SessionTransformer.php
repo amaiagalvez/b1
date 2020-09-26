@@ -1,8 +1,8 @@
 <?php
 
-namespace Izt\Users\Http\Transformers;
+namespace Izt\Basics\Http\Transformers;
 
-use Izt\Users\Storage\Eloquent\Models\Session;
+use Izt\Basics\Storage\Eloquent\Models\Session;
 use League\Fractal\TransformerAbstract;
 
 class SessionTransformer extends TransformerAbstract

@@ -1,6 +1,6 @@
-@extends('users::layouts.app')
+@extends('basics::layouts.app')
 
-@include('users::layouts._partials.breadcrumb_list')
+@include('basics::layouts._partials.breadcrumb_list')
 
 @section('content')
 
@@ -8,11 +8,11 @@
 
         <div class="row">
             <div class="col-md-12">
-                @include('users::layouts._partials.table_buttons')
+                @include('basics::layouts._partials.table_buttons')
             </div>
         </div>
 
-        @include('users::layouts._partials.validation_errors')
+        @include('basics::layouts._partials.validation_errors')
         {{--        TODO: kendu hau--}}
         <div class="row">
             <div class="col-md-6">

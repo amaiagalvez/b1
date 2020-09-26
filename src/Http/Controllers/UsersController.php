@@ -1,17 +1,17 @@
 <?php
 
-namespace Izt\Users\Http\Controllers;
+namespace Izt\Basics\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Izt\Users\Http\DtGenerators\UserDataTablesGenerator;
-use Izt\Users\Http\Transformers\UserTransformer;
-use Izt\Users\Http\Validators\UserValidator;
-use Izt\Users\Storage\Eloquent\Models\User;
-use Izt\Users\Storage\Interfaces\RoleRepositoryInterface;
-use Izt\Users\Storage\Interfaces\UserRepositoryInterface;
-use Izt\Users\Storage\Interfaces\VariableRepositoryInterface;
+use Izt\Basics\Http\DtGenerators\UserDataTablesGenerator;
+use Izt\Basics\Http\Transformers\UserTransformer;
+use Izt\Basics\Http\Validators\UserValidator;
+use Izt\Basics\Storage\Eloquent\Models\User;
+use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 
 class UsersController extends Controller
 {
@@ -89,7 +89,7 @@ class UsersController extends Controller
             'languages' => getArray($this->repoVariable->getValueByName('lang'))
         ];
 
-        return view('users::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function nonactive()
@@ -120,7 +120,7 @@ class UsersController extends Controller
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('users::users.nonactive')
+                'title' => trans('basics::users.nonactive')
             ]
         ];
 
@@ -130,7 +130,7 @@ class UsersController extends Controller
             'nonactive' => true
         ];
 
-        return view('users::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function trash()
@@ -170,7 +170,7 @@ class UsersController extends Controller
             'trash' => true
         ];
 
-        return view('users::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function create()
@@ -183,7 +183,7 @@ class UsersController extends Controller
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('users::users.new')
+                'title' => trans('basics::users.new')
             ]
         ];
 
@@ -195,13 +195,13 @@ class UsersController extends Controller
         $form = [
             'action' => route('users.store'),
             'method' => 'POST',
-            'button' => trans('users::users.new')
+            'button' => trans('basics::users.new')
         ];
 
         $roles = $this->repoRole->getList(true);
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('users::Users.form',
+        return view('basics::Users.form',
             compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles', 'languages'));
     }
 
@@ -245,13 +245,13 @@ class UsersController extends Controller
         $form = [
             'action' => route('users.update', $id),
             'method' => 'POST',
-            'button' => trans('users::users.save')
+            'button' => trans('basics::users.save')
         ];
 
         $roles = $this->repoRole->getList(true);
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('users::Users.form',
+        return view('basics::Users.form',
             compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles', 'languages'));
     }
 
@@ -277,12 +277,12 @@ class UsersController extends Controller
         $form = [
             'action' => route('users.update', $id),
             'method' => 'POST',
-            'button' => trans('users::users.save')
+            'button' => trans('basics::users.save')
         ];
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('users::Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons', 'languages'));
+        return view('basics::Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons', 'languages'));
     }
 
     public function update($id)

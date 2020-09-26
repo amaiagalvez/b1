@@ -1,12 +1,12 @@
 <?php
 
-namespace Izt\Users\Tests\Unit;
+namespace Izt\Basics\Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Users\Storage\Eloquent\Models\User;
-use Izt\Users\Storage\Eloquent\Models\Variable;
-use Izt\Users\Tests\TestCase;
+use Izt\Basics\Storage\Eloquent\Models\User;
+use Izt\Basics\Storage\Eloquent\Models\Variable;
+use Izt\Basics\Tests\TestCase;
 
 class VariableTest extends TestCase
 {

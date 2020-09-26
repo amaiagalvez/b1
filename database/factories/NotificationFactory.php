@@ -6,7 +6,7 @@ use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Str;
-use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Basics\Storage\Eloquent\Models\User;
 
 /*
 |--------------------------------------------------------------------------

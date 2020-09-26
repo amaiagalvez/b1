@@ -1,11 +1,11 @@
 <?php
 
-namespace Izt\Users\Http\Controllers\Auth;
+namespace Izt\Basics\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Izt\Users\Http\Controllers\Controller;
+use Izt\Basics\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {

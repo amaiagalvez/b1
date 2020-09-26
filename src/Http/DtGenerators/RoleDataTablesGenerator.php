@@ -1,9 +1,9 @@
 <?php
 
-namespace Izt\Users\Http\DtGenerators;
+namespace Izt\Basics\Http\DtGenerators;
 
 use Illuminate\Database\Eloquent\Builder;
-use Izt\Users\Http\Transformers\RoleTransformer;
+use Izt\Basics\Http\Transformers\RoleTransformer;
 
 class RoleDataTablesGenerator
 {

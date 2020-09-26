@@ -1,9 +1,9 @@
 <?php
 
-namespace Izt\Users\Storage\Interfaces;
+namespace Izt\Basics\Storage\Interfaces;
 
 use Illuminate\Database\Eloquent\Model;
-use Izt\Users\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Eloquent\Models\Role;
 
 /**
  * Class RoleRepository

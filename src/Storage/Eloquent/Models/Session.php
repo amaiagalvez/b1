@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Storage\Eloquent\Models;
+namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

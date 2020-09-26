@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Providers;
+namespace Izt\Basics\Providers;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Izt\Users\ViewComposers\VariablesComposer;
+use Izt\Basics\ViewComposers\VariablesComposer;
 
 class ComposerServiceProvider extends ServiceProvider
 {

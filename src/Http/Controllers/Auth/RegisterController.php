@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Http\Controllers\Auth;
+namespace Izt\Basics\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-use Izt\Users\Http\Controllers\Controller;
-use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Basics\Http\Controllers\Controller;
+use Izt\Basics\Storage\Eloquent\Models\User;
 
 class RegisterController extends Controller
 {

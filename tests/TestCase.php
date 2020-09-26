@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Tests;
+namespace Izt\Basics\Tests;
 
-use Izt\Users\RouteServiceProvider;
-use Izt\Users\Storage\Eloquent\Models\User;
-use Izt\Users\UsersServiceProvider;
+use Izt\Basics\RouteServiceProvider;
+use Izt\Basics\Storage\Eloquent\Models\User;
+use Izt\Basics\UsersServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {

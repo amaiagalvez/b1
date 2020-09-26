@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Notifications;
+namespace Izt\Basics\Notifications;
 
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;

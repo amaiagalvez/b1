@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Tests\Feature\Versions;
+namespace Izt\Basics\Tests\Feature\Versions;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Users\Storage\Eloquent\Models\Version;
-use Izt\Users\Tests\TestCase;
+use Izt\Basics\Storage\Eloquent\Models\Version;
+use Izt\Basics\Tests\TestCase;
 
 class ReadVersionsTest extends TestCase
 {

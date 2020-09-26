@@ -1,8 +1,8 @@
 <?php
 
-namespace Izt\Users\Http\Transformers;
+namespace Izt\Basics\Http\Transformers;
 
-use Izt\Users\Storage\Eloquent\Models\Menu;
+use Izt\Basics\Storage\Eloquent\Models\Menu;
 use League\Fractal\TransformerAbstract;
 
 class MenuTransformer extends TransformerAbstract

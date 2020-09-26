@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Storage\Interfaces;
+namespace Izt\Basics\Storage\Interfaces;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace Izt\Users\Http\Controllers;
+namespace Izt\Basics\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Izt\Users\Http\DtGenerators\SessionDataTablesGenerator;
-use Izt\Users\Http\Transformers\SessionTransformer;
-use Izt\Users\Storage\Eloquent\Models\Session;
-use Izt\Users\Storage\Interfaces\SessionRepositoryInterface;
-use Izt\Users\Storage\Interfaces\UserRepositoryInterface;
+use Izt\Basics\Http\DtGenerators\SessionDataTablesGenerator;
+use Izt\Basics\Http\Transformers\SessionTransformer;
+use Izt\Basics\Storage\Eloquent\Models\Session;
+use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
 
 class SessionsController extends Controller
 {
@@ -79,7 +79,7 @@ class SessionsController extends Controller
             ]
         ];
 
-        return view('users::Sessions.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Sessions.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 }

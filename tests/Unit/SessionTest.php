@@ -1,11 +1,11 @@
 <?php
 
-namespace Izt\Users\Tests\Unit;
+namespace Izt\Basics\Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Users\Storage\Eloquent\Models\Session;
-use Izt\Users\Storage\Eloquent\Models\User;
-use Izt\Users\Tests\TestCase;
+use Izt\Basics\Storage\Eloquent\Models\Session;
+use Izt\Basics\Storage\Eloquent\Models\User;
+use Izt\Basics\Tests\TestCase;
 
 class APPSessionTest extends TestCase
 {

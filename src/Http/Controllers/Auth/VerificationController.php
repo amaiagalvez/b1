@@ -1,13 +1,13 @@
 <?php
 
-namespace Izt\Users\Http\Controllers\Auth;
+namespace Izt\Basics\Http\Controllers\Auth;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Izt\Users\Http\Controllers\Controller;
-use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Basics\Http\Controllers\Controller;
+use Izt\Basics\Storage\Eloquent\Models\User;
 
 class VerificationController extends Controller
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Izt\Users\Http\Controllers\Auth;
+namespace Izt\Basics\Http\Controllers\Auth;
 
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
-use Izt\Users\Http\Controllers\Controller;
+use Izt\Basics\Http\Controllers\Controller;
 
 class ForgotPasswordController extends Controller
 {

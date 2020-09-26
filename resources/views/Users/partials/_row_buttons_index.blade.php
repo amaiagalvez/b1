@@ -1,19 +1,19 @@
 <div class="btn-group" role="group">
-    <a class="btn btn-table" href="{{ route('users.edit', $user->id) }}" title="{{trans('users::users.edit')}}">
+    <a class="btn btn-table" href="{{ route('users.edit', $user->id) }}" title="{{trans('basics::users.edit')}}">
         <span class="fa fa-edit"></span>
     </a>
 
     @if($user->canDelete())
         <form action="{{ route('users.delete', $user->id) }}" method="POST">
             {{ csrf_field() }}
-            <button class="btn btn-table btn-delete" title="{{trans('users::users.delete')}}"
-                    onclick="return confirm('{{trans('users::users.delete_confirmation')}}'); "><span
+            <button class="btn btn-table btn-delete" title="{{trans('basics::users.delete')}}"
+                    onclick="return confirm('{{trans('basics::users.delete_confirmation')}}'); "><span
                         class="fa fa-trash"></span></button>
         </form>
     @else
         <a class="btn btn-table" href="{{ route('users.deactivate', $user->id) }}"
-           title="{{trans('users::users.deactivate')}}"
-           onclick="return confirm('{{trans('users::users.deactivate_confirmation')}}'); ">
+           title="{{trans('basics::users.deactivate')}}"
+           onclick="return confirm('{{trans('basics::users.deactivate_confirmation')}}'); ">
             <span class="fa fa-times"></span>
         </a>
     @endif

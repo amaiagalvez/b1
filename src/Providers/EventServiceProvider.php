@@ -1,9 +1,9 @@
 <?php
 
-namespace Izt\Users\Providers;
+namespace Izt\Basics\Providers;
 
-use Izt\Users\Listeners\LogSuccessfulLogin;
-use Izt\Users\Listeners\LogSuccessfulLogout;
+use Izt\Basics\Listeners\LogSuccessfulLogin;
+use Izt\Basics\Listeners\LogSuccessfulLogout;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\Registered;

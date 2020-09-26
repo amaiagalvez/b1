@@ -1,12 +1,12 @@
 <?php
 
-namespace Izt\Users\Storage\Eloquent\Models;
+namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Izt\Helpers\Http\Presenters\PresentableTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Users\Http\Presenters\VariablePresenter;
+use Izt\Basics\Http\Presenters\VariablePresenter;
 
 class Variable extends Model
 {

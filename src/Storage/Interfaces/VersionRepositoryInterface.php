@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Storage\Interfaces;
+namespace Izt\Basics\Storage\Interfaces;
 
 /**
  * Class VersionRepository

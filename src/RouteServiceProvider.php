@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\RouteServiceProvider
 {
-    protected $namespace = "Izt\Users\Http\Controllers";
+    protected $namespace = "Izt\Basics\Http\Controllers";
 
     public function map()
     {

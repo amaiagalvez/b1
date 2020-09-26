@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Tests\Feature\Variables;
+namespace Izt\Basics\Tests\Feature\Variables;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Users\Storage\Eloquent\Models\Variable;
-use Izt\Users\Tests\TestCase;
+use Izt\Basics\Storage\Eloquent\Models\Variable;
+use Izt\Basics\Tests\TestCase;
 
 class DeleteVariablesTest extends TestCase
 {

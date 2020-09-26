@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Storage\Eloquent\Repositories;
+namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
-use Izt\Users\Storage\Eloquent\Models\Module;
-use Izt\Users\Storage\Interfaces\ModuleRepositoryInterface;
+use Izt\Basics\Storage\Eloquent\Models\Module;
+use Izt\Basics\Storage\Interfaces\ModuleRepositoryInterface;
 
 /**
  * Class ModuleRepository

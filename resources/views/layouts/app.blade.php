@@ -23,11 +23,11 @@
 <body class="c-app">
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
 
-    {{--    @include('users::layouts._partials.menu')--}}
+    {{--    @include('basics::layouts._partials.menu')--}}
 
-    @include('users::layouts._partials.header')
+    @include('basics::layouts._partials.header')
 
-    @include('users::layouts._partials.alerts')
+    @include('basics::layouts._partials.alerts')
 
     <div id="c-body" class="c-body">
         <main id="app" class="c-main">

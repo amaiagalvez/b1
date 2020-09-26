@@ -1,4 +1,4 @@
-<?php namespace Izt\Users\Http\Presenters;
+<?php namespace Izt\Basics\Http\Presenters;
 
 use App;
 use Izt\Helpers\Http\Presenters\AbstractPresenter;

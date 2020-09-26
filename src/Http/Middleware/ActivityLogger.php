@@ -1,11 +1,11 @@
 <?php
 
-namespace Izt\Users\Http\Middleware;
+namespace Izt\Basics\Http\Middleware;
 
 use Carbon\Carbon;
 use Closure;
 use Illuminate\Auth\AuthManager;
-use Izt\Users\Storage\Interfaces\SessionRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;

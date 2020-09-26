@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Notifications;
+namespace Izt\Basics\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

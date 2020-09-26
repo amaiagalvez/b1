@@ -1,8 +1,8 @@
 <?php
 
-namespace Izt\Users\Listeners;
+namespace Izt\Basics\Listeners;
 
-use Izt\Users\Storage\Interfaces\SessionRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;

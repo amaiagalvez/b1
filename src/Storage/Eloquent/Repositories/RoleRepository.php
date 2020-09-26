@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Storage\Eloquent\Repositories;
+namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
-use Izt\Users\Storage\Eloquent\Models\Role;
-use Izt\Users\Storage\Interfaces\RoleRepositoryInterface;
+use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
 
 /**
  * Class RoleRepository

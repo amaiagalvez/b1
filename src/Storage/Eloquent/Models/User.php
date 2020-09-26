@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Storage\Eloquent\Models;
+namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -8,8 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\SecureDeleteTrait;
-use Izt\Users\Notifications\ResetPasswordNotification;
-use Izt\Users\Notifications\UserActivationNotification;
+use Izt\Basics\Notifications\ResetPasswordNotification;
+use Izt\Basics\Notifications\UserActivationNotification;
 
 class User extends Authenticatable implements MustVerifyEmail
 {

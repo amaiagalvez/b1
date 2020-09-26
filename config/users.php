@@ -6,7 +6,7 @@
 
 return [
 
-    'user' => Izt\Users\Storage\Eloquent\Models\User::class,
+    'user' => Izt\Basics\Storage\Eloquent\Models\User::class,
     'redirect_route_after_logout' => 'front.home'
 
 ];

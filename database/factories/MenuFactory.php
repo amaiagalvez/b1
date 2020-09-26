@@ -5,9 +5,9 @@
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
-use Izt\Users\Storage\Eloquent\Models\Menu;
-use Izt\Users\Storage\Eloquent\Models\Module;
-use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Basics\Storage\Eloquent\Models\Menu;
+use Izt\Basics\Storage\Eloquent\Models\Module;
+use Izt\Basics\Storage\Eloquent\Models\User;
 
 /*
 |--------------------------------------------------------------------------

@@ -1,13 +1,13 @@
 <?php
 
-namespace Izt\Users\Http\Validators;
+namespace Izt\Basics\Http\Validators;
 
 use Illuminate\Support\Arr;
 use Izt\Helpers\Http\Validators\AbstractValidator;
 
 /**
  * Class VersionValidator
- * @package Izt\Users\Http\Validators
+ * @package Izt\Basics\Http\Validators
  */
 class VersionValidator extends AbstractValidator
 {

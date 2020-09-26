@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Storage\Eloquent\Repositories;
+namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
-use Izt\Users\Storage\Eloquent\Models\Menu;
-use Izt\Users\Storage\Interfaces\MenuRepositoryInterface;
+use Izt\Basics\Storage\Eloquent\Models\Menu;
+use Izt\Basics\Storage\Interfaces\MenuRepositoryInterface;
 
 /**
  * Class MenuRepository

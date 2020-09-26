@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Http\Controllers\Auth;
+namespace Izt\Basics\Http\Controllers\Auth;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-use Izt\Users\Http\Controllers\Controller;
+use Izt\Basics\Http\Controllers\Controller;
 
 class ResetPasswordController extends Controller
 {

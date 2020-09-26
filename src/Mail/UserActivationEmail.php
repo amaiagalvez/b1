@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Mail;
+namespace Izt\Basics\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Http\Middleware;
+namespace Izt\Basics\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\RedirectResponse;

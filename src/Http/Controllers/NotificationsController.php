@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Users\Http\Controllers;
+namespace Izt\Basics\Http\Controllers;
 
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Auth;

@@ -5,10 +5,10 @@
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
-use Izt\Users\Storage\Eloquent\Models\Module;
-use Izt\Users\Storage\Eloquent\Models\ModuleRole;
-use Izt\Users\Storage\Eloquent\Models\Role;
-use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Basics\Storage\Eloquent\Models\Module;
+use Izt\Basics\Storage\Eloquent\Models\ModuleRole;
+use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Eloquent\Models\User;
 
 /*
 |--------------------------------------------------------------------------

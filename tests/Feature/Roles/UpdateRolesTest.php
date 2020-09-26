@@ -1,13 +1,13 @@
 <?php
 
-namespace Izt\Users\Tests\Feature\Roles;
+namespace Izt\Basics\Tests\Feature\Roles;
 
 use Auth;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Users\Storage\Eloquent\Models\Module;
-use Izt\Users\Storage\Eloquent\Models\Role;
-use Izt\Users\Storage\Eloquent\Models\User;
-use Izt\Users\Tests\TestCase;
+use Izt\Basics\Storage\Eloquent\Models\Module;
+use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Eloquent\Models\User;
+use Izt\Basics\Tests\TestCase;
 
 
 class UpdateRolesTest extends TestCase

@@ -1,9 +1,9 @@
 <?php
 
-namespace Izt\Users\Http\Controllers;
+namespace Izt\Basics\Http\Controllers;
 
-use Izt\Users\Http\Transformers\VersionTransformer;
-use Izt\Users\Storage\Interfaces\VersionRepositoryInterface;
+use Izt\Basics\Http\Transformers\VersionTransformer;
+use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 
@@ -54,7 +54,7 @@ class VersionsController extends Controller
 
         ];
 
-        return view('users::Versions.show', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Versions.show', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 }

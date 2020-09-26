@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Http\Transformers;
+namespace Izt\Basics\Http\Transformers;
 
 use Illuminate\Support\Facades\View;
 use Izt\Helpers\Http\Transformers\BaseTransformer;
-use Izt\Users\Storage\Eloquent\Models\User;
+use Izt\Basics\Storage\Eloquent\Models\User;
 use League\Fractal\TransformerAbstract;
 
 class UserTransformer extends TransformerAbstract
@@ -44,17 +44,17 @@ class UserTransformer extends TransformerAbstract
 
         switch ($this->list_type) {
             case 'index':
-                $data['actions'] = View::make('users::Users.partials._row_buttons_index', compact('user'))->render();
+                $data['actions'] = View::make('basics::Users.partials._row_buttons_index', compact('user'))->render();
                 break;
 
             case 'trash':
                 $data['deleted_at'] = getDataTime($user->deleted_at);
-                $data['actions'] = View::make('users::Users.partials._row_buttons_trash', compact('user'))->render();
+                $data['actions'] = View::make('basics::Users.partials._row_buttons_trash', compact('user'))->render();
                 break;
 
             case 'nonactive':
                 $data['updated_at'] = getDataTime($user->updated_at);
-                $data['actions'] = View::make('users::Users.partials._row_buttons_nonactive',
+                $data['actions'] = View::make('basics::Users.partials._row_buttons_nonactive',
                     compact('user'))->render();
                 break;
 

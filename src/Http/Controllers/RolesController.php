@@ -1,16 +1,16 @@
 <?php
 
-namespace Izt\Users\Http\Controllers;
+namespace Izt\Basics\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Izt\Users\Http\DtGenerators\RoleDataTablesGenerator;
-use Izt\Users\Http\Transformers\RoleTransformer;
-use Izt\Users\Http\Validators\RoleValidator;
-use Izt\Users\Storage\Eloquent\Models\Role;
-use Izt\Users\Storage\Interfaces\ModuleRepositoryInterface;
-use Izt\Users\Storage\Interfaces\RoleRepositoryInterface;
-use Izt\Users\Storage\Interfaces\VariableRepositoryInterface;
+use Izt\Basics\Http\DtGenerators\RoleDataTablesGenerator;
+use Izt\Basics\Http\Transformers\RoleTransformer;
+use Izt\Basics\Http\Validators\RoleValidator;
+use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Interfaces\ModuleRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 
 class RolesController extends Controller
 {
@@ -79,7 +79,7 @@ class RolesController extends Controller
             'trash' => true
         ];
 
-        return view('users::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 
@@ -114,7 +114,7 @@ class RolesController extends Controller
             'trash' => true
         ];
 
-        return view('users::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 
@@ -128,7 +128,7 @@ class RolesController extends Controller
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans('users::users.new')
+                'title' => trans('basics::users.new')
             ]
         ];
 
@@ -140,7 +140,7 @@ class RolesController extends Controller
         $form = [
             'action' => route('roles.store'),
             'method' => 'POST',
-            'button' => trans('users::users.new')
+            'button' => trans('basics::users.new')
         ];
 
         $role_modules = [];
@@ -148,7 +148,7 @@ class RolesController extends Controller
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('users::Roles.form',
+        return view('basics::Roles.form',
             compact('role', 'breadcrumbs', 'form', 'table_buttons', 'role_modules', 'modules', 'languages'));
     }
 
@@ -196,7 +196,7 @@ class RolesController extends Controller
         $form = [
             'action' => route('roles.update', $id),
             'method' => 'POST',
-            'button' => trans('users::users.save')
+            'button' => trans('basics::users.save')
         ];
 
         $role_modules = $this->repoRole->getRoleModules($role);
@@ -205,7 +205,7 @@ class RolesController extends Controller
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
-        return view('users::Roles.form',
+        return view('basics::Roles.form',
             compact('role', 'breadcrumbs', 'form', 'table_buttons', 'role_modules', 'modules', 'languages'));
     }
 

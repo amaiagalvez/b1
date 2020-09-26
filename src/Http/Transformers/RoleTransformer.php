@@ -1,10 +1,10 @@
 <?php
 
-namespace Izt\Users\Http\Transformers;
+namespace Izt\Basics\Http\Transformers;
 
 use Illuminate\Support\Facades\View;
 use Izt\Helpers\Http\Transformers\BaseTransformer;
-use Izt\Users\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Eloquent\Models\Role;
 use League\Fractal\TransformerAbstract;
 
 class RoleTransformer extends TransformerAbstract
@@ -47,12 +47,12 @@ class RoleTransformer extends TransformerAbstract
 
         switch ($this->list_type) {
             case 'index':
-                $data['actions'] = View::make('users::Roles.partials._row_buttons_index', compact('role'))->render();
+                $data['actions'] = View::make('basics::Roles.partials._row_buttons_index', compact('role'))->render();
                 break;
 
             case 'trash':
                 $data['deleted_at'] = getDataTime($role->deleted_at);
-                $data['actions'] = View::make('users::Roles.partials._row_buttons_trash', compact('role'))->render();
+                $data['actions'] = View::make('basics::Roles.partials._row_buttons_trash', compact('role'))->render();
                 break;
 
             default:

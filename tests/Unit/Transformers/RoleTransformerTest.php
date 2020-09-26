@@ -1,12 +1,12 @@
 <?php
 
-namespace Izt\Users\Tests\Unit\Transformers\Admin;
+namespace Izt\Basics\Tests\Unit\Transformers\Admin;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Users\Http\Transformers\RoleTransformer;
-use Izt\Users\Storage\Eloquent\Models\Role;
-use Izt\Users\Storage\Eloquent\Models\User;
-use Izt\Users\Tests\TestCase;
+use Izt\Basics\Http\Transformers\RoleTransformer;
+use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Eloquent\Models\User;
+use Izt\Basics\Tests\TestCase;
 
 class RoleTransformerTest extends TestCase
 {

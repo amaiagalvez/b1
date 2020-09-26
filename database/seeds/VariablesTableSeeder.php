@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Izt\Users\Classes\FieldTypes;
+use Izt\Basics\Classes\FieldTypes;
 
 class VariablesTableSeeder extends Seeder
 {

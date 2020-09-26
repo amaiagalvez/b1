@@ -1,4 +1,4 @@
-<?php namespace Izt\Users\Classes;
+<?php namespace Izt\Basics\Classes;
 
 use Izt\Helpers\Classes\Interfaces\ClassInterface;
 

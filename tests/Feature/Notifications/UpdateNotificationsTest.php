@@ -1,11 +1,11 @@
 <?php
 
-namespace Izt\Users\Tests\Feature\Notifications;
+namespace Izt\Basics\Tests\Feature\Notifications;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\Auth;
-use Izt\Users\Tests\TestCase;
+use Izt\Basics\Tests\TestCase;
 
 class UpdateNotificationsTest extends TestCase
 {
