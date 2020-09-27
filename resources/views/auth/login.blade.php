@@ -20,14 +20,14 @@
                                             <i class="fas fa-at"></i>
                                         </span>
                                     </div>
-                                    <input class="form-control @if('email') is-invalid @endif" type="email"
+                                    <input class="form-control @error('email') is-invalid @enderror" type="email"
                                            placeholder="{{ trans('basics::auth.email') }}" name="email" id="email"
                                            value="{{ old('email') }}" autofocus>
-                                    @if('email')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message ?? '' }}</strong>
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                                    @endif
+                                    @enderror
                                 </div>
                                 <div class="input-group mb-4">
                                     <div class="input-group-prepend">
@@ -35,15 +35,15 @@
                                         <i class="fas fa-unlock-alt"></i>
                                       </span>
                                     </div>
-                                    <input class="form-control @if('password') is-invalid @endif" type="password"
+                                    <input class="form-control @error('password') is-invalid @enderror" type="password"
                                            placeholder="{{ trans('basics::auth.password') }}" name="password"
                                            id="password">
 
-                                    @if('password')
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message ?? '' }}</strong>
+                                        <strong>{{ $message }}</strong>
                                     </span>
-                                    @endif
+                                    @enderror
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
@@ -65,6 +65,7 @@
 
                             </form>
                         </div>
+                        @if(config('basics.oauth', false))
                         <div class="card-footer text-center">
                             <a href="{{route('login.social', 'twitter')}}" class="btn btn-twitter"><i
                                     class="fab fa-twitter"></i> Twitter </a>
@@ -73,6 +74,7 @@
                             <a href="{{route('login.social', 'google')}}" class="btn btn-reddit"><i
                                     class="fab fa-google"></i> Google </a>
                         </div>
+                        @endif
                     </div>
                     <div class="card text-white py-5 d-md-down-none" style="width:44%">
                         <div class="card-body text-center">

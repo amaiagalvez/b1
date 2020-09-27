@@ -70,7 +70,8 @@ trans('basics::basics.home')
 
 In Kernel.php file add this line to protected $middleware
 ```
-\Illuminate\Session\Middleware\StartSession::class,
+\Illuminate\Session\Middleware\StartSession::class, (Session)
+\Illuminate\View\Middleware\ShareErrorsFromSession::class, (@error('email'))
 ```
 
 ## Require

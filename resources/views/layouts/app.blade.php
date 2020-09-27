@@ -17,8 +17,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles_two.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles_helpers.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles_basics.css') }}" rel="stylesheet">
 
     @yield('css')
 
@@ -53,7 +53,8 @@
 {{--<script src="{{ asset('js/theme.js') }}"></script>--}}
 
 <script src="{{ asset('js/datatables.min.js') }}"></script>
-<script src="{{ asset('js/scripts.js') }}"></script>
+<script src="{{ asset('js/scripts_helpers.js') }}"></script>
+<script src="{{ asset('js/scripts_basics.js') }}"></script>
 <script src="{{ asset('js/dt.js') }}"></script>
 
 @yield('scripts')
