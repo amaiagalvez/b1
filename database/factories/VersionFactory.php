@@ -5,7 +5,7 @@
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
-use Izt\Basics\Storage\Eloquent\Models\Module;
+use Izt\Basics\Storage\Eloquent\Models\Application;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Eloquent\Models\Version;
 
@@ -27,29 +27,20 @@ $factory->define(Version::class, function (Faker $faker) {
         $by = $users->random()->id;
     }
 
-    $modules = Module::get();
-    $module_id = 0;
-    if (count($modules) > 0) {
-        $module_id = $modules->random()->id;
-    }
-
-    $versions = Version::whereNull('parent_id')->get();
-    $version_id = 0;
-    if (count($versions) > 0) {
-        $version_id = $versions->random()->id;
-    }
-
     return [
-        'module_id' => $faker->randomElement([null, $module_id]),
+        'application_id' => $faker->randomElement([
+            null,
+            Application::all()
+                ->random()->id
+        ]),
         'name' => $faker->unique()->randomFloat(2, 0, 10),
-        'parent_id' => $faker->randomElement([null, $version_id]),
-        'notes_eu' => $faker->paragraph(3),
-        'notes_es' => $faker->paragraph(3),
-        'notes_fr' => $faker->paragraph(3),
-        'notes_en' => $faker->paragraph(3),
-        'active' => $faker->boolean,
-        'order' => $faker->numberBetween(0, 25),
-        'created_by' => Auth::id() ?? $by,
-        'updated_by' => Auth::id() ?? $by
+        'notes_eu' => $faker->paragraph(3) . ' EU',
+        'notes_es' => $faker->paragraph(3) . ' ES',
+        'notes_fr' => $faker->paragraph(3) . ' FR',
+        'notes_en' => $faker->paragraph(3) . ' EN',
+        'created_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id,
+        'updated_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id
     ];
 });

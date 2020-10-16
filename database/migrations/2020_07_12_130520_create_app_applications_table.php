@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppModulesTable extends Migration
+class CreateAppApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAppModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('APP_modules', function (Blueprint $table) {
+        Schema::create('APP_applications', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('title_eu')
@@ -25,13 +25,25 @@ class CreateAppModulesTable extends Migration
             $table->string('title_en')
                 ->nullable();
 
-            $table->string('name', 30)
-                ->unique()
+            $table->string('icon')
                 ->nullable();
 
             $table->boolean('active')
                 ->index()
                 ->default(1);
+
+            $table->longText('notes_eu')
+                ->nullable();
+            $table->longText('notes_es')
+                ->nullable();
+            $table->longText('notes_fr')
+                ->nullable();
+            $table->longText('notes_en')
+                ->nullable();
+
+            $table->integer('order')
+                ->index()
+                ->default(0);
 
             $table->timestamps();
             $table->softDeletes();
@@ -66,6 +78,6 @@ class CreateAppModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('APP_modules');
+        Schema::dropIfExists('APP_applications');
     }
 }

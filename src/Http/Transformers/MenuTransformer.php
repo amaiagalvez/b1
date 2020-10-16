@@ -32,7 +32,7 @@ class MenuTransformer extends TransformerAbstract
 
         return [
             'id' => $menu->id,
-            'name' => $menu->name,
+            'name' => trans('basics::basics.' . $menu->name),
             'actions' => ''
         ];
 

@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 /* Home */
 
-Route::get('/admin', function () {
-    return 'Home Users package. Hello ' . auth()->user()->name;
-})->name('home');
+Route::get('back', 'BasicsController@home')
+    ->name('basics.home');
 
 /* Users */
 
@@ -71,26 +70,31 @@ Route::post('rolak/{id}/guztiz-ezabatu', 'RolesController@destroy')
     ->name('roles.destroy');
 Route::get('rolak/zakarrontzia', 'RolesController@trash')
     ->name('roles.trash');
+Route::get('rolak/{id}/aktibatu', 'RolesController@activate')
+    ->name('roles.activate');
+Route::get('rolak/{id}/desaktibatu', 'RolesController@deactivate')
+    ->name('roles.deactivate');
+Route::get('rolak/ez-aktiboak', 'RolesController@nonactive')
+    ->name('roles.nonactive');
 
 /* Versions */
 
-Route::get('bertsioak', 'VersionsController@show')
-    ->name('versions.show');
+Route::get('bertsioak', 'VersionsController@index')
+    ->name('versions.index');
 
 /* Notifications */
 
 Route::get('jakinarazpenak', 'NotificationsController@index')
-    ->name('notifications.index')
-    ->middleware([
-        'web',
-        'auth',
-        'userLang'
-    ]);
+    ->name('notifications.index');
 
 Route::post('jakinarazpenak/{notification}', 'NotificationsController@update')
-    ->name('notifications.update')
-    ->middleware([
-        'web',
-        'auth',
-        'userLang'
-    ]);
+    ->name('notifications.update');
+
+/* Menus */
+
+Route::get('menuak', 'MenusController@index')
+    ->name('menus.index');
+Route::get('menuak/{id}', 'MenusController@edit')
+    ->name('menus.edit');
+Route::post('menuak/{id}', 'MenusController@update')
+    ->name('menus.update');

@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Izt\Basics\Storage\Eloquent\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,8 +15,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')
-            ->truncate();
 
         $users = [
             [
@@ -46,7 +45,10 @@ class UsersTableSeeder extends Seeder
             ]
         ];
 
-        DB::table('users')
-            ->insert($users);
+        foreach ($users as $user) {
+            if (!User::where('name', $user['name'])->first()) {
+                DB::table('users')->insert($user);
+            }
+        }
     }
 }

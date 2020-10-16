@@ -4,9 +4,9 @@ namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Izt\Basics\Http\Presenters\VersionPresenter;
 use Izt\Helpers\Http\Presenters\PresentableTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Basics\Http\Presenters\VersionPresenter;
 
 class Version extends Model
 {
@@ -23,15 +23,12 @@ class Version extends Model
      * @var array
      */
     protected $fillable = [
-        'module_id',
+        'application_id',
         'name',
-        'parent_id',
-        'active',
         'notes_eu',
         'notes_es',
         'notes_fr',
         'notes_en',
-        'order',
         'created_by',
         'updated_by',
         'deleted_by'
@@ -52,7 +49,7 @@ class Version extends Model
      * @var array
      */
     protected $casts = [
-        'active' => 'boolean'
+
     ];
 
     protected $presenter = VersionPresenter::class;
@@ -63,15 +60,9 @@ class Version extends Model
 
     /* Relations */
 
-    public function subversions()
+    public function application()
     {
-        return $this->hasMany(Version::class, 'parent_id')->orderBy('order');
+        return $this->belongsTo(Application::class);
     }
 
-    /* Scopes */
-
-    public function scopeMain($query)
-    {
-        return $query->whereNull('parent_id');
-    }
 }

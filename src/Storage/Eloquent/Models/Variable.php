@@ -4,9 +4,9 @@ namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Izt\Basics\Http\Presenters\VariablePresenter;
 use Izt\Helpers\Http\Presenters\PresentableTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Basics\Http\Presenters\VariablePresenter;
 
 class Variable extends Model
 {
@@ -23,7 +23,7 @@ class Variable extends Model
      * @var array
      */
     protected $fillable = [
-        'module_id',
+        'application_id',
         'name',
         'title_eu',
         'title_es',
@@ -31,7 +31,6 @@ class Variable extends Model
         'title_en',
         'value',
         'editable',
-        'development',
         'show',
         'filed_type',
         'active',
@@ -61,9 +60,7 @@ class Variable extends Model
      */
     protected $casts = [
         'editable' => 'boolean',
-        'development' => 'boolean',
-        'show' => 'boolean',
-        'active' => 'boolean'
+        'show' => 'boolean'
     ];
 
     protected $presenter = VariablePresenter::class;
@@ -71,6 +68,13 @@ class Variable extends Model
     use AbstractTrait;
     use PresentableTrait;
     use SoftDeletes;
+
+    /* Relations */
+
+    public function application()
+    {
+        return $this->belongsTo(Application::class);
+    }
 
     /* Scopes */
 
@@ -86,14 +90,6 @@ class Variable extends Model
     {
         if ($value >= 0 && $value <= 1) {
             return $query->where('show', $value);
-        }
-        return $query;
-    }
-
-    public function scopeDevelopment($query, $value)
-    {
-        if ($value >= 0 && $value <= 1) {
-            return $query->where('development', $value);
         }
         return $query;
     }

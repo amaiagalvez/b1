@@ -7,9 +7,16 @@ use Izt\Basics\Storage\Eloquent\Models\Session;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
 
-class APPSessionTest extends TestCase
+class SessionTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('BasicsDatabaseSeeder');
+    }
 
     /** @test */
 

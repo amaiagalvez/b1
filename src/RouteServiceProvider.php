@@ -15,21 +15,21 @@ class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\Rout
         Route::namespace($this->namespace)
             ->group(__DIR__ . '/../routes/web.php');
 
-        $this->adminRoutes();
+        $this->appRoutes();
 
         $this->developerRoutes();
     }
 
-    protected function adminRoutes()
+    protected function appRoutes()
     {
-        Route::middleware(['web', 'auth', 'admin', 'userLang'])
+        Route::middleware(['web', 'auth', 'userLang', 'admin'])
             ->namespace($this->namespace)
-            ->group(__DIR__ . '/../routes/_admin.php');
+            ->group(__DIR__ . '/../routes/_app.php');
     }
 
     protected function developerRoutes()
     {
-        Route::middleware(['web', 'auth', 'admin', 'userLang', 'developer'])
+        Route::middleware(['web', 'auth', 'userLang', 'developer'])
             ->prefix('dev')
             ->namespace($this->namespace)
             ->group(__DIR__ . '/../routes/_dev.php');

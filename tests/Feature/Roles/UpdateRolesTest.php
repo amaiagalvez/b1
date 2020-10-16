@@ -18,7 +18,7 @@ class UpdateRolesTest extends TestCase
     {
         parent::setUp();
 
-        $this->seed('RolesTableSeeder');
+        $this->seed('BasicsDatabaseSeeder');
     }
 
     /** @test */
@@ -117,7 +117,7 @@ class UpdateRolesTest extends TestCase
 
     /** @test */
 
-    public function a_role_name_updated_all_users_will_be_updated()
+    public function when_a_role_name_is_updated_all_users_role_will_be_updated()
     {
         $this->signIn();
 
@@ -127,7 +127,7 @@ class UpdateRolesTest extends TestCase
         $user2 = fCreate(User::class, ['role_name' => $role->name]);
 
         $this->post(route('roles.update', $role->id),
-            ['name' => $role->name.' updated'] + $role->toArray());
+            ['name' => $role->name . ' updated'] + $role->toArray());
 
         $this->assertDatabaseHas('users', [
             'name' => $user1->name,

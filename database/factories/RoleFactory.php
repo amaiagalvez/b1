@@ -5,6 +5,7 @@
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
+use Izt\Basics\Storage\Eloquent\Models\Application;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
 
@@ -21,19 +22,20 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 $factory->define(Role::class, function (Faker $faker) {
 
-    $users = User::get();
-    $by = 0;
-    if (count($users) > 0) {
-        $by = $users->random()->id;
-    }
-
     return [
+        'application_id' => $faker->randomElement([
+            null,
+            Application::all()
+                ->random()->id
+        ]),
         'name' => $faker->unique()->userName,
         'title_eu' => $faker->word,
         'title_es' => $faker->word,
         'title_fr' => $faker->word,
         'title_en' => $faker->word,
-        'created_by' => Auth::id() ?? $by,
-        'updated_by' => Auth::id() ?? $by
+        'created_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id,
+        'updated_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id
     ];
 });

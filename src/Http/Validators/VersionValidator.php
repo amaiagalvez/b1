@@ -21,8 +21,8 @@ class VersionValidator extends AbstractValidator
     public function getInputData()
     {
         return Arr::only($this->inputData, [
-            'name',
-            'parent_id'
+            'application_id',
+            'name'
         ]);
     }
 
@@ -30,14 +30,16 @@ class VersionValidator extends AbstractValidator
      * @var array
      */
     protected $store_rules = [
-        'name' => 'max:30|required_if:parent_id,==,0'
+        'application_id' => 'nullable|exists:APP_applications,id',
+        'name' => 'max:255|required_if:parent_id,==,0'
     ];
 
     /**
      * @var array
      */
     protected $update_rules = [
-        'name' => 'max:30|required_if:parent_id,==,0'
+        'application_id' => 'nullable|exists:APP_applications,id',
+        'name' => 'max:255|required_if:parent_id,==,0'
     ];
 
     /**

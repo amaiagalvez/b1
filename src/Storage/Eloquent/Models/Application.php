@@ -4,18 +4,18 @@ namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Izt\Basics\Http\Presenters\ApplicationPresenter;
 use Izt\Helpers\Http\Presenters\PresentableTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Basics\Http\Presenters\ModulePresenter;
 
-class Module extends Model
+class Application extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'APP_modules';
+    protected $table = 'APP_applications';
 
     /**
      * The attributes that are mass assignable.
@@ -27,8 +27,12 @@ class Module extends Model
         'title_es',
         'title_fr',
         'title_en',
-        'name',
+        'icon',
         'active',
+        'notes_eu',
+        'notes_es',
+        'notes_fr',
+        'notes_en',
         'created_by',
         'updated_by',
         'deleted_by'
@@ -52,7 +56,7 @@ class Module extends Model
         'active' => 'boolean'
     ];
 
-    protected $presenter = ModulePresenter::class;
+    protected $presenter = ApplicationPresenter::class;
 
     use AbstractTrait;
     use PresentableTrait;
@@ -62,17 +66,22 @@ class Module extends Model
 
     public function menus()
     {
-        return $this->hasMany(Menu::class, 'module_id');
+        return $this->hasMany(Menu::class, 'application_id');
     }
 
     public function versions()
     {
-        return $this->hasMany(Version::class, 'module_id');
+        return $this->hasMany(Version::class, 'application_id');
     }
 
     public function roles()
     {
-        return $this->belongsToMany(Role::class, 'APP_modules_roles', 'module_id', 'role_id')->withTimestamps();
+        return $this->hasMany(Role::class, 'application_id');
+    }
+
+    public function variables()
+    {
+        return $this->hasMany(Variable::class, 'application_id');
     }
 
     /* Scopes */

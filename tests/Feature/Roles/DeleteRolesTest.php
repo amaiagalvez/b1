@@ -3,7 +3,6 @@
 namespace Izt\Basics\Tests\Feature\Roles;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Support\Facades\DB;
 use Izt\Basics\Storage\Eloquent\Models\Module;
 use Izt\Basics\Storage\Eloquent\Models\ModuleRole;
 use Izt\Basics\Storage\Eloquent\Models\Role;
@@ -18,7 +17,7 @@ class DeleteRolesTest extends TestCase
     {
         parent::setUp();
 
-        $this->seed('RolesTableSeeder');
+        $this->seed('BasicsDatabaseSeeder');
     }
 
     /** @test */
@@ -166,42 +165,5 @@ class DeleteRolesTest extends TestCase
         $response = $this->post(route('roles.delete', $role->id));
 
         $response->assertStatus(403);
-    }
-
-    /** @test */
-
-    public function delete_role_with_modules_relations_table_will_be_deleted()
-    {
-        $this->signIn();
-
-        $module1 = fCreate(Module::class);
-        $module2 = fCreate(Module::class);
-
-        $role = fMake(Role::class, ['modules' => [$module1->id, $module2->id]]);
-
-        $response = $this->post(route('roles.store'), $role->toArray());
-
-        $new_role = Role::latest('id')->first();
-
-        $response->assertSessionHas('successMessage', trans('helpers::action.store_successfully'));
-
-        DB::statement('PRAGMA foreign_keys=on'); //delete onCascade (sqlite)
-
-        $this->post(route('roles.delete', $new_role->id));
-        $this->post(route('roles.destroy', $new_role->id));
-
-        $this->assertDatabaseMissing('APP_roles', [
-            'id' => $new_role->id
-        ]);
-
-        $this->assertDatabaseMissing('APP_modules_roles', [
-            'role_id' => $new_role->id,
-            'module_id' => $module1->id
-        ]);
-
-        $this->assertDatabaseMissing('APP_modules_roles', [
-            'role_id' => $new_role->id,
-            'module_id' => $module2->id
-        ]);
     }
 }

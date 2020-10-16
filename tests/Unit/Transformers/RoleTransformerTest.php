@@ -12,6 +12,13 @@ class RoleTransformerTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('BasicsDatabaseSeeder');
+    }
+
     /** @test */
 
     public function a_role_must_have_the_necessary_fileds()

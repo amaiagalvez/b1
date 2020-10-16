@@ -3,21 +3,28 @@
 namespace Izt\Basics\Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\Session;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
+use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 
 class UserTest extends TestCase
 {
     use DatabaseMigrations;
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('BasicsDatabaseSeeder');
+    }
+
     /** @test */
 
     public function a_user_is_admin_or_not()
     {
-        $user = fCreate(User::class);
+        $user = fCreate(User::class, ['role_name' => 'admin']);
 
         $this->assertTrue($user->isAdmin());
 

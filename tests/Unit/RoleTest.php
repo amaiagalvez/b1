@@ -3,16 +3,23 @@
 namespace Izt\Basics\Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Basics\Storage\Eloquent\Models\Module;
 use Izt\Basics\Storage\Eloquent\Models\ModuleRole;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
+use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 
 class RoleTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('BasicsDatabaseSeeder');
+    }
 
     /** @test */
 
@@ -26,33 +33,6 @@ class RoleTest extends TestCase
         $this->assertEquals(2, $role->users->count());
 
         $this->assertTrue($role->users->contains($users->first()));
-    }
-
-    /** @test */
-
-    public function a_role_has_many_modules()
-    {
-        $user = fCreate(User::class);
-
-        $module1 = fCreate(Module::class);
-        $module2 = fCreate(Module::class);
-
-        $role = fCreate(Role::class);
-
-        $this->assertEquals(0, $role->modules->count());
-
-        $role_module1 = fCreate(ModuleRole::class, [
-            'role_id' => $role->id,
-            'module_id' => $module1->id
-        ]);
-
-        $role_module2 = fCreate(ModuleRole::class, [
-            'role_id' => $role->id,
-            'module_id' => $module2->id
-        ]);
-
-        $this->assertEquals(2, $role->modules()
-            ->count());
     }
 
     /** @test */

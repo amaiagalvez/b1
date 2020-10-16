@@ -5,8 +5,8 @@
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
+use Izt\Basics\Storage\Eloquent\Models\Application;
 use Izt\Basics\Storage\Eloquent\Models\Menu;
-use Izt\Basics\Storage\Eloquent\Models\Module;
 use Izt\Basics\Storage\Eloquent\Models\User;
 
 /*
@@ -22,16 +22,21 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 $factory->define(Menu::class, function (Faker $faker) {
     return [
-        'module_id' => $faker->randomElement([
+        'application_id' => $faker->randomElement([
             null,
-            Module::all()
+            Application::all()
                 ->random()->id
         ]),
         'name' => $faker->unique()->name,
+        'parent_id' => $faker->randomElement([
+            null,
+            Menu::all()
+                ->random()->id
+        ]),
         'active' => $faker->boolean,
-        'created_by' => Auth::id() ?? User::all()
+        'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,
-        'updated_by' => Auth::id() ?? User::all()
+        'updated_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id
     ];
 });

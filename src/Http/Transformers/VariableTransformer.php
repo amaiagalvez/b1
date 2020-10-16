@@ -49,9 +49,9 @@ class VariableTransformer extends TransformerAbstract
                 $data['value'] = ok_ko_format($variable->value);
                 break;
 
-//            case FieldTypes::LONGTEXT:
-//                $data['value'] = html_entity_decode(e($variable->value));
-//                break;
+            case FieldTypes::LONGTEXT:
+                $data['value'] = html_entity_decode(e($variable->value));
+                break;
 
             case  FieldTypes::NUMBER:
                 $data['value'] = label($variable->value);

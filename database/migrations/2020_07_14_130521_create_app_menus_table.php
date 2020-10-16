@@ -16,13 +16,13 @@ class CreateAppMenusTable extends Migration
         Schema::create('APP_menus', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('module_id')
+            $table->bigInteger('application_id')
                 ->unsigned()
                 ->index()
                 ->nullable();
-            $table->foreign('module_id')
+            $table->foreign('application_id')
                 ->references('id')
-                ->on('APP_modules');
+                ->on('APP_applications');
 
             $table->string('name')
                 ->nullable();

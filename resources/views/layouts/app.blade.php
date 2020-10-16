@@ -12,13 +12,13 @@
 
 
     <!-- Fonts -->
-    <link href="{{ asset('css/fontawesome-free/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('helpers/css/fontawesome-free/all.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('helpers/css/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('helpers/css/styles_helpers.css') }}" rel="stylesheet">
+    <link href="{{ asset('basics/css/styles_basics.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles_helpers.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles_basics.css') }}" rel="stylesheet">
 
     @yield('css')
 
@@ -42,20 +42,18 @@
 </div>
 
 <!-- Scripts -->
+<script src="{{ asset('helpers/js/jquery.min.js') }}"></script>
+<script src="{{ asset('helpers/js/popper.min.js') }}"></script>
+<script src="{{ asset('helpers/js/ckeditor/ckeditor.js') }}"></script>
+
 <script src="{{ asset('js/app.js') }}"></script>
-
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/popper.min.js') }}"></script>
-<script src="{{ asset('js/ckeditor/ckeditor.js') }}"></script>
-
-{!! getLocalizedJS() !!}
 
 {{--<script src="{{ asset('js/theme.js') }}"></script>--}}
 
-<script src="{{ asset('js/datatables.min.js') }}"></script>
-<script src="{{ asset('js/scripts_helpers.js') }}"></script>
-<script src="{{ asset('js/scripts_basics.js') }}"></script>
-<script src="{{ asset('js/dt.js') }}"></script>
+<script src="{{ asset('helpers/js/datatables.min.js') }}"></script>
+<script src="{{ asset('helpers/js/scripts_helpers.js') }}"></script>
+<script src="{{ asset('basics/js/scripts_basics.js') }}"></script>
+<script src="{{ asset('basics/js/dt.js') }}"></script>
 
 @yield('scripts')
 

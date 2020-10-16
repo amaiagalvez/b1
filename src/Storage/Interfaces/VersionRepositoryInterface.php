@@ -9,5 +9,11 @@ namespace Izt\Basics\Storage\Interfaces;
 interface VersionRepositoryInterface
 {
 
+    public function allListed(
+        array $with = null,
+        $order = ['created_at' => 'desc'],
+        array $filters = [],
+        $onlyTrashed = false
+    );
 
 }

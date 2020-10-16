@@ -3,8 +3,8 @@
 namespace Izt\Basics\Http\Transformers;
 
 use Illuminate\Support\Facades\View;
-use Izt\Helpers\Http\Transformers\BaseTransformer;
 use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Helpers\Http\Transformers\BaseTransformer;
 use League\Fractal\TransformerAbstract;
 
 class RoleTransformer extends TransformerAbstract
@@ -32,16 +32,11 @@ class RoleTransformer extends TransformerAbstract
             return [];
         }
 
-        $modules = '';
-        foreach ($role->modules()->get() as $module) {
-            $modules .= label($module->name) . ' ' ?? '';
-        }
 
         $data = [
             'id' => $role->id,
             $role->present()->FieldName('title') => $role->present()->title,
             'name' => $role->name,
-            'modules' => $modules,
             $role->present()->FieldName('notes') => $role->present()->notes,
         ];
 

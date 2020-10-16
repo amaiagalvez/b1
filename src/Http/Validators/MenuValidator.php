@@ -21,6 +21,7 @@ class MenuValidator extends AbstractValidator
     public function getInputData()
     {
         return Arr::only($this->inputData, [
+            'application_id',
             'name',
             'route',
             'icon',
@@ -39,6 +40,7 @@ class MenuValidator extends AbstractValidator
      * @var array
      */
     protected $update_rules = [
+        'application_id' => 'nullable|exists:APP_applications,id',
         'name' => 'required|max:255',
         'route' => 'required|max:255',
         'icon' => 'required|max:255',

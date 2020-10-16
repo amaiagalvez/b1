@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Izt\Basics\Storage\Eloquent\Models\Role;
 
 class RolesTableSeeder extends Seeder
 {
@@ -12,9 +13,6 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('APP_roles')
-            ->truncate();
-
         $roles = [
             [
                 'name' => 'admin',
@@ -38,7 +36,10 @@ class RolesTableSeeder extends Seeder
             ]
         ];
 
-        DB::table('APP_roles')
-            ->insert($roles);
+        foreach ($roles as $role) {
+            if (!Role::where('name', $role['name'])->first()) {
+                DB::table('APP_roles')->insert($role);
+            }
+        }
     }
 }

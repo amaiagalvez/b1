@@ -4,10 +4,10 @@ namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Izt\Basics\Http\Presenters\RolePresenter;
 use Izt\Helpers\Http\Presenters\PresentableTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Helpers\Storage\Eloquent\Traits\SecureDeleteTrait;
-use Izt\Basics\Http\Presenters\RolePresenter;
 
 class Role extends Model
 {
@@ -24,6 +24,7 @@ class Role extends Model
      * @var array
      */
     protected $fillable = [
+        'application_id',
         'title_eu',
         'title_es',
         'title_fr',
@@ -33,6 +34,7 @@ class Role extends Model
         'notes_es',
         'notes_fr',
         'notes_en',
+        'active',
         'created_by',
         'updated_by',
         'deleted_by'
@@ -70,9 +72,19 @@ class Role extends Model
         return $this->hasMany(User::class, 'role_name', 'name');
     }
 
-    public function modules()
+    public function application()
     {
-        return $this->belongsToMany(Module::class, 'APP_modules_roles', 'role_id', 'module_id')->withTimestamps();
+        return $this->belongsTo(Application::class);
+    }
+
+    /* Scopes */
+
+    public function scopeActive($query, $value)
+    {
+        if ($value >= 0 && $value <= 1) {
+            return $query->where('active', $value);
+        }
+        return $query;
     }
 
     /* Functions */
@@ -86,7 +98,6 @@ class Role extends Model
     {
         return $this->role_name === 'web';
     }
-
 
     public function canDelete()
     {

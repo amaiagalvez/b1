@@ -21,7 +21,7 @@ class Menu extends Model
      * @var array
      */
     protected $fillable = [
-        'module_id',
+        'application_id',
         'name',
         'route',
         'icon',
@@ -61,9 +61,9 @@ class Menu extends Model
         return $this->hasMany(Menu::class, 'parent_id')->active(1);
     }
 
-    public function module()
+    public function application()
     {
-        return $this->belongsTo(Module::class);
+        return $this->belongsTo(Application::class);
     }
 
     /* Scopes */

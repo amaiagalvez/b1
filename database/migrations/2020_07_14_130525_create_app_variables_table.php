@@ -16,13 +16,13 @@ class CreateAppVariablesTable extends Migration
         Schema::create('APP_variables', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('module_id')
+            $table->bigInteger('application_id')
                 ->unsigned()
                 ->index()
                 ->nullable();
-            $table->foreign('module_id')
+            $table->foreign('application_id')
                 ->references('id')
-                ->on('APP_modules');
+                ->on('APP_applications');
 
             $table->string('name', 30)
                 ->unique()
@@ -40,18 +40,12 @@ class CreateAppVariablesTable extends Migration
             $table->boolean('editable')
                 ->index()
                 ->default(1);
-            $table->boolean('development')
-                ->index()
-                ->default(0);
             $table->boolean('show')
                 ->index()
                 ->default(1);
             $table->string('filed_type', 10)
                 ->nullable(); //text, number, longtext, boolean, image
 
-            $table->boolean('active')
-                ->index()
-                ->default(1);
             $table->integer('order')
                 ->index()
                 ->default(0);

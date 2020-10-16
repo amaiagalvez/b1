@@ -20,17 +20,12 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 */
 
 $factory->define(DatabaseNotification::class, function (Faker $faker) {
-    $users = User::get();
-    $notifiable_id = 0;
-    if (count($users) > 0) {
-        $notifiable_id = $users->random()->id;
-    }
-
     return [
         'id' => Str::uuid()->toString(),
         'type' => 'App\\Notifications\\Example',
         'notifiable_type' => User::class,
-        'notifiable_id' => $notifiable_id,
+        'notifiable_id' => User::take(5)->get()
+            ->random()->id,
         'data' => [
             'link' => url('/'),
             'message' => $faker->paragraph

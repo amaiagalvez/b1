@@ -10,15 +10,15 @@ use Izt\Basics\Http\Middleware\Developer;
 use Izt\Basics\Http\Middleware\UserLanguage;
 use Izt\Basics\Providers\ComposerServiceProvider;
 use Izt\Basics\Providers\EventServiceProvider;
+use Izt\Basics\Storage\Eloquent\Repositories\ApplicationRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\MenuRepository;
-use Izt\Basics\Storage\Eloquent\Repositories\ModuleRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\RoleRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\SessionRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\UserRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\VariableRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\VersionRepository;
+use Izt\Basics\Storage\Interfaces\ApplicationRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\MenuRepositoryInterface;
-use Izt\Basics\Storage\Interfaces\ModuleRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
@@ -49,16 +49,12 @@ class BasicsServiceProvider extends ServiceProvider
         ], 'izt-basics-config');
 
         $this->publishes([
-            $this->basePath('resources/assets') => resource_path('assets/basics')
+            $this->basePath('resources/assets') => base_path('public/basics')
         ], 'izt-basics-assets');
 
         $this->publishes([
             $this->basePath('database/seeds') => base_path('database/seeds')
         ], 'izt-basics-seeds');
-
-        $this->publishes([
-            $this->basePath('database/migrations') => base_path('database/migrations')
-        ], 'izt-basics-migrations');
 
     }
 
@@ -90,8 +86,8 @@ class BasicsServiceProvider extends ServiceProvider
 
         //ModuleRepository
         $this->app->bind(
-            ModuleRepositoryInterface::class,
-            ModuleRepository::class
+            ApplicationRepositoryInterface::class,
+            ApplicationRepository::class
         );
 
         //MenuRepository

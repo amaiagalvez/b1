@@ -15,7 +15,7 @@ class ReadVariablesTest extends TestCase
     {
         parent::setUp();
 
-        $this->seed('VariablesTableSeeder');
+        $this->seed('BasicsDatabaseSeeder');
     }
 
     /** @test */

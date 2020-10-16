@@ -1,4 +1,4 @@
-@extends('basics::layouts.form_two')
+@extends('basics::layouts.form_one')
 
 @section('title', trans_choice('basics::basics.role', 1))
 
@@ -40,21 +40,6 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="modules">{{ trans_choice('basics::basics.module', 2) }}  </label>
-            <select name="modules[]" class="form-control" required multiple size="{{count($modules)}}">
-                @foreach($modules AS $module)
-                    <option value="{{ $module->id }}"
-                            @if(!is_null(old('modules', $role_modules)) && in_array($module->id, old('modules', $role_modules))) selected="selected" @endif> {{ $module->name }} </option>
-                @endforeach
-            </select>
-            @error('modules')
-            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-            @enderror
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-12">
             <label for="notes">{{ trans('basics::basics.notes') }} </label>
             @foreach($languages AS $lang)
                 @php $notes = 'notes_'.$lang @endphp
@@ -83,5 +68,3 @@
         </div>
     </div>
 @endsection
-
-@include('basics::Roles.form_right')

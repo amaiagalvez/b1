@@ -2,13 +2,15 @@
 
 namespace Izt\Basics\Http\Controllers;
 
+use App\UiComponents\Module_Cc\FeeTrashComponents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Izt\Basics\Http\DtGenerators\RoleDataTablesGenerator;
 use Izt\Basics\Http\Transformers\RoleTransformer;
+use Izt\Basics\Http\UiComponents\RolesComponents;
 use Izt\Basics\Http\Validators\RoleValidator;
 use Izt\Basics\Storage\Eloquent\Models\Role;
-use Izt\Basics\Storage\Interfaces\ModuleRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\ApplicationRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 
@@ -23,7 +25,7 @@ class RolesController extends Controller
      */
     private $repoRole;
     /**
-     * @var ModuleRepositoryInterface
+     * @var ApplicationRepositoryInterface
      */
     private $repoModule;
     /**
@@ -35,13 +37,13 @@ class RolesController extends Controller
      * RolesController constructor.
      * @param Request $request
      * @param RoleRepositoryInterface $repoRole
-     * @param ModuleRepositoryInterface $repoModule
+     * @param ApplicationRepositoryInterface $repoModule
      * @param VariableRepositoryInterface $repoVariable
      */
     public function __construct(
         Request $request,
         RoleRepositoryInterface $repoRole,
-        ModuleRepositoryInterface $repoModule,
+        ApplicationRepositoryInterface $repoModule,
         VariableRepositoryInterface $repoVariable
     ) {
 
@@ -66,18 +68,11 @@ class RolesController extends Controller
             return $roleDataTablesGenerator->get();
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics.role', 2)
-            ]
-        ];
+        $buttonsGenerator = new RolesComponents();
 
-        $table_buttons = [
-            'partial_route' => 'roles',
-            'list' => true,
-            'create' => true,
-            'trash' => true
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsIndex();
+
+        $table_buttons = $buttonsGenerator->prepareButtonsIndex();
 
         return view('basics::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
@@ -98,21 +93,11 @@ class RolesController extends Controller
             return $roleDataTablesGenerator->get();
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics.role', 2),
-                'route' => route('roles.index')
-            ],
-            [
-                'title' => trans_choice('basics.trash', 2)
-            ],
-        ];
+        $buttonsGenerator = new RolesComponents();
 
-        $table_buttons = [
-            'partial_route' => 'roles',
-            'list' => true,
-            'trash' => true
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsTrash();
+
+        $table_buttons = $buttonsGenerator->prepareButtonsTrash();
 
         return view('basics::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
@@ -122,34 +107,20 @@ class RolesController extends Controller
     {
         $role = $this->repoRole->getNew();
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics.role', 2),
-                'route' => route('roles.index')
-            ],
-            [
-                'title' => trans('basics::basics.create')
-            ]
-        ];
+        $buttonsGenerator = new RolesComponents();
 
-        $table_buttons = [
-            'partial_route' => 'roles',
-            'list' => true
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareFormCreate();
 
-        $form = [
-            'action' => route('roles.store'),
-            'method' => 'POST',
-            'button' => trans('helpers::action.create')
-        ];
+        $table_buttons = $buttonsGenerator->prepareFormCreate();
 
-        $role_modules = [];
+        $form = $buttonsGenerator->prepareFormCreate();
+
         $modules = $this->repoModule->allListed([], ['name' => 'ASC']);
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
         return view('basics::Roles.form',
-            compact('role', 'breadcrumbs', 'form', 'table_buttons', 'role_modules', 'modules', 'languages'));
+            compact('role', 'breadcrumbs', 'form', 'table_buttons', 'modules', 'languages'));
     }
 
     public function store()
@@ -163,8 +134,6 @@ class RolesController extends Controller
 
         $role = $this->repoRole->create($this->request->all());
 
-        $this->repoRole->syncModules($role, $this->request->get('modules') ?? []);
-
         return redirect()->route('roles.edit', $role->id);
     }
 
@@ -177,36 +146,20 @@ class RolesController extends Controller
             return abort(403);
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics.role', 2),
-                'route' => route('roles.index')
-            ],
-            [
-                'title' => $role->name
-            ]
-        ];
+        $buttonsGenerator = new RolesComponents();
 
-        $table_buttons = [
-            'partial_route' => 'roles',
-            'list' => true,
-            'create' => true,
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsEdit($role->name);
 
-        $form = [
-            'action' => route('roles.update', $id),
-            'method' => 'POST',
-            'button' => trans('basics::basics.save')
-        ];
+        $table_buttons = $buttonsGenerator->prepareButtonsEdit();
 
-        $role_modules = $this->repoRole->getRoleModules($role);
+        $form = $buttonsGenerator->prepareFormEdit($id);
 
         $modules = $this->repoModule->allListed([], ['name' => 'ASC']);
 
         $languages = getArray($this->repoVariable->getValueByName('lang'));
 
         return view('basics::Roles.form',
-            compact('role', 'breadcrumbs', 'form', 'table_buttons', 'role_modules', 'modules', 'languages'));
+            compact('role', 'breadcrumbs', 'form', 'table_buttons', 'modules', 'languages'));
     }
 
     public function update($id)
@@ -236,8 +189,6 @@ class RolesController extends Controller
                     $user->update(['role_name' => $input['name']]);
                 }
             }
-
-            $this->repoRole->syncModules($role, $input['modules'] ?? []);
 
             $this->repoRole->update($role, $input);
 

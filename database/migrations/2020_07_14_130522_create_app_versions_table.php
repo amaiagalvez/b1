@@ -16,23 +16,17 @@ class CreateAppVersionsTable extends Migration
         Schema::create('APP_versions', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('module_id')
+            $table->bigInteger('application_id')
                 ->unsigned()
                 ->index()
                 ->nullable();
-            $table->foreign('module_id')
+            $table->foreign('application_id')
                 ->references('id')
-                ->on('APP_modules');
+                ->on('APP_applications');
 
-            $table->string('name', 30)
-                ->nullable();
-            $table->unsignedInteger('parent_id')
-                ->index()
+            $table->string('name')
                 ->nullable();
 
-            $table->boolean('active')
-                ->index()
-                ->default(1);
             $table->longText('notes_eu')
                 ->nullable();
             $table->longText('notes_es')
@@ -41,9 +35,7 @@ class CreateAppVersionsTable extends Migration
                 ->nullable();
             $table->longText('notes_en')
                 ->nullable();
-            $table->integer('order')
-                ->index()
-                ->default(0);
+
             $table->timestamps();
             $table->softDeletes();
             $table->bigInteger('created_by')

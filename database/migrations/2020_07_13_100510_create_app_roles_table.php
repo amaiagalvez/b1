@@ -16,16 +16,25 @@ class CreateAppRolesTable extends Migration
         Schema::create('APP_roles', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('title_eu', 30)
+            $table->bigInteger('application_id')
+                ->unsigned()
+                ->index()
                 ->nullable();
-            $table->string('title_es', 30)
-                ->nullable();
-            $table->string('title_fr', 30)
-                ->nullable();
-            $table->string('title_en', 30)
-                ->nullable();
+            $table->foreign('application_id')
+                ->references('id')
+                ->on('APP_applications');
+
             $table->string('name', 30)
                 ->unique()
+                ->nullable();
+
+            $table->string('title_eu')
+                ->nullable();
+            $table->string('title_es')
+                ->nullable();
+            $table->string('title_fr')
+                ->nullable();
+            $table->string('title_en')
                 ->nullable();
 
             $table->longText('notes_eu')
@@ -36,6 +45,9 @@ class CreateAppRolesTable extends Migration
                 ->nullable();
             $table->longText('notes_en')
                 ->nullable();
+            $table->boolean('active')
+                ->index()
+                ->default(1);
             $table->timestamps();
             $table->softDeletes();
             $table->bigInteger('created_by')

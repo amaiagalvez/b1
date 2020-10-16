@@ -20,5 +20,5 @@ interface SessionRepositoryInterface
         $order
     );
 
-    function getYearsList($field);
+    public function getYearsList($field);
 }

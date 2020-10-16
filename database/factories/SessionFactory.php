@@ -20,20 +20,18 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 */
 
 $factory->define(Session::class, function (Faker $faker) {
-    $users = User::get();
-    $by = 0;
-    if (count($users) > 0) {
-        $by = $users->random()->id;
-    }
 
     $startingDate = $faker->dateTimeBetween('this week', '+1 days');
     $endingDate = $faker->dateTimeBetween($startingDate, strtotime('+1 days'));
 
     return [
-        'user_id' => $by,
+        'user_id' => User::take(5)->get()
+            ->random()->id,
         'login_at' => $startingDate,
         'logout_at' => $endingDate,
-        'created_by' => Auth::id() ?? $by,
-        'updated_by' => Auth::id() ?? $by
+        'created_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id,
+        'updated_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id
     ];
 });

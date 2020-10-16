@@ -36,7 +36,6 @@ class VersionTransformer extends TransformerAbstract
             $version->present()->FieldName('notes') => $version->present()->notes,
             'notes' => $version->present()->notes,
             'created_at' => date('Y-m-d', strtotime($version->created_at)),
-            'subversions' => $version->subversions,
             'actions' => ''
         ];
 

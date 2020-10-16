@@ -5,13 +5,13 @@ Basics Management
 - Migrations && Seeds
 - Models
     - Menu
-    - Module
-    - ModuleRole
+    - Application    
     - Role
     - Session
     - User
     - Variable
     - Version
+    
 - Errors views
     
 ## Installation
@@ -22,50 +22,30 @@ composer require izt/Basics
 
 ## Usage
 
-You can publish the configuration file
+You must publish the configuration file in config/basics.php
 
 ```
-php artisan vendor:publish    
+php artisan vendor:publish --force   
 choose the tag izt-basics-config
 ```
 
-You must publish migrations and seeds
+You must publish the seeds
 ```
 php artisan vendor:publish --force    
-choose the tag izt-basics-migrations
 choose the tag izt-basics-seeds
 ```
 To load data, write this in de DatabaseSeeder.php file
 ```
 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
-$this->call(UsersTableSeeder::class);
-$this->call(RolesTableSeeder::class);
-$this->call(VariablesTableSeeder::class);
+$this->call(BasicsDatabaseSeeder::class);
 
 DB::statement('SET FOREIGN_KEY_CHECKS=1');
 ```     
-You can publish the assets
+You can publish the assets in public/basics
 ```
 php artisan vendor:publish   
 choose the tag izt-basics-assets
-```
-In the webpack.mix.js file add
-```
-mix.copyDirectory('resources/assets/basics/css/*', 'public/css');
-mix.copyDirectory('resources/assets/basics/js/*', 'public/js');
-mix.copyDirectory('resources/assets/basics/images/*', 'public/images');
-```
-
-You can publish the translations
-```
-php artisan vendor:publish    
-choose the tag izt-basics-eu
-choose the tag izt-basics-es
-```
-If you don't publish the translations, do this
-```
-trans('basics::basics.home')
 ```
 
 In Kernel.php file add this line to protected $middleware
@@ -76,6 +56,8 @@ In Kernel.php file add this line to protected $middleware
 
 ## Require
 
+- php 7.2
+- laravel 6
 - yajra/laravel-datatables
 - laravel/socialite
 - adamthehutt/laravel-dismissible-tips

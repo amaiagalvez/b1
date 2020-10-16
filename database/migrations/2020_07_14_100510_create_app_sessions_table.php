@@ -23,9 +23,9 @@ class CreateAppSessionsTable extends Migration
                 ->references('id')
                 ->on('users');
 
-            $table->string('user_agent')
-                ->nullable();
             $table->string('session_token')
+                ->nullable();
+            $table->string('user_agent')
                 ->nullable();
             $table->string('ip_address')
                 ->nullable();

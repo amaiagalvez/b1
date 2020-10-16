@@ -3,7 +3,6 @@
 namespace Izt\Basics\Storage\Interfaces;
 
 use Illuminate\Database\Eloquent\Model;
-use Izt\Basics\Storage\Eloquent\Models\Role;
 
 /**
  * Class RoleRepository
@@ -40,9 +39,5 @@ interface RoleRepositoryInterface
     public function destroy($id);
 
     public function secureDelete(Model $model, $relations);
-
-    public function getRoleModules(Role $role);
-
-    public function syncModules(Role $role, array $modules = []);
 
 }

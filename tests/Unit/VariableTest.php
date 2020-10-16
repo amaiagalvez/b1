@@ -3,14 +3,21 @@
 namespace Izt\Basics\Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Eloquent\Models\Variable;
 use Izt\Basics\Tests\TestCase;
+use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
 
 class VariableTest extends TestCase
 {
     use DatabaseMigrations;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('BasicsDatabaseSeeder');
+    }
 
     /** @test */
 

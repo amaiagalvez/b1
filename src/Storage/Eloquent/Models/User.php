@@ -6,10 +6,10 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Helpers\Storage\Eloquent\Traits\SecureDeleteTrait;
 use Izt\Basics\Notifications\ResetPasswordNotification;
 use Izt\Basics\Notifications\UserActivationNotification;
+use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
+use Izt\Helpers\Storage\Eloquent\Traits\SecureDeleteTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -167,7 +167,6 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new ResetPasswordNotification($token));
     }
-
 
     public function sendEmailVerificationNotification()
     {

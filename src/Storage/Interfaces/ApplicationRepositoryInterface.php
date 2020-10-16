@@ -6,7 +6,7 @@ namespace Izt\Basics\Storage\Interfaces;
  * Class ModuleRepository
  * @package App\Storage\Eloquent\Repositories
  */
-interface ModuleRepositoryInterface
+interface ApplicationRepositoryInterface
 {
     public function allListed(
         array $with = null,

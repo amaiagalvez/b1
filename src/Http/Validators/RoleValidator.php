@@ -22,6 +22,7 @@ class RoleValidator extends AbstractValidator
     public function getInputData()
     {
         return Arr::only($this->inputData, [
+            'application_id',
             'name',
             'title_eu',
             'title_es',
@@ -34,6 +35,7 @@ class RoleValidator extends AbstractValidator
      * @var array
      */
     protected $store_rules = [
+        'application_id' => 'nullable|exists:APP_applications,id',
         'name' => 'required|string|max:30|unique:APP_roles,name',
         'title_eu' => 'max:30',
         'title_es' => 'max:30',
@@ -45,6 +47,7 @@ class RoleValidator extends AbstractValidator
      * @var array
      */
     protected $update_rules = [
+        'application_id' => 'nullable|exists:APP_applications,id',
         'name' => 'required|string|max:30',
         'title_eu' => 'max:30',
         'title_es' => 'max:30',

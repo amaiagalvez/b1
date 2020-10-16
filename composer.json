@@ -28,9 +28,13 @@
             "Izt\\Basics\\Tests\\" : "tests/"
         },
         "files": [
-            "database/seeds/VariablesTableSeeder.php",
+            "database/seeds/BasicsDatabaseSeeder.php",
+            "database/seeds/ApplicationTableSeeder.php",
+            "database/seeds/MenusTableSeeder.php",
             "database/seeds/RolesTableSeeder.php",
-            "database/seeds/UsersTableSeeder.php"
+            "database/seeds/UsersTableSeeder.php",
+            "database/seeds/VariablesTableSeeder.php",
+            "database/seeds/VersionTableSeeder.php"
         ]
     },
     "extra": {

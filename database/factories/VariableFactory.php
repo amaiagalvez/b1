@@ -6,6 +6,7 @@ use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
 use Izt\Basics\Classes\FieldTypes;
+use Izt\Basics\Storage\Eloquent\Models\Application;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Eloquent\Models\Variable;
 
@@ -21,13 +22,13 @@ use Izt\Basics\Storage\Eloquent\Models\Variable;
 */
 
 $factory->define(Variable::class, function (Faker $faker) {
-    $users = User::get();
-    $by = 0;
-    if (count($users) > 0) {
-        $by = $users->random()->id;
-    }
 
     return [
+        'application_id' => $faker->randomElement([
+            null,
+            Application::all()
+                ->random()->id
+        ]),
         'name' => $faker->unique()->name,
         'title_eu' => $faker->name . 'EU',
         'title_es' => $faker->name . 'ES',
@@ -35,12 +36,12 @@ $factory->define(Variable::class, function (Faker $faker) {
         'title_en' => $faker->name . 'EN',
         'value' => $faker->name,
         'editable' => $faker->boolean,
-        'development' => $faker->boolean,
         'show' => $faker->boolean,
         'filed_type' => FieldTypes::TEXT,
-        'active' => $faker->boolean,
         'order' => $faker->numberBetween(0, 25),
-        'created_by' => Auth::id() ?? $by,
-        'updated_by' => Auth::id() ?? $by
+        'created_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id,
+        'updated_by' => Auth::id() ?? User::take(5)->get()
+                ->random()->id
     ];
 });
