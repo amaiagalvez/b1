@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /* Home */
 
-Route::get('kudeaketa', 'BasicsController@home')
+Route::get('home', 'BasicsController@home')
     ->name('basics.home');
 
 /* Users */

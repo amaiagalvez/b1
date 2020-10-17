@@ -13,7 +13,9 @@
         </div>
 
         @include('basics::layouts._partials.validation_errors')
+        @include('basics::layouts._partials.alerts')
         {{--        TODO: kendu hau--}}
+
         <div class="row">
             <div class="col-md-6">
 

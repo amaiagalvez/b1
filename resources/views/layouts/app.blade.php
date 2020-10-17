@@ -10,7 +10,6 @@
 
     <title>{{ $app_name }} :: @yield('title') </title>
 
-
     <!-- Fonts -->
     <link href="{{ asset('helpers/css/fontawesome-free/all.min.css') }}" rel="stylesheet" type="text/css">
 

@@ -57,7 +57,6 @@ class BasicsServiceProvider extends ServiceProvider
         $this->publishes([
             $this->basePath('database/seeds') => base_path('database/seeds')
         ], 'izt-basics-seeds');
-
     }
 
     public function register()

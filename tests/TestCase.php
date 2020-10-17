@@ -8,8 +8,6 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
-    //TODO: aldagai batekin kontrolatu migrations
-
     public function setUp(): void
     {
         parent::setUp();
