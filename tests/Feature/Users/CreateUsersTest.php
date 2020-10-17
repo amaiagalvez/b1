@@ -11,7 +11,7 @@ class CreateUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
-    /** @test */
+/** @test */
 
     public function user_create_load_ok()
     {

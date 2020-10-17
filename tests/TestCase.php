@@ -10,6 +10,13 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     //TODO: aldagai batekin kontrolatu migrations
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed('BasicsDatabaseSeeder');
+    }
+
     protected function getEnvironmentSetUp($app)
     {
         testEnviroment($app);

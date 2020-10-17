@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
         ];
 
         foreach ($users as $user) {
-            if (!User::where('name', $user['name'])->first()) {
+            if (!User::where('id', $user['id'])->first()) {
                 DB::table('users')->insert($user);
             }
         }

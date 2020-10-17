@@ -34,6 +34,8 @@ return [
     'resend_activation_email' => 'Birbidali aktibatzeko emaila',
     'activation_successfully' => 'Zure erabiltzailea ondo aktibatu da',
 
+    'profile' => 'Profila',
+
     'loginAs' => 'Logeatu erabiltzaile honekin',
     'logoutAs' => 'Itzuli Garapenera',
 

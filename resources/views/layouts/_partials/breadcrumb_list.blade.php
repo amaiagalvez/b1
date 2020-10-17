@@ -12,7 +12,6 @@
                     </a>
                 </li>
             @endforeach
-            @tip(['tip' => 'breadcrumb.list'])
         </ol>
     </div>
 

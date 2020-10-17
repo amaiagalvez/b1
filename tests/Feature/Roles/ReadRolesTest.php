@@ -10,14 +10,7 @@ class ReadRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function role_index_load_ok()
     {

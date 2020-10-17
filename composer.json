@@ -12,7 +12,6 @@
         "php": "^7.2",
         "yajra/laravel-datatables": "^1.5",
         "laravel/socialite": "^4.4",
-        "adamthehutt/laravel-dismissible-tips": "^0.4.0",
         "izt/helpers": "^1.0"
     },
     "require-dev": {

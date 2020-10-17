@@ -11,14 +11,7 @@ class LoginTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function not_logged_user_is_redirected_to_login_form()
     {

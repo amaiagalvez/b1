@@ -32,13 +32,12 @@ class VersionsController extends Controller
         $this->fractal = $fractal;
     }
 
-    public function show()
+    public function index()
     {
         $list_type = 'show';
 
-        $versions = $this->repoVersion->allListed(['subversions'],
-            ['id' => 'ASC'],
-            ['main' => true]);
+        $versions = $this->repoVersion->allListed(null,
+            ['id' => 'ASC']);
 
         $versionsCollection = new Collection($versions, new VersionTransformer($list_type));
         $versions = $this->fractal->createData($versionsCollection)->toArray();
@@ -50,9 +49,7 @@ class VersionsController extends Controller
             ]
         ];
 
-        $table_buttons = [
-
-        ];
+        $table_buttons = [];
 
         return view('basics::Versions.show', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
     }

@@ -3,7 +3,6 @@
 namespace Izt\Basics\Tests\Feature\Sessions;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\Session;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
@@ -12,14 +11,7 @@ class ReadSessionsTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('RolesTableSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function session_index_load_ok()
     {

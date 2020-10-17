@@ -2,17 +2,14 @@
 
 namespace Izt\Basics\Http\Controllers;
 
-use App\UiComponents\Module_Cc\FeeTrashComponents;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Izt\Basics\Http\DtGenerators\RoleDataTablesGenerator;
 use Izt\Basics\Http\Transformers\RoleTransformer;
-use Izt\Basics\Http\UiComponents\RolesComponents;
+use Izt\Basics\Http\UIComponents\RolesComponents;
 use Izt\Basics\Http\Validators\RoleValidator;
 use Izt\Basics\Storage\Eloquent\Models\Role;
-use Izt\Basics\Storage\Interfaces\ApplicationRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
-use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 
 class RolesController extends Controller
 {
@@ -24,33 +21,19 @@ class RolesController extends Controller
      * @var RoleRepositoryInterface
      */
     private $repoRole;
-    /**
-     * @var ApplicationRepositoryInterface
-     */
-    private $repoModule;
-    /**
-     * @var VariableRepositoryInterface
-     */
-    private $repoVariable;
 
     /**
      * RolesController constructor.
      * @param Request $request
      * @param RoleRepositoryInterface $repoRole
-     * @param ApplicationRepositoryInterface $repoModule
-     * @param VariableRepositoryInterface $repoVariable
      */
     public function __construct(
         Request $request,
-        RoleRepositoryInterface $repoRole,
-        ApplicationRepositoryInterface $repoModule,
-        VariableRepositoryInterface $repoVariable
+        RoleRepositoryInterface $repoRole
     ) {
 
         $this->request = $request;
         $this->repoRole = $repoRole;
-        $this->repoModule = $repoModule;
-        $this->repoVariable = $repoVariable;
     }
 
     public function index()
@@ -77,6 +60,33 @@ class RolesController extends Controller
         return view('basics::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
+    public function nonactive()
+    {
+        $list_type = 'nonactive';
+
+        $filters = [
+            'active' => 0
+        ];
+
+        if ($this->request->wantsJson()) {
+            $query = $this->repoRole->applyFiltersAndOrderQuery(
+                Role::with(['updatedBy']), false, $filters, []);
+
+            $roleDataTablesGenerator = new RoleDataTablesGenerator(
+                $query,
+                new RoleTransformer($list_type));
+
+            return $roleDataTablesGenerator->get();
+        }
+
+        $buttonsGenerator = new RolesComponents();
+
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsNonActive();
+
+        $table_buttons = $buttonsGenerator->prepareButtonsNonActive();
+
+        return view('basics::Roles.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
+    }
 
     public function trash()
     {
@@ -109,18 +119,14 @@ class RolesController extends Controller
 
         $buttonsGenerator = new RolesComponents();
 
-        $breadcrumbs = $buttonsGenerator->prepareFormCreate();
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsCreate();
 
-        $table_buttons = $buttonsGenerator->prepareFormCreate();
+        $table_buttons = $buttonsGenerator->prepareButtonsCreate();
 
         $form = $buttonsGenerator->prepareFormCreate();
 
-        $modules = $this->repoModule->allListed([], ['name' => 'ASC']);
-
-        $languages = getArray($this->repoVariable->getValueByName('lang'));
-
         return view('basics::Roles.form',
-            compact('role', 'breadcrumbs', 'form', 'table_buttons', 'modules', 'languages'));
+            compact('role', 'breadcrumbs', 'form', 'table_buttons'));
     }
 
     public function store()
@@ -154,12 +160,8 @@ class RolesController extends Controller
 
         $form = $buttonsGenerator->prepareFormEdit($id);
 
-        $modules = $this->repoModule->allListed([], ['name' => 'ASC']);
-
-        $languages = getArray($this->repoVariable->getValueByName('lang'));
-
         return view('basics::Roles.form',
-            compact('role', 'breadcrumbs', 'form', 'table_buttons', 'modules', 'languages'));
+            compact('role', 'breadcrumbs', 'form', 'table_buttons'));
     }
 
     public function update($id)
@@ -224,4 +226,13 @@ class RolesController extends Controller
         return $this->repoRole->destroy($id);
     }
 
+    public function activate($id)
+    {
+        return $this->repoRole->activate($id);
+    }
+
+    public function deactivate($id)
+    {
+        return $this->repoRole->deactivate($id);
+    }
 }

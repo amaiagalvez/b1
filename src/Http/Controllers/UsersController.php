@@ -199,10 +199,9 @@ class UsersController extends Controller
         ];
 
         $roles = $this->repoRole->getList(true);
-        $languages = getArray($this->repoVariable->getValueByName('lang'));
 
         return view('basics::Users.form',
-            compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles', 'languages'));
+            compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles'));
     }
 
     public function store()
@@ -249,10 +248,9 @@ class UsersController extends Controller
         ];
 
         $roles = $this->repoRole->getList(true);
-        $languages = getArray($this->repoVariable->getValueByName('lang'));
 
         return view('basics::Users.form',
-            compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles', 'languages'));
+            compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles'));
     }
 
     public function profile()
@@ -280,9 +278,7 @@ class UsersController extends Controller
             'button' => trans('helpers::action.save')
         ];
 
-        $languages = getArray($this->repoVariable->getValueByName('lang'));
-
-        return view('basics::Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons', 'languages'));
+        return view('basics::Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons'));
     }
 
     public function update($id)

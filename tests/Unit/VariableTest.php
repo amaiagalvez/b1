@@ -12,14 +12,7 @@ class VariableTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function a_variable_has_a_value()
     {

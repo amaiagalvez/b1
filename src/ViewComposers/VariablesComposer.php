@@ -30,7 +30,7 @@ class VariablesComposer
 
         $languages = Cache::remember('languages', 1440, function () {
 
-            return explode(',', $this->repoVariable->getValueByName('lang'));
+            return getArray($this->repoVariable->getValueByName('lang'));
 
         });
 

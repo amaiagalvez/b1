@@ -4,7 +4,6 @@ namespace Izt\Basics\Tests\Feature\Roles;
 
 use Auth;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Basics\Storage\Eloquent\Models\Module;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
@@ -14,14 +13,7 @@ class UpdateRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function role_edit_load_ok()
     {
@@ -123,25 +115,28 @@ class UpdateRolesTest extends TestCase
 
         $role = fCreate(Role::class);
 
-        $user1 = fCreate(User::class);
+        $user1 = fCreate(User::class, ['role_name' => 'admin']);
         $user2 = fCreate(User::class, ['role_name' => $role->name]);
 
         $this->post(route('roles.update', $role->id),
-            ['name' => $role->name . ' updated'] + $role->toArray());
+            ['name' => 'name updated'] + $role->toArray());
 
         $this->assertDatabaseHas('users', [
+            'id' => $user1->id,
             'name' => $user1->name,
             'role_name' => $user1->role_name
         ]);
 
         $this->assertDatabaseMissing('users', [
+            'id' => $user2->id,
             'name' => $user2->name,
             'role_name' => $user2->role_name
         ]);
 
         $this->assertDatabaseHas('users', [
+            'id' => $user2->id,
             'name' => $user2->name,
-            'role_name' => $role->name.' updated'
+            'role_name' => 'name updated'
         ]);
 
     }
@@ -171,46 +166,5 @@ class UpdateRolesTest extends TestCase
             ['name' => 'role name updated'] + $role->toArray());
 
         $response->assertStatus(403);
-    }
-
-    /** @test */
-
-    public function update_role_with_modules()
-    {
-        $this->signIn();
-
-        $module1 = fCreate(Module::class);
-        $module2 = fCreate(Module::class);
-        $module3 = fCreate(Module::class);
-
-        $role = fMake(Role::class, ['modules' => [$module1->id, $module2->id]]);
-
-        $response = $this->post(route('roles.store'), $role->toArray());
-
-        $new_role = Role::latest('id')->first();
-
-        $response->assertSessionHas('successMessage', trans('helpers::action.store_successfully'));
-
-        $this->post(route('roles.update', $new_role->id),
-            ['modules' => [$module3->id]] + $new_role->toArray());
-
-        $this->assertDatabaseHas('APP_roles', [
-            'name' => $new_role->name
-        ]);
-
-        $this->assertDatabaseMissing('APP_modules_roles', [
-            'role_id' => $new_role->id,
-            'module_id' => $module1->id
-        ]);
-
-        $this->assertDatabaseMissing('APP_modules_roles', [
-            'role_id' => $new_role->id,
-            'module_id' => $module2->id
-        ]);
-
-        $this->assertDatabaseHas('APP_modules_roles', [
-            'role_id' => $new_role->id,
-            'module_id' => $module3->id
-        ]);
     }
 }

@@ -19,8 +19,18 @@ class VersionTableSeeder extends Seeder
             [
                 'application_id' => 1,
                 'name' => '1.0',
-                'notes_eu' => 'Erabiltzaileen, Rolen eta Menuen kudeaketa basikoa',
-                'notes_es' => 'Gestión básica de usuarios, roles y menús',
+                'notes_eu' => 'Erabiltzaileen kudeaketa basikoa. <br> Erabiltzaileeen saioak gordetzen dira',
+                'notes_es' => 'Gestión básica de usuarias. <br> Se guardan las sesiones de las usuarias',
+                'created_at' => '2020-10-01',
+                'updated_at' => '2020-10-01',
+                'created_by' => 1
+            ],
+
+            [
+                'application_id' => 1,
+                'name' => '1.0.1',
+                'notes_eu' => 'Rolen kudeaketa basikoa (Admin bai/ez). <br> Aplikazioa modu basiko batean konfiguratzeko aldagaien kudeaketa (izena, logoa, ...)',
+                'notes_es' => 'Gestión básica de roles (Admin si/no). <br> Gestión de variables para la configuración básica de la aplicación (nombre, logo, ...)',
                 'created_at' => '2020-10-01',
                 'updated_at' => '2020-10-01',
                 'created_by' => 1

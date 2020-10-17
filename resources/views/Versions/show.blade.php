@@ -24,7 +24,7 @@
                                         <a data-toggle="collapse" href="#collapse{{$version['id']}}"
                                            aria-expanded="true"
                                            aria-controls="collapseOne" class="not-text-decoration">
-                                            {!! label($version['name']) !!} {{$version['notes']}}
+                                            {!! label($version['name']) !!}
                                         </a>
                                         <small
                                                 style="float: right">{{$version['created_at']}}</small>
@@ -34,9 +34,7 @@
                                      role="tabpanel" aria-labelledby="heading{{$version['id']}}"
                                      data-parent="#accordion" style="">
                                     <div class="card-body">
-                                        @foreach($version['subversions'] AS $subversion)
-                                            <br> <i class="fas fa-check"></i> {{$subversion->present()->notes}}
-                                        @endforeach
+                                        {!! $version['notes']  !!}
                                     </div>
                                 </div>
                             </div>

@@ -4,6 +4,7 @@ namespace Izt\Basics\Providers;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Izt\Basics\ViewComposers\MenuComposer;
 use Izt\Basics\ViewComposers\VariablesComposer;
 
 class ComposerServiceProvider extends ServiceProvider
@@ -17,7 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
 
         View::composer('*', VariablesComposer::class);
-
+        View::composer('*', MenuComposer::class);
     }
 
     /**

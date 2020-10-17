@@ -96,7 +96,12 @@ class Role extends Model
 
     public function isWebUser()
     {
-        return $this->role_name === 'web';
+        return $this->name === 'web';
+    }
+
+    public function canEdit()
+    {
+        return !$this->isAdmin() && !$this->isWebUser();
     }
 
     public function canDelete()

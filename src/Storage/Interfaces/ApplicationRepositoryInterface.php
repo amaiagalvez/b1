@@ -3,7 +3,7 @@
 namespace Izt\Basics\Storage\Interfaces;
 
 /**
- * Class ModuleRepository
+ * Class ApplicationRepository
  * @package App\Storage\Eloquent\Repositories
  */
 interface ApplicationRepositoryInterface

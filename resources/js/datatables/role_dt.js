@@ -13,7 +13,6 @@ function initRoleDataTables(list_type, lang, route_index, route_trash) {
             {title: "", data: "actions", name: "actions", orderable: false, searchable: false, width: "10%"},
             {title: roleWords.rola, data: field_title, name: field_title},
             {title: roleWords.short_name, data: "name", name: "name"},
-            {title: roleWords.modules, data: "modules", name: "modules", orderable: false, searchable: false},
             {title: dtWords.notes, data: field_notes, name: field_notes, width: "20%"}
         ];
 
@@ -37,7 +36,7 @@ function initRoleDataTables(list_type, lang, route_index, route_trash) {
     }
 
     window.dtOptions.language = lang;
-    window.dtOptions.oLanguage.sUrl = "/js/dt_" + lang + ".json";
+    window.dtOptions.oLanguage.sUrl = "/helpers/js/dt_" + lang + ".json";
     window.dtOptions.serverSide = true;
     window.dtOptions.order = [1, 'asc']; //name
 

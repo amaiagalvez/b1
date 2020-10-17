@@ -13,12 +13,13 @@
         </div>
 
         @include('basics::layouts._partials.validation_errors')
+        @include('basics::layouts._partials.alerts')
         {{--        TODO: kendu hau--}}
 
         <div class="row">
             <div class="col-md-12">
 
-                <form method="{{$form['method']}}" action="{{ $form['action'] }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ $form['action'] }}" enctype="multipart/form-data">
                     @csrf
 
                     @yield('form')
@@ -35,8 +36,6 @@
 
                 <div class="col-md-6 my-5">
                     @yield('info')
-
-                    @tip(['tip' => 'form.info'])
                 </div>
 
             </div>

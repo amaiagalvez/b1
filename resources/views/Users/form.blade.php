@@ -37,7 +37,7 @@
             <label for="lang">{{ trans('basics::basics.lang') }} @asterisk() </label>
             <select id="lang" name="lang" class="form-control @error('lang') is-invalid @enderror" required>
                 <option value="">--</option>
-                @foreach($languages AS $language)
+                @foreach($languages AS $key => $language)
                     <option value="{{ $language }}"
                             @if(! is_null(old('lang', $user->lang)) && $language === old('lang', $user->lang)) selected="selected" @endif> {{ $language }} </option>
                 @endforeach
@@ -105,9 +105,9 @@
 
     <div class="form-row">
         <div class="form-group col-md-12 card-accent-secondary">
-            <span>{{ trans('basics::basics.created') }}: {{date($user->created_at)}} {{$user->createdBy->name ?? ''}}</span>
+            <span>{{ trans('helpers::action.created') }}: {{date($user->created_at)}} {{$user->createdBy->name ?? ''}}</span>
             <br>
-            <span>{{ trans('basics::basics.updated') }}: {{date($user->updated_at)}} {{$user->updatedBy->name ?? ''}}</span>
+            <span>{{ trans('helpers::action.updated') }}: {{date($user->updated_at)}} {{$user->updatedBy->name ?? ''}}</span>
         </div>
     </div>
 

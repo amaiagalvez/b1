@@ -4,37 +4,39 @@ use Illuminate\Support\Facades\Route;
 
 /* Home */
 
-Route::get('back', 'BasicsController@home')
+Route::get('kudeaketa', 'BasicsController@home')
     ->name('basics.home');
 
 /* Users */
+Route::middleware(['activityLog'])->group(function () {
 
-Route::get('erabiltzaileak', 'UsersController@index')
-    ->name('users.index');
-Route::get('erabiltzaileak/profila', 'UsersController@profile')
-    ->name('users.profile');
-Route::get('erabiltzaileak/{id}', 'UsersController@edit')
-    ->name('users.edit');
-Route::post('erabiltzaileak/{id}', 'UsersController@update')
-    ->name('users.update');
-Route::get('erabiltzaileak/sortu', 'UsersController@create')
-    ->name('users.create');
-Route::post('erabiltzaileak/sortu', 'UsersController@store')
-    ->name('users.store');
-Route::post('erabiltzaileak/{id}/ezabatu', 'UsersController@delete')
-    ->name('users.delete');
-Route::get('erabiltzaileak/{id}/berreskuratu', 'UsersController@restore')
-    ->name('users.restore');
-Route::post('erabiltzaileak/{id}/guztiz-ezabatu', 'UsersController@destroy')
-    ->name('users.destroy');
-Route::get('erabiltzaileak/zakarrontzia', 'UsersController@trash')
-    ->name('users.trash');
-Route::get('erabiltzaileak/{id}/aktibatu', 'UsersController@activate')
-    ->name('users.activate');
-Route::get('erabiltzaileak/{id}/desaktibatu', 'UsersController@deactivate')
-    ->name('users.deactivate');
-Route::get('erabiltzaileak/ez-aktiboak', 'UsersController@nonactive')
-    ->name('users.nonactive');
+    Route::get('erabiltzaileak', 'UsersController@index')
+        ->name('users.index');
+    Route::get('erabiltzaileak/profila', 'UsersController@profile')
+        ->name('users.profile');
+    Route::get('erabiltzaileak/{id}', 'UsersController@edit')
+        ->name('users.edit');
+    Route::post('erabiltzaileak/{id}', 'UsersController@update')
+        ->name('users.update');
+    Route::get('erabiltzaileak/sortu', 'UsersController@create')
+        ->name('users.create');
+    Route::post('erabiltzaileak/sortu', 'UsersController@store')
+        ->name('users.store');
+    Route::post('erabiltzaileak/{id}/ezabatu', 'UsersController@delete')
+        ->name('users.delete');
+    Route::get('erabiltzaileak/{id}/berreskuratu', 'UsersController@restore')
+        ->name('users.restore');
+    Route::post('erabiltzaileak/{id}/guztiz-ezabatu', 'UsersController@destroy')
+        ->name('users.destroy');
+    Route::get('erabiltzaileak/zakarrontzia', 'UsersController@trash')
+        ->name('users.trash');
+    Route::get('erabiltzaileak/{id}/aktibatu', 'UsersController@activate')
+        ->name('users.activate');
+    Route::get('erabiltzaileak/{id}/desaktibatu', 'UsersController@deactivate')
+        ->name('users.deactivate');
+    Route::get('erabiltzaileak/ez-aktiboak', 'UsersController@nonactive')
+        ->name('users.nonactive');
+});
 
 /* Variables */
 

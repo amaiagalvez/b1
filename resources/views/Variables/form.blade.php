@@ -54,11 +54,6 @@
 
 @section ('info')
 
-    <div class="form-row">
-        <div class="form-group col-md-12 card-accent-secondary">
-            <span>{{ trans('basics::basics.updated') }}
-                : {{date($variable->updated_at)}} {{$variable->updatedBy->name ?? ''}}</span>
-        </div>
-    </div>
+   @include('basics::layouts._partials.form_info', ['register' => $variable])
 
 @endsection

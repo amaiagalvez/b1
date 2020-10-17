@@ -3,7 +3,6 @@
 namespace Izt\Basics\Tests\Feature\Roles;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Basics\Storage\Eloquent\Models\Module;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Tests\TestCase;
 
@@ -11,14 +10,7 @@ class CreateRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function role_create_load_ok()
     {

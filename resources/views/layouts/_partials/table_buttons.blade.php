@@ -1,7 +1,5 @@
 <div class="btn-group float-right" style="margin-top: -20px; margin-bottom: 10px">
 
-    @tip(['tip' => 'table.buttons'])
-
     @if(isset($table_buttons['partial_route']))
         @if($table_buttons['list'] ?? false)
             <a class="btn btn-secondary btn-sm mr-2" href="{{route($table_buttons['partial_route'].'.index')}}"

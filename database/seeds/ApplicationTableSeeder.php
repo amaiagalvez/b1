@@ -18,8 +18,8 @@ class ApplicationTableSeeder extends Seeder
         $applications = [
             [
                 'id' => 1,
-                'title_eu' => 'Erabiltzaileak, Rolak eta Menuak',
-                'title_es' => 'Usuarios, Roles y Menús',
+                'title_eu' => 'Kudeaketa',
+                'title_es' => 'Gestión',
                 'notes_eu' => 'Erabiltzaileen, Rolen eta Menuen kudeaketa',
                 'notes_es' => 'Gestión de usuarios, roles y menús',
                 'created_at' => date('Y-m-d H:i:d'),

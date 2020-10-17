@@ -5,6 +5,7 @@ namespace Izt\Basics;
 use Config;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Izt\Basics\Http\Middleware\ActivityLogger;
 use Izt\Basics\Http\Middleware\Admin;
 use Izt\Basics\Http\Middleware\Developer;
 use Izt\Basics\Http\Middleware\UserLanguage;
@@ -43,6 +44,7 @@ class BasicsServiceProvider extends ServiceProvider
         $router->middlewareGroup('admin', [Admin::class]);
         $router->middlewareGroup('developer', [Developer::class]);
         $router->middlewareGroup('userLang', [UserLanguage::class]);
+        $router->middlewareGroup('activityLog', [ActivityLogger::class]);
 
         $this->publishes([
             $this->basePath('config/basics.php') => base_path('config/basics.php')
@@ -84,7 +86,7 @@ class BasicsServiceProvider extends ServiceProvider
             RoleRepository::class
         );
 
-        //ModuleRepository
+        //ApplicationRepository
         $this->app->bind(
             ApplicationRepositoryInterface::class,
             ApplicationRepository::class

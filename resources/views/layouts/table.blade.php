@@ -13,12 +13,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                @tip(['tip' => 'table.filters'])
-
                 <div class="table-responsive">
-
-                    @tip(['tip' => 'table.find', 'align' => 'right'])
-                    @tip(['tip' => 'table.order'])
 
                     <table class="table table-striped table-bordered table-hover table-condensed"
                            id="dt_ajx">

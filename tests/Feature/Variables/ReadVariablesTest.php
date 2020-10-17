@@ -11,14 +11,7 @@ class ReadVariablesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function variable_index_load_ok()
     {
@@ -57,8 +50,8 @@ class ReadVariablesTest extends TestCase
     {
         $this->signIn();
 
-        $variable_active = fCreate(Variable::class, ['active' => 1, 'show' => 1, 'order' => 0]);
-        $variable_not_show = fCreate(Variable::class, ['active' => 1, 'show' => 0, 'order' => 0]);
+        $variable_active = fCreate(Variable::class, ['show' => 1, 'order' => 0]);
+        $variable_not_show = fCreate(Variable::class, ['show' => 0, 'order' => 0]);
 
         $response = $this->getJson(route('variables.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
 
@@ -69,11 +62,11 @@ class ReadVariablesTest extends TestCase
 
     /** @test */
 
-    public function a_user_cannot_see_not_active_variables()
+    public function a_user_cannot_see_not_show_variables()
     {
         $this->signIn();
 
-        $variable_not_active = fCreate(Variable::class, ['active' => 0, 'show' => 1, 'order' => 0]);
+        $variable_not_active = fCreate(Variable::class, ['show' => 0, 'order' => 0]);
 
         $response = $this->getJson(route('variables.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
 
@@ -91,7 +84,7 @@ class ReadVariablesTest extends TestCase
         $this->actingAs($user);
 
         $variable = fCreate(Variable::class,
-            ['title_en' => 'izena1 eu', 'title_es' => 'nombre1 es', 'active' => 1, 'show' => 1, 'order' => 0]);
+            ['title_en' => 'izena1 eu', 'title_es' => 'nombre1 es', 'show' => 1, 'order' => 0]);
 
         $response = $this->getJson(route('variables.index', ['length' => 10, 'start' => 0, 'draw' => 0]));
         $this->assertEquals($variable->title_es, array_pop($response->json()['data'])['title_es']);

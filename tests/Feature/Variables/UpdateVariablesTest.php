@@ -12,13 +12,6 @@ class UpdateVariablesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('VariablesTableSeeder');
-    }
-
     /** @test */
 
     public function variable_edit_load_ok()
@@ -46,7 +39,7 @@ class UpdateVariablesTest extends TestCase
     {
         $this->signIn();
 
-        $variable = fCreate(Variable::class, ['active' => 1, 'show' => 1, 'editable' => 1, 'order' => 0]);
+        $variable = fCreate(Variable::class, ['show' => 1, 'editable' => 1, 'order' => 0]);
 
         $response = $this->post(route('variables.update', $variable->id),
             ['value' => 'value updated'] + $variable->toArray());
@@ -68,7 +61,7 @@ class UpdateVariablesTest extends TestCase
     {
         $this->signIn();
 
-        $variable = fCreate(Variable::class, ['active' => 1, 'show' => 1, 'editable' => 0, 'order' => 0]);
+        $variable = fCreate(Variable::class, ['show' => 1, 'editable' => 0, 'order' => 0]);
 
         $this->get(route('variables.edit', $variable->id))
             ->assertStatus(403);
@@ -88,7 +81,7 @@ class UpdateVariablesTest extends TestCase
     {
         $this->signIn();
 
-        $variable = fCreate(Variable::class, ['active' => 1, 'show' => 1, 'editable' => 1, 'order' => 0]);
+        $variable = fCreate(Variable::class, ['show' => 1, 'editable' => 1, 'order' => 0]);
 
         $response = $this->post(route('variables.update', $variable->id),
             ['value' => 'value updated'] + $variable->toArray());
@@ -108,7 +101,7 @@ class UpdateVariablesTest extends TestCase
     {
         $this->signIn();
 
-        $variable = fCreate(Variable::class, ['active' => 1, 'show' => 1, 'editable' => 1, 'order' => 0]);
+        $variable = fCreate(Variable::class, ['show' => 1, 'editable' => 1, 'order' => 0]);
 
         $response = $this->post(route('variables.update', $variable->id),
             ['title_eu' => 'title updated', 'value' => 'value updated'] + $variable->toArray());

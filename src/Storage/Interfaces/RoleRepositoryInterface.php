@@ -38,6 +38,10 @@ interface RoleRepositoryInterface
 
     public function destroy($id);
 
+    public function activate($id);
+
+    public function deactivate($id);
+
     public function secureDelete(Model $model, $relations);
 
 }

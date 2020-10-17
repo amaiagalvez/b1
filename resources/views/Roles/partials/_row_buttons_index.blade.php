@@ -1,4 +1,4 @@
-@if(!$role->isAdmin())
+@if($role->canEdit())
     <div class="btn-group" role="group">
 
         <a class="btn btn-table" href="{{ route('roles.edit', $role->id) }}" title="{{trans('helpers::action.edit')}}">
@@ -12,6 +12,13 @@
                         onclick="return confirm('{{trans('helpers::action.delete_confirmation')}}'); "><span
                             class="fa fa-trash"></span></button>
             </form>
+
+        @else
+            <a class="btn btn-table" href="{{ route('roles.deactivate', $user->id) }}"
+               title="{{trans('helpers::action.deactivate')}}"
+               onclick="return confirm('{{trans('helpers::action.deactivate_confirmation')}}'); ">
+                <span class="fa fa-times"></span>
+            </a>
         @endif
 
     </div>

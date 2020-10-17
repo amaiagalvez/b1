@@ -10,7 +10,7 @@ class CreateVariablesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    /** @test */
+/** @test */
 
     public function a_user_cannot_create_a_variable()
     {

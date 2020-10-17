@@ -11,14 +11,7 @@ class ReadNotificationsTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function a_guest_cannot_get_their_notifications()
     {

@@ -34,8 +34,6 @@
 
                 <div class="col-md-6 my-5">
                     @yield('info')
-
-                    @tip(['tip' => 'form.info'])
                 </div>
 
             </div>

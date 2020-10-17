@@ -10,7 +10,7 @@ class DeleteVariablesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    /** @test */
+/** @test */
 
     public function a_user_cannot_delete_a_variable()
     {

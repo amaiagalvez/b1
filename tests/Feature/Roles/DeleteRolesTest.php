@@ -3,8 +3,6 @@
 namespace Izt\Basics\Tests\Feature\Roles;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Basics\Storage\Eloquent\Models\Module;
-use Izt\Basics\Storage\Eloquent\Models\ModuleRole;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
@@ -13,14 +11,7 @@ class DeleteRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function role_trash_load_ok()
     {

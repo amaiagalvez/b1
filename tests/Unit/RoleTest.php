@@ -3,8 +3,6 @@
 namespace Izt\Basics\Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Basics\Storage\Eloquent\Models\Module;
-use Izt\Basics\Storage\Eloquent\Models\ModuleRole;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
@@ -14,14 +12,7 @@ class RoleTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('BasicsDatabaseSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function a_role_has_many_user()
     {

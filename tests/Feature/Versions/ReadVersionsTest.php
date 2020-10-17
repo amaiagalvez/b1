@@ -16,7 +16,7 @@ class ReadVersionsTest extends TestCase
     {
         $this->signIn();
 
-        $this->get(route('versions.show'))
+        $this->get(route('versions.index'))
             ->assertStatus(200);
     }
 
@@ -26,7 +26,7 @@ class ReadVersionsTest extends TestCase
     {
         $this->signIn(null, "other");
 
-        $this->get(route('versions.show'))
+        $this->get(route('versions.index'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));
     }
@@ -39,9 +39,9 @@ class ReadVersionsTest extends TestCase
 
         fCreate(Version::class, [], 15);
 
-        $version = Version::main()->first();
+        $version = Version::first();
 
-        $this->get(route('versions.show'))
+        $this->get(route('versions.index'))
             ->assertSee($version->present()->name)
             ->assertSee($version->present()->notes);
 

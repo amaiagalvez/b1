@@ -60,7 +60,6 @@ In Kernel.php file add this line to protected $middleware
 - laravel 6
 - yajra/laravel-datatables
 - laravel/socialite
-- adamthehutt/laravel-dismissible-tips
 - izt/helpers
 
 

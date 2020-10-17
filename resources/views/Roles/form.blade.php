@@ -6,7 +6,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <label for="name">{{ trans('basics::basics.name') }}  </label>
+            <label for="name">{{ trans('basics::basics.name') }} @asterisk</label>
             <input class="form-control @error('name') is-invalid @enderror" type="text"
                    name="name" id="name"
                    value="{{ old('name', $role->name) }}"
@@ -58,13 +58,7 @@
 @endsection
 
 @section ('info')
-    <div class="form-row">
-        <div class="form-group col-md-12 card-accent-secondary">
-            <span>{{ trans('basics::basics.created') }}: {{date($role->created_at)}}</span>
-            {{--            $role->createdBy->name ?? ''--}}
-            <br>
-            <span>{{ trans('basics::basics.updated') }}: {{date($role->updated_at)}}</span>
-            {{--            $role->updatedBy->name ?? ''--}}
-        </div>
-    </div>
+
+    @include('basics::layouts._partials.form_info', ['register' => $role])
+
 @endsection

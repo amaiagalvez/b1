@@ -11,7 +11,7 @@ class RolesComponents
     {
         return [
             [
-                'title' => trans_choice('basics.role', 2)
+                'title' => trans_choice('basics::basics.role', 2)
             ]
         ];
     }
@@ -22,7 +22,32 @@ class RolesComponents
             'partial_route' => 'roles',
             'list' => true,
             'create' => true,
+            'nonactive' => true,
             'trash' => true
+        ];
+    }
+
+    /* NonActive */
+
+    public function prepareBreadcrumbsNonActive()
+    {
+        return [
+            [
+                'title' => trans_choice('basics::basics.role', 2),
+                'route' => route('roles.index')
+            ],
+            [
+                'title' => trans('helpers::action.nonactive')
+            ]
+        ];
+    }
+
+    public function prepareButtonsNonActive()
+    {
+        return [
+            'partial_route' => 'roles',
+            'list' => true,
+            'nonactive' => true
         ];
     }
 
@@ -32,11 +57,11 @@ class RolesComponents
     {
         return [
             [
-                'title' => trans_choice('basics.role', 2),
+                'title' => trans_choice('basics::basics.role', 2),
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans_choice('basics.trash', 2)
+                'title' => trans_choice('helpers::action.trash', 2)
             ],
         ];
     }
@@ -52,17 +77,15 @@ class RolesComponents
 
     /* Create */
 
-    /* Edit */
-
-    public function prepareBreadcrumbsCreate($title)
+    public function prepareBreadcrumbsCreate()
     {
         return [
             [
-                'title' => trans_choice('basics.role', 2),
+                'title' => trans_choice('basics::basics.role', 2),
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans('basics::basics.create')
+                'title' => trans('helpers::action.create')
             ]
         ];
     }
@@ -90,11 +113,11 @@ class RolesComponents
     {
         return [
             [
-                'title' => trans_choice('basics.role', 2),
+                'title' => trans_choice('basics::basics.role', 2),
                 'route' => route('roles.index')
             ],
             [
-                'title' => $title #$role->name
+                'title' => $title
             ]
         ];
     }
@@ -113,7 +136,7 @@ class RolesComponents
         return [
             'action' => route('roles.update', $id),
             'method' => 'POST',
-            'button' => trans('basics::basics.save')
+            'button' => trans('helpers::action.save')
         ];
     }
 }

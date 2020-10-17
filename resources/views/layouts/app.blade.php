@@ -17,7 +17,9 @@
     <!-- Styles -->
     <link href="{{ asset('helpers/css/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('helpers/css/styles_helpers.css') }}" rel="stylesheet">
+
     <link href="{{ asset('basics/css/styles_basics.css') }}" rel="stylesheet">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('css')
@@ -26,7 +28,7 @@
 <body class="c-app">
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
 
-    {{--    @include('basics::layouts._partials.menu')--}}
+    @include('basics::layouts._partials.menu')
 
     @include('basics::layouts._partials.header')
 
@@ -46,14 +48,15 @@
 <script src="{{ asset('helpers/js/popper.min.js') }}"></script>
 <script src="{{ asset('helpers/js/ckeditor/ckeditor.js') }}"></script>
 
-<script src="{{ asset('js/app.js') }}"></script>
-
-{{--<script src="{{ asset('js/theme.js') }}"></script>--}}
-
-<script src="{{ asset('helpers/js/datatables.min.js') }}"></script>
 <script src="{{ asset('helpers/js/scripts_helpers.js') }}"></script>
+<script src="{{ asset('helpers/js/datatables.min.js') }}"></script>
+
 <script src="{{ asset('basics/js/scripts_basics.js') }}"></script>
 <script src="{{ asset('basics/js/dt.js') }}"></script>
+
+{!!  getLocalizedJS('/basics')  !!}
+
+<script src="{{ asset('js/app.js') }}"></script>
 
 @yield('scripts')
 

@@ -2,17 +2,14 @@
 
 namespace Izt\Basics\Tests\Feature;
 
-use GuzzleHttp\Middleware;
-use Illuminate\Session\Middleware\StartSession;
-use Illuminate\Support\Facades\Session;
-use Izt\Basics\Listeners\LogSuccessfulLogin;
-use Izt\Basics\Listeners\LogSuccessfulLogout;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
+use Izt\Basics\Listeners\LogSuccessfulLogin;
+use Izt\Basics\Listeners\LogSuccessfulLogout;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
 use Mockery;

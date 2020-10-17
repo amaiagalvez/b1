@@ -1,4 +1,4 @@
-@extends('basics::layouts.app')
+@extends('basics::layouts.app_clean')
 
 @section('title', trans('basics::auth.login_in'))
 

@@ -12,14 +12,7 @@ class UpdateUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed('RolesTableSeeder');
-    }
-
-    /** @test */
+/** @test */
 
     public function user_edit_load_ok()
     {
@@ -71,7 +64,7 @@ class UpdateUsersTest extends TestCase
                 ] + $user->toArray());
 
         $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
-        $response->assertRedirect(route('home'));
+        $response->assertRedirect(route('basics.home'));
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
