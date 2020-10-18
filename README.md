@@ -2,8 +2,6 @@
 
 Basics Management
 
-- Migrations && Seeds
-- Models
     - Menu
     - Application    
     - Role
@@ -11,8 +9,6 @@ Basics Management
     - User
     - Variable
     - Version
-    
-- Errors views
     
 ## Installation
 
@@ -41,6 +37,7 @@ DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 $this->call(BasicsDatabaseSeeder::class);
 
 DB::statement('SET FOREIGN_KEY_CHECKS=1');
+
 ```     
 You can publish the assets in public/basics
 ```
@@ -48,7 +45,8 @@ php artisan vendor:publish
 choose the tag izt-basics-assets
 ```
 
-In Kernel.php file add this line to protected $middleware
+In Kernel.php file add this lines to protected $middleware and remove from $middlewareGroups
+
 ```
 \Illuminate\Session\Middleware\StartSession::class, (Session)
 \Illuminate\View\Middleware\ShareErrorsFromSession::class, (@error('email'))
