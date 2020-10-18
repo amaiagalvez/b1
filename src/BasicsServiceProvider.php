@@ -38,10 +38,10 @@ class BasicsServiceProvider extends ServiceProvider
         $this->loadFactoriesFrom($this->basePath('database/factories'));
 
         $this->loadViewsFrom($this->basePath('resources/views'), 'basics');
-        $this->loadViewsFrom($this->basePath('/vendor/amaiagalvez/helpers/resources/views'), 'helpers');
+        $this->loadViewsFrom($this->basePath('/vendor/amaiagalvez/h1/resources/views'), 'helpers');
 
         $this->loadTranslationsFrom($this->basePath('resources/lang'), 'basics');
-        $this->loadTranslationsFrom($this->basePath('/vendor/amaiagalvez/helpers/resources/lang'), 'helpers');
+        $this->loadTranslationsFrom($this->basePath('/vendor/amaiagalvez/h1/resources/lang'), 'helpers');
 
         $router->middlewareGroup('admin', [Admin::class]);
         $router->middlewareGroup('developer', [Developer::class]);
