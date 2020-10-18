@@ -1,4 +1,4 @@
-@extends('basics::layouts.app')
+@extends('layouts._base.app')
 
 @section('title', trans('passwords.reset_password'))
 

@@ -1,4 +1,4 @@
-@extends('basics::layouts.app_clean')
+@extends('layouts._base.app_clean')
 
 @section('content')
 

@@ -1,4 +1,4 @@
-@extends('basics::layouts.table')
+@extends('layouts._table.table')
 
 @section('title', trans_choice('basics::basics.role', 2))
 
