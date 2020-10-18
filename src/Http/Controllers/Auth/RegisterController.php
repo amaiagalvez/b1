@@ -86,4 +86,10 @@ class RegisterController extends Controller
 
         return redirect(route('login'));
     }
+
+    public function showRegistrationForm()
+    {
+        return view('basics::auth.register');
+    }
+
 }

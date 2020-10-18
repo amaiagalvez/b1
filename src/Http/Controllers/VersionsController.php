@@ -34,7 +34,7 @@ class VersionsController extends Controller
 
     public function index()
     {
-        $list_type = 'show';
+        $list_type = 'index';
 
         $versions = $this->repoVersion->allListed(null,
             ['id' => 'ASC']);
@@ -51,7 +51,7 @@ class VersionsController extends Controller
 
         $table_buttons = [];
 
-        return view('basics::Versions.show', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
+        return view('basics::Versions.index', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
     }
 
 }

@@ -1,4 +1,4 @@
-@extends('helpers::layouts._base.app')
+@extends('helpers::layouts._base.app_clean')
 
 @section('title', trans('basics::auth.password_confirmation'))
 
@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ trans('basics::auth.password_confirmation') }}</div>
+                    <div class="card-header theme-background-color white">{{ trans('basics::auth.password_confirmation') }}</div>
 
                     <div class="card-body">
                         {{ __('Please confirm your password before continuing.') }}

@@ -17,7 +17,7 @@ class Developer
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->isDeveloper() && session()->has('real_user')) {
+        if ($request->user()->isDeveloper()) {
             return $next($request);
         }
 

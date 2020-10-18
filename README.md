@@ -45,6 +45,12 @@ php artisan vendor:publish
 choose the tag izt-basics-assets
 ```
 
+You must publish the translations in resources/lang folder
+```
+php artisan vendor:publish --force   
+choose the tag izt-basics-lang
+```
+
 In Kernel.php file add this lines to protected $middleware and remove from $middlewareGroups
 
 ```
@@ -60,7 +66,9 @@ In Kernel.php file add this lines to protected $middleware and remove from $midd
 - laravel/socialite
 - izt/helpers
 
-## Emails (informatikaamaia@gmail.com // A...55*)
+## Emails 
+
+https://mailtrap.io (informatikaamaia@gmail.com // A...55*)
 
 MAIL_DRIVER=smtp
 MAIL_HOST=smtp.mailtrap.io
@@ -73,4 +81,4 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 ## Problems
  
-- artisan instalatu DUSK erabili ahal izateko    
+- artisan nola instalatu DUSK erabili ahal izateko    

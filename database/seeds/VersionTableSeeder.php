@@ -25,14 +25,13 @@ class VersionTableSeeder extends Seeder
                 'updated_at' => '2020-10-01',
                 'created_by' => 1
             ],
-
             [
                 'application_id' => 1,
-                'name' => '1.0.1',
+                'name' => '1.0',
                 'notes_eu' => 'Rolen kudeaketa basikoa (Admin bai/ez). <br> Aplikazioa modu basiko batean konfiguratzeko aldagaien kudeaketa (izena, logoa, ...)',
                 'notes_es' => 'Gestión básica de roles (Admin si/no). <br> Gestión de variables para la configuración básica de la aplicación (nombre, logo, ...)',
-                'created_at' => '2020-10-01',
-                'updated_at' => '2020-10-01',
+                'created_at' => '2020-10-02',
+                'updated_at' => '2020-10-02',
                 'created_by' => 1
             ]
         ];

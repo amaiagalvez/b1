@@ -4,7 +4,7 @@ return [
     //home
     'home' => 'Haisera',
 
-    //application menus
+    //menus
     'application' => 'Aplikazioa Ezarpenak',
     'configuration' => 'Konfigurazioa',
     'manual' => 'Manuala',

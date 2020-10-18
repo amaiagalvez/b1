@@ -2,6 +2,7 @@
 
 namespace Izt\Basics\Notifications;
 
+use App;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -42,7 +43,11 @@ class UserActivationNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage())
+        $lang = App::getLocale();
+
+        App::setLocale($notifiable->lang ?? 'eu');
+
+        $mail = (new MailMessage())
             ->subject(trans('basics::auth.verify_email'))
             ->greeting(trans('basics::auth.verify_email_greeting', ['name' => $notifiable->name]))
             ->line(trans('basics::auth.verify_email_line_1'))
@@ -54,6 +59,10 @@ class UserActivationNotification extends Notification implements ShouldQueue
                 ['count' => config('auth.passwords.' . config('auth.defaults.passwords') . '.expire')]))
             ->line(trans('basics::auth.verify_email_line_3'))
             ->salutation(trans('basics::auth.verify_email_salutation'));
+
+        App::setLocale($lang);
+
+        return $mail;
     }
 
     protected function verificationUrl($notifiable)

@@ -30,8 +30,15 @@ class VersionTransformer extends TransformerAbstract
             return [];
         }
 
+        $app = $version->application;
+        $application = '';
+        if ($app) {
+            $application = $app->present()->title;
+        }
+
         return [
             'id' => $version->id,
+            'application' => $application,
             'name' => 'v.' . $version->name,
             $version->present()->FieldName('notes') => $version->present()->notes,
             'notes' => $version->present()->notes,

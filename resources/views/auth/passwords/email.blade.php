@@ -1,13 +1,13 @@
-@extends('helpers::layouts._base.app')
+@extends('helpers::layouts._base.app_clean')
 
-@section('title', trans('passwords.reset_password'))
+@section('title', trans('basics::passwords.reset_password'))
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ trans('passwords.reset_password') }}</div>
+                    <div class="card-header theme-background-color white">{{ trans('basics::passwords.reset_password') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))

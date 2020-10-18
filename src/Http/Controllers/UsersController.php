@@ -344,6 +344,10 @@ class UsersController extends Controller
             Cache::flush();
             auth()->login($user);
 
+            if (auth()->user()->isAdmin()) {
+                return redirect()->route('basics.home');
+            }
+
             return redirect()->route('front.home');
         }
 

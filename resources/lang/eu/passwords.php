@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'password' => 'Pasahitzak gutxienez 8 karaktere eduki behar ditu eta gutxienez zenbaki, letra txiki eta letra larri bat izan behar ditu eta bat etorri behar dira.',
+    'password' => 'Pasahitzak gutxienez 6 karaktere eduki behar ditu.',
     'reset' => 'Zure pasahitza berrezarri da!',
     'sent' => 'Zure pasahitza berrezartzeko esteka postaz bidali dizugu!',
     'token' => 'Pasahitza berreskuratzeko tokena baliogabea da.',
