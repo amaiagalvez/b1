@@ -61,7 +61,7 @@ class BasicsServiceProvider extends ServiceProvider
         ], 'izt-basics-lang');
 
         $this->publishes([
-            $this->basePath('database/seeds') => base_path('database/seeds')
+            $this->basePath('database/seeds') => base_path('database/seeds/basics')
         ], 'izt-basics-seeds');
     }
 

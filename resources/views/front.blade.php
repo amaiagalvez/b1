@@ -2,6 +2,6 @@
 
 @section('content')
 
-    FRONT
+    <h1 class="text-center">{{ $app_name }}</h1>
 
 @stop

@@ -82,3 +82,4 @@ MAIL_FROM_NAME="${APP_NAME}"
 ## Problems
  
 - artisan nola instalatu DUSK erabili ahal izateko    
+- nola kargatu seed-errak publikatu gabe?
