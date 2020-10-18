@@ -121,6 +121,6 @@ class BasicsServiceProvider extends ServiceProvider
 
     protected function basePath($path)
     {
-        return __DIR__ . '/../' . $path;
+        return str_replace('src', '', __DIR__) . '' . $path;
     }
 }
