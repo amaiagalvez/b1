@@ -36,9 +36,11 @@ class BasicsServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom($this->basePath('database/migrations'));
         $this->loadFactoriesFrom($this->basePath('database/factories'));
-        $this->loadViewsFrom($this->basePath('resources/views'), 'basics');
-        $this->loadTranslationsFrom($this->basePath('resources/lang'), 'basics');
 
+        $this->loadViewsFrom($this->basePath('resources/views'), 'basics');
+        $this->loadViewsFrom($this->basePath('/vendor/izt/helpers/resources/views'), 'helpers');
+
+        $this->loadTranslationsFrom($this->basePath('resources/lang'), 'basics');
         $this->loadTranslationsFrom($this->basePath('/vendor/izt/helpers/resources/lang'), 'helpers');
 
         $router->middlewareGroup('admin', [Admin::class]);

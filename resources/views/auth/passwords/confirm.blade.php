@@ -1,4 +1,4 @@
-@extends('layouts._base.app')
+@extends('helpers::layouts._base.app')
 
 @section('title', trans('basics::auth.password_confirmation'))
 

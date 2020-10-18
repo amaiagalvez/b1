@@ -64,7 +64,6 @@ In Kernel.php file add this line to protected $middleware
 
 ## Problems
 
-- Nola egin app.blade.php amankomuna izateko aplikazio guztietan
 - Ondo gorde da eta holako mezuak ez dira agertzen
 
     

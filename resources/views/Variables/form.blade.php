@@ -1,4 +1,4 @@
-@extends('layouts._form.form_two')
+@extends('helpers::layouts._form.form_two')
 
 @section('title', trans_choice('basics::basics.variable', 1))
 
@@ -54,6 +54,6 @@
 
 @section ('info')
 
-    @include('layouts._form.form_info', ['register' => $variable])
+    @include('helpers::layouts._form.form_info', ['register' => $variable])
 
 @endsection
