@@ -6,7 +6,7 @@
 
 return [
 
-    'oauth' => true,
+    'oauth' => false,
     'redirect_route_after_logout' => 'front.home'
 
 ];
