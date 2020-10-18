@@ -60,8 +60,17 @@ In Kernel.php file add this lines to protected $middleware and remove from $midd
 - laravel/socialite
 - izt/helpers
 
+## Emails (informatikaamaia@gmail.com // A...55*)
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=ab64a4b34431cc
+MAIL_PASSWORD=a3157b1296cf3b
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=info@aretha.eus
+MAIL_FROM_NAME="${APP_NAME}"
+
 ## Problems
-
-- Ondo gorde da eta holako mezuak ez dira agertzen
-
-    
+ 
+- artisan instalatu DUSK erabili ahal izateko    
