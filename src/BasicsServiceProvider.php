@@ -59,17 +59,29 @@ class BasicsServiceProvider extends ServiceProvider
             $this->basePath('public') => base_path('public/basics')
         ], 'izt-basics-assets');
 
+        /* Lang */
+
         $this->publishes([
             $this->basePath('resources/lang') => base_path('resources/lang')
         ], 'izt-basics-lang');
+
+        /* Seeds*/
 
         $this->publishes([
             $this->basePath('database/seeds') => base_path('database/seeds/basics')
         ], 'izt-basics-seeds');
 
+        /* Views */
+
         $this->publishes([
-            $this->basePath('resources/views/errors') => base_path('resources/views/errors')
-        ], 'izt-basics-views');
+            $this->basePath('resources/views/layouts') => base_path('resources/views/layouts')
+        ], 'izt-basics-layouts');
+
+        /* Help */
+
+        $this->publishes([
+            $this->basePath('help/Exceptions') => base_path('app/Exceptions')
+        ], 'izt-basics-exceptions');
     }
 
     public function register()

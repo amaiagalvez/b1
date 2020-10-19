@@ -80,6 +80,15 @@ php artisan vendor:publish --force
 choose the tag izt-basics-views
 ```
 
+To change errors view's path in your application
+
+```
+if ($this->isHttpException($exception)) {
+    $statusCode = $exception->getStatusCode();
+    return view("basics::errors.{$statusCode}");
+}
+```
+     
 ## Require
 
 - php 7.2
