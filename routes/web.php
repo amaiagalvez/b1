@@ -14,5 +14,5 @@ Route::get('login/{service}/callback', 'Auth\SocialLoginController@handleCallbac
 
 /* Home */
 
-Route::get('basicsfront', 'BasicsController@basicsfront')
+Route::get('/', 'BasicsController@basicsfront')
     ->name('front.home');

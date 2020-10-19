@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 /* Home */
 
-Route::get('basicshome', 'BasicsController@basicshome')
-    ->name('basics.home');
+Route::get('/home', 'BasicsController@basicshome')
+    ->name('home');
 
 /* Users */
 Route::middleware(['activityLog'])->group(function () {

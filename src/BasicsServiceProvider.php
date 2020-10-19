@@ -9,6 +9,7 @@ use Izt\Basics\Http\Middleware\ActivityLogger;
 use Izt\Basics\Http\Middleware\Admin;
 use Izt\Basics\Http\Middleware\Developer;
 use Izt\Basics\Http\Middleware\UserLanguage;
+use Izt\Basics\Providers\BladeServiceProvider;
 use Izt\Basics\Providers\ComposerServiceProvider;
 use Izt\Basics\Providers\EventServiceProvider;
 use Izt\Basics\Storage\Eloquent\Repositories\ApplicationRepository;
@@ -25,7 +26,6 @@ use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
-use Izt\Basics\Providers\BladeServiceProvider;
 use Yajra\DataTables\DataTablesServiceProvider;
 use Yajra\DataTables\FractalServiceProvider;
 
@@ -64,12 +64,6 @@ class BasicsServiceProvider extends ServiceProvider
         $this->publishes([
             $this->basePath('resources/lang') => base_path('resources/lang')
         ], 'izt-basics-lang');
-
-        /* Seeds*/
-
-        $this->publishes([
-            $this->basePath('database/seeds') => base_path('database/seeds/basics')
-        ], 'izt-basics-seeds');
 
         /* Views */
 

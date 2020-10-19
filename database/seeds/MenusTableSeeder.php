@@ -114,7 +114,7 @@ class MenusTableSeeder extends Seeder
                 'route' => 'menus.index',
                 'icon' => 'fab fa-elementor',
                 'parent_id' => 20,
-                'active' => '1',
+                'active' => '0',
                 'order' => '3',
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),

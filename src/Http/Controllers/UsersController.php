@@ -298,7 +298,7 @@ class UsersController extends Controller
         if (str_contains(getPreviousRoute(), 'profile')) {
             unset($input['role_name'], $input['notes']);
             $this->repoUser->update($user, $input);
-            return redirect()->route('basics.home');
+            return redirect()->route('home');
         }
 
         $this->repoUser->update($user, $input);
@@ -342,7 +342,7 @@ class UsersController extends Controller
             auth()->login($user);
 
             if (auth()->user()->isAdmin()) {
-                return redirect()->route('basics.home');
+                return redirect()->route('home');
             }
 
             return redirect()->route('front.home');

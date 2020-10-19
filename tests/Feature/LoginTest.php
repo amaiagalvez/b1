@@ -15,7 +15,7 @@ class LoginTest extends TestCase
 
     public function not_logged_user_is_redirected_to_login_form()
     {
-        $response = $this->get(route('basics.home'));
+        $response = $this->get(route('home'));
 
         $response->assertStatus(302);
         $response->assertRedirect(route('login'));
@@ -26,7 +26,7 @@ class LoginTest extends TestCase
     public function logged_user_go_to_admin_home()
     {
         $this->signIn();
-        $response = $this->get(route('basics.home'));
+        $response = $this->get(route('home'));
 
         $response->assertStatus(200)
             ->assertSee(Auth::user()->name);
@@ -38,14 +38,14 @@ class LoginTest extends TestCase
     {
         $user = fCreate(User::class, ['active' => 1]);
 
-        $response = $this->from(route('basics.home'))
+        $response = $this->from(route('home'))
             ->post(route('login', [
                 'email' => $user->email,
                 'password' => $user->password
             ]));
 
         $response->assertStatus(302)
-            ->assertRedirect(route('basics.home'));
+            ->assertRedirect(route('home'));
     }
 
     /** @test */

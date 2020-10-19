@@ -41,12 +41,10 @@ php artisan vendor:publish --force
 choose the tag izt-basics-config
 ```
 
-You must publish the seeds
-```
-php artisan vendor:publish --force    
-choose the tag izt-basics-seeds
-```
-To load data, write this in de DatabaseSeeder.php file
+Seeds 
+=====
+
+To load data, add this in de DatabaseSeeder.php file
 ```
 DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
@@ -113,5 +111,4 @@ MAIL_FROM_NAME="${APP_NAME}"
 ## Problems
  
 - artisan nola instalatu DUSK erabili ahal izateko    
-- nola kargatu seed-errak publikatu gabe?
 - lang/validation/attributes => aplikazio guztienak hemen gehitu behar dira

@@ -1,5 +1,5 @@
 <div class="c-sidebar-brand">
-    <a href="{{route('basics.home')}}">
+    <a href="{{route('home')}}">
         <img class="c-sidebar-brand-full" src="{{ asset('images/logo.png') }}" width="auto" height="46"
              alt="{{ $app_name }}">
         <img class="c-sidebar-brand-minimized" src="{{ asset('images/logo_small.png') }}" width="auto" height="46"

@@ -64,7 +64,7 @@ class UpdateUsersTest extends TestCase
                 ] + $user->toArray());
 
         $response->assertSessionHas('successMessage', trans('basics::action.update_successfully'));
-        $response->assertRedirect(route('basics.home'));
+        $response->assertRedirect(route('home'));
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,

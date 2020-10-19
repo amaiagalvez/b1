@@ -44,7 +44,7 @@
             @else
                 <li class="c-header-nav-item">
                     <a class="c-header-nav-link"
-                       href="{{route('basics.home')}}" role="button"
+                       href="{{route('home')}}" role="button"
                        aria-expanded="false">
                         <i class="far fa-user-circle"></i> {{ trans('basics::basics.home') }}
                     </a>
