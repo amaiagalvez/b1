@@ -75,7 +75,23 @@ class BasicsServiceProvider extends ServiceProvider
 
         $this->publishes([
             $this->basePath('help/Exceptions') => base_path('app/Exceptions')
-        ], 'izt-basics-exceptions');
+        ], 'izt-basics-help-exceptions');
+
+        $this->publishes([
+            $this->basePath('help/config') => base_path('config')
+        ], 'izt-basics-help-config');
+
+        $this->publishes([
+            $this->basePath('help/routes') => base_path('app/routes')
+        ], 'izt-basics-help-routes');
+
+        $this->publishes([
+            $this->basePath('help/app/Http') => base_path('app/Http')
+        ], 'izt-basics-help-app-http');
+
+        $this->publishes([
+            $this->basePath('help/tests') => base_path('app/tests')
+        ], 'izt-basics-help-tests');
     }
 
     public function register()

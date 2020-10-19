@@ -59,7 +59,7 @@ class Handler extends ExceptionHandler
     {
         if ($this->isHttpException($exception)) {
             $statusCode = $exception->getStatusCode();
-            return view("basics::errors.{$statusCode}");
+            return response()->view("basics::errors.{$statusCode}", ['exception' => $exception], $statusCode);
         }
 
         return parent::render($request, $exception);
