@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class RoleRepository
- * @package App\Storage\Eloquent\Repositories
+ * @package Izt\Basics\Storage\Eloquent\Repositories
  */
 interface RoleRepositoryInterface
 {

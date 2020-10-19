@@ -2,13 +2,13 @@
 
 namespace Izt\Basics\Storage\Eloquent\Repositories;
 
-use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 use Izt\Basics\Storage\Eloquent\Models\Version;
 use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
+use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class VersionRepository
- * @package App\Storage\Eloquent\Repositories
+ * @package Izt\Basics\Storage\Eloquent\Repositories
  */
 class VersionRepository extends AbstractRepository implements VersionRepositoryInterface
 {

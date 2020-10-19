@@ -4,7 +4,7 @@ namespace Izt\Basics\Storage\Interfaces;
 
 /**
  * Class MenuRepository
- * @package App\Storage\Eloquent\Repositories
+ * @package Izt\Basics\Storage\Eloquent\Repositories
  */
 interface MenuRepositoryInterface
 {

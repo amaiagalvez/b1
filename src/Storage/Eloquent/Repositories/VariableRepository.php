@@ -2,13 +2,13 @@
 
 namespace Izt\Basics\Storage\Eloquent\Repositories;
 
-use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 use Izt\Basics\Storage\Eloquent\Models\Variable;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
+use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class VariableRepository
- * @package App\Storage\Eloquent\Repositories
+ * @package Izt\Basics\Storage\Eloquent\Repositories
  */
 class VariableRepository extends AbstractRepository implements VariableRepositoryInterface
 {

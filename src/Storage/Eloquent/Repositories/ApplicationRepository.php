@@ -8,7 +8,7 @@ use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class ApplicationRepository
- * @package App\Storage\Eloquent\Repositories
+ * @package Izt\Basics\Storage\Eloquent\Repositories
  */
 class ApplicationRepository extends AbstractRepository implements ApplicationRepositoryInterface
 {

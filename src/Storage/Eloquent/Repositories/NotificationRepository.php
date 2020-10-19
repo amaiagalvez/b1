@@ -3,12 +3,12 @@
 namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Illuminate\Notifications\DatabaseNotification;
-use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 use Izt\Basics\Storage\Interfaces\NotificationRepositoryInterface;
+use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class NotificationRepository
- * @package App\Storage\Eloquent\Repositories
+ * @package Izt\Basics\Storage\Eloquent\Repositories
  */
 class NotificationRepository extends AbstractRepository implements NotificationRepositoryInterface
 {

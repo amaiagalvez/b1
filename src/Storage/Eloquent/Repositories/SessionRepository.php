@@ -2,13 +2,13 @@
 
 namespace Izt\Basics\Storage\Eloquent\Repositories;
 
-use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 use Izt\Basics\Storage\Eloquent\Models\Session;
 use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
+use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class SessionRepository
- * @package App\Storage\Eloquent\Repositories
+ * @package Izt\Basics\Storage\Eloquent\Repositories
  */
 class SessionRepository extends AbstractRepository implements SessionRepositoryInterface
 {
