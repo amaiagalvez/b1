@@ -1,0 +1,90 @@
+// Here you can add other styles
+body {
+    color: $gray-600;
+}
+
+hr {
+    color: $theme_green !important;
+    border: 1px solid;
+}
+
+label {
+    font-weight: 700;
+}
+
+.theme-color {
+    color: $theme_green !important;
+}
+
+.theme-background-color {
+    background-color: $theme_green !important;
+}
+
+.c-header.c-header-fixed {
+    top: 0;
+}
+
+.click-file {
+    cursor: pointer;
+}
+
+.white {
+    color: #fff !important;
+}
+
+.ok-color {
+    color: $green;
+}
+
+.ko-color {
+    color: $red;
+}
+
+.btn-secondary {
+    background-color: $theme_green !important;;
+    border-color: $theme_green !important;;
+}
+
+.btn-primary {
+    background-color: $theme_green !important;
+    border-color: $theme_green !important;
+}
+
+.badge-success {
+    background-color: $theme_green !important;
+    border-color: $theme_green !important;
+}
+
+.c-sidebar .c-sidebar-brand {
+    background: #fff;
+    border-bottom: 2px solid #dee2e6;
+}
+
+a.not-text-decoration {
+    text-decoration: none;
+    color: $gray-600;
+}
+
+.breadcrumb {
+    background-color: transparent;
+}
+
+.breadcrumb-item.active {
+    font-weight: 700;
+}
+
+i {
+    padding-right: 5px !important;
+}
+
+.theme-title {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: -1px 0 #cccccc, 0 1px #cccccc, 1px 0 #cccccc, 0 -1px #cccccc, -2px 2px 0 #cccccc, 2px 2px 0 #cccccc, 1px 1px #cccccc, 2px 2px #cccccc, 3px 3px #cccccc, 4px 4px #cccccc, 5px 5px #cccccc, 6px 6px #cccccc, 7px 7px #cccccc, 8px 8px #cccccc, 9px 9px #cccccc;
+}
+
+input[type=checkbox] {
+    transform: scale(2);
+}

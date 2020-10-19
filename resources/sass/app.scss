@@ -1,0 +1,17 @@
+// Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// Variables
+@import 'variables';
+
+// Import styles
+@import 'theme/coreui';
+
+//Tables
+@import "tables";
+
+// Datatables
+@import 'datatables';
+
+// If you want to add something do it here
+@import 'custom';

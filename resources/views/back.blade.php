@@ -1,4 +1,4 @@
-@extends('helpers::layouts._base.app')
+@extends('basics::layouts._base.app')
 
 @section('content')
 

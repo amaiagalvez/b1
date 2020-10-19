@@ -5,8 +5,8 @@ namespace Izt\Basics\Storage\Eloquent\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Izt\Basics\Http\Presenters\ApplicationPresenter;
-use Izt\Helpers\Http\Presenters\PresentableTrait;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
+use Izt\Basics\Http\Presenters\PresentableTrait;
+use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 
 class Application extends Model
 {

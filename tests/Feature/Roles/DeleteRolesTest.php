@@ -79,7 +79,7 @@ class DeleteRolesTest extends TestCase
             ->assertStatus(302)
             ->assertRedirect(route('roles.index'));
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.delete_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.delete_successfully'));
 
         $this->assertDatabaseMissing('APP_roles', [
             'id' => $role->id,
@@ -99,7 +99,7 @@ class DeleteRolesTest extends TestCase
 
         $response = $this->post(route('roles.delete', $role->id));
 
-        $response->assertSessionHas('errorMessage', trans('helpers::action.cannot_delete'));
+        $response->assertSessionHas('errorMessage', trans('basics::action.cannot_delete'));
 
         $this->assertDatabaseHas('APP_roles', [
             'id' => $role->id,
@@ -118,7 +118,7 @@ class DeleteRolesTest extends TestCase
 
         $response = $this->get(route('roles.restore', $role->id));
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.restore_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.restore_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'id' => $role->id,
@@ -138,7 +138,7 @@ class DeleteRolesTest extends TestCase
 
         $response = $this->post(route('roles.destroy', $role->id));
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.delete_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.delete_successfully'));
 
         $this->assertDatabaseMissing('APP_roles', [
             'id' => $role->id

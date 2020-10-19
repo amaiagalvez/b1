@@ -63,7 +63,7 @@ class UpdateRolesTest extends TestCase
         $response = $this->post(route('roles.update', $role->id),
             ['name' => 'role name updated'] + $role->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.update_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'name' => 'role name updated',

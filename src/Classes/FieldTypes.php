@@ -1,6 +1,6 @@
 <?php namespace Izt\Basics\Classes;
 
-use Izt\Helpers\Classes\Interfaces\ClassInterface;
+use Izt\Basics\Classes\Interfaces\ClassInterface;
 
 class FieldTypes implements ClassInterface
 {

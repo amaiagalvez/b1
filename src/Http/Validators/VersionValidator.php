@@ -3,7 +3,7 @@
 namespace Izt\Basics\Http\Validators;
 
 use Illuminate\Support\Arr;
-use Izt\Helpers\Http\Validators\AbstractValidator;
+use Izt\Basics\Http\Validators\AbstractValidator;
 
 /**
  * Class VersionValidator

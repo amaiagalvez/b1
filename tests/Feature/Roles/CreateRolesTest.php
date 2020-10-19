@@ -44,7 +44,7 @@ class CreateRolesTest extends TestCase
         $role = Role::latest('id')
             ->first();
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.store_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.store_successfully'));
 
         $this->assertDatabaseHas('APP_roles', [
             'name' => $role->name

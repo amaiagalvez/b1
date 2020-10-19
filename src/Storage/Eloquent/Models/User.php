@@ -8,8 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Izt\Basics\Notifications\ResetPasswordNotification;
 use Izt\Basics\Notifications\UserActivationNotification;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
-use Izt\Helpers\Storage\Eloquent\Traits\SecureDeleteTrait;
+use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
+use Izt\Basics\Storage\Eloquent\Traits\SecureDeleteTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {

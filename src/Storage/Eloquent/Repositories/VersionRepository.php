@@ -4,7 +4,7 @@ namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Basics\Storage\Eloquent\Models\Version;
 use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
-use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class VersionRepository

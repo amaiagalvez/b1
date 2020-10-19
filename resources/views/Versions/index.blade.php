@@ -1,15 +1,15 @@
-@extends('helpers::layouts._base.app')
+@extends('basics::layouts._base.app')
 
 @section('title', trans_choice('basics::basics.version', 2))
 
-@include('helpers::layouts._partials.breadcrumb_list')
+@include('basics::layouts._partials.breadcrumb_list')
 
 @section('content')
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                @include('helpers::layouts._table.table_buttons')
+                @include('basics::layouts._table.table_buttons')
             </div>
         </div>
 

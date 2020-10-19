@@ -63,7 +63,7 @@ class UpdateUsersTest extends TestCase
                     'notes' => 'notes updated'
                 ] + $user->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.update_successfully'));
         $response->assertRedirect(route('basics.home'));
 
         $this->assertDatabaseHas('users', [
@@ -93,7 +93,7 @@ class UpdateUsersTest extends TestCase
             ->post(route('users.update', $user->id),
             ['name' => 'name updated'] + $user->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.update_successfully'));
 
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
@@ -115,7 +115,7 @@ class UpdateUsersTest extends TestCase
         ->post(route('users.update', $user->id),
             ['name' => 'name updated'] + $user->toArray());
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.update_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.update_successfully'));
 
         $this->assertDatabaseHas('users', [
             'name' => 'name updated',

@@ -4,7 +4,7 @@ namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Izt\Helpers\Storage\Eloquent\Traits\AbstractTrait;
+use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 
 class Menu extends Model
 {

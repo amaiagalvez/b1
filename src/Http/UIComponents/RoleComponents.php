@@ -37,7 +37,7 @@ class RoleComponents
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans('helpers::action.nonactive')
+                'title' => trans('basics::action.nonactive')
             ]
         ];
     }
@@ -61,7 +61,7 @@ class RoleComponents
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans_choice('helpers::action.trash', 2)
+                'title' => trans_choice('basics::action.trash', 2)
             ],
         ];
     }
@@ -85,7 +85,7 @@ class RoleComponents
                 'route' => route('roles.index')
             ],
             [
-                'title' => trans('helpers::action.create')
+                'title' => trans('basics::action.create')
             ]
         ];
     }
@@ -102,7 +102,7 @@ class RoleComponents
     {
         return [
             'action' => route('roles.store'),
-            'button' => trans('helpers::action.create')
+            'button' => trans('basics::action.create')
         ];
     }
 
@@ -134,7 +134,7 @@ class RoleComponents
     {
         return [
             'action' => route('roles.update', $id),
-            'button' => trans('helpers::action.save')
+            'button' => trans('basics::action.save')
         ];
     }
 }

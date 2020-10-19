@@ -25,6 +25,7 @@ use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
+use Izt\Basics\Providers\BladeServiceProvider;
 use Yajra\DataTables\DataTablesServiceProvider;
 use Yajra\DataTables\FractalServiceProvider;
 
@@ -32,28 +33,30 @@ class BasicsServiceProvider extends ServiceProvider
 {
     public function boot(Router $router)
     {
-        Config::set('auth.providers.users.model', config('helpers.user'));
+        Config::set('auth.providers.users.model', config('basics.user'));
 
         $this->loadMigrationsFrom($this->basePath('database/migrations'));
         $this->loadFactoriesFrom($this->basePath('database/factories'));
 
         $this->loadViewsFrom($this->basePath('resources/views'), 'basics');
-        $this->loadViewsFrom($this->basePath('/vendor/amaiagalvez/h1/resources/views'), 'helpers');
 
         $this->loadTranslationsFrom($this->basePath('resources/lang'), 'basics');
-        $this->loadTranslationsFrom($this->basePath('/vendor/amaiagalvez/h1/resources/lang'), 'helpers');
 
         $router->middlewareGroup('admin', [Admin::class]);
         $router->middlewareGroup('developer', [Developer::class]);
         $router->middlewareGroup('userLang', [UserLanguage::class]);
         $router->middlewareGroup('activityLog', [ActivityLogger::class]);
 
+        /* Config */
+
         $this->publishes([
             $this->basePath('config/basics.php') => base_path('config/basics.php')
         ], 'izt-basics-config');
 
+        /* Assets */
+
         $this->publishes([
-            $this->basePath('resources/assets') => base_path('public/basics')
+            $this->basePath('public') => base_path('public/basics')
         ], 'izt-basics-assets');
 
         $this->publishes([
@@ -63,6 +66,10 @@ class BasicsServiceProvider extends ServiceProvider
         $this->publishes([
             $this->basePath('database/seeds') => base_path('database/seeds/basics')
         ], 'izt-basics-seeds');
+
+        $this->publishes([
+            $this->basePath('resources/views/errors') => base_path('resources/views/errors')
+        ], 'izt-basics-views');
     }
 
     public function register()
@@ -111,16 +118,18 @@ class BasicsServiceProvider extends ServiceProvider
 
         $this->app->register(ComposerServiceProvider::class);
         $this->app->register(EventServiceProvider::class);
+        $this->app->register(BladeServiceProvider::class);
 
         $this->app->register(DataTablesServiceProvider::class);
         $this->app->register(FractalServiceProvider::class);
 
         $this->mergeConfigFrom($this->basePath('config/basics.php'), 'basics');
-        $this->mergeConfigFrom($this->basePath('config/helpers.php'), 'helpers');
     }
 
     protected function basePath($path)
     {
-        return str_replace('src', '', __DIR__) . '' . $path;
+        return __DIR__ . '/../' . $path;
+        return str_replace('/../..', '', __DIR__) . '' . $path;
+//        return str_replace('src', '', __DIR__) . '' . $path;
     }
 }

@@ -92,7 +92,7 @@ class VariablesController extends Controller
 
         $form = [
             'action' => route('variables.update', $id),
-            'button' => trans('helpers::action.save')
+            'button' => trans('basics::action.save')
         ];
 
         return view('basics::Variables.form',
@@ -153,7 +153,7 @@ class VariablesController extends Controller
             }
 
             if ($extension_error) {
-                return redirect()->back()->with('errorMessage', trans('helpers::action.extension_error'));
+                return redirect()->back()->with('errorMessage', trans('basics::action.extension_error'));
             }
 
             $input['value'] = $custom_file_name;

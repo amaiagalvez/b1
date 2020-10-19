@@ -4,7 +4,7 @@ namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
-use Izt\Helpers\Storage\Eloquent\Repositories\AbstractRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class UserRepository

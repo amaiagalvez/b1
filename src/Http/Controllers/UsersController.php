@@ -120,7 +120,7 @@ class UsersController extends Controller
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('helpers::action.nonactive')
+                'title' => trans('basics::action.nonactive')
             ]
         ];
 
@@ -160,7 +160,7 @@ class UsersController extends Controller
                 'route' => route('users.index')
             ],
             [
-                'title' => trans_choice('helpers::action.trash', 2)
+                'title' => trans_choice('basics::action.trash', 2)
             ],
         ];
 
@@ -183,7 +183,7 @@ class UsersController extends Controller
                 'route' => route('users.index')
             ],
             [
-                'title' => trans('helpers::action.create')
+                'title' => trans('basics::action.create')
             ]
         ];
 
@@ -194,7 +194,7 @@ class UsersController extends Controller
 
         $form = [
             'action' => route('users.store'),
-            'button' => trans('helpers::action.create')
+            'button' => trans('basics::action.create')
         ];
 
         $roles = $this->repoRole->getList(true);
@@ -242,7 +242,7 @@ class UsersController extends Controller
 
         $form = [
             'action' => route('users.update', $id),
-            'button' => trans('helpers::action.save')
+            'button' => trans('basics::action.save')
         ];
 
         $roles = $this->repoRole->getList(true);
@@ -272,7 +272,7 @@ class UsersController extends Controller
 
         $form = [
             'action' => route('users.update', $id),
-            'button' => trans('helpers::action.save')
+            'button' => trans('basics::action.save')
         ];
 
         return view('basics::Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons'));

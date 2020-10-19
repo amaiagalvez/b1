@@ -1,0 +1,71 @@
+/* DataTables */
+
+//div.dataTables_wrapper div.dataTables_filter {
+//  text-align: right;
+//  margin-top: -10px;
+//}
+
+.dataTables_length {
+    float: left;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.45em;
+    white-space: nowrap;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+    width: 50px;
+    height: 27px;
+}
+
+div.dataTables_wrapper .form-control {
+    font-size: 12px;
+    height: 28px;
+    padding: 5px 5px;
+}
+
+.page-link {
+    background-color: $theme_green !important;
+    border-color: $theme_green !important;
+    color: whitesmoke;
+}
+
+.page-link:hover {
+    color: whitesmoke;
+}
+
+.dt-buttons {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.buttons-colvis {
+    font-size: 0.9em;
+    padding: 5px;
+    font-weight: 200;
+}
+
+.buttons-html5 {
+    font-size: 0.9em;
+    padding: 5px;
+    font-weight: 200;
+}
+
+.page-item.active .page-link {
+    color: $theme_blue;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    text-decoration: none;
+    color: #fff;
+    background-color: $theme_green;
+    border-color: $theme_green;
+}

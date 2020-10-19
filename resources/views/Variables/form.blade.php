@@ -1,4 +1,4 @@
-@extends('helpers::layouts._form.form_two')
+@extends('basics::layouts._form.form_two')
 
 @section('title', trans_choice('basics::basics.variable', 1))
 
@@ -37,7 +37,7 @@
 
             @elseif($variable->filed_type === \Izt\Basics\Classes\FieldTypes::LIST)
                 <select name="value[]" class="form-control" required multiple>
-                    @foreach(\Izt\Helpers\Classes\Languages::getChoicesArray() AS $language)
+                    @foreach(\Izt\Basics\Classes\Languages::getChoicesArray() AS $language)
                         <option value="{{ $language }}"
                                 @if(! is_null(old('value', $variable->value)) && in_array($language, old('value', getArray($variable->value)))) selected="selected" @endif> {{ $language }} </option>
                     @endforeach
@@ -54,6 +54,6 @@
 
 @section ('info')
 
-    @include('helpers::layouts._form.form_info', ['register' => $variable])
+    @include('basics::layouts._form.form_info', ['register' => $variable])
 
 @endsection

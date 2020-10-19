@@ -1,4 +1,4 @@
-@extends('helpers::layouts._table.table')
+@extends('basics::layouts._table.table')
 
 @section('title', trans_choice('basics::basics.user', 2))
 

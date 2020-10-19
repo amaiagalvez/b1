@@ -12,7 +12,7 @@
         "php": "^7.2",
         "yajra/laravel-datatables": "^1.5",
         "laravel/socialite": "^4.4",
-        "amaiagalvez/h1": "^1.0.0"
+        "league/fractal": "^0.19.2"
     },
     "require-dev": {
         "orchestra/testbench": "^3.8"
@@ -20,20 +20,27 @@
     "autoload": {
         "psr-4": {
             "Izt\\Basics\\" : "src"
-        }
+        },
+        "files": [
+            "src/Helpers/html.php",
+            "src/Helpers/date.php",
+            "src/Helpers/list.php",
+            "src/Helpers/test.php",
+            "database/seeds/BasicsDatabaseSeeder.php",
+            "database/seeds/ApplicationsTableSeeder.php",
+            "database/seeds/MenusTableSeeder.php",
+            "database/seeds/RolesTableSeeder.php",
+            "database/seeds/UsersTableSeeder.php",
+            "database/seeds/VariablesTableSeeder.php",
+            "database/seeds/VersionTableSeeder.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
             "Izt\\Basics\\Tests\\" : "tests/"
         },
         "files": [
-            "database/seeds/BasicsDatabaseSeeder.php",
-            "database/seeds/ApplicationTableSeeder.php",
-            "database/seeds/MenusTableSeeder.php",
-            "database/seeds/RolesTableSeeder.php",
-            "database/seeds/UsersTableSeeder.php",
-            "database/seeds/VariablesTableSeeder.php",
-            "database/seeds/VersionTableSeeder.php"
+
         ]
     },
     "extra": {

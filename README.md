@@ -1,6 +1,22 @@
 # izt/Basics
 
-Basics Management
+Helpers, functions, ...
+
+Basic translations
+
+Datatables translations
+
+Abstract classes (Repository, Present ...)
+
+Basic classes (Language)
+
+Basic assets (datatables, jquery, ckeditor, ...)
+
+Theme (core ui)
+
+Basic views (layouts, errors)
+
+Basics Tables
 
     - Menu
     - Application    
@@ -18,7 +34,7 @@ composer require izt/Basics
 
 ## Usage
 
-You must publish the configuration file in config/basics.php
+Configuration file in config/basics.php
 
 ```
 php artisan vendor:publish --force   
@@ -39,13 +55,13 @@ $this->call(BasicsDatabaseSeeder::class);
 DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
 ```     
-You can publish the assets in public/basics
+Assets in public/basics
 ```
 php artisan vendor:publish   
 choose the tag izt-basics-assets
 ```
 
-You must publish the translations in resources/lang folder
+Translations in resources/lang folder (bestela validation, password ez du hartzen)
 ```
 php artisan vendor:publish --force   
 choose the tag izt-basics-lang
@@ -58,13 +74,19 @@ In Kernel.php file add this lines to protected $middleware and remove from $midd
 \Illuminate\View\Middleware\ShareErrorsFromSession::class, (@error('email'))
 ```
 
+Views in resources/views/errors folder (bestela errors views ez du hartzen)
+```
+php artisan vendor:publish --force   
+choose the tag izt-basics-views
+```
+
 ## Require
 
 - php 7.2
 - laravel 6
+- league/fractal
 - yajra/laravel-datatables
 - laravel/socialite
-- izt/helpers
 
 ## Emails 
 
@@ -83,3 +105,4 @@ MAIL_FROM_NAME="${APP_NAME}"
  
 - artisan nola instalatu DUSK erabili ahal izateko    
 - nola kargatu seed-errak publikatu gabe?
+- lang/validation/attributes => aplikazio guztienak hemen gehitu behar dira

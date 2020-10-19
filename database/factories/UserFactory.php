@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
-use Izt\Helpers\Classes\Languages;
+use Izt\Basics\Classes\Languages;
 
 /*
 |--------------------------------------------------------------------------

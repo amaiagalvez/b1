@@ -43,7 +43,7 @@ class CreateUsersTest extends TestCase
 
         $user = User::latest('id')->first();
 
-        $response->assertSessionHas('successMessage', trans('helpers::action.store_successfully'));
+        $response->assertSessionHas('successMessage', trans('basics::action.store_successfully'));
         $response->assertRedirect(route('users.edit', ['id' => $user->id]));
 
         $this->assertDatabaseHas('users', [
