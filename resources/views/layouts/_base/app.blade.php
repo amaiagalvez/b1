@@ -45,10 +45,9 @@
 <script src="{{ asset('basics/js/popper.min.js') }}"></script>
 <script src="{{ asset('basics/js/ckeditor/ckeditor.js') }}"></script>
 
-<script src="{{ asset('basics/js/scripts_basics.js') }}"></script>
+<script src="{{ asset('basics/js/theme.js') }}"></script>
 <script src="{{ asset('basics/js/datatables.min.js') }}"></script>
 
-<script src="{{ asset('basics/js/scripts_basics.js') }}"></script>
 <script src="{{ asset('basics/js/dt.js') }}"></script>
 
 {!!  getLocalizedJS('/basics')  !!}

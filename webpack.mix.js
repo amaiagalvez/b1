@@ -16,10 +16,10 @@ mix.copyDirectory('resources/images', 'public/images');
 mix.sass('resources/sass/app.scss', 'public/css/styles_basics.css');
 
 //translations
-mix.copyDirectory('resources/translations', 'public/js');
+mix.copyDirectory('resources/js/translations', 'public/js');
 
 //scripts
-mix.scripts('resources/js', 'public/js/scripts_basics.js');
+mix.scripts('resources/js/theme', 'public/js/theme.js');
 
 //datables
 mix.scripts('resources/js/datatables', 'public/js/dt.js');
