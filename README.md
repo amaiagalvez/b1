@@ -1,23 +1,20 @@
 # izt/Basics
 
-Helpers, functions, ...
+- Helpers, functions, ...
+- Basic translations
+- Datatables translations
+- Abstract classes (Repository, Present ...)
+- Basic classes (Language)
+- Basic assets (datatables, jquery, ckeditor, ...)
+- Theme (core ui)
+- Basic views (layouts, errors)
+- Routes (admin, developer)
+- Middlewares (activityLogger, admin, developer, userLanguage)
+- Auth (notifications, password reset, register (web))
+- BladeService (@asterisk...)
 
-Basic translations
-
-Datatables translations
-
-Abstract classes (Repository, Present ...)
-
-Basic classes (Language)
-
-Basic assets (datatables, jquery, ckeditor, ...)
-
-Theme (core ui)
-
-Basic views (layouts, errors)
-
-Basics Tables
-
+Management of Basics Tables
+===========================
     - Menu
     - Application    
     - Role
@@ -29,7 +26,7 @@ Basics Tables
 ## Installation
 
 ```
-composer require izt/Basics
+composer require amaiagalvez/b1
 ```
 
 ## Usage
@@ -41,8 +38,48 @@ php artisan vendor:publish --force
 choose the tag izt-basics-config
 ```
 
+Assets in public/basics folder
+```
+php artisan vendor:publish   
+choose the tag izt-basics-assets
+```
+
+Translations in resources/lang folder 
+```
+php artisan vendor:publish --force   
+choose the tag izt-basics-lang
+```
+Views in resources/views/layouts folder
+```
+php artisan vendor:publish --force   
+choose the tag izt-basics-views
+```
+
+New project 
+===========
+
+Delete:
+- Controllers/Auth
+- welcome.blade.php
+
+Publish (izt-basics-help):
+(Hauek dira konfiguraziorako behar diren fitxategiak. Nonbaiten edukitzeko kopia on bat eta proiektu guztietan berdinak izateko. Bakarrik lehenengo aldia egiteko)
+- Exception/Handler
+- Config
+- Routes
+- Http/Kernel
+- Tests
+
+Layouts 
+=======
+
+Change @extends('basics::layouts. => @extends('layouts.
+
+app.blade.php => add application's asserts
+
 Seeds 
 =====
+Migrations && Seeds take from de package (composer dump autoload)
 
 To load data, add this in de DatabaseSeeder.php file
 ```
@@ -53,39 +90,6 @@ $this->call(BasicsDatabaseSeeder::class);
 DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
 ```     
-Assets in public/basics
-```
-php artisan vendor:publish   
-choose the tag izt-basics-assets
-```
-
-Translations in resources/lang folder (bestela validation, password ez du hartzen)
-```
-php artisan vendor:publish --force   
-choose the tag izt-basics-lang
-```
-
-In Kernel.php file add this lines to protected $middleware and remove from $middlewareGroups
-
-```
-\Illuminate\Session\Middleware\StartSession::class, (Session)
-\Illuminate\View\Middleware\ShareErrorsFromSession::class, (@error('email'))
-```
-
-Views in resources/views/errors folder (bestela errors views ez du hartzen)
-```
-php artisan vendor:publish --force   
-choose the tag izt-basics-views
-```
-
-To change errors view's path in your application
-
-```
-if ($this->isHttpException($exception)) {
-    $statusCode = $exception->getStatusCode();
-    return view("basics::errors.{$statusCode}");
-}
-```
      
 ## Require
 
@@ -97,7 +101,7 @@ if ($this->isHttpException($exception)) {
 
 ## Emails 
 
-https://mailtrap.io (informatikaamaia@gmail.com // A...55*)
+https://mailtrap.io (informatikaamaia@gmail.com // A...)
 
 MAIL_DRIVER=smtp
 MAIL_HOST=smtp.mailtrap.io
@@ -111,4 +115,5 @@ MAIL_FROM_NAME="${APP_NAME}"
 ## Problems
  
 - artisan nola instalatu DUSK erabili ahal izateko    
+- lang => nola hartu paketetik zuzenean, publikatu gabe?
 - lang/validation/attributes => aplikazio guztienak hemen gehitu behar dira
