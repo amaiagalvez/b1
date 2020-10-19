@@ -2,7 +2,7 @@
 
 namespace Izt\Basics\Http\UIComponents;
 
-class RolesComponents
+class RoleComponents
 {
 
     /* Index */
@@ -102,7 +102,6 @@ class RolesComponents
     {
         return [
             'action' => route('roles.store'),
-            'method' => 'POST',
             'button' => trans('helpers::action.create')
         ];
     }
@@ -135,7 +134,6 @@ class RolesComponents
     {
         return [
             'action' => route('roles.update', $id),
-            'method' => 'POST',
             'button' => trans('helpers::action.save')
         ];
     }

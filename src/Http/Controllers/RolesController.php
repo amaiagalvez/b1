@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Izt\Basics\Http\DtGenerators\RoleDataTablesGenerator;
 use Izt\Basics\Http\Transformers\RoleTransformer;
-use Izt\Basics\Http\UIComponents\RolesComponents;
+use Izt\Basics\Http\UIComponents\RoleComponents;
 use Izt\Basics\Http\Validators\RoleValidator;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
@@ -51,7 +51,7 @@ class RolesController extends Controller
             return $roleDataTablesGenerator->get();
         }
 
-        $buttonsGenerator = new RolesComponents();
+        $buttonsGenerator = new RoleComponents();
 
         $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsIndex();
 
@@ -79,7 +79,7 @@ class RolesController extends Controller
             return $roleDataTablesGenerator->get();
         }
 
-        $buttonsGenerator = new RolesComponents();
+        $buttonsGenerator = new RoleComponents();
 
         $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsNonActive();
 
@@ -103,7 +103,7 @@ class RolesController extends Controller
             return $roleDataTablesGenerator->get();
         }
 
-        $buttonsGenerator = new RolesComponents();
+        $buttonsGenerator = new RoleComponents();
 
         $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsTrash();
 
@@ -117,7 +117,7 @@ class RolesController extends Controller
     {
         $role = $this->repoRole->getNew();
 
-        $buttonsGenerator = new RolesComponents();
+        $buttonsGenerator = new RoleComponents();
 
         $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsCreate();
 
@@ -152,7 +152,7 @@ class RolesController extends Controller
             return abort(403);
         }
 
-        $buttonsGenerator = new RolesComponents();
+        $buttonsGenerator = new RoleComponents();
 
         $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsEdit($role->name);
 

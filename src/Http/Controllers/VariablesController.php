@@ -92,7 +92,6 @@ class VariablesController extends Controller
 
         $form = [
             'action' => route('variables.update', $id),
-            'method' => 'POST',
             'button' => trans('helpers::action.save')
         ];
 

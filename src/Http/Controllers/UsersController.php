@@ -194,7 +194,6 @@ class UsersController extends Controller
 
         $form = [
             'action' => route('users.store'),
-            'method' => 'POST',
             'button' => trans('helpers::action.create')
         ];
 
@@ -243,7 +242,6 @@ class UsersController extends Controller
 
         $form = [
             'action' => route('users.update', $id),
-            'method' => 'POST',
             'button' => trans('helpers::action.save')
         ];
 
@@ -274,7 +272,6 @@ class UsersController extends Controller
 
         $form = [
             'action' => route('users.update', $id),
-            'method' => 'POST',
             'button' => trans('helpers::action.save')
         ];
 

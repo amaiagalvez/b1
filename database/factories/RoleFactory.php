@@ -33,6 +33,7 @@ $factory->define(Role::class, function (Faker $faker) {
         'title_es' => $faker->word,
         'title_fr' => $faker->word,
         'title_en' => $faker->word,
+        'active' => $faker->boolean,
         'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,
         'updated_by' => Auth::id() ?? User::take(5)->get()

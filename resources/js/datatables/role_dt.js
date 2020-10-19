@@ -1,4 +1,4 @@
-function initRoleDataTables(list_type, lang, route_index, route_trash) {
+function initRoleDataTables(list_type, lang, route_index, route_nonactive, route_trash) {
 
     window.dtOptions = window.dtDefaultOptions;
 
@@ -29,6 +29,21 @@ function initRoleDataTables(list_type, lang, route_index, route_trash) {
                 title: dtWords.who,
                 data: "deletedBy.data.name",
                 name: "deletedBy.name",
+                orderable: false,
+                searchable: false
+            }
+        );
+    }
+
+    if (list_type === 'nonactive') {
+        dt_url = route_nonactive + param;
+
+        window.dtOptions.columns.push(
+            {title: dtWords.when, data: "updated_at", name: "updated_at"},
+            {
+                title: dtWords.who,
+                data: "updatedBy.data.name",
+                name: "updatedBy.name",
                 orderable: false,
                 searchable: false
             }
