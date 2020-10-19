@@ -1,4 +1,4 @@
-@extends('errors::minimal')
+@extends('basics::errors.minimal')
 
 @section('code', '404')
 @section('title', '404')
