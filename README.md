@@ -69,6 +69,7 @@ Publish (izt-basics-help):
 - Routes
 - Http/Kernel
 - Tests
+- composer.json
 
 Layouts 
 =======

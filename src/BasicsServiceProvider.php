@@ -90,6 +90,10 @@ class BasicsServiceProvider extends ServiceProvider
         ], 'izt-basics-help-app-http');
 
         $this->publishes([
+            $this->basePath('help/app/Providers') => base_path('app/Providers')
+        ], 'izt-basics-help-app-providers');
+
+        $this->publishes([
             $this->basePath('help/tests') => base_path('app/tests')
         ], 'izt-basics-help-tests');
     }

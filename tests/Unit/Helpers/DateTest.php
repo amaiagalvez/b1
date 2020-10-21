@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Basics\Tests\Unit;
+namespace Izt\Basics\Tests\Unit\Helpers;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Tests\TestCase;

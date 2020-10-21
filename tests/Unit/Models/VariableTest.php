@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Basics\Tests\Unit;
+namespace Izt\Basics\Tests\Unit\Models;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Storage\Eloquent\Models\User;
@@ -28,7 +28,7 @@ class VariableTest extends TestCase
 
     /** @test */
 
-    public function a_variable_model_must_user_the_base_trait()
+    public function a_variable_model_must_use_the_abstract_trait()
     {
 
         $this->assertClassUsesTrait(AbstractTrait::class, Variable::class);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Basics\Tests\Unit\Transformers\Admin;
+namespace Izt\Basics\Tests\Unit\Transformers;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Http\Transformers\RoleTransformer;

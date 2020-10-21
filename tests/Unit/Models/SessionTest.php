@@ -1,6 +1,6 @@
 <?php
 
-namespace Izt\Basics\Tests\Unit;
+namespace Izt\Basics\Tests\Unit\Models;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Storage\Eloquent\Models\Session;
