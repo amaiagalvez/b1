@@ -19,10 +19,10 @@
     @endif
 
     @if(auth()->user()->isDeveloper())
-    <a class="btn btn-table" href="{{ route('dev.users.loginAs', $user->id) }}"
-       title="{{trans('basics::auth.loginAs')}}">
-        <span class="fa fa-user-secret"></span>
-    </a>
+        <a class="btn btn-table" href="{{ route('dev.users.loginAs', $user->id) }}"
+           title="{{trans('basics::auth.loginAs')}}">
+            <span class="fa fa-user-secret"></span>
+        </a>
     @endif
 
     @if(!$user->isActivated())

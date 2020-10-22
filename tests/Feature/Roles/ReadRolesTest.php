@@ -10,7 +10,7 @@ class ReadRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function role_index_load_ok()
     {

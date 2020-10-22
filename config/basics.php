@@ -1,12 +1,14 @@
 <?php
 
 /*
- * IZT Users package's configuration
+ * Basics package's configuration
  */
+
+use Izt\Basics\Storage\Eloquent\Models\User;
 
 return [
 
-    'user' => \Izt\Basics\Storage\Eloquent\Models\User::class,
+    'user' => User::class,
     'oauth' => false,
     'redirect_route_after_logout' => 'front.home'
 

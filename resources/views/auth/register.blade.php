@@ -86,7 +86,8 @@
                                 <div class="input-group mb-4 ml-2">
                                     <div class="form-check">
                                         <input type='hidden' value='0' name='show_profile'>
-                                        <input class="form-check-input" type="checkbox" id="show_profile" name="show_profile" value="1"
+                                        <input class="form-check-input" type="checkbox" id="show_profile"
+                                               name="show_profile" value="1"
                                                @if(old('show_profile') == 1) checked="checked" @endif />
                                         <label class="ml-3 form-check-label" for="active">
                                             {{ trans('basics::auth.show_profile') }}

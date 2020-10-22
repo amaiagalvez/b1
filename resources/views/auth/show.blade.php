@@ -31,7 +31,7 @@
                 <div class="card border-0 bg-light shadow-sm">
                     <div class="card-body">
                         <status-list
-                            url= {{route('front.users.index', $user)}}>
+                                url= {{route('front.users.index', $user)}}>
                         </status-list>
                     </div>
                 </div>

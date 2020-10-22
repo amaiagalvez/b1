@@ -11,7 +11,7 @@ class ReadVariablesTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function variable_index_load_ok()
     {

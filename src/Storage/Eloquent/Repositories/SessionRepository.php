@@ -4,7 +4,6 @@ namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Basics\Storage\Eloquent\Models\Session;
 use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
-use Izt\Basics\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class SessionRepository

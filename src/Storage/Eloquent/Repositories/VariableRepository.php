@@ -4,7 +4,6 @@ namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Basics\Storage\Eloquent\Models\Variable;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
-use Izt\Basics\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class VariableRepository

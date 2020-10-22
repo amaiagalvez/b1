@@ -2,11 +2,11 @@
 
 namespace Izt\Basics\Listeners;
 
-use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 
 class LogSuccessfulLogin
 {

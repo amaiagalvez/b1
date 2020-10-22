@@ -11,7 +11,7 @@ class DeleteUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function user_trash_load_ok()
     {

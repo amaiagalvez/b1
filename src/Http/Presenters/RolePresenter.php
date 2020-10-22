@@ -1,7 +1,6 @@
 <?php namespace Izt\Basics\Http\Presenters;
 
 use App;
-use Izt\Basics\Http\Presenters\AbstractPresenter;
 
 class RolePresenter extends AbstractPresenter
 {

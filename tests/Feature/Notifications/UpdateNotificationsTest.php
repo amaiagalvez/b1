@@ -11,7 +11,7 @@ class UpdateNotificationsTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function a_guest_cannot_mark_notifications_as_read()
     {

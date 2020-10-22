@@ -7,8 +7,8 @@ use Izt\Basics\Storage\Eloquent\Models\Application;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Eloquent\Models\Variable;
-use Izt\Basics\Tests\TestCase;
 use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
+use Izt\Basics\Tests\TestCase;
 
 class VariableTest extends TestCase
 {
@@ -62,7 +62,7 @@ class VariableTest extends TestCase
 
     public function a_editable_variable()
     {
-        $variable = fCreate(Variable::class, ['editable'=> 1]);
+        $variable = fCreate(Variable::class, ['editable' => 1]);
 
         $this->assertTrue($variable->canEdit());
     }
@@ -71,7 +71,7 @@ class VariableTest extends TestCase
 
     public function a_not_editable_variable()
     {
-        $variable = fCreate(Variable::class, ['editable'=> 0]);
+        $variable = fCreate(Variable::class, ['editable' => 0]);
 
         $this->assertFalse($variable->canEdit());
     }

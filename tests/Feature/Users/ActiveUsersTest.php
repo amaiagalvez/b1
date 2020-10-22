@@ -12,7 +12,7 @@ class ActiveUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function user_nonactive_load_ok()
     {

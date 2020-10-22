@@ -4,7 +4,6 @@ namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Illuminate\Notifications\DatabaseNotification;
 use Izt\Basics\Storage\Interfaces\NotificationRepositoryInterface;
-use Izt\Basics\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class NotificationRepository

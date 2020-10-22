@@ -4,7 +4,6 @@ namespace Izt\Basics\Storage\Eloquent\Repositories;
 
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
-use Izt\Basics\Storage\Eloquent\Repositories\AbstractRepository;
 
 /**
  * Class RoleRepository

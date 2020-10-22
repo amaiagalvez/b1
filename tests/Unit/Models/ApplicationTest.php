@@ -6,11 +6,9 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Storage\Eloquent\Models\Application;
 use Izt\Basics\Storage\Eloquent\Models\Menu;
 use Izt\Basics\Storage\Eloquent\Models\Role;
-use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Eloquent\Models\Variable;
 use Izt\Basics\Storage\Eloquent\Models\Version;
 use Izt\Basics\Tests\TestCase;
-use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 
 class ApplicationTest extends TestCase
 {

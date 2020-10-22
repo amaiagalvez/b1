@@ -11,7 +11,7 @@ class SessionTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function a_session_belong_to_a_user()
     {
@@ -23,9 +23,10 @@ class SessionTest extends TestCase
 
     /** @test */
 
-    public function a_session_has_total_duration() {
+    public function a_session_has_total_duration()
+    {
         $session = fCreate(Session::class, [
-            'login_at' =>  '2020-01-01 10:00:00',
+            'login_at' => '2020-01-01 10:00:00',
             'logout_at' => '2020-01-01 10:32:00',
         ]);
 

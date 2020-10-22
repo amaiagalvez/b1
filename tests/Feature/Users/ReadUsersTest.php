@@ -10,7 +10,7 @@ class ReadUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function user_index_load_ok()
     {

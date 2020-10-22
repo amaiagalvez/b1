@@ -11,7 +11,7 @@ class DeleteRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function role_trash_load_ok()
     {

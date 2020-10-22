@@ -13,7 +13,7 @@ class UpdateRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function role_edit_load_ok()
     {

@@ -57,7 +57,7 @@
                                         <div>
                                             <a href="{{ route('password.request') }}" id="to-recover"
                                                class="text-muted"><i
-                                                    class="fa fa-lock m-r-5"></i> {{ trans('basics::auth.forgot_password') }}
+                                                        class="fa fa-lock m-r-5"></i> {{ trans('basics::auth.forgot_password') }}
                                             </a>
                                         </div>
                                     </div>
@@ -66,14 +66,14 @@
                             </form>
                         </div>
                         @if(config('basics.oauth', false))
-                        <div class="card-footer text-center">
-                            <a href="{{route('login.social', 'twitter')}}" class="btn btn-twitter"><i
-                                    class="fab fa-twitter"></i> Twitter </a>
-                            <a href="{{route('login.social', 'facebook')}}" class="btn btn-facebook"><i
-                                    class="fab fa-facebook-square"></i> Facebook </a>
-                            <a href="{{route('login.social', 'google')}}" class="btn btn-reddit"><i
-                                    class="fab fa-google"></i> Google </a>
-                        </div>
+                            <div class="card-footer text-center">
+                                <a href="{{route('login.social', 'twitter')}}" class="btn btn-twitter"><i
+                                            class="fab fa-twitter"></i> Twitter </a>
+                                <a href="{{route('login.social', 'facebook')}}" class="btn btn-facebook"><i
+                                            class="fab fa-facebook-square"></i> Facebook </a>
+                                <a href="{{route('login.social', 'google')}}" class="btn btn-reddit"><i
+                                            class="fab fa-google"></i> Google </a>
+                            </div>
                         @endif
                     </div>
                     <div class="card text-white py-5 d-md-down-none" style="width:44%">

@@ -3,7 +3,6 @@
 namespace Izt\Basics\Http\Validators;
 
 use Illuminate\Support\Arr;
-use Izt\Basics\Http\Validators\AbstractValidator;
 
 /**
  * Class MenuValidator

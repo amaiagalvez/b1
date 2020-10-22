@@ -11,7 +11,7 @@ class ReadSessionsTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function session_index_load_ok()
     {

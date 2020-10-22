@@ -2,13 +2,13 @@
 
 namespace Izt\Basics\Providers;
 
-use Izt\Basics\Listeners\LogSuccessfulLogin;
-use Izt\Basics\Listeners\LogSuccessfulLogout;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Izt\Basics\Listeners\LogSuccessfulLogin;
+use Izt\Basics\Listeners\LogSuccessfulLogout;
 
 class EventServiceProvider extends ServiceProvider
 {

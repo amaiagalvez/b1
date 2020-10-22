@@ -12,7 +12,7 @@ class UpdateUsersTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function user_edit_load_ok()
     {
@@ -91,7 +91,7 @@ class UpdateUsersTest extends TestCase
 
         $response = $this->from(route('users.edit', $user->id))
             ->post(route('users.update', $user->id),
-            ['name' => 'name updated'] + $user->toArray());
+                ['name' => 'name updated'] + $user->toArray());
 
         $response->assertSessionHas('successMessage', trans('basics::action.update_successfully'));
 
@@ -112,8 +112,8 @@ class UpdateUsersTest extends TestCase
         $user = fCreate(User::class, ['active' => 1]);
 
         $response = $this->from(route('users.edit', $user->id))
-        ->post(route('users.update', $user->id),
-            ['name' => 'name updated'] + $user->toArray());
+            ->post(route('users.update', $user->id),
+                ['name' => 'name updated'] + $user->toArray());
 
         $response->assertSessionHas('successMessage', trans('basics::action.update_successfully'));
 
@@ -134,8 +134,8 @@ class UpdateUsersTest extends TestCase
         $user2 = fCreate(User::class);
 
         $response = $this->from(route('users.edit', $user2->id))
-        ->post(route('users.update', $user2->id),
-            ['email' => $user1->email] + $user2->toArray());
+            ->post(route('users.update', $user2->id),
+                ['email' => $user1->email] + $user2->toArray());
 
         $response->assertSessionHasErrors('email');
 
@@ -159,8 +159,8 @@ class UpdateUsersTest extends TestCase
         $user = fCreate(User::class);
 
         $response = $this->from(route('users.edit', $user->id))
-        ->post(route('users.update', $user->id),
-            ['name' => null] + $user->toArray());
+            ->post(route('users.update', $user->id),
+                ['name' => null] + $user->toArray());
         $response->assertSessionHasErrors('name');
 
         $this->assertDatabaseHas('users', [
@@ -183,8 +183,8 @@ class UpdateUsersTest extends TestCase
         $user = fCreate(User::class);
 
         $response = $this->from(route('users.edit', $user->id))
-        ->post(route('users.update', $user->id),
-            ['role_name' => null] + $user->toArray());
+            ->post(route('users.update', $user->id),
+                ['role_name' => null] + $user->toArray());
         $response->assertSessionHasErrors('role_name');
 
         $response = $this->post(route('users.update', $user->id),
@@ -214,7 +214,7 @@ class UpdateUsersTest extends TestCase
 
         $response = $this->from(route('users.edit', $user->id))
             ->post(route('users.update', $user->id),
-            ['lang' => null] + $user->toArray());
+                ['lang' => null] + $user->toArray());
         $response->assertSessionHasErrors('lang');
 
         $response = $this->post(route('users.update', $user->id),

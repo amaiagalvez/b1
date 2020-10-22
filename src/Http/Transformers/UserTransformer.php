@@ -3,7 +3,6 @@
 namespace Izt\Basics\Http\Transformers;
 
 use Illuminate\Support\Facades\View;
-use Izt\Basics\Http\Transformers\BaseTransformer;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use League\Fractal\TransformerAbstract;
 

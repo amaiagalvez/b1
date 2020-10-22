@@ -2,9 +2,9 @@
 
 namespace Izt\Basics\Listeners;
 
-use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Logout;
+use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 
 
 class LogSuccessfulLogout

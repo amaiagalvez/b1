@@ -3,12 +3,7 @@
 namespace Izt\Basics\Tests\Unit\Transformers;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Izt\Basics\Http\Transformers\RoleTransformer;
-use Izt\Basics\Http\Transformers\VariableTransformer;
 use Izt\Basics\Http\Transformers\VersionTransformer;
-use Izt\Basics\Storage\Eloquent\Models\Role;
-use Izt\Basics\Storage\Eloquent\Models\User;
-use Izt\Basics\Storage\Eloquent\Models\Variable;
 use Izt\Basics\Storage\Eloquent\Models\Version;
 use Izt\Basics\Tests\TestCase;
 
@@ -16,7 +11,7 @@ class VersionTransformerTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function a_version_must_have_the_necessary_fileds()
     {
