@@ -1,6 +1,11 @@
 {
     "name": "amaiagalvez/b1",
     "description": "Basics",
+    "keywords": [
+        "izt",
+        "Basics"
+    ],
+    "license": "MIT",
     "version": "1.0.0",
     "authors": [
         {

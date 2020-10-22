@@ -10,7 +10,7 @@ class CreateRolesTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
 
     public function role_create_load_ok()
     {
@@ -29,6 +29,15 @@ class CreateRolesTest extends TestCase
         $this->get(route('roles.create'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));
+    }
+
+    /** @test */
+
+    public function a_guest_cannot_create_a_role()
+    {
+        $this->get(route('roles.create'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
     }
 
     /** @test */
@@ -64,5 +73,18 @@ class CreateRolesTest extends TestCase
 
         $response = $this->post(route('roles.store'), $role2->toArray());
         $response->assertSessionHasErrors('name');
+    }
+
+    /** @test */
+
+    public function a_new_role_required_an_application()
+    {
+        $this->signIn();
+
+        $role1 = fCreate(Role::class);
+        $role2 = fMake(Role::class, ['name' => $role1->name]);
+
+        $response = $this->post(route('roles.store'), $role2->toArray());
+        $response->assertSessionHasErrors('application');
     }
 }

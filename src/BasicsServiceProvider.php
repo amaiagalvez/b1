@@ -56,7 +56,7 @@ class BasicsServiceProvider extends ServiceProvider
         /* Assets */
 
         $this->publishes([
-            $this->basePath('public') => base_path('public/basics')
+            $this->basePath('public') => base_path('resources/assets/basics')
         ], 'izt-basics-assets');
 
         /* Lang */
@@ -75,27 +75,31 @@ class BasicsServiceProvider extends ServiceProvider
 
         $this->publishes([
             $this->basePath('help/Exceptions') => base_path('app/Exceptions')
-        ], 'izt-basics-help-exceptions');
+        ], 'izt-basics-zhelp-exceptions');
 
         $this->publishes([
             $this->basePath('help/config') => base_path('config')
-        ], 'izt-basics-help-config');
+        ], 'izt-basics-zhelp-config');
 
         $this->publishes([
             $this->basePath('help/routes') => base_path('app/routes')
-        ], 'izt-basics-help-routes');
+        ], 'izt-basics-zhelp-routes');
 
         $this->publishes([
             $this->basePath('help/app/Http') => base_path('app/Http')
-        ], 'izt-basics-help-app-http');
+        ], 'izt-basics-zhelp-app-http');
 
         $this->publishes([
             $this->basePath('help/app/Providers') => base_path('app/Providers')
-        ], 'izt-basics-help-app-providers');
+        ], 'izt-basics-zhelp-app-providers');
 
         $this->publishes([
-            $this->basePath('help/tests') => base_path('app/tests')
-        ], 'izt-basics-help-tests');
+            $this->basePath('help/tests') => base_path('tests')
+        ], 'izt-basics-zhelp-tests');
+
+        $this->publishes([
+            $this->basePath('help/home') => base_path('')
+        ], 'izt-basics-zhelp-home');
     }
 
     public function register()

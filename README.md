@@ -26,7 +26,7 @@ Management of Basics Tables
 ## Installation
 
 ```
-composer require amaiagalvez/basics
+composer require amaiagalvez/b1
 ```
 
 ## Usage
