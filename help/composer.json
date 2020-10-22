@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "amaiagalvez/b1": "1.0.0",
+        "amaiagalvez/basics": "1.0.0",
         "arcanedev/log-viewer": "^5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.18.35",

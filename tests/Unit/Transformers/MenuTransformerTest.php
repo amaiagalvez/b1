@@ -4,7 +4,10 @@ namespace Izt\Basics\Tests\Unit\Transformers;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Http\Transformers\MenuTransformer;
+use Izt\Basics\Http\Transformers\RoleTransformer;
 use Izt\Basics\Storage\Eloquent\Models\Menu;
+use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
 
 class MenuTransformerTest extends TestCase

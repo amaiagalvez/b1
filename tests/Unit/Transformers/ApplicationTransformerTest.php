@@ -5,6 +5,8 @@ namespace Izt\Basics\Tests\Unit\Transformers;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Http\Transformers\ApplicationTransformer;
 use Izt\Basics\Storage\Eloquent\Models\Application;
+use Izt\Basics\Storage\Eloquent\Models\Role;
+use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
 
 class ApplicationTransformerTest extends TestCase

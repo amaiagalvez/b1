@@ -4,11 +4,12 @@ namespace Izt\Basics\Tests\Unit\Models;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Support\Facades\Auth;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\Session;
 use Izt\Basics\Storage\Eloquent\Models\User;
-use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Basics\Tests\TestCase;
+use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 
 class UserTest extends TestCase
 {

@@ -3,6 +3,8 @@
 namespace Izt\Basics\Tests\Feature;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Auth;
+use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Tests\TestCase;
 
 class HomeTest extends TestCase

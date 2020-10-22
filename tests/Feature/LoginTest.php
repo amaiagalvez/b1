@@ -17,6 +17,9 @@ class LoginTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
+        $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
+        $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\View\Middleware\ShareErrorsFromSession');
+
         $this->get(route('login'))
             ->assertStatus(200);
     }
