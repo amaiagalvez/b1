@@ -118,3 +118,6 @@ MAIL_FROM_NAME="${APP_NAME}"
 - artisan nola instalatu DUSK erabili ahal izateko    
 - lang => nola hartu paketetik zuzenean, publikatu gabe?
 - lang/validation/attributes => aplikazio guztienak hemen gehitu behar dira
+
+## Hobekuntzak
+- testeatu gehiago DataTables (ordena, bilatu)

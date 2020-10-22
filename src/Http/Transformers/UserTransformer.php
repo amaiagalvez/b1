@@ -48,13 +48,17 @@ class UserTransformer extends TransformerAbstract
 
             case 'trash':
                 $data['deleted_at'] = getDataTime($user->deleted_at);
-                $data['actions'] = View::make('basics::Users.partials._row_buttons_trash', compact('user'))->render();
+                $data['actions'] = View::make('basics::layouts._table.partials._row_buttons_trash',
+                    [
+                        'restore_route' => route('users.restore', $user->id),
+                        'destroy_route' => route('users.destroy', $user->id)
+                    ])->render();
                 break;
 
             case 'nonactive':
                 $data['updated_at'] = getDataTime($user->updated_at);
-                $data['actions'] = View::make('basics::Users.partials._row_buttons_nonactive',
-                    compact('user'))->render();
+                $data['actions'] = View::make('basics::layouts._table.partials._row_buttons_nonactive',
+                    ['active_route' => route('users.activate', $user->id)])->render();
                 break;
 
             default:

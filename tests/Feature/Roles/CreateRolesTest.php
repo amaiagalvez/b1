@@ -22,6 +22,15 @@ class CreateRolesTest extends TestCase
 
     /** @test */
 
+    public function a_guest_cannot_create_a_role()
+    {
+        $this->get(route('roles.create'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+    }
+
+    /** @test */
+
     public function a_non_admin_user_cannot_create_a_role()
     {
         $this->signIn(null, "other");
@@ -29,15 +38,6 @@ class CreateRolesTest extends TestCase
         $this->get(route('roles.create'))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));
-    }
-
-    /** @test */
-
-    public function a_guest_cannot_create_a_role()
-    {
-        $this->get(route('roles.create'))
-            ->assertStatus(302)
-            ->assertRedirect(route('login'));
     }
 
     /** @test */
@@ -81,10 +81,21 @@ class CreateRolesTest extends TestCase
     {
         $this->signIn();
 
-        $role1 = fCreate(Role::class);
-        $role2 = fMake(Role::class, ['name' => $role1->name]);
+        $role = fMake(Role::class, ['application_id' => null]);
 
-        $response = $this->post(route('roles.store'), $role2->toArray());
-        $response->assertSessionHasErrors('application');
+        $response = $this->post(route('roles.store'), $role->toArray());
+        $response->assertSessionHasErrors('application_id');
+    }
+
+    /** @test */
+
+    public function a_new_role_required_a_name()
+    {
+        $this->signIn();
+
+        $role = fMake(Role::class, ['name' => null]);
+
+        $response = $this->post(route('roles.store'), $role->toArray());
+        $response->assertSessionHasErrors('name');
     }
 }

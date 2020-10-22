@@ -24,7 +24,7 @@
                                         <a data-toggle="collapse" href="#collapse{{$version['id']}}"
                                            aria-expanded="true"
                                            aria-controls="collapseOne" class="not-text-decoration">
-                                            {!! label($version['application']) !!} {!! label($version['name']) !!}
+                                            {!! label($version['application']['data']['title']) !!} {!! label($version['name']) !!}
                                         </a>
                                         <small
                                                 style="float: right">{{$version['created_at']}}</small>

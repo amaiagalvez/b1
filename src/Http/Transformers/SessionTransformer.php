@@ -50,6 +50,6 @@ class SessionTransformer extends TransformerAbstract
             $user = $session->user;
         }
 
-        return $this->item($user, new UserTransformer());
+        return $this->item($user, new BaseTransformer());
     }
 }

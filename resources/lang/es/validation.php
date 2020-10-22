@@ -122,5 +122,10 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => trans('basics::auth.name'),
+        'email' => trans('basics::auth.email'),
+        'password' => trans('basics::auth.password'),
+        'application_id' => trans_choice('basics::basics.application', 1),
+    ],
 ];

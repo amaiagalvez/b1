@@ -5,7 +5,7 @@ return [
     'home' => 'Inicio',
 
     //menus
-    'application' => 'Configura la Aplicación',
+    'application' => 'Aplicación',
     'configuration' => 'Configuración',
     'manual' => 'Manual',
     'menu' => 'Menu | Menus',

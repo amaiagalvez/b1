@@ -8,7 +8,7 @@ use League\Fractal\TransformerAbstract;
 class VersionTransformer extends TransformerAbstract
 {
 
-    protected $defaultIncludes = [];
+    protected $defaultIncludes = ['application'];
 
     /**
      * @var null
@@ -30,15 +30,8 @@ class VersionTransformer extends TransformerAbstract
             return [];
         }
 
-        $app = $version->application;
-        $application = '';
-        if ($app) {
-            $application = $app->present()->title;
-        }
-
         return [
             'id' => $version->id,
-            'application' => $application,
             'name' => 'v.' . $version->name,
             $version->present()->FieldName('notes') => $version->present()->notes,
             'notes' => $version->present()->notes,
@@ -47,4 +40,17 @@ class VersionTransformer extends TransformerAbstract
         ];
 
     }
+
+
+    public function includeApplication(Version $version = null)
+    {
+        if ($version === null) {
+            $application = null;
+        } else {
+            $application = $version->application;
+        }
+
+        return $this->item($application, new ApplicationTransformer());
+    }
+
 }

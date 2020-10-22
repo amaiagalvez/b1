@@ -23,11 +23,7 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 $factory->define(Role::class, function (Faker $faker) {
 
     return [
-        'application_id' => $faker->randomElement([
-            null,
-            Application::all()
-                ->random()->id
-        ]),
+        'application_id' => Application::all()->random()->id,
         'name' => $faker->unique()->userName,
         'title_eu' => $faker->word,
         'title_es' => $faker->word,

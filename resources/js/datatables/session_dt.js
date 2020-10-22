@@ -13,7 +13,7 @@ function initSessionDataTables(list_type, lang, route_index) {
             {title: sessionWords.user, data: "user.data.name", name: "user.name"},
             {title: sessionWords.login_at, data: "login_at", name: "login_at"},
             {title: sessionWords.logout_at, data: "logout_at", name: "logout_at"},
-            {title: sessionWords.total, data: "total", name: "total", orderable: false, searchable: false},
+            {title: sessionWords.total, data: "total", name: "total", orderable: true, searchable: false},
             {title: sessionWords.ip_address, data: "ip_address", name: "ip_address"},
             {title: sessionWords.user_agent, data: "user_agent", name: "user_agent", width: "20%"},
         ];

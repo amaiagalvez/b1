@@ -9,7 +9,7 @@ use League\Fractal\TransformerAbstract;
 class RoleTransformer extends TransformerAbstract
 {
 
-    protected $defaultIncludes = ['application', 'deletedBy'];
+    protected $defaultIncludes = ['application', 'updatedBy', 'deletedBy'];
 
     /**
      * @var null
@@ -41,12 +41,29 @@ class RoleTransformer extends TransformerAbstract
 
         switch ($this->list_type) {
             case 'index':
-                $data['actions'] = View::make('basics::Roles.partials._row_buttons_index', compact('role'))->render();
+                $data['actions'] = View::make('basics::layouts._table.partials._row_buttons_index',
+                    [
+                        'canEdit' => $role->canEdit(),
+                        'canDelete' => $role->canDelete(),
+                        'edit_route' => route('roles.edit', $role->id),
+                        'deactivate_route' => route('roles.deactivate', $role->id),
+                        'delete_route' => route('roles.delete', $role->id)
+                    ])->render();
                 break;
 
             case 'trash':
                 $data['deleted_at'] = getDataTime($role->deleted_at);
-                $data['actions'] = View::make('basics::Roles.partials._row_buttons_trash', compact('role'))->render();
+                $data['actions'] = View::make('basics::layouts._table.partials._row_buttons_trash',
+                    [
+                        'restore_route' => route('roles.restore', $role->id),
+                        'destroy_route' => route('roles.destroy', $role->id)
+                    ])->render();
+                break;
+
+            case 'nonactive':
+                $data['updated_at'] = getDataTime($role->updated_at);
+                $data['actions'] = View::make('basics::layouts._table.partials._row_buttons_nonactive',
+                    ['active_route' => route('roles.activate', $role->id)])->render();
                 break;
 
             default:
@@ -68,6 +85,17 @@ class RoleTransformer extends TransformerAbstract
         return $this->item($application, new ApplicationTransformer());
     }
 
+    public function includeUpdatedBy(Role $role = null)
+    {
+        if ($role === null) {
+            $updatedBy = null;
+        } else {
+            $updatedBy = $role->updatedBy;
+        }
+
+        return $this->item($updatedBy, new BaseTransformer());
+    }
+
     public function includeDeletedBy(Role $role = null)
     {
         if ($role === null) {
@@ -78,5 +106,4 @@ class RoleTransformer extends TransformerAbstract
 
         return $this->item($deletedBy, new BaseTransformer());
     }
-
 }

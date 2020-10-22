@@ -3,6 +3,23 @@
 @section('title', trans_choice('basics::basics.role', 1))
 
 @section ('form')
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="application_id">{{ trans('basics::basics.application') }} @asterisk() </label>
+            <select id="application_id" name="application_id"
+                    class="form-control @error('application_id') is-invalid @enderror"
+                    required>
+                @foreach($applications AS $application)
+                    <option value="{{ $application['id'] }}"
+                            @if(! is_null(old('application_id', $role->application_id)) && $application['id'] === old('application_id', $role->application_id)) selected="selected" @endif> {{ $application['title'] }} </option>
+                @endforeach
+            </select>
+
+            @error('application_id')
+            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+    </div>
 
     <div class="form-row">
         <div class="form-group col-md-12">

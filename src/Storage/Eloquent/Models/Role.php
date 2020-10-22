@@ -25,11 +25,11 @@ class Role extends Model
      */
     protected $fillable = [
         'application_id',
+        'name',
         'title_eu',
         'title_es',
         'title_fr',
         'title_en',
-        'name',
         'notes_eu',
         'notes_es',
         'notes_fr',

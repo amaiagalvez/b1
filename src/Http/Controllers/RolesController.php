@@ -40,9 +40,13 @@ class RolesController extends Controller
     {
         $list_type = 'index';
 
+        $filters = [
+            'active' => 1
+        ];
+
         if ($this->request->wantsJson()) {
             $query = $this->repoRole->applyFiltersAndOrderQuery(
-                Role::with(['users', 'application']), false, [], []);
+                Role::with(['users', 'application']), false, $filters, []);
 
             $roleDataTablesGenerator = new RoleDataTablesGenerator(
                 $query,

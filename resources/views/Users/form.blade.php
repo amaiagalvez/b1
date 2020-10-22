@@ -51,7 +51,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-4">
-            <label for="lang">{{ trans('basics::basics.role_name') }} @asterisk() </label>
+            <label for="role_name">{{ trans('basics::basics.role_name') }} @asterisk() </label>
             <select id="role_name" name="role_name" class="form-control @error('role_name') is-invalid @enderror"
                     required>
                 @foreach($roles AS $key => $role)
