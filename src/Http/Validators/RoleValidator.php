@@ -4,7 +4,6 @@ namespace Izt\Basics\Http\Validators;
 
 
 use Illuminate\Support\Arr;
-use Izt\Basics\Http\Validators\AbstractValidator;
 
 /**
  * Class RoleValidator
@@ -35,7 +34,7 @@ class RoleValidator extends AbstractValidator
      * @var array
      */
     protected $store_rules = [
-        'application_id' => 'nullable|exists:APP_applications,id',
+        'application_id' => 'required|exists:APP_applications,id',
         'name' => 'required|string|max:30|unique:APP_roles,name',
         'title_eu' => 'max:30',
         'title_es' => 'max:30',

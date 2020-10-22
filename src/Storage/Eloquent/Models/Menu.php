@@ -66,6 +66,11 @@ class Menu extends Model
         return $this->belongsTo(Application::class);
     }
 
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class, 'parent_id');
+    }
+
     /* Scopes */
 
     public function scopeActive($query, $value)

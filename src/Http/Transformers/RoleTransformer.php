@@ -4,13 +4,12 @@ namespace Izt\Basics\Http\Transformers;
 
 use Illuminate\Support\Facades\View;
 use Izt\Basics\Storage\Eloquent\Models\Role;
-use Izt\Basics\Http\Transformers\BaseTransformer;
 use League\Fractal\TransformerAbstract;
 
 class RoleTransformer extends TransformerAbstract
 {
 
-    protected $defaultIncludes = ['deletedBy'];
+    protected $defaultIncludes = ['application', 'deletedBy'];
 
     /**
      * @var null
@@ -37,7 +36,7 @@ class RoleTransformer extends TransformerAbstract
             'id' => $role->id,
             $role->present()->FieldName('title') => $role->present()->title,
             'name' => $role->name,
-            $role->present()->FieldName('notes') => $role->present()->notes,
+            $role->present()->FieldName('notes') => $role->present()->notes
         ];
 
         switch ($this->list_type) {
@@ -56,6 +55,17 @@ class RoleTransformer extends TransformerAbstract
         }
 
         return $data;
+    }
+
+    public function includeApplication(Role $role = null)
+    {
+        if ($role === null) {
+            $application = null;
+        } else {
+            $application = $role->application;
+        }
+
+        return $this->item($application, new ApplicationTransformer());
     }
 
     public function includeDeletedBy(Role $role = null)

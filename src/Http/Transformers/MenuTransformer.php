@@ -33,8 +33,9 @@ class MenuTransformer extends TransformerAbstract
         return [
             'id' => $menu->id,
             'name' => trans('basics::basics.' . $menu->name),
+            'route' => $menu->route,
+            'icon' => $menu->icon,
             'actions' => ''
         ];
-
     }
 }

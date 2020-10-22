@@ -15,6 +15,7 @@ class RolesTableSeeder extends Seeder
     {
         $roles = [
             [
+                'application_id' => 1,
                 'name' => 'admin',
                 'title_eu' => 'Arduraduna',
                 'title_es' => 'Responsable',
@@ -25,6 +26,7 @@ class RolesTableSeeder extends Seeder
                 'created_by' => 1
             ],
             [
+                'application_id' => 1,
                 'name' => 'web',
                 'title_eu' => 'Web Erabiltzailea',
                 'title_es' => 'Usuaria Web',

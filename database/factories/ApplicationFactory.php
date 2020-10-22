@@ -21,11 +21,10 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 $factory->define(Application::class, function (Faker $faker) {
     return [
-        'name' => $faker->unique()->name,
-        'title_eu' => $faker->name . 'EU',
-        'title_es' => $faker->name . 'ES',
-        'title_fr' => $faker->name . 'FR',
-        'title_en' => $faker->name . 'EN',
+        'title_eu' => $faker->unique()->name . 'EU',
+        'title_es' => $faker->unique()->name . 'ES',
+        'title_fr' => $faker->unique()->name . 'FR',
+        'title_en' => $faker->unique()->name . 'EN',
         'active' => $faker->boolean,
         'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,

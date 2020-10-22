@@ -11,7 +11,17 @@ class LoginTest extends TestCase
 {
     use DatabaseMigrations;
 
-/** @test */
+    /** @test */
+
+    public function login_load_ok()
+    {
+        $this->withoutExceptionHandling();
+
+        $this->get(route('login'))
+            ->assertStatus(200);
+    }
+
+    /** @test */
 
     public function not_logged_user_is_redirected_to_login_form()
     {
@@ -23,7 +33,7 @@ class LoginTest extends TestCase
 
     /** @test */
 
-    public function logged_user_go_to_admin_home()
+    public function logged_user_go_to_home()
     {
         $this->signIn();
         $response = $this->get(route('home'));

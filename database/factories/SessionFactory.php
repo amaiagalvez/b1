@@ -21,14 +21,14 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 $factory->define(Session::class, function (Faker $faker) {
 
-    $startingDate = $faker->dateTimeBetween('this week', '+1 days');
-    $endingDate = $faker->dateTimeBetween($startingDate, strtotime('+1 days'));
+    $startDate = $faker->dateTimeBetween('this week', '+1 days')->format('Y-m-d H:i:s');
+    $endDate = $faker->dateTimeBetween($startDate, strtotime('+1 days'))->format('Y-m-d H:i:s');
 
     return [
         'user_id' => User::take(5)->get()
             ->random()->id,
-        'login_at' => $startingDate,
-        'logout_at' => $endingDate,
+        'login_at' => $startDate,
+        'logout_at' => $endDate,
         'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,
         'updated_by' => Auth::id() ?? User::take(5)->get()

@@ -33,7 +33,7 @@ class CreateRolesTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_create_a_role()
+    public function an_admin_user_can_create_a_role()
     {
         $this->signIn();
 

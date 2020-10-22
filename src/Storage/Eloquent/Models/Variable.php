@@ -4,8 +4,8 @@ namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Izt\Basics\Http\Presenters\VariablePresenter;
 use Izt\Basics\Http\Presenters\PresentableTrait;
+use Izt\Basics\Http\Presenters\VariablePresenter;
 use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 
 class Variable extends Model
@@ -78,14 +78,6 @@ class Variable extends Model
 
     /* Scopes */
 
-    public function scopeActive($query, $value)
-    {
-        if ($value >= 0 && $value <= 1) {
-            return $query->where('active', $value);
-        }
-        return $query;
-    }
-
     public function scopeShow($query, $value)
     {
         if ($value >= 0 && $value <= 1) {
@@ -96,7 +88,7 @@ class Variable extends Model
 
     /* Functions */
 
-    public function isEditable()
+    public function canEdit()
     {
         return $this->editable;
     }

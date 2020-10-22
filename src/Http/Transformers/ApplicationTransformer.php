@@ -27,7 +27,10 @@ class ApplicationTransformer extends TransformerAbstract
         return [
             'id' => $application->id,
             'title' => $application->present()->title,
-            'notes' => $application->present()->notes
+            $application->present()->FieldName('title') => $application->present()->title,
+            'icon' => $application->icon,
+            $application->present()->FieldName('notes') => $application->present()->notes,
+            'order' => $application->order
         ];
     }
 }

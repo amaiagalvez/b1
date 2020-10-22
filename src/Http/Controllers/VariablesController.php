@@ -71,7 +71,7 @@ class VariablesController extends Controller
 
         $field_title = $variable->present()->FieldName('title');
 
-        if (!$variable->isEditable()) {
+        if (!$variable->canEdit()) {
             return abort(403);
         }
 
@@ -104,7 +104,7 @@ class VariablesController extends Controller
     {
         $variable = $this->repoVariable->findById($id);
 
-        if (!$variable->isEditable()) {
+        if (!$variable->canEdit()) {
             return abort(403);
         }
 
