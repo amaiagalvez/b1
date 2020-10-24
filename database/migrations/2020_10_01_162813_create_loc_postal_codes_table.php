@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocPostalCodeTable extends Migration
+class CreateLocPostalCodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLocPostalCodeTable extends Migration
      */
     public function up()
     {
-        Schema::create('LOC_postal_code', function (Blueprint $table) {
+        Schema::create('LOC_postal_codes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('postal_code', 5)
@@ -59,6 +59,6 @@ class CreateLocPostalCodeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('LOC_postal_code');
+        Schema::dropIfExists('LOC_postal_codes');
     }
 }
