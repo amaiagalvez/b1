@@ -3,6 +3,7 @@
 namespace Izt\Basics\Http\Controllers;
 
 use Izt\Basics\Http\Transformers\VersionTransformer;
+use Izt\Basics\Http\UIComponents\VersionComponents;
 use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
@@ -43,13 +44,11 @@ class VersionsController extends Controller
         $versions = $this->fractal->createData($versionsCollection)->toArray();
         $versions = $versions['data'];
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.version', 2)
-            ]
-        ];
+        $buttonsGenerator = new VersionComponents();
 
-        $table_buttons = [];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsIndex();
+
+        $table_buttons = $buttonsGenerator->prepareButtonsIndex();
 
         return view('basics::Versions.index', compact('versions', 'breadcrumbs', 'table_buttons', 'list_type'));
     }

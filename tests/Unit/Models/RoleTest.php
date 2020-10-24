@@ -6,7 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Izt\Basics\Storage\Eloquent\Models\Application;
 use Izt\Basics\Storage\Eloquent\Models\Role;
 use Izt\Basics\Storage\Eloquent\Models\User;
-use Izt\Basics\Storage\Eloquent\Models\Variable;
 use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 use Izt\Basics\Tests\TestCase;
 
@@ -77,15 +76,15 @@ class RoleTest extends TestCase
 
     /** @test */
 
-    public function a_variable_scope_by_show()
+    public function a_role_scope_by_active()
     {
-        $variable1 = fCreate(Variable::class, ['show' => 1]);
-        $variable2 = fCreate(Variable::class, ['show' => 0]);
+        $role1 = fCreate(Role::class, ['active' => 1]);
+        $role2 = fCreate(Role::class, ['active' => 0]);
 
-        $variables = Variable::show(1)->get();
+        $roles = Role::active(1)->get();
 
-        $this->assertTrue($variables->contains($variable1));
-        $this->assertFalse($variables->contains($variable2));
+        $this->assertTrue($roles->contains($role1));
+        $this->assertFalse($roles->contains($role2));
     }
 
     /** @test */

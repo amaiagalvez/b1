@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Izt\Basics\Http\DtGenerators\VariableDataTablesGenerator;
 use Izt\Basics\Http\Transformers\VariableTransformer;
+use Izt\Basics\Http\UIComponents\VariableComponents;
 use Izt\Basics\Http\Validators\VariableValidator;
 use Izt\Basics\Storage\Eloquent\Models\Variable;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
@@ -51,22 +52,17 @@ class VariablesController extends Controller
             return $variableDataTablesGenerator->get();
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.variable', 2)
-            ]
-        ];
+        $buttonsGenerator = new VariableComponents();
 
-        $table_buttons = [
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsIndex();
 
-        ];
+        $table_buttons = $buttonsGenerator->prepareButtonsIndex();
 
         return view('basics::Variables.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
 
     public function edit($id)
     {
-
         $variable = $this->repoVariable->findById($id);
 
         $field_title = $variable->present()->FieldName('title');
@@ -75,25 +71,13 @@ class VariablesController extends Controller
             return abort(403);
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.variable', 2),
-                'route' => route('variables.index')
-            ],
-            [
-                'title' => $variable->$field_title
-            ]
-        ];
+        $buttonsGenerator = new VariableComponents();
 
-        $table_buttons = [
-            'partial_route' => 'variables',
-            'list' => true
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsEdit($variable->present()->title);
 
-        $form = [
-            'action' => route('variables.update', $id),
-            'button' => trans('basics::action.save')
-        ];
+        $table_buttons = $buttonsGenerator->prepareButtonsEdit();
+
+        $form = $buttonsGenerator->prepareFormEdit($id);
 
         return view('basics::Variables.form',
             compact('variable', 'breadcrumbs', 'form', 'table_buttons', 'field_title'));

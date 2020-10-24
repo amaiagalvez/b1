@@ -37,7 +37,7 @@ class UsersTableSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'active' => '1',
                 'role_name' => 'admin',
-                'lang' => 'eu',
+                'lang' => 'es',
                 'email_verified_at' => now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

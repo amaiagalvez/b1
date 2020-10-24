@@ -5,6 +5,7 @@ namespace Izt\Basics\Http\Controllers;
 use Illuminate\Http\Request;
 use Izt\Basics\Http\DtGenerators\SessionDataTablesGenerator;
 use Izt\Basics\Http\Transformers\SessionTransformer;
+use Izt\Basics\Http\UIComponents\SessionComponents;
 use Izt\Basics\Storage\Eloquent\Models\Session;
 use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
@@ -61,23 +62,14 @@ class SessionsController extends Controller
             return $sessionDataTablesGenerator->get();
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.session', 2)
-            ]
-        ];
+        $buttonsGenerator = new SessionComponents();
 
-        $table_buttons = [
-            'partial_route' => 'sessions',
-            'years' => $this->repoSession->getYearsList('login_at'),
-            'selects' => [
-                [
-                    'name' => 'user',
-                    'options' => $this->repoUser->getList(),
-                    'value' => $filters['userId']
-                ]
-            ]
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsIndex();
+
+        $years = $this->repoSession->getYearsList('login_at');
+        $users = $this->repoUser->getList(false, ['onlyUsers' => true]);
+
+        $table_buttons = $buttonsGenerator->prepareButtonsIndex($years, $users, $filters['userId']);
 
         return view('basics::Sessions.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }

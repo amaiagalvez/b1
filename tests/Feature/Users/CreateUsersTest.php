@@ -32,7 +32,7 @@ class CreateUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_create_an_user()
+    public function a_user_can_create_a_user()
     {
         $this->signIn();
 

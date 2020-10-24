@@ -28,11 +28,7 @@ $factory->define(Version::class, function (Faker $faker) {
     }
 
     return [
-        'application_id' => $faker->randomElement([
-            null,
-            Application::all()
-                ->random()->id
-        ]),
+        'application_id' => Application::all()->random()->id,
         'name' => $faker->unique()->randomFloat(2, 0, 10),
         'notes_eu' => $faker->paragraph(3) . ' EU',
         'notes_es' => $faker->paragraph(3) . ' ES',

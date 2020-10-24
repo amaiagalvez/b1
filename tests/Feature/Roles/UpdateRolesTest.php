@@ -29,9 +29,22 @@ class UpdateRolesTest extends TestCase
     {
         $this->signIn(null, "other");
 
-        $this->get(route('roles.edit'))
+        $role = fCreate(Role::class);
+
+        $this->get(route('roles.edit', $role->id))
             ->assertStatus(302)
             ->assertRedirect(route('front.home'));
+    }
+
+    /** @test */
+
+    public function a_guest_cannot_update_a_role()
+    {
+        $role = fCreate(Role::class);
+
+        $this->get(route('roles.edit', $role->id))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
     }
 
     /** @test */

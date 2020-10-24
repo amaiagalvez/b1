@@ -22,11 +22,7 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 $factory->define(Menu::class, function (Faker $faker) {
     return [
-        'application_id' => $faker->randomElement([
-            null,
-            Application::all()
-                ->random()->id
-        ]),
+        'application_id' => Application::all()->random()->id,
         'name' => $faker->unique()->name,
         'parent_id' => $faker->randomElement([
             null,

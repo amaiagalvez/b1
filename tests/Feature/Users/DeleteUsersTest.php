@@ -68,7 +68,7 @@ class DeleteUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_delete_an_user_if_not_used()
+    public function a_user_can_delete_a_user_if_not_used()
     {
         $this->signIn();
 
@@ -91,7 +91,7 @@ class DeleteUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_cannot_delete_an_user_if_used()
+    public function a_user_cannot_delete_a_user_if_used()
     {
         $this->signIn();
 

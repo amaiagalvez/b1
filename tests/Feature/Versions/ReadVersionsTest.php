@@ -3,6 +3,7 @@
 namespace Izt\Basics\Tests\Feature\Versions;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Eloquent\Models\Version;
 use Izt\Basics\Tests\TestCase;
 
@@ -33,6 +34,15 @@ class ReadVersionsTest extends TestCase
 
     /** @test */
 
+    public function a_guest_user_cannot_load_version_index()
+    {
+        $this->get(route('versions.index'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+    }
+
+    /** @test */
+
     public function a_user_can_get_versions()
     {
         $this->signIn();
@@ -42,8 +52,24 @@ class ReadVersionsTest extends TestCase
         $version = Version::first();
 
         $this->get(route('versions.index'))
-            ->assertSee($version->present()->name)
+            ->assertSee($version->name)
             ->assertSee($version->present()->notes);
+    }
 
+    /** @test */
+
+    public function a_user_lang_show_table_lang()
+    {
+        $this->signIn();
+
+        $user = fCreate(User::class, ['lang' => 'es', 'role_name' => 'admin']);
+        $this->actingAs($user);
+
+        $variable = fCreate(Version::class,
+            ['notes_en' => 'notes1 eu', 'notes_es' => 'notes1 es']);
+
+        $response = $this->get(route('versions.index'));
+        $response->assertSee($variable->notes_es);
+        $response->assertDontSee($variable->notes_en);
     }
 }

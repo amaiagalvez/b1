@@ -31,7 +31,6 @@ class RoleTransformer extends TransformerAbstract
             return [];
         }
 
-
         $data = [
             'id' => $role->id,
             $role->present()->FieldName('title') => $role->present()->title,

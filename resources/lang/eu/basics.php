@@ -9,6 +9,7 @@ return [
     'configuration' => 'Konfigurazioa',
     'manual' => 'Manuala',
     'menu' => 'Menu | Menuak',
+    'master_table' => 'Taula Laguntzaileak',
 
     'role' => 'Rola | Rolak',
     'session' => 'Saioa | Saioak',

@@ -32,6 +32,7 @@ class RolesTableSeeder extends Seeder
                 'title_es' => 'Usuaria Web',
                 'notes_eu' => 'Webgunetik eman du izena',
                 'notes_es' => 'Se ha registrado desde la web',
+                'active' => 0,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
                 'created_by' => 1

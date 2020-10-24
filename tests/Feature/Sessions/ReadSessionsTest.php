@@ -34,6 +34,15 @@ class ReadSessionsTest extends TestCase
 
     /** @test */
 
+    public function a_guest_user_cannot_load_session_index()
+    {
+        $this->get(route('sessions.index'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+    }
+
+    /** @test */
+
     public function a_user_can_get_sessions_paginated()
     {
         $this->signIn();

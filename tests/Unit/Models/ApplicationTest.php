@@ -16,7 +16,7 @@ class ApplicationTest extends TestCase
 
     /** @test */
 
-    public function a_application_has_many_menus()
+    public function an_application_has_many_menus()
     {
         $menu = fCreate(Menu::class);
 
@@ -34,7 +34,7 @@ class ApplicationTest extends TestCase
 
     /** @test */
 
-    public function a_application_has_many_variables()
+    public function an_application_has_many_variables()
     {
         $variable = fCreate(Variable::class);
 
@@ -52,7 +52,7 @@ class ApplicationTest extends TestCase
 
     /** @test */
 
-    public function a_application_has_many_roles()
+    public function an_application_has_many_roles()
     {
         $role = fCreate(Role::class);
 
@@ -70,7 +70,7 @@ class ApplicationTest extends TestCase
 
     /** @test */
 
-    public function a_application_has_many_versions()
+    public function an_application_has_many_versions()
     {
         $version = fCreate(Version::class);
 

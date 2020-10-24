@@ -9,6 +9,7 @@ return [
     'configuration' => 'Configuración',
     'manual' => 'Manual',
     'menu' => 'Menu | Menus',
+    'master_table' => 'Tablas Auxiliares',
 
     'role' => 'Rol | Roles',
     'session' => 'Sesión | Sesiones',

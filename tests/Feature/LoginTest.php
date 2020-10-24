@@ -15,8 +15,6 @@ class LoginTest extends TestCase
 
     public function login_load_ok()
     {
-        $this->withoutExceptionHandling();
-
         $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\Session\Middleware\StartSession');
         $this->app->make('Illuminate\Contracts\Http\Kernel')->pushMiddleware('Illuminate\View\Middleware\ShareErrorsFromSession');
 

@@ -14,7 +14,7 @@
     @foreach($applications AS $application)
 
         <li class="c-sidebar-nav-item">
-            <span class="c-sidebar-nav-link c-sidebar-nav-divider text-uppercase">
+            <span class="mt-3 c-sidebar-nav-link c-sidebar-nav-divider text-uppercase">
                 <strong>{{$application['title']}}</strong>
             </span>
         </li>

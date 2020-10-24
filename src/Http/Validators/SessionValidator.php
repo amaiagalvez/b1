@@ -36,7 +36,7 @@ class SessionValidator extends AbstractValidator
      * @var array
      */
     protected $update_rules = [
-        'user_id' => 'exists:users,id'
+
     ];
 
     /**

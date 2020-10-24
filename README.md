@@ -42,9 +42,12 @@ Assets in public/basics folder
 ```
 php artisan vendor:publish   
 choose the tag izt-basics-assets
+
+gehitu webpack.mix.js fitxategian
+mix.copyDirectory('resources/assets/basics', 'public/basics');
 ```
 
-Translations in resources/lang folder 
+Translations in resources/lang folder (validation eta password hartzeko)
 ```
 php artisan vendor:publish --force   
 choose the tag izt-basics-lang
@@ -53,6 +56,8 @@ Views in resources/views/layouts folder
 ```
 php artisan vendor:publish --force   
 choose the tag izt-basics-views
+
+aldatu basics::layout. => layout. 
 ```
 
 New project 
@@ -63,7 +68,7 @@ Delete:
 - welcome.blade.php
 
 Publish (izt-basics-help):
-(Hauek dira konfiguraziorako behar diren fitxategiak. Nonbaiten edukitzeko kopia on bat eta proiektu guztietan berdinak izateko. Bakarrik lehenengo aldia egiteko)
+(Hauek dira konfiguraziorako behar diren fitxategiak. Nonbaiten edukitzeko kopia on bat eta proiektu guztietan berdinak izateko.)
 - Exception/Handler
 - Config
 - Routes
@@ -116,7 +121,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 ## Problems
  
 - artisan nola instalatu DUSK erabili ahal izateko    
-- lang => nola hartu paketetik zuzenean, publikatu gabe?
+- lang => validation eta password nola hartu paketetik zuzenean, publikatu gabe?
 - lang/validation/attributes => aplikazio guztienak hemen gehitu behar dira
 
 ## Hobekuntzak

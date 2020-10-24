@@ -4,7 +4,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 
-class VariablesComposer
+class VariableComposer
 {
     /**
      * @var VariableRepositoryInterface

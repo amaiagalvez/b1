@@ -36,6 +36,9 @@ Route::middleware(['activityLog'])->group(function () {
         ->name('users.deactivate');
     Route::get('erabiltzaileak/ez-aktiboak', 'UsersController@nonactive')
         ->name('users.nonactive');
+
+    Route::get('erabiltzaileak/logoutAs', 'UsersController@logoutAs')
+        ->name('dev.users.logoutAs');
 });
 
 /* Variables */

@@ -5,8 +5,6 @@ function initSessionDataTables(list_type, lang, route_index) {
     let param = window.location.search;
     let dt_url = '';
 
-    //TODO: nola ordenatu total zutabe kalkulatua??
-
     window.dtOptions.columns =
         [
             {title: "", data: "actions", name: "actions", orderable: false, searchable: false, width: "1%"},

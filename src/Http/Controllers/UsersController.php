@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Izt\Basics\Http\DtGenerators\UserDataTablesGenerator;
 use Izt\Basics\Http\Transformers\UserTransformer;
+use Izt\Basics\Http\UIComponents\UserComponents;
 use Izt\Basics\Http\Validators\UserValidator;
 use Izt\Basics\Storage\Eloquent\Models\User;
 use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
@@ -74,20 +75,12 @@ class UsersController extends Controller
             return $userDataTablesGenerator->get();
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.user', 2)
-            ]
-        ];
+        $buttonsGenerator = new UserComponents();
 
-        $table_buttons = [
-            'partial_route' => 'users',
-            'list' => true,
-            'create' => true,
-            'nonactive' => true,
-            'trash' => true,
-            'languages' => getArray($this->repoVariable->getValueByName('lang'))
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsIndex();
+
+        $languages = getArray($this->repoVariable->getValueByName('lang'));
+        $table_buttons = $buttonsGenerator->prepareButtonsIndex($languages);
 
         return view('basics::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
@@ -114,21 +107,11 @@ class UsersController extends Controller
             return $userDataTablesGenerator->get();
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.user', 2),
-                'route' => route('users.index')
-            ],
-            [
-                'title' => trans('basics::action.nonactive')
-            ]
-        ];
+        $buttonsGenerator = new UserComponents();
 
-        $table_buttons = [
-            'partial_route' => 'users',
-            'list' => true,
-            'nonactive' => true
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsNonActive();
+
+        $table_buttons = $buttonsGenerator->prepareButtonsNonActive();
 
         return view('basics::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
@@ -154,21 +137,11 @@ class UsersController extends Controller
             return $userDataTablesGenerator->get();
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.user', 2),
-                'route' => route('users.index')
-            ],
-            [
-                'title' => trans_choice('basics::action.trash', 2)
-            ],
-        ];
+        $buttonsGenerator = new UserComponents();
 
-        $table_buttons = [
-            'partial_route' => 'users',
-            'list' => true,
-            'trash' => true
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsTrash();
+
+        $table_buttons = $buttonsGenerator->prepareButtonsTrash();
 
         return view('basics::Users.index', compact('breadcrumbs', 'table_buttons', 'list_type'));
     }
@@ -177,27 +150,15 @@ class UsersController extends Controller
     {
         $user = $this->repoUser->getNew();
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.user', 2),
-                'route' => route('users.index')
-            ],
-            [
-                'title' => trans('basics::action.create')
-            ]
-        ];
+        $buttonsGenerator = new UserComponents();
 
-        $table_buttons = [
-            'partial_route' => 'users',
-            'list' => true
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsCreate();
 
-        $form = [
-            'action' => route('users.store'),
-            'button' => trans('basics::action.create')
-        ];
+        $table_buttons = $buttonsGenerator->prepareButtonsCreate();
 
-        $roles = $this->repoRole->getList(true);
+        $form = $buttonsGenerator->prepareFormCreate();
+
+        $roles = $this->repoRole->getList(true, ['active' => 1]);
 
         return view('basics::Users.form',
             compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles'));
@@ -224,28 +185,15 @@ class UsersController extends Controller
             return abort(403);
         }
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.user', 2),
-                'route' => route('users.index')
-            ],
-            [
-                'title' => $user->name
-            ]
-        ];
+        $buttonsGenerator = new UserComponents();
 
-        $table_buttons = [
-            'partial_route' => 'users',
-            'list' => true,
-            'create' => true,
-        ];
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsEdit($user->name);
 
-        $form = [
-            'action' => route('users.update', $id),
-            'button' => trans('basics::action.save')
-        ];
+        $table_buttons = $buttonsGenerator->prepareButtonsEdit();
 
-        $roles = $this->repoRole->getList(true);
+        $form = $buttonsGenerator->prepareFormEdit($id);
+
+        $roles = $this->repoRole->getList(true, ['active' => 1]);
 
         return view('basics::Users.form',
             compact('user', 'breadcrumbs', 'form', 'table_buttons', 'roles'));
@@ -257,23 +205,13 @@ class UsersController extends Controller
 
         $user = $this->repoUser->findById($id);
 
-        $breadcrumbs = [
-            [
-                'title' => trans_choice('basics::basics.user', 2)
-            ],
-            [
-                'title' => $user->name
-            ]
-        ];
+        $buttonsGenerator = new UserComponents();
 
-        $table_buttons = [
+        $breadcrumbs = $buttonsGenerator->prepareBreadcrumbsProfile($user->name);
 
-        ];
+        $table_buttons = $buttonsGenerator->prepareButtonsProfile();
 
-        $form = [
-            'action' => route('users.update', $id),
-            'button' => trans('basics::action.save')
-        ];
+        $form = $buttonsGenerator->prepareFormProfile($id);
 
         return view('basics::Users.profile', compact('user', 'breadcrumbs', 'form', 'table_buttons'));
     }
@@ -358,7 +296,6 @@ class UsersController extends Controller
             $real_user = $this->repoUser->findById($real_user_id);
 
             if ($real_user->isDeveloper()) {
-                Cache::flush();
                 auth()->login($real_user);
                 session()->forget('real_user');
 

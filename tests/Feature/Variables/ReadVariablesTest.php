@@ -34,6 +34,15 @@ class ReadVariablesTest extends TestCase
 
     /** @test */
 
+    public function a_guest_user_cannot_load_variable_index()
+    {
+        $this->get(route('variables.index'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+    }
+
+    /** @test */
+
     public function a_user_can_get_variables_paginated()
     {
         $this->signIn();

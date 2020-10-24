@@ -23,6 +23,27 @@ class DeleteRolesTest extends TestCase
 
     /** @test */
 
+    public function a_non_admin_user_cannot_get_deleted_roles()
+    {
+        $this->signIn(null, "other");
+
+        $this->get(route('roles.trash'))
+            ->assertStatus(302)
+            ->assertRedirect(route('front.home'));
+    }
+
+    /** @test */
+
+    public function a_guest_cannot_get_deleted_roles()
+    {
+
+        $this->get(route('roles.trash'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
+    }
+
+    /** @test */
+
     public function a_user_can_get_deleted_roles_paginated()
     {
         $this->signIn();

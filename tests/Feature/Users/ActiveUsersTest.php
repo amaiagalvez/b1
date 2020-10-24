@@ -80,7 +80,7 @@ class ActiveUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_activate_an_user()
+    public function a_user_can_activate_a_user()
     {
         $this->signIn();
 
@@ -100,7 +100,7 @@ class ActiveUsersTest extends TestCase
 
     /** @test */
 
-    public function a_user_can_deactivate_an_user()
+    public function a_user_can_deactivate_a_user()
     {
         $this->signIn();
 
