@@ -17,5 +17,9 @@ class BasicsDatabaseSeeder extends Seeder
         $this->call(VariablesTableSeeder::class);
         $this->call(MenusTableSeeder::class);
         $this->call(VersionTableSeeder::class);
+
+        if (env('APP_ENV') !== 'production') {
+            $this->call(BasicsDevelopmentDataSeeder::class);
+        }
     }
 }
