@@ -17,7 +17,7 @@ class CreateLocPostalCodeTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('postal_code', 5)
-                  ->nullable();
+                ->nullable();
             $table->bigInteger('town_id')
                 ->unsigned()
                 ->index();

@@ -61,15 +61,15 @@
         @endforeach
     @endif
 
-    @if(isset($table_buttons['customs']))
-        @foreach($table_buttons['customs'] AS $custom_button)
-            <a class="btn btn-secondary btn-sm  mr-2" href="{{$custom_button['route']}}"
-               title="{{$custom_button['title']}}">
-                <span class="{{$custom_button['icon']}}"></span> {{$custom_button['title']}}
-                @if(isset($custom_button['total']) && $custom_button['total'] > 0)
-                    <strong>[{{$custom_button['total']}}]</strong>
-                @endif
-            </a>
+        @if(isset($table_buttons['customs']))
+            @foreach($table_buttons['customs'] AS $custom_button)
+                <a class="btn btn-secondary btn-sm  mr-2" href="{{$custom_button['route']}}"
+                   title="{{$custom_button['title']}}">
+                    <span class="{{$custom_button['icon']}}"></span> {{$custom_button['title']}}
+                    @if(isset($custom_button['total']) && $custom_button['total'] > 0)
+                        <strong>[{{$custom_button['total']}}]</strong>
+                    @endif
+                </a>
             @endforeach
         @endif
 

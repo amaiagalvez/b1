@@ -60,7 +60,8 @@ class Town extends Model
         return $this->belongsTo(District::class);
     }
 
-    public function neighborhoods() {
+    public function neighborhoods()
+    {
         return $this->hasMany(Neighborhood::class);
     }
 

@@ -27,7 +27,7 @@ class VariableTest extends TestCase
 
     public function a_variable_has_a_value()
     {
-       $variable = fCreate(Variable::class, ['value' => 'variable value']);
+        $variable = fCreate(Variable::class, ['value' => 'variable value']);
 
         $this->assertTrue($variable->value === 'variable value');
 
