@@ -17,6 +17,11 @@ return [
     'variable' => 'Aldagaia | Aldagaiak',
     'version' => 'Bertsioa | Bertsioak',
 
+    //gender
+    'female' => 'Emakumezkoa',
+    'male' => 'Gizonezkoa',
+    'non-binary' => 'Ez binarioa',
+
     // fields
     'date' => 'Data',
     'email' => 'Eposta',

@@ -3,7 +3,6 @@
 namespace Izt\Basics\Storage\Eloquent\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Session extends Model
 {
@@ -25,10 +24,7 @@ class Session extends Model
         'session_token',
         'ip_address',
         'login_at',
-        'logout_at',
-        'created_by',
-        'updated_by',
-        'deleted_by'
+        'logout_at'
     ];
 
     /**
@@ -48,8 +44,6 @@ class Session extends Model
     protected $casts = [
 
     ];
-
-    use SoftDeletes;
 
     /* Relations */
 

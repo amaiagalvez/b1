@@ -23,15 +23,18 @@ class VersionTableSeeder extends Seeder
                 Erabiltzaileen kudeaketa basikoa (Altak, bajak, pasahitza berreskuratu). <br> 
                 Erabiltzaileeen saioak gordetzen dira. <br> 
                 Rolen kudeaketa basikoa (Admin Bai/Ez). <br> 
-                Aplikazioa konfiguratzeko aldagaien kudeaketa (izena, logoa, ...).',
+                Aplikazioa konfiguratzeko aldagaien kudeaketa (izena, logoa, ...). <br>
+                Lokalizaioen kudeaketa. <br>',
                 'notes_es' => '
                 Gestión básica de usuarias (Altas, bajas, recuperar contraseña).<br> 
                 Se guardan las sesiones de las usuarias. <br> 
                 Gestión básica de roles (Admin Si/No). <br> 
-                Gestión de variables para la configuración de la aplicación (nombre, logo, ...).',
+                Gestión de variables para la configuración de la aplicación (nombre, logo, ...). <br>
+                Gestión de las localizaciones. <br>',
                 'created_at' => '2020-10-01',
                 'updated_at' => '2020-10-01',
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ]
         ];
 

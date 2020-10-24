@@ -23,7 +23,8 @@ class RolesTableSeeder extends Seeder
                 'notes_es' => 'La responsable tiene permiso para gestionar todo',
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'application_id' => 1,
@@ -35,7 +36,8 @@ class RolesTableSeeder extends Seeder
                 'active' => 0,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ]
         ];
 

@@ -32,15 +32,13 @@ class CreateLocPostalCodeTable extends Migration
             $table->softDeletes();
             $table->bigInteger('created_by')
                 ->unsigned()
-                ->index()
-                ->nullable();
+                ->index();
             $table->foreign('created_by')
                 ->references('id')
                 ->on('users');
             $table->bigInteger('updated_by')
                 ->unsigned()
-                ->index()
-                ->nullable();
+                ->index();
             $table->foreign('updated_by')
                 ->references('id')
                 ->on('users');

@@ -31,7 +31,8 @@ class VariablesTableSeeder extends Seeder
                 'notes_es' => 'Nombre de la aplicación',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'application_id' => 1,
@@ -47,7 +48,8 @@ class VariablesTableSeeder extends Seeder
                 'notes_es' => 'Logo de la aplicación',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'application_id' => 1,
@@ -63,7 +65,8 @@ class VariablesTableSeeder extends Seeder
                 'notes_es' => 'Logo pequeño de la Aplicación',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'application_id' => 1,
@@ -79,7 +82,8 @@ class VariablesTableSeeder extends Seeder
                 'notes_es' => 'Icono de la aplicación',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'application_id' => 1,
@@ -95,7 +99,8 @@ class VariablesTableSeeder extends Seeder
                 'notes_es' => 'Idiomas de la aplicación',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ]
         ];
 

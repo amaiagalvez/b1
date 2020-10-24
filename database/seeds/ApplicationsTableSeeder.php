@@ -25,7 +25,8 @@ class ApplicationsTableSeeder extends Seeder
                 'order' => 999,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ]
         ];
 

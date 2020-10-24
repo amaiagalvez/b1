@@ -17,6 +17,11 @@ return [
     'variable' => 'Variable | Variables',
     'version' => 'Versión | Versiones',
 
+    //gender
+    'female' => 'Mujer',
+    'male' => 'Hombre',
+    'non-binary' => 'No binario',
+
     // fields
     'date' => 'Fecha',
     'email' => 'Email',

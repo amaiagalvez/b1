@@ -28,7 +28,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => null
+                'created_by' => null,
+                'updated_by' => null
             ],
             [
                 'id' => 2,
@@ -41,7 +42,8 @@ class UsersTableSeeder extends Seeder
                 'email_verified_at' => now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-                'created_by' => null
+                'created_by' => 1,
+                'updated_by' => 1
             ]
         ];
 

@@ -27,7 +27,8 @@ class MenusTableSeeder extends Seeder
                 'order' => 1,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'id' => 2,
@@ -40,7 +41,8 @@ class MenusTableSeeder extends Seeder
                 'order' => 2,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'id' => null,
@@ -53,7 +55,8 @@ class MenusTableSeeder extends Seeder
                 'order' => 1,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'id' => null,
@@ -66,7 +69,8 @@ class MenusTableSeeder extends Seeder
                 'order' => 2,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'id' => null,
@@ -79,7 +83,8 @@ class MenusTableSeeder extends Seeder
                 'order' => 3,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'id' => null,
@@ -92,7 +97,8 @@ class MenusTableSeeder extends Seeder
                 'order' => 1,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ],
             [
                 'id' => null,
@@ -105,7 +111,8 @@ class MenusTableSeeder extends Seeder
                 'order' => 2,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
-                'created_by' => 1
+                'created_by' => 1,
+                'updated_by' => 1
             ]
         ];
 

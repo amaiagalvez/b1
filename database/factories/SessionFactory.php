@@ -28,10 +28,6 @@ $factory->define(Session::class, function (Faker $faker) {
         'user_id' => User::take(5)->get()
             ->random()->id,
         'login_at' => $startDate,
-        'logout_at' => $endDate,
-        'created_by' => Auth::id() ?? User::take(5)->get()
-                ->random()->id,
-        'updated_by' => Auth::id() ?? User::take(5)->get()
-                ->random()->id
+        'logout_at' => $endDate
     ];
 });
