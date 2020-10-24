@@ -10,13 +10,12 @@ use Izt\Basics\Storage\Eloquent\Models\PostalCode;
 use Izt\Basics\Storage\Eloquent\Models\State;
 use Izt\Basics\Storage\Eloquent\Models\Town;
 
-class BasicsDevelopmentDataSeeder extends Seeder
+class DevelopmentTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
-     * @throws Exception
      */
     public function run()
     {

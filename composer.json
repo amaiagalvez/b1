@@ -32,13 +32,13 @@
             "src/Helpers/list.php",
             "src/Helpers/test.php",
             "database/seeds/BasicsDatabaseSeeder.php",
+            "database/seeds/DevelopmentTableSeeder.php",
             "database/seeds/ApplicationsTableSeeder.php",
             "database/seeds/MenusTableSeeder.php",
             "database/seeds/RolesTableSeeder.php",
             "database/seeds/UsersTableSeeder.php",
             "database/seeds/VariablesTableSeeder.php",
-            "database/seeds/VersionTableSeeder.php",
-            "database/seeds/BasicsDevelopmentDataSeeder.php"
+            "database/seeds/VersionTableSeeder.php"
         ]
     },
     "autoload-dev": {

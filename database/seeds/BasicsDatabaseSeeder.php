@@ -19,7 +19,7 @@ class BasicsDatabaseSeeder extends Seeder
         $this->call(VersionTableSeeder::class);
 
         if (env('APP_ENV') !== 'production') {
-            $this->call(BasicsDevelopmentDataSeeder::class);
+            $this->call(DevelopmentTableSeeder::class);
         }
     }
 }

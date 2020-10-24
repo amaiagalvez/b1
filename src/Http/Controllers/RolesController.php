@@ -98,7 +98,7 @@ class RolesController extends Controller
 
         if ($this->request->wantsJson()) {
             $query = $this->repoRole->applyFiltersAndOrderQuery(
-                Role::with('deletedBy'), true, [], []);
+                Role::with(['deletedBy']), true, [], []);
 
             $roleDataTablesGenerator = new RoleDataTablesGenerator(
                 $query,
