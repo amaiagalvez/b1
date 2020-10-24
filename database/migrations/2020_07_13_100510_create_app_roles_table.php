@@ -18,8 +18,7 @@ class CreateAppRolesTable extends Migration
 
             $table->bigInteger('application_id')
                 ->unsigned()
-                ->index()
-                ->nullable();
+                ->index();
             $table->foreign('application_id')
                 ->references('id')
                 ->on('APP_applications');
@@ -45,6 +44,7 @@ class CreateAppRolesTable extends Migration
                 ->nullable();
             $table->longText('notes_en')
                 ->nullable();
+
             $table->boolean('active')
                 ->index()
                 ->default(1);

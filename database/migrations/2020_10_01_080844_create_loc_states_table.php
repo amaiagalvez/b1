@@ -2,43 +2,24 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
-class CreateAppMenusTable extends Migration
+class CreateLocStatesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('APP_menus', function (Blueprint $table) {
+        Schema::create('LOC_states', function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            $table->bigInteger('application_id')
-                ->unsigned()
-                ->index();
-            $table->foreign('application_id')
-                ->references('id')
-                ->on('APP_applications');
 
             $table->string('name')
                 ->nullable();
-            $table->string('route')
+            $table->string('short_name', 10)
                 ->nullable();
-            $table->string('icon')
-                ->nullable();
-            $table->unsignedInteger('parent_id')
-                ->index()
+            $table->string('code', 10)
                 ->nullable();
 
             $table->boolean('active')
                 ->index()
                 ->default(1);
-            $table->integer('order')
-                ->index()
-                ->default(0);
             $table->timestamps();
             $table->softDeletes();
             $table->bigInteger('created_by')
@@ -65,13 +46,8 @@ class CreateAppMenusTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('APP_menus');
+        Schema::drop('LOC_states');
     }
 }

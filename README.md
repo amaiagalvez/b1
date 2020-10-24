@@ -12,6 +12,7 @@
 - Middlewares (activityLogger, admin, developer, userLanguage)
 - Auth (notifications, password reset, register (web))
 - BladeService (@asterisk...)
+- Localizations (Countries, Districts, ...)
 
 Management of Basics Tables
 ===========================
@@ -22,6 +23,13 @@ Management of Basics Tables
     - User
     - Variable
     - Version
+    - State
+    - Country
+    - Disctrict
+    - Town
+    - Neighborhood
+    - PostalCode
+    - Area    
     
 ## Installation
 

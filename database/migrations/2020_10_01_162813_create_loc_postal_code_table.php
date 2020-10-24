@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAppMenusTable extends Migration
+class CreateLocPostalCodeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,32 +13,21 @@ class CreateAppMenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('APP_menus', function (Blueprint $table) {
+        Schema::create('LOC_postal_code', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('application_id')
+            $table->string('postal_code', 5)
+                  ->nullable();
+            $table->bigInteger('town_id')
                 ->unsigned()
                 ->index();
-            $table->foreign('application_id')
+            $table->foreign('town_id')
                 ->references('id')
-                ->on('APP_applications');
-
-            $table->string('name')
-                ->nullable();
-            $table->string('route')
-                ->nullable();
-            $table->string('icon')
-                ->nullable();
-            $table->unsignedInteger('parent_id')
-                ->index()
-                ->nullable();
+                ->on('LOC_towns');
 
             $table->boolean('active')
                 ->index()
                 ->default(1);
-            $table->integer('order')
-                ->index()
-                ->default(0);
             $table->timestamps();
             $table->softDeletes();
             $table->bigInteger('created_by')
@@ -72,6 +61,6 @@ class CreateAppMenusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('APP_menus');
+        Schema::dropIfExists('LOC_postal_code');
     }
 }

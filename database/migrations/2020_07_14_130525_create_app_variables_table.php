@@ -18,8 +18,7 @@ class CreateAppVariablesTable extends Migration
 
             $table->bigInteger('application_id')
                 ->unsigned()
-                ->index()
-                ->nullable();
+                ->index();
             $table->foreign('application_id')
                 ->references('id')
                 ->on('APP_applications');

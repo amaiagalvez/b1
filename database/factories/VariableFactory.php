@@ -24,11 +24,7 @@ use Izt\Basics\Storage\Eloquent\Models\Variable;
 $factory->define(Variable::class, function (Faker $faker) {
 
     return [
-        'application_id' => $faker->randomElement([
-            null,
-            Application::all()
-                ->random()->id
-        ]),
+        'application_id' => Application::all()->random()->id,
         'name' => $faker->unique()->name,
         'title_eu' => $faker->name . 'EU',
         'title_es' => $faker->name . 'ES',
