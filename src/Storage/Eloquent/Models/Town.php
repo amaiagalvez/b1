@@ -70,7 +70,7 @@ class Town extends Model
         return $this->belongsToMany(Area::class, 'LOC_area_LOC_town');
     }
 
-    public function postal_codes()
+    public function postalCodes()
     {
         return $this->hasMany(PostalCode::class);
     }
@@ -95,6 +95,6 @@ class Town extends Model
 
     public function canDelete()
     {
-        return $this->postal_codes->count() === 0 && $this->neighborhoods->count() === 0 && $this->areas->count() === 0;
+        return $this->postalCodes->count() === 0 && $this->neighborhoods->count() === 0 && $this->areas->count() === 0;
     }
 }

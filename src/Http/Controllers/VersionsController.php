@@ -37,7 +37,7 @@ class VersionsController extends Controller
     {
         $list_type = 'index';
 
-        $versions = $this->repoVersion->allListed(['application'],
+        $versions = $this->repoVersion->allListed(['application', 'updatedBy'],
             ['id' => 'ASC']);
 
         $versionsCollection = new Collection($versions, new VersionTransformer($list_type));

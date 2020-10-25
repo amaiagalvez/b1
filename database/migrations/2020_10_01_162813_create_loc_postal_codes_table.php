@@ -16,7 +16,7 @@ class CreateLocPostalCodesTable extends Migration
         Schema::create('LOC_postal_codes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('postal_code', 5)
+            $table->string('name', 5)
                 ->nullable();
             $table->bigInteger('town_id')
                 ->unsigned()

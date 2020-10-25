@@ -43,7 +43,7 @@ class VariablesController extends Controller
 
         if ($this->request->wantsJson()) {
             $query = $this->repoVariable->applyFiltersAndOrderQuery(
-                Variable::query(), false, ['show' => 1], []);
+                Variable::with(['updatedBy']), false, ['show' => 1], []);
 
             $variableDataTablesGenerator = new VariableDataTablesGenerator(
                 $query,

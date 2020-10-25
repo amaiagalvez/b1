@@ -18,7 +18,10 @@ class BaseTransformer extends TransformerAbstract
     public function transform(Model $model = null)
     {
         if ($model === null) {
-            return [];
+            return [
+                'id' => 0,
+                'name' => ''
+            ];
         }
 
         return [

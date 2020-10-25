@@ -22,7 +22,7 @@ class PostalCode extends Model
      */
     protected $fillable = [
         'town_id',
-        'postal_code',
+        'name',
         'active',
         'created_by',
         'updated_by',

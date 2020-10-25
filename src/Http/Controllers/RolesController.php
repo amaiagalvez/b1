@@ -46,7 +46,7 @@ class RolesController extends Controller
 
         if ($this->request->wantsJson()) {
             $query = $this->repoRole->applyFiltersAndOrderQuery(
-                Role::with(['users', 'application']), false, $filters, []);
+                Role::with(['users', 'application', 'updatedBy']), false, $filters, []);
 
             $roleDataTablesGenerator = new RoleDataTablesGenerator(
                 $query,

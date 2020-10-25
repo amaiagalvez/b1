@@ -23,7 +23,7 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 $factory->define(PostalCode::class, function (Faker $faker) {
     return [
         'town_id' => Town::get()->random()->id,
-        'postal_code' => $faker->text(5),
+        'name' => $faker->postcode,
         'active' => $faker->boolean,
         'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,
