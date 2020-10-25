@@ -53,7 +53,7 @@ class SessionsController extends Controller
 
         if ($this->request->wantsJson()) {
             $query = $this->repoSession->applyFiltersAndOrderQuery(
-                Session::with(['user', 'updatedBy']), false, $filters, []);
+                Session::with(['user']), false, $filters, []);
 
             $sessionDataTablesGenerator = new SessionDataTablesGenerator(
                 $query,

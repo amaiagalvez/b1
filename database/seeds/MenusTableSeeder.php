@@ -79,7 +79,7 @@ class MenusTableSeeder extends Seeder
                 'route' => 'roles.index',
                 'icon' => 'fas fa-users-cog',
                 'parent_id' => 1,
-                'active' => 1,
+                'active' => 0,
                 'order' => 3,
                 'created_at' => date('Y-m-d H:i:d'),
                 'updated_at' => date('Y-m-d H:i:d'),
