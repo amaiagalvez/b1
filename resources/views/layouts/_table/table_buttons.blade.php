@@ -77,7 +77,7 @@
             @foreach($table_buttons['selects'] AS $select)
                 <select class="ml-5 custom-select col-md-12" name="search_{{$select['name']}}"
                         id="search_{{$select['name']}}">
-                    <option value="0"> --</option>
+                    <option value=""> --</option>
                     @foreach($select['options'] AS $key => $option)
                         <option value="{{$key}}" @if( $key == $select['value']) selected="selected" @endif >
                             - {{$option}}</option>

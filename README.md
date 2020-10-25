@@ -134,3 +134,7 @@ MAIL_FROM_NAME="${APP_NAME}"
 
 ## Hobekuntzak
 - testeatu gehiago DataTables (ordena, bilatu)
+- select2 sartu
+- eremu dependienteak
+- rolen kudeaketa
+- select2 + berria gehitu
