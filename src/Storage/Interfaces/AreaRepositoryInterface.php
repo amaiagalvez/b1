@@ -2,6 +2,8 @@
 
 namespace Izt\Basics\Storage\Interfaces;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class AreaRepository
  * @package Izt\Basics\Storage\Eloquent\Repositories
