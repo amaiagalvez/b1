@@ -1,4 +1,4 @@
-const dtWords = {
+const basWords = {
     active: "Aktiboa",
     lang: "Hizkuntza",
     columns: "Zutabeak",

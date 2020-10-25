@@ -13,8 +13,8 @@ function initVariableDataTables(list_type, lang, route_index) {
             {title: "", data: "actions", name: "actions", orderable: false, searchable: false, width: "10%"},
             {title: variableWords.variable, data: field_title, name: field_title, width: "20%"},
             {title: variableWords.value, data: "value", name: "value", className: "text-center"},
-            {title: dtWords.notes, data: field_notes, name: field_notes, width: "20%"},
-            {title: dtWords.order, data: "order", name: "order", visible: false}
+            {title: basWords.notes, data: field_notes, name: field_notes, width: "20%"},
+            {title: basWords.order, data: "order", name: "order", visible: false}
         ];
 
     if (list_type === 'index') {

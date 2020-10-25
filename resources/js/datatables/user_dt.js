@@ -10,7 +10,7 @@ function initUserDataTables(list_type, lang, route_index, route_trash, route_non
             {title: "", data: "actions", name: "actions", orderable: false, searchable: false, width: "10%"},
             {title: userWords.name, data: "name", name: "name"},
             {title: userWords.email, data: "email", name: "email"},
-            {title: dtWords.lang, data: "lang", name: "lang", className: "text-center"},
+            {title: basWords.lang, data: "lang", name: "lang", className: "text-center"},
             {title: userWords.role_name, data: "role_name", name: "role_name", className: "text-center"},
             {
                 title: userWords.sessions_count,
@@ -19,7 +19,7 @@ function initUserDataTables(list_type, lang, route_index, route_trash, route_non
                 searchable: false,
                 className: "text-center"
             },
-            {title: dtWords.notes, data: "notes", name: "notes", width: "20%"}
+            {title: basWords.notes, data: "notes", name: "notes", width: "20%"}
         ];
 
     if (list_type === 'index') {
@@ -30,9 +30,9 @@ function initUserDataTables(list_type, lang, route_index, route_trash, route_non
         dt_url = route_trash + param;
 
         window.dtOptions.columns.push(
-            {title: dtWords.when, data: "deleted_at", name: "deleted_at"},
+            {title: basWords.when, data: "deleted_at", name: "deleted_at"},
             {
-                title: dtWords.who,
+                title: basWords.who,
                 data: "deletedBy.data.name",
                 name: "deletedBy.name",
                 orderable: false,
@@ -45,9 +45,9 @@ function initUserDataTables(list_type, lang, route_index, route_trash, route_non
         dt_url = route_nonactive + param;
 
         window.dtOptions.columns.push(
-            {title: dtWords.when, data: "updated_at", name: "updated_at"},
+            {title: basWords.when, data: "updated_at", name: "updated_at"},
             {
-                title: dtWords.who,
+                title: basWords.who,
                 data: "updatedBy.data.name",
                 name: "updatedBy.name",
                 orderable: false,
