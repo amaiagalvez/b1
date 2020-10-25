@@ -323,7 +323,7 @@ abstract class AbstractRepository
         $query = $query->pluck($field, 'id');
 
         if ($empty) {
-            $query = $query->prepend('--', '0');
+            $query = $query->prepend('--', '');
         }
 
         return $query;

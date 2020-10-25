@@ -13,16 +13,30 @@ use Izt\Basics\Providers\BladeServiceProvider;
 use Izt\Basics\Providers\ComposerServiceProvider;
 use Izt\Basics\Providers\EventServiceProvider;
 use Izt\Basics\Storage\Eloquent\Repositories\ApplicationRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\AreaRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\CountryRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\DistrictRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\MenuRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\NeighborhoodRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\PostalCodeRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\RoleRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\SessionRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\StateRepository;
+use Izt\Basics\Storage\Eloquent\Repositories\TownRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\UserRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\VariableRepository;
 use Izt\Basics\Storage\Eloquent\Repositories\VersionRepository;
 use Izt\Basics\Storage\Interfaces\ApplicationRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\AreaRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\CountryRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\DistrictRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\MenuRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\NeighborhoodRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\PostalCodeRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\RoleRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\SessionRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\StateRepositoryInterface;
+use Izt\Basics\Storage\Interfaces\TownRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\UserRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VariableRepositoryInterface;
 use Izt\Basics\Storage\Interfaces\VersionRepositoryInterface;
@@ -144,6 +158,48 @@ class BasicsServiceProvider extends ServiceProvider
         $this->app->bind(
             VersionRepositoryInterface::class,
             VersionRepository::class
+        );
+
+        //StateRepository
+        $this->app->bind(
+            StateRepositoryInterface::class,
+            StateRepository::class
+        );
+
+        //CountryRepository
+        $this->app->bind(
+            CountryRepositoryInterface::class,
+            CountryRepository::class
+        );
+
+        //DistrictRepository
+        $this->app->bind(
+            DistrictRepositoryInterface::class,
+            DistrictRepository::class
+        );
+
+        //TownRepository
+        $this->app->bind(
+            TownRepositoryInterface::class,
+            TownRepository::class
+        );
+
+        //NeighborhoodRepository
+        $this->app->bind(
+            NeighborhoodRepositoryInterface::class,
+            NeighborhoodRepository::class
+        );
+
+        //AreaRepository
+        $this->app->bind(
+            AreaRepositoryInterface::class,
+            AreaRepository::class
+        );
+
+        //PostalCodeRepository
+        $this->app->bind(
+            PostalCodeRepositoryInterface::class,
+            PostalCodeRepository::class
         );
 
         $this->app->register(ComposerServiceProvider::class);
