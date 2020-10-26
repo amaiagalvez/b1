@@ -20,10 +20,10 @@ return [
     'state' => 'Estado | Estados',
     'country' => 'Provincia | Provincias',
     'district' => 'Eskualdea | Eskualdeak',
-    'area' => 'Zonaldea | Zonaldeak',
-    'postal_code' => 'Posta Kodea | Posta Kodeak',
-    'neighborhood' => 'Auzoa | Auzoak',
-    'town' => 'Herria | Herriak',
+    'area' => 'Zona | Zonas',
+    'postal_code' => 'Código Postal | Códigos Postales',
+    'neighborhood' => 'Barrio | Barrios',
+    'town' => 'Población | Poblaciones',
 
     //gender
     'female' => 'Mujer',

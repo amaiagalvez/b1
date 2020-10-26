@@ -19,6 +19,11 @@ return [
 
     'state' => 'Estatua | Estatuak',
     'country' => 'Herrialdea | Herrialdeak',
+    'district' => 'Eskualdea | Eskualdeak',
+    'area' => 'Zonaldea | Zonaldeak',
+    'postal_code' => 'Posta Kodea | Posta Kodeak',
+    'neighborhood' => 'Auzoa | Auzoak',
+    'town' => 'Herria | Herriak',
 
     //gender
     'female' => 'Emakumezkoa',
