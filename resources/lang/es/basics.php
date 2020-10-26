@@ -17,6 +17,14 @@ return [
     'variable' => 'Variable | Variables',
     'version' => 'Versión | Versiones',
 
+    'state' => 'Estado | Estados',
+    'country' => 'Provincia | Provincias',
+    'district' => 'Eskualdea | Eskualdeak',
+    'area' => 'Zonaldea | Zonaldeak',
+    'postal_code' => 'Posta Kodea | Posta Kodeak',
+    'neighborhood' => 'Auzoa | Auzoak',
+    'town' => 'Herria | Herriak',
+
     //gender
     'female' => 'Mujer',
     'male' => 'Hombre',

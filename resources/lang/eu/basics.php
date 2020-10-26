@@ -17,6 +17,9 @@ return [
     'variable' => 'Aldagaia | Aldagaiak',
     'version' => 'Bertsioa | Bertsioak',
 
+    'state' => 'Estatua | Estatuak',
+    'country' => 'Herrialdea | Herrialdeak',
+
     //gender
     'female' => 'Emakumezkoa',
     'male' => 'Gizonezkoa',
