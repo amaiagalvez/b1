@@ -47,11 +47,11 @@ abstract class TestCase extends BaseTestCase
         $this->disableExceptionHandling();
     }
 
-    protected function signIn($user = null)
+    protected function signIn($user = null, $role_name = "admin")
     {
         $user = $user ?: fCreate(User::class, [
             'lang' => 'eu',
-            'role_name' => 'admin'
+            'role_name' => $role_name
         ]);
 
         $this->actingAs($user);
