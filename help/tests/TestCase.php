@@ -49,7 +49,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function signIn($user = null)
     {
-        $user = $user ?: create(User::class, [
+        $user = $user ?: fCreate(User::class, [
             'lang' => 'eu',
             'role_name' => 'admin'
         ]);
