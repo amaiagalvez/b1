@@ -157,5 +157,6 @@ return [
         'email' => trans('basics::auth.email'),
         'password' => trans('basics::auth.password'),
         'application_id' => trans_choice('basics::basics.application', 1),
+        'town_id' => trans_choice('basics::basics.town', 1),
     ],
 ];
