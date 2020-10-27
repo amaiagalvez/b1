@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Izt\Basics\Storage\Eloquent\Models\Community;
 use Izt\Basics\Storage\Eloquent\Models\Country;
 use Izt\Basics\Storage\Eloquent\Models\District;
+use Izt\Basics\Storage\Eloquent\Models\State;
 use Izt\Basics\Storage\Eloquent\Models\User;
 
 /*

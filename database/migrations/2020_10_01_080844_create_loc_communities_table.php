@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLocCommunityTable extends Migration
+class CreateLocCommunitiesTable extends Migration
 {
     public function up()
     {

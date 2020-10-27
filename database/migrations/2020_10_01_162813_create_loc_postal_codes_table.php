@@ -19,6 +19,13 @@ class CreateLocPostalCodesTable extends Migration
             $table->string('name', 5)
                 ->nullable();
 
+            $table->bigInteger('town_id')
+                ->unsigned()
+                ->index();
+            $table->foreign('town_id')
+                ->references('id')
+                ->on('LOC_towns');
+
             $table->boolean('active')
                 ->index()
                 ->default(1);
