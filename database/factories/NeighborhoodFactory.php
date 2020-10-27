@@ -22,9 +22,9 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 $factory->define(Neighborhood::class, function (Faker $faker) {
     return [
-        'town_id' => Town::get()->random()->id,
         'name' => $faker->name,
-        'code' => $faker->text(5),
+        'code' => $faker->unique()->text(5),
+        'town_id' => Town::get()->random()->id,
         'active' => $faker->boolean,
         'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,

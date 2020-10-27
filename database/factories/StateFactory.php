@@ -23,7 +23,7 @@ $factory->define(State::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'short_name' => $faker->text(5),
-        'code' => $faker->text(5),
+        'code' => $faker->unique()->text(5),
         'active' => $faker->boolean,
         'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,

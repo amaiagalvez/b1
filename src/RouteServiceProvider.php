@@ -18,6 +18,8 @@ class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\Rout
         $this->appRoutes();
 
         $this->developerRoutes();
+
+        $this->locRoutes();
     }
 
     protected function appRoutes()
@@ -25,6 +27,13 @@ class RouteServiceProvider extends \Illuminate\Foundation\Support\Providers\Rout
         Route::middleware(['web', 'auth', 'userLang', 'admin'])
             ->namespace($this->namespace)
             ->group(__DIR__ . '/../routes/_app.php');
+    }
+
+    protected function locRoutes()
+    {
+        Route::middleware(['web', 'auth', 'userLang', 'admin'])
+            ->namespace($this->namespace)
+            ->group(__DIR__ . '/../routes/_loc.php');
     }
 
     protected function developerRoutes()

@@ -18,6 +18,7 @@ return [
     'version' => 'Versión | Versiones',
 
     'state' => 'Estado | Estados',
+    'community' => 'Erkidegoa | Erkidegoak',
     'country' => 'Provincia | Provincias',
     'district' => 'Eskualdea | Eskualdeak',
     'area' => 'Zona | Zonas',

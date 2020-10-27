@@ -5,6 +5,7 @@
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Facades\Auth;
+use Izt\Basics\Storage\Eloquent\Models\Community;
 use Izt\Basics\Storage\Eloquent\Models\Country;
 use Izt\Basics\Storage\Eloquent\Models\State;
 use Izt\Basics\Storage\Eloquent\Models\User;
@@ -22,10 +23,11 @@ use Izt\Basics\Storage\Eloquent\Models\User;
 
 $factory->define(Country::class, function (Faker $faker) {
     return [
-        'state_id' => State::get()->random()->id,
         'name' => $faker->name,
         'short_name' => $faker->text(5),
-        'code' => $faker->text(5),
+        'code' => $faker->unique()->text(5),
+        'state_id' => State::get()->random()->id,
+        'community_id' => Community::get()->random()->id,
         'active' => $faker->boolean,
         'created_by' => Auth::id() ?? User::take(5)->get()
                 ->random()->id,

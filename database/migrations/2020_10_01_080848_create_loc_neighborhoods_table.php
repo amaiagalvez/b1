@@ -14,6 +14,7 @@ class CreateLocNeighborhoodsTable extends Migration
             $table->string('name')
                 ->nullable();
             $table->string('code', 10)
+                ->unique()
                 ->nullable();
 
             $table->bigInteger('town_id')

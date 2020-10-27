@@ -18,6 +18,7 @@ return [
     'version' => 'Bertsioa | Bertsioak',
 
     'state' => 'Estatua | Estatuak',
+    'community' => 'Erkidegoa | Erkidegoak',
     'country' => 'Herrialdea | Herrialdeak',
     'district' => 'Eskualdea | Eskualdeak',
     'area' => 'Zonaldea | Zonaldeak',

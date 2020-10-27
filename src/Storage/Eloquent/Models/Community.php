@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Izt\Basics\Storage\Eloquent\Traits\AbstractTrait;
 
-class Country extends Model
+class Community extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'LOC_countries';
+    protected $table = 'LOC_communities';
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +24,6 @@ class Country extends Model
         'name',
         'short_name',
         'code',
-        'community_id',
         'state_id',
         'active',
         'created_by',
@@ -60,12 +59,12 @@ class Country extends Model
         return $this->belongsTo(State::class);
     }
 
-    public function community()
+    public function countries()
     {
-        return $this->belongsTo(Community::class);
+        return $this->hasMany(Country::class);
     }
 
-    public function districs()
+    public function districts()
     {
         return $this->hasMany(District::class);
     }
@@ -87,6 +86,6 @@ class Country extends Model
 
     public function canDelete()
     {
-        return $this->districs->count() === 0 && $this->towns->count() === 0;
+        return $this->countries->count() === 0 && $this->districts->count() === 0 && $this->towns->count() === 0;
     }
 }

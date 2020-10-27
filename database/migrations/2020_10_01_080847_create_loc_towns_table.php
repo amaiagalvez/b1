@@ -15,15 +15,42 @@ class CreateLocTownsTable extends Migration
             $table->string('name')
                 ->nullable();
             $table->string('code', 10)
+                ->unique()
                 ->nullable();
             $table->boolean('capital_city')
                 ->default(0);
+
             $table->bigInteger('district_id')
+                ->nullable()
                 ->unsigned()
                 ->index();
             $table->foreign('district_id')
                 ->references('id')
                 ->on('LOC_districts');
+
+            $table->bigInteger('country_id')
+                ->nullable()
+                ->unsigned()
+                ->index();
+            $table->foreign('country_id')
+                ->references('id')
+                ->on('LOC_countries');
+
+            $table->bigInteger('community_id')
+                ->nullable()
+                ->unsigned()
+                ->index();
+            $table->foreign('community_id')
+                ->references('id')
+                ->on('LOC_communities');
+
+            $table->bigInteger('state_id')
+                ->nullable()
+                ->unsigned()
+                ->index();
+            $table->foreign('state_id')
+                ->references('id')
+                ->on('LOC_states');
 
             $table->boolean('active')
                 ->index()

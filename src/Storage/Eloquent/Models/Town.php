@@ -21,10 +21,13 @@ class Town extends Model
      * @var array
      */
     protected $fillable = [
-        'district_id',
         'name',
         'code',
         'capital_city',
+        'district_id',
+        'country_id',
+        'community_id',
+        'state_id',
         'active',
         'created_by',
         'updated_by',
@@ -58,6 +61,21 @@ class Town extends Model
     public function district()
     {
         return $this->belongsTo(District::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function community()
+    {
+        return $this->belongsTo(Community::class);
+    }
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
     }
 
     public function neighborhoods()

@@ -21,8 +21,8 @@ class PostalCode extends Model
      * @var array
      */
     protected $fillable = [
-        'town_id',
         'name',
+        'town_id',
         'active',
         'created_by',
         'updated_by',

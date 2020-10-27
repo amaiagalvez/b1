@@ -10,18 +10,29 @@ class CreateLocCountriesTable extends Migration
         Schema::create('LOC_countries', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('state_id')
-                ->unsigned()
-                ->index();
-            $table->foreign('state_id')
-                ->references('id')
-                ->on('LOC_states');
             $table->string('name')
                 ->nullable();
             $table->string('short_name', 10)
                 ->nullable();
             $table->string('code', 10)
+                ->unique()
                 ->nullable();
+
+            $table->bigInteger('community_id')
+                ->nullable()
+                ->unsigned()
+                ->index();
+            $table->foreign('community_id')
+                ->references('id')
+                ->on('LOC_communities');
+
+            $table->bigInteger('state_id')
+                ->nullable()
+                ->unsigned()
+                ->index();
+            $table->foreign('state_id')
+                ->references('id')
+                ->on('LOC_states');
 
             $table->boolean('active')
                 ->index()

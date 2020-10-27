@@ -3,37 +3,21 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLocDistrictsTable extends Migration
+class CreateLocCommunityTable extends Migration
 {
-
     public function up()
     {
-        Schema::create('LOC_districts', function (Blueprint $table) {
+        Schema::create('LOC_communities', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('name')
                 ->nullable();
             $table->string('short_name', 10)
                 ->nullable();
+
             $table->string('code', 10)
                 ->unique()
                 ->nullable();
-
-            $table->bigInteger('country_id')
-                ->nullable()
-                ->unsigned()
-                ->index();
-            $table->foreign('country_id')
-                ->references('id')
-                ->on('LOC_countries');
-
-            $table->bigInteger('community_id')
-                ->nullable()
-                ->unsigned()
-                ->index();
-            $table->foreign('community_id')
-                ->references('id')
-                ->on('LOC_communities');
 
             $table->bigInteger('state_id')
                 ->nullable()
@@ -72,6 +56,6 @@ class CreateLocDistrictsTable extends Migration
 
     public function down()
     {
-        Schema::drop('LOC_districts');
+        Schema::drop('LOC_communities');
     }
 }

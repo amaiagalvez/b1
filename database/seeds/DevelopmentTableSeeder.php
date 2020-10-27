@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Izt\Basics\Storage\Eloquent\Models\Area;
+use Izt\Basics\Storage\Eloquent\Models\Community;
 use Izt\Basics\Storage\Eloquent\Models\Country;
 use Izt\Basics\Storage\Eloquent\Models\District;
 use Izt\Basics\Storage\Eloquent\Models\Neighborhood;
@@ -20,6 +21,7 @@ class DevelopmentTableSeeder extends Seeder
     public function run()
     {
         DB::table('LOC_states')->truncate();
+        DB::table('LOC_communities')->truncate();
         DB::table('LOC_countries')->truncate();
         DB::table('LOC_districts')->truncate();
         DB::table('LOC_towns')->truncate();
@@ -29,6 +31,7 @@ class DevelopmentTableSeeder extends Seeder
         DB::table('LOC_postal_codes')->truncate();
 
         fCreate(State::class, [], 5);
+        fCreate(Community::class, [], 5);
         fCreate(Country::class, [], 5);
         fCreate(District::class, [], 5);
         fCreate(Town::class, [], 5);

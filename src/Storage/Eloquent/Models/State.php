@@ -58,6 +58,11 @@ class State extends Model
         return $this->hasMany(Country::class);
     }
 
+    public function communities()
+    {
+        return $this->hasMany(Community::class);
+    }
+
     /* Scopes */
 
     public function scopeActive($query, $value)
@@ -70,6 +75,6 @@ class State extends Model
 
     public function canDelete()
     {
-        return $this->countries->count() === 0;
+        return $this->countries->count() === 0 && $this->communities->count() === 0;
     }
 }

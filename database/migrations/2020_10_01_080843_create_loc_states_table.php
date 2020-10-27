@@ -15,6 +15,7 @@ class CreateLocStatesTable extends Migration
             $table->string('short_name', 10)
                 ->nullable();
             $table->string('code', 10)
+                ->unique()
                 ->nullable();
 
             $table->boolean('active')
