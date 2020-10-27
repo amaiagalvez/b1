@@ -61,28 +61,28 @@
         @endforeach
     @endif
 
-        @if(isset($table_buttons['customs']))
-            @foreach($table_buttons['customs'] AS $custom_button)
-                <a class="btn btn-secondary btn-sm  mr-2" href="{{$custom_button['route']}}"
-                   title="{{$custom_button['title']}}">
-                    <span class="{{$custom_button['icon']}}"></span> {{$custom_button['title']}}
-                    @if(isset($custom_button['total']) && $custom_button['total'] > 0)
-                        <strong>[{{$custom_button['total']}}]</strong>
-                    @endif
-                </a>
-            @endforeach
-        @endif
+    @if(isset($table_buttons['customs']))
+        @foreach($table_buttons['customs'] AS $custom_button)
+            <a class="btn btn-secondary btn-sm  mr-2" href="{{$custom_button['route']}}"
+               title="{{$custom_button['title']}}">
+                <span class="{{$custom_button['icon']}}"></span> {{$custom_button['title']}}
+                @if(isset($custom_button['total']) && $custom_button['total'] > 0)
+                    <strong>[{{$custom_button['total']}}]</strong>
+                @endif
+            </a>
+        @endforeach
+    @endif
 
-        @if(isset($table_buttons['selects']))
-            @foreach($table_buttons['selects'] AS $select)
-                <select class="ml-5 custom-select col-md-12" name="search_{{$select['name']}}"
-                        id="search_{{$select['name']}}">
-                    <option value=""> --</option>
-                    @foreach($select['options'] AS $key => $option)
-                        <option value="{{$key}}" @if( $key == $select['value']) selected="selected" @endif >
-                            - {{$option}}</option>
-                    @endforeach
-                </select>
-            @endforeach
-        @endif
+    @if(isset($table_buttons['selects']))
+        @foreach($table_buttons['selects'] AS $select)
+            <select class="ml-5 custom-select col-md-12" name="search_{{$select['name']}}"
+                    id="search_{{$select['name']}}">
+                <option value=""> --</option>
+                @foreach($select['options'] AS $key => $option)
+                    <option value="{{$key}}" @if( $key == $select['value']) selected="selected" @endif >
+                        - {{$option}}</option>
+                @endforeach
+            </select>
+        @endforeach
+    @endif
 </div>
