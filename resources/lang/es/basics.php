@@ -5,26 +5,24 @@ return [
     'home' => 'Inicio',
 
     //menus
-    'application' => 'Aplicación',
-    'configuration' => 'Configuración',
-    'manual' => 'Manual',
-    'menu' => 'Menu | Menus',
-    'master_table' => 'Tablas Auxiliares',
 
+    'application' => 'Aplicación',
+    'area' => 'Zona | Zonas',
+    'community' => 'Erkidegoa | Erkidegoak',
+    'configuration' => 'Configuración',
+    'country' => 'Provincia | Provincias',
+    'district' => 'Eskualdea | Eskualdeak',
+    'manual' => 'Manual',
+    'master_table' => 'Tablas Auxiliares',
+    'neighborhood' => 'Barrio | Barrios',
+    'postal_code' => 'Código Postal | Códigos Postales',
     'role' => 'Rol | Roles',
     'session' => 'Sesión | Sesiones',
+    'state' => 'Estado | Estados',
+    'town' => 'Población | Poblaciones',
     'user' => 'Usuaria | Usuarias',
     'variable' => 'Variable | Variables',
     'version' => 'Versión | Versiones',
-
-    'state' => 'Estado | Estados',
-    'community' => 'Erkidegoa | Erkidegoak',
-    'country' => 'Provincia | Provincias',
-    'district' => 'Eskualdea | Eskualdeak',
-    'area' => 'Zona | Zonas',
-    'postal_code' => 'Código Postal | Códigos Postales',
-    'neighborhood' => 'Barrio | Barrios',
-    'town' => 'Población | Poblaciones',
 
     //gender
     'female' => 'Mujer',
@@ -33,6 +31,7 @@ return [
 
     // fields
     'date' => 'Fecha',
+    'document' => 'Documento',
     'email' => 'Email',
     'lang' => 'Idioma',
     'name' => 'Nombre',

@@ -12,7 +12,7 @@
             </div>
         </div>
 
-        @include('basics::layouts._form..validation_errors')
+        @include('basics::layouts._form.validation_errors')
 
         <div class="row">
             <div class="col-md-12">

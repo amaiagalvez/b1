@@ -10,6 +10,7 @@ return [
     'create' => 'Berria',
     'deactivate' => 'Desaktibatu',
     'delete' => 'Ezabatu',
+    'download' => 'Deskargatu',
     'destroy' => 'Guztiz Ezabatu',
     'edit' => 'Ikusi',
     'list' => 'Zerrenda',

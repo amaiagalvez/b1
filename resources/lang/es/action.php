@@ -10,6 +10,7 @@ return [
     'create' => 'Nueva',
     'deactivate' => 'Desactivar',
     'delete' => 'Eliminar',
+    'download' => 'Descargar',
     'destroy' => 'Eliminar definitivamente',
     'edit' => 'Ver',
     'list' => 'Listado',

@@ -6,25 +6,23 @@ return [
 
     //menus
     'application' => 'Aplikazioa',
+    'area' => 'Zonaldea | Zonaldeak',
+    'community' => 'Erkidegoa | Erkidegoak',
     'configuration' => 'Konfigurazioa',
+    'country' => 'Herrialdea | Herrialdeak',
+    'district' => 'Eskualdea | Eskualdeak',
     'manual' => 'Manuala',
+    'neighborhood' => 'Auzoa | Auzoak',
     'menu' => 'Menu | Menuak',
     'master_table' => 'Taula Laguntzaileak',
-
+    'postal_code' => 'Posta Kodea | Posta Kodeak',
     'role' => 'Rola | Rolak',
     'session' => 'Saioa | Saioak',
+    'state' => 'Estatua | Estatuak',
+    'town' => 'Herria | Herriak',
     'user' => 'Erabiltzailea | Erabiltzaileak',
     'variable' => 'Aldagaia | Aldagaiak',
     'version' => 'Bertsioa | Bertsioak',
-
-    'state' => 'Estatua | Estatuak',
-    'community' => 'Erkidegoa | Erkidegoak',
-    'country' => 'Herrialdea | Herrialdeak',
-    'district' => 'Eskualdea | Eskualdeak',
-    'area' => 'Zonaldea | Zonaldeak',
-    'postal_code' => 'Posta Kodea | Posta Kodeak',
-    'neighborhood' => 'Auzoa | Auzoak',
-    'town' => 'Herria | Herriak',
 
     //gender
     'female' => 'Emakumezkoa',
@@ -33,6 +31,7 @@ return [
 
     // fields
     'date' => 'Data',
+    'document' => 'Dokumentua',
     'email' => 'Eposta',
     'lang' => 'Hizkuntza',
     'name' => 'Izena',

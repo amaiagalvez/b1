@@ -153,10 +153,12 @@ return [
     */
 
     'attributes' => [
-        'name' => trans('basics::auth.name'),
-        'email' => trans('basics::auth.email'),
-        'password' => trans('basics::auth.password'),
         'application_id' => trans_choice('basics::basics.application', 1),
+        'document' => trans_choice('basics::basics.document', 1),
+        'email' => trans('basics::auth.email'),
+        'name' => trans('basics::auth.name'),
+        'password' => trans('basics::auth.password'),
         'town_id' => trans_choice('basics::basics.town', 1),
+
     ],
 ];
