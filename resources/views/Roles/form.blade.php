@@ -1,4 +1,4 @@
-@extends('basics::layouts._form.form_one')
+@extends('basics::layouts._base.form_one')
 
 @section('title', trans_choice('basics::basics.role', 1))
 

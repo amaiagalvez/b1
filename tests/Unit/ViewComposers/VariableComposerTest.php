@@ -16,7 +16,7 @@ class VariableComposerTest extends TestCase
 
         $this->signIn();
 
-        //TODO: nola orkortu bista??
+        $this->markTestIncomplete('Nola frogatu hau??');
 
         $this->get(route('home'))->assertViewHas('app_name');
         $this->get(route('roles.index'))->assertViewHas('app_name');

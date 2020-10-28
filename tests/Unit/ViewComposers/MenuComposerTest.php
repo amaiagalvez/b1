@@ -15,7 +15,7 @@ class MenuComposerTest extends TestCase
     {
         $this->signIn();
 
-        //TODO: nola orkortu bista??
+        $this->markTestIncomplete('Nola frogatu hau??');
 
         $this->get(route('home'))->assertViewHas('menus');
         $this->get(route('roles.index'))->assertViewHas('menus');

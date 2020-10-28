@@ -15,4 +15,4 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 
 //basics
-mix.copyDirectory('resources/assets/basics', 'public/basics');
+mix.copyDirectory('resources/vendor/basics', 'public/basics');

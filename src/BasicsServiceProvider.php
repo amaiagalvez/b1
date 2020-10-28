@@ -70,7 +70,7 @@ class BasicsServiceProvider extends ServiceProvider
         /* Assets */
 
         $this->publishes([
-            $this->basePath('public') => base_path('resources/assets/basics')
+            $this->basePath('public') => base_path('resources/vendor/basics')
         ], 'izt-basics-assets');
 
         /* Lang */

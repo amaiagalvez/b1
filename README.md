@@ -87,8 +87,6 @@ Publish (izt-basics-help):
 Layouts 
 =======
 
-Change @extends('basics::layouts. => @extends('layouts.
-
 app.blade.php => add application's asserts
 
 Seeds 
