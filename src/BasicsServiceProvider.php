@@ -82,7 +82,7 @@ class BasicsServiceProvider extends ServiceProvider
         /* Views */
 
         $this->publishes([
-            $this->basePath('resources/views/layouts') => base_path('resources/views/layouts')
+            $this->basePath('resources/views/layouts/_base') => base_path('resources/views/layouts/_base')
         ], 'izt-basics-layouts');
 
         /* Help */
